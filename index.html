@@ -2,17 +2,37 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="./css/estilos.css">
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- Base dos graficos GeralCharts.js -->
+  <script src="./js/GraficosGoogle.js"></script>
+  <!-- Importando bliblioteca da google Charts so chamar 1x-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- Esse Scripts abaixo cada um faz referencia a o seu tipo de grafico e parametros passados nas function
+    foi a unica maneira que encontrei de chamar mais de 1 grafico na mesma tela.  -->
+  <!-- Estanciando os graficos -->
+  <script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart'] })
+    google.charts.setOnLoadCallback(drawChart)
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawVisualization);
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
+  </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DASHBOARD CALL CENTER</title>
+  <title>DASH - JCR TECNOLOGIA</title>
 
   <!-- Biblioteca CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/estilos.css">
 
   <!-- Estilos -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
@@ -24,11 +44,11 @@
 <body id="page-top">
 
   <!-- Navigation -->
-  <nav class="nav-top-shadow navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
     <div class="container">
       <div class="conteiner-top">
-        <img class="imagen-titulo" src="" height="50px" width="50px" alt=""> <!-- Logo JCR -->
-        <a class="text-titulo navbar-brand js-scroll-trigger" href="#page-top">JCR Tecnologia</a>
+        <img class="imagen-titulo" src="./icones/LOGO.png" height="50px" width="50px" alt="">
+        <a class="text-titulo navbar-brand js-scroll-trigger" href="#page-top">DashBoard JCR</a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +57,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#geral">Graficos Gerais</a>
+            <a class="nav-link js-scroll-trigger" href="#ggraficos">Graficos Geral</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#graficos">Graficos</a>
@@ -46,42 +66,65 @@
             <a class="nav-link js-scroll-trigger" href="#ranking">Ranking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#relatorio">Relatorios</a>
+            <a class="nav-link js-scroll-trigger" href="#relatorios">Relatorios</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section class="background-color1" id="geral" class="bg-light">
-    <div class="container">
-      
+
+  <section id="ggraficos">
+    <div class="card-grafico">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary" align="center">Graficos Geral</h6>
+      </div>
+      <div class="container flex">
+        <div class="" id="chart"></div>
+        <div class="" id="chart_div" style="width: 100%; "></div>
+      </div>
     </div>
   </section>
 
-  <section class="background-color2" id="graficos" class="bg-light">
-    <div class="container">
-      
-    </div>
+  <section id="graficos" class="bg-light">
+      <div class="card-grafico">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" align="center">Graficos</h6>
+          </div>
+          <div class="container flex">
+            
+          </div>
+        </div>
   </section>
 
-  <section class="background-color3" id="ranking" class="bg-light">
-    <div class="container">
-     
-    </div>
+  <section id="ranking" class="bg-light">
+      <div class="card-grafico">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" align="center">Ranking</h6>
+          </div>
+          <div class="container flex">
+            
+          </div>
+        </div>
   </section>
 
-  <section class="background-color4" id="relatorio" class="bg-light">
-    <div class="container">
-    
-    </div>
+  <section id="relatorios" class="bg-light">
+      <div class="card-grafico">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" align="center">Relatorio</h6>
+          </div>
+          <div class="container flex">
+            
+          </div>
+        </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 roda-color">
+  <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; JCR Tecnologia 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
+    <!-- /.container -->
   </footer>
 
   <!-- Bootstrap core JavaScript -->

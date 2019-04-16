@@ -1,23 +1,52 @@
-.background-color1{
-    background-color: rgb(162, 213, 255);
-    min-height: 500px;
-}
-.background-color2{
-    background-color: rgb(200, 230, 255);
-    min-height: 700px;
-}
-.background-color3{
-    background-color: rgb(227, 242, 255); 
-    min-height: 700px;
-}
-.background-color4{
-    background-color: rgb(247, 251, 255);
-    min-height: 500px;
-}
+
 .nav-top-shadow{
     min-height: 80px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .roda-color{
     background-color: rgb(60, 114, 136);
+}
+.conteiner-top{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.imagen-titulo{
+    margin-left: 10% ;
+    margin-right: 10% ;
+}
+.cards-graficos{
+width: 100%;
+margin-right: 10px;
+min-width: 700px;
+}
+.border{
+    border:dashed red;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px  auto;
+}
+.titulo-grafico{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grafico{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.sombra{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-grafico{
+    margin-left: 30px;
+    margin-right: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 500px;
 }
