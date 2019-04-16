@@ -1,12 +1,23 @@
 .background-color1{
-    background-color: rgb(211, 255, 197);
+    background-color: rgb(162, 213, 255);
+    min-height: 500px;
 }
 .background-color2{
-    background-color: rgba(251, 255, 215, 0.932);
+    background-color: rgb(200, 230, 255);
+    min-height: 700px;
 }
 .background-color3{
-    background-color: rgb(255, 206, 206); 
+    background-color: rgb(227, 242, 255); 
+    min-height: 700px;
 }
 .background-color4{
-    background-color: rgb(248, 185, 209); 
+    background-color: rgb(247, 251, 255);
+    min-height: 500px;
+}
+.nav-top-shadow{
+    min-height: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.roda-color{
+    background-color: rgb(60, 114, 136);
 }
