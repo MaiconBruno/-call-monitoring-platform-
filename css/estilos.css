@@ -18,20 +18,17 @@ section {
     margin-left: 10% ;
     margin-right: 10% ;
 }
-.cards-graficos{
-width: 100%;
-margin-right: 10px;
-min-width: 700px;
-}
+
 .border{
     border:dashed red;
 }
 .flex{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 10px  auto;
+ 
 }
 .titulo-grafico{
     display: flex;
@@ -42,6 +39,10 @@ min-width: 700px;
     display: flex;
     align-items: center;
     justify-content: center; 
+    border: solid rgba(226, 226, 226, 0.411);
+    padding: 10px;
+    margin: 0% auto;
+
 }
 .sombra{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -54,4 +55,6 @@ min-width: 700px;
     margin-right: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     min-height: 500px;
+    border:solid rgb(223, 223, 223);
+    
 }
