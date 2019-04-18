@@ -1,4 +1,8 @@
+<?php 
 
+//Comentario
+
+?>
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['table']});
@@ -226,6 +230,13 @@ function GraficoPizza() {
         </ul>
       </div>
     </div>
+    <div>
+       <select  class="form-control text-white bg-primary mb-2" name="acc-tip" id="acc" style="border:none;">
+        <option value="adm">Administrador</option>
+        <option value="sup">Supervisor</option>
+        <option value="agn">Agente</option>
+       </select>
+    </div>
   </nav>
 
 <!-- Graficos  -->
@@ -269,7 +280,7 @@ function GraficoPizza() {
   </div>
 
   <div id="relatorios" class="bg-light">
-      <div class="card-grafico">
+      <div class="card-grafico afastar-baixo">
           <div class="card-header py-3 bg-info">
             <h6 class="m-0 font-weight-bold text-white " align="center">Relatorio</h6>
           </div>
@@ -280,9 +291,9 @@ function GraficoPizza() {
   </div>
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-primary">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; JCR tecnologia 2019</p>
     </div>
     <!-- /.container -->
   </footer>
