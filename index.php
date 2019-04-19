@@ -1,9 +1,26 @@
 <?php 
+include ('./php/conexao.php');
+$resposta1 = 0;
+$resposta2 = 0;
+$resposta3 = 0;
+$resposta4 = 0;
+$resposta5 = 0;
 
-//Comentario
+
+$sql = "select count(resposta_1) as 'qtd de respostas1',count(resposta_2) as 'qtd de respostas2',count(resposta_3) as 'qtd de respostas3',count(resposta_4) as 'qtd de respostas4',count(resposta_5) as 'qtd de respostas5' from resposta";
+$resultado = mysqli_query($conn, $sql);
+
+while($dado = $resultado -> fetch_array()){  
+  $resposta1 = $dado['qtd de respostas1'];  
+  $resposta2 = $dado['qtd de respostas2'];
+  $resposta3 = $dado['qtd de respostas3'];
+  $resposta4 = $dado['qtd de respostas4'];
+  $resposta5 = $dado['qtd de respostas5'];
+}
 
 ?>
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['table']});
       google.charts.setOnLoadCallback(drawTable);
@@ -102,15 +119,15 @@ chart.draw(data, options);
 function GraficoPizza() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Respota 1',     <?php echo $resposta1 ?>],
+          ['Respota 2',     <?php echo $resposta2 ?>],
+          ['Respota 3',     <?php echo $resposta3 ?>],
+          ['Respota 4',     <?php echo $resposta4 ?>],
+          ['Respota 5',     <?php echo $resposta5 ?>]
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'Total de avalição da empresa',
           pieHole: 0.4,
         };
 
