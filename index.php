@@ -48,24 +48,22 @@ while($dado = $resultado -> fetch_array()){
  function GraficoGeral() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-          ['2004/05',  165,      938,         522,             998,           450,      614.6],
-          ['2005/06',  135,      1120,        599,             1268,          288,      682],
-          ['2006/07',  157,      1167,        587,             807,           397,      623],
-          ['2007/08',  139,      1110,        615,             968,           215,      609.4],
-          ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+          ['Mes', 'Nota 1', 'Nota 2', 'Nota 3','Nota 4','Nota 5'],
+          ['Janeiro', 1000, 400, 200, 200, 200],
+          ['Fevereiro', 1170, 460, 250, 200, 200],
+          ['Março', 660, 1120, 300, 200, 200],
+          ['Abril', 1030, 540, 350, 200, 200]
         ]);
 
         var options = {
-          title : 'Monthly Coffee Production by Country',
-          vAxis: {title: 'Cups'},
-          hAxis: {title: 'Month'},
-          seriesType: 'bars',
-          series: {5: {type: 'line'}}
+          chart: {
+          
+          }
         };
 
-        var chart = new google.visualization.ComboChart(document.getElementById('Gf-geral'));
-        chart.draw(data, options);
+        var chart = new google.charts.Bar(document.getElementById('Gf-geral'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
 
 
@@ -77,7 +75,7 @@ function GraficoInteracao() {
 
   var options = {
     chart: {
-      title: 'Interações',
+     
     }
   };
 
@@ -88,33 +86,31 @@ function GraficoInteracao() {
 function GraficoCam() {
 // Create the data table.
 var data = google.visualization.arrayToDataTable([
-        ['Plataformas', 'Avaliação Positiva', 'Avaliação Negativa', 'Não Avaliadas', { role: 'annotation' } ],
-        ['Campanhax', 10, 24, 20, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 28, 19, 29, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
-        ['Campanhax', 16, 22, 23, ''],
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
       ]);
 
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
       var options = {
-        legend: { position: 'top', maxLines: 3 },
-        bar: { groupWidth: '75%' },
-        isStacked: true
+        title: "Density of Precious Metals, in g/cm^3",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
       };
-    
-// Instantiate and draw our chart, passing in some options.
-var chart = new google.visualization.BarChart(document.getElementById('Gf_cam'));
-chart.draw(data, options);
-}
+      var chart = new google.visualization.BarChart(document.getElementById("Gf-cam"));
+      chart.draw(view, options);
+  }
 
     function GraficoPizza() {
         var data = google.visualization.arrayToDataTable([
@@ -259,16 +255,28 @@ chart.draw(data, options);
   </nav> 
   <!-- Fim da barra de navegação -->
 
-<!-- Graficos Pprincipal Geral -->
+<!-- Graficos Principal Geral -->
   <div id="ggraficos">
-    <div class="card-grafico">
-      <div class="card-header py-3 bg-info">
-        <h6 class="m-0 font-weight-bold text-white " align="center">Grafico Geral</h6>
-      </div>
-          <div class="grafico" id="Gf-geral"  style="width:100%; height:500px;"></div>
-    </div>
+  <div style="padding:10px; min-height:150px; width:100%; min-width:600px; margin-top:70px;">
+                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5 style="min-width:120px;" class="Text-white">Desempenho geral da empresa</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                                    <!--Filtros do grafico -->
+                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
+                                       <option value="">MES</option>
+                                       <option value="">EQUIPE</option>
+                                      
+                                     </select>
+                                     <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
+                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       </div>
+                                 </form>  
+                                  </div>
+                            <div  id="Gf-geral" style="width:100%; padding:15px; height:400px; background-color:white;"></div>
+                     </div>
   </div>
-  
+  <!-- Fim do grafico geral -->
  <!-- Div do graficos secundarios  -->
   <div id="graficos" class="bg-light card-box" >
       <div class="card-grafico">
@@ -277,37 +285,86 @@ chart.draw(data, options);
           </div> 
           <!-- Div horizontal superior  -->
                 <div style="display:flex; min-height:400px;"> 
-                      <!-- Quadrado  -->
-                      <div style="padding:10px; min-height:150px; width:50%;">
-                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                               <h5 class="Text-white">Avaliações</h5>
-                            </div>
-                            <div style="width:100%; height:400px; background-color:red;"></div>
-                    </div>
-                       <!-- Quadrado  -->
-                       <div style="padding:10px; min-height:150px; width:50%;">
-                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                               <h5 class="Text-white">Avaliações</h5>
-                            </div>
-                            <div style="width:100%; height:400px; background-color:red;"></div>
-                    </div>
+                      <!-- Quadrado car  -->
+                      <div style="padding:10px; min-height:150px; width:50%; min-width:600px;">
+                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5 style="min-width:120px;" class="Text-white">Avaliações</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                                    <!--Filtros do grafico -->
+                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
+                                       <option value="">AGENTE</option>
+                                       <option value="">EQUIPE</option>
+                                       <option value="">CAMPANHA</option>
+                                     </select>
+                                     <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
+                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       </div>
+                                 </form> 
+                                  </div>
+                            <div id="Gf-cam" style="width:100%; height:400px; background-color:white;"></div>
+                     </div>
+                     <!-- Fim do card -->
+                       <!-- Quadrado  car -->
+                       <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
+                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5 style="min-width:120px;" class="Text-white">Interações</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                                    <!--Filtros do grafico -->
+                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
+                                       <option value="">AGENTE</option>
+                                       <option value="">EQUIPE</option>
+                                       <option value="">CAMPANHA</option>
+                                     </select>
+                                     <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
+                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       </div>
+                                 </form> 
+                                  </div>
+                            <div id="Gf_Interacao" style="width:100%; height:400px; background-color:white; padding:10px;"></div>
+                     </div>
                 </div> 
         <!-- Div horizontal superior -->
                 <div style="display:flex; min-height:400px;"> 
                      <!-- Quadrado  -->
-                    <div style="padding:10px; min-height:150px; width:50%;">
-                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                               <h5 class="Text-white">Avaliações</h5>
-                            </div>
-                            <div style="width:100%; height:400px; background-color:red;"></div>
-                    </div>
+                     <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
+                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5 style="min-width:120px;" class="Text-white">Avaliações</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                                    <!--Filtros do grafico -->
+                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
+                                       <option value="">AGENTE</option>
+                                       <option value="">EQUIPE</option>
+                                       <option value="">CAMPANHA</option>
+                                     </select>
+                                     <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
+                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       </div>
+                                 </form> 
+                                  </div>
+                            <div id="Gf-pizza" style="width:100%; height:400px; background-color:white; padding:10px;"></div>
+                     </div>
                      <!-- Quadrado  -->
-                     <div style="padding:10px; min-height:150px; width:50%;">
-                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                               <h5 class="Text-white">Avaliações</h5>
-                            </div>
-                            <div style="width:100%; height:400px; background-color:red;"></div>
-                    </div>
+                     <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
+                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5 style="min-width:120px;" class="Text-white">Avaliações</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                                    <!--Filtros do grafico -->
+                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
+                                       <option value="">AGENTE</option>
+                                       <option value="">EQUIPE</option>
+                                       <option value="">CAMPANHA</option>
+                                     </select>
+                                     <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
+                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       </div>
+                                 </form> 
+                                  </div>
+                            <div id="Gf-pizza2" style="width:100%; height:400px; background-color:white; padding:10px;"></div>
+                     </div>
                 </div>
               
         </div>
@@ -320,20 +377,61 @@ chart.draw(data, options);
             <h6 class="m-0 font-weight-bold text-white " align="center">Ranking</h6>
           </div>
        
-              <div class="grafico" id="table_div" style="width:100%; height:500px;"></div>
+              <div class="grafico" style="width:100%; height:500px;">
+              <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nome</th>
+                          <th scope="col">Maior nota</th>
+                          <th scope="col">Menor nota</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+             </div>
          
         </div>
   </div>
 
   <div id="relatorios" class="bg-light">
-      <div class="card-grafico afastar-baixo">
-          <div class="card-header py-3 bg-info">
-            <h6 class="m-0 font-weight-bold text-white " align="center">Relatorio</h6>
-          </div>
-      
-          
-    
-        </div>
+          <div style="padding:10px; min-height:150px; width:100%; min-width:600px; margin-top:70px;">
+                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5 style="min-width:120px;" class="Text-white">Relatorio</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                                    <!--Filtros do grafico -->
+                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
+                                       <option value="">MES</option>
+                                       <option value="">EQUIPE</option>
+                                      
+                                     </select>
+                                     <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
+                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       </div>
+                                 </form>  
+                                  </div>
+                            <div  id="Gf-geral" style="width:100%; padding:15px; height:400px; background-color:white;"></div>
+                     </div>
   </div>
 
   <!-- Footer -->
