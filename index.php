@@ -169,7 +169,7 @@ chart.draw(data, options);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="./css/estilos.css">
+  <link rel="stylesheet" href="./css/style.css">
   <link href="css/sb-admin.css" rel="stylesheet">
 
   <!-- Importando bliblioteca da google Charts so chamar 1x-->
@@ -212,16 +212,16 @@ chart.draw(data, options);
   <!-- Biblioteca CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Estilos -->
+  <!-- import scrolling-nav.css -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
-  <!-- minha arquivo css -->
+ <!-- import estilos.css -->
   <link rel="stylesheet" href="./css/meus-estilos.css">
 
 </head>
 
 <body id="page-top">
 
-  <!-- Navigation -->
+ <!--  Barra superior de navegação  -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
     <div class="container">
       <div class="conteiner-top">
@@ -256,55 +256,72 @@ chart.draw(data, options);
         <option value="agn">Agente</option>
        </select>
     </div>
-  </nav>
+  </nav> 
+  <!-- Fim da barra de navegação -->
 
-<!-- Graficos  -->
+<!-- Graficos Pprincipal Geral -->
   <div id="ggraficos">
     <div class="card-grafico">
       <div class="card-header py-3 bg-info">
         <h6 class="m-0 font-weight-bold text-white " align="center">Grafico Geral</h6>
       </div>
-      <div class="flex">
           <div class="grafico" id="Gf-geral"  style="width:100%; height:500px;"></div>
-      </div>
     </div>
   </div>
-
-  <div id="graficos" class="bg-light">
+  
+ <!-- Div do graficos secundarios  -->
+  <div id="graficos" class="bg-light card-box" >
       <div class="card-grafico">
           <div class="card-header py-3 bg-info">
             <h6 class="m-0 font-weight-bold text-white " align="center">Graficos</h6>
           </div> 
-                <div style="display:flex; background-color:blue; min-height:400px;"> 
-                    <div style="background-color:yellow; min-height:150px; width:50%; "></div>
-                    <div style="background-color:pink; min-height:150px; width:50%;  "></div>
+          <!-- Div horizontal superior  -->
+                <div style="display:flex; min-height:400px;"> 
+                      <!-- Quadrado  -->
+                      <div style="padding:10px; min-height:150px; width:50%;">
+                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                               <h5 class="Text-white">Avaliações</h5>
+                            </div>
+                            <div style="width:100%; height:400px; background-color:red;"></div>
+                    </div>
+                       <!-- Quadrado  -->
+                       <div style="padding:10px; min-height:150px; width:50%;">
+                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                               <h5 class="Text-white">Avaliações</h5>
+                            </div>
+                            <div style="width:100%; height:400px; background-color:red;"></div>
+                    </div>
                 </div> 
-
-                <div style="display:flex; background-color:blue; min-height:400px;"> 
-                    <div style="background-color:pink; min-height:150px; width:50%; ">
-                            <!-- Titulo e filto dos graficos -->
-                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                              <h6 class="m-0 font-weight-bold text-primary">Perguntas Avaliadas</h6>
-                          </div>
-                          <div style="display:flex; background-color:blue; width:100%; min-height:300x;">
-
-                          </div>
-                  </div>
-                    <div style="background-color:yellow; min-height:150px; width:50%;  "></div>
+        <!-- Div horizontal superior -->
+                <div style="display:flex; min-height:400px;"> 
+                     <!-- Quadrado  -->
+                    <div style="padding:10px; min-height:150px; width:50%;">
+                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                               <h5 class="Text-white">Avaliações</h5>
+                            </div>
+                            <div style="width:100%; height:400px; background-color:red;"></div>
+                    </div>
+                     <!-- Quadrado  -->
+                     <div style="padding:10px; min-height:150px; width:50%;">
+                            <div class="card-box bg-secondary titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                               <h5 class="Text-white">Avaliações</h5>
+                            </div>
+                            <div style="width:100%; height:400px; background-color:red;"></div>
+                    </div>
                 </div>
               
         </div>
   </div>
-
+<!-- fim dos graficos secundarios -->
 
   <div id="ranking" class="bg-light">
       <div class="card-grafico">
           <div class="card-header py-3 bg-info">
             <h6 class="m-0 font-weight-bold text-white " align="center">Ranking</h6>
           </div>
-            <div class="flex">
+       
               <div class="grafico" id="table_div" style="width:100%; height:500px;"></div>
-           </div>
+         
         </div>
   </div>
 
@@ -313,9 +330,9 @@ chart.draw(data, options);
           <div class="card-header py-3 bg-info">
             <h6 class="m-0 font-weight-bold text-white " align="center">Relatorio</h6>
           </div>
-          <div class="container flex">
+      
           
-          </div>
+    
         </div>
   </div>
 
