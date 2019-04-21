@@ -61,3 +61,26 @@ section {
 .afastar-baixo {
     margin-bottom: 50px;
 }
+
+.espcard{
+    min-height:100px; 
+    width:50%; 
+    margin-top:10px; 
+    margin-left:10px;
+    margin-right:10px; 
+    margin-bottom:10px;
+   
+}
+.div{
+   display:flex; 
+   min-height:250px; 
+   width:100%; 
+   margin:20px auto;
+}
+.div2{
+   display:flex;
+   min-height:250px; 
+   width:100%; 
+   margin:20px auto;
+   
+}

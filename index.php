@@ -116,7 +116,7 @@ var chart = new google.visualization.BarChart(document.getElementById('Gf_cam'))
 chart.draw(data, options);
 }
 
-function GraficoPizza() {
+    function GraficoPizza() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Respota 1',     <?php echo $resposta1 ?>],
@@ -134,6 +134,8 @@ function GraficoPizza() {
         var chart = new google.visualization.PieChart(document.getElementById('Gf-pizza'));
         chart.draw(data, options);
       }
+      
+   
 
       function GraficoPizza2() {
         var data = google.visualization.arrayToDataTable([
@@ -272,15 +274,25 @@ function GraficoPizza() {
       <div class="card-grafico">
           <div class="card-header py-3 bg-info">
             <h6 class="m-0 font-weight-bold text-white " align="center">Graficos</h6>
-          </div>
-          <div class="flex">
-          <div class="grafico" id="Gf_Interacao" style="width: 100%; height: 500px; "></div>
-          <div class="grafico" id="Gf_cam"  style="width:100%; height:500px;"></div>
-          </div>
-          <div class="flex">
-          <div class="grafico" id="Gf-pizza" style="width: 100%; height: 500px; "></div>
-          <div class="grafico" id="Gf-pizza2"  style="width:100%; height:500px;"></div>
-          </div>
+          </div> 
+                <div style="display:flex; background-color:blue; min-height:400px;"> 
+                    <div style="background-color:yellow; min-height:150px; width:50%; "></div>
+                    <div style="background-color:pink; min-height:150px; width:50%;  "></div>
+                </div> 
+
+                <div style="display:flex; background-color:blue; min-height:400px;"> 
+                    <div style="background-color:pink; min-height:150px; width:50%; ">
+                            <!-- Titulo e filto dos graficos -->
+                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                              <h6 class="m-0 font-weight-bold text-primary">Perguntas Avaliadas</h6>
+                          </div>
+                          <div style="display:flex; background-color:blue; width:100%; min-height:300x;">
+
+                          </div>
+                  </div>
+                    <div style="background-color:yellow; min-height:150px; width:50%;  "></div>
+                </div>
+              
         </div>
   </div>
 
@@ -290,9 +302,9 @@ function GraficoPizza() {
           <div class="card-header py-3 bg-info">
             <h6 class="m-0 font-weight-bold text-white " align="center">Ranking</h6>
           </div>
-          <div class="flex">
-          <div class="grafico" id="table_div" style="width:100%; height:500px;"></div>
-          </div>
+            <div class="flex">
+              <div class="grafico" id="table_div" style="width:100%; height:500px;"></div>
+           </div>
         </div>
   </div>
 
@@ -302,7 +314,7 @@ function GraficoPizza() {
             <h6 class="m-0 font-weight-bold text-white " align="center">Relatorio</h6>
           </div>
           <div class="container flex">
-            
+          
           </div>
         </div>
   </div>
