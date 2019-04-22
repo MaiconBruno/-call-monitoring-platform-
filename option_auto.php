@@ -99,6 +99,5 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
 
 <div id="donutchart" style="width: 900px; height: 500px;"></div>
 
-<?php echo $resposta1?>
 
 </html>
