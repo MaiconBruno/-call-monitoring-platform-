@@ -63,15 +63,15 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Respota 1',     <?php echo $resposta1 ?>],
-          ['Respota 2',     <?php echo $resposta2 ?>],
-          ['Respota 3',     <?php echo $resposta3 ?>],
-          ['Respota 4',     <?php echo $resposta4 ?>],
-          ['Respota 5',     <?php echo $resposta5 ?>]
+          ['Pergunta 1',     <?php echo $resposta1 ?>],
+          ['Pergunta 2',     <?php echo $resposta2 ?>],
+          ['Pergunta 3',     <?php echo $resposta3 ?>],
+          ['Pergunta 4',     <?php echo $resposta4 ?>],
+          ['Pergunta 5',     <?php echo $resposta5 ?>]
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'Gráfico de quantidade de perguntas respondidas',
           pieHole: 0.4,
         };
 
