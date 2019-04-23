@@ -1,15 +1,24 @@
 .card-box{
     box-shadow: 2px 4px 14px -8px rgba(0,0,0,0.75); 
-
 }
 
-.o{
-    justify-content:1 ;
-    align: items 1;
-}
 .conteiner-top{
     display: flex;
     align-items: center;
     justify-content: center;
 
+}
+.graf{
+    width:100%; 
+    height:400px; 
+    background-color:white; 
+    padding:10px;
+}
+.table{
+     padding: 10px;
+     width:100%; 
+     height:200px;
+}
+.titulo{
+    min-width:120px;
 }

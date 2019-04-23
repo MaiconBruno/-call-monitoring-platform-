@@ -1,22 +1,6 @@
 <?php 
-include ('./php/conexao.php');
-$resposta1 = 0;
-$resposta2 = 0;
-$resposta3 = 0;
-$resposta4 = 0;
-$resposta5 = 0;
 
-
-$sql = "select count(resposta_1) as 'qtd de respostas1',count(resposta_2) as 'qtd de respostas2',count(resposta_3) as 'qtd de respostas3',count(resposta_4) as 'qtd de respostas4',count(resposta_5) as 'qtd de respostas5' from resposta";
-$resultado = mysqli_query($conn, $sql);
-
-while($dado = $resultado -> fetch_array()){  
-  $resposta1 = $dado['qtd de respostas1'];  
-  $resposta2 = $dado['qtd de respostas2'];
-  $resposta3 = $dado['qtd de respostas3'];
-  $resposta4 = $dado['qtd de respostas4'];
-  $resposta5 = $dado['qtd de respostas5'];
-}
+include ('./php/graficoAv.php');
 
 ?>
 
@@ -167,7 +151,8 @@ var data = google.visualization.arrayToDataTable([
 <head>
   <link rel="stylesheet" href="./css/style.css">
   <link href="css/sb-admin.css" rel="stylesheet">
-
+  <!-- Importando chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <!-- Importando bliblioteca da google Charts so chamar 1x-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <!-- Esse Scripts abaixo cada um faz referencia a o seu tipo de grafico e parametros passados nas function
@@ -246,7 +231,7 @@ var data = google.visualization.arrayToDataTable([
       </div>
     </div>
     <div>
-       <select  class="form-control text-white bg-primary mb-2" name="acc-tip" id="acc" style="border:none;">
+       <select  class="form-control Text-primary bg-primary mb-2" name="acc-tip" id="acc" style="border:none;">
         <option value="adm">Administrador</option>
         <option value="sup">Supervisor</option>
         <option value="agn">Agente</option>
@@ -258,8 +243,8 @@ var data = google.visualization.arrayToDataTable([
 <!-- Graficos Principal Geral -->
   <div id="ggraficos">
   <div style="padding:10px; min-height:150px; width:100%; min-width:600px; margin-top:70px;">
-                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5 style="min-width:120px;" class="Text-white">Desempenho geral da empresa</h5>
+                            <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5  class="Text-primary titulo">Desempenho geral da empresa</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                 <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
@@ -273,7 +258,7 @@ var data = google.visualization.arrayToDataTable([
                                        </div>
                                  </form>  
                                   </div>
-                            <div  id="Gf-geral" style="width:100%; padding:15px; height:400px; background-color:white;"></div>
+                            <div  id="Gf-geral" class="graf"></div>
                      </div>
   </div>
   <!-- Fim do grafico geral -->
@@ -281,14 +266,14 @@ var data = google.visualization.arrayToDataTable([
   <div id="graficos" class="bg-light card-box" >
       <div class="card-grafico">
           <div class="card-header py-3 bg-info">
-            <h6 class="m-0 font-weight-bold text-white " align="center">Graficos</h6>
+            <h6 class="m-0 font-weight-bold Text-white " align="center">Graficos</h6>
           </div> 
           <!-- Div horizontal superior  -->
                 <div style="display:flex; min-height:400px;"> 
                       <!-- Quadrado car  -->
                       <div style="padding:10px; min-height:150px; width:50%; min-width:600px;">
-                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5 style="min-width:120px;" class="Text-white">Avaliações</h5>
+                            <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5  class="Text-primary titulo">Avaliações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                 <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
@@ -302,13 +287,13 @@ var data = google.visualization.arrayToDataTable([
                                        </div>
                                  </form> 
                                   </div>
-                            <div id="Gf-cam" style="width:100%; height:400px; background-color:white;"></div>
+                            <div id="Gf-cam" class="graf"></div>
                      </div>
                      <!-- Fim do card -->
                        <!-- Quadrado  car -->
                        <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
-                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5 style="min-width:120px;" class="Text-white">Interações</h5>
+                            <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5  class="Text-primary titulo">Interações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                 <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
@@ -322,34 +307,60 @@ var data = google.visualization.arrayToDataTable([
                                        </div>
                                  </form> 
                                   </div>
-                            <div id="Gf_Interacao" style="width:100%; height:400px; background-color:white; padding:10px;"></div>
+                            <div id="Gf_Interacao" class="graf"></div>
                      </div>
                 </div> 
         <!-- Div horizontal superior -->
                 <div style="display:flex; min-height:400px;"> 
                      <!-- Quadrado  -->
                      <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
-                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5 style="min-width:120px;" class="Text-white">Avaliações</h5>
-                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
+                            <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5  class="Text-primary titulo">Avaliações</h5>
+                                <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action="<?php echo $_SERVER['PHP_SELF']; ?>"> 
                                     <!--Filtros do grafico -->
-                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
-                                       <option value="">AGENTE</option>
-                                       <option value="">EQUIPE</option>
-                                       <option value="">CAMPANHA</option>
-                                     </select>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                                          <label class="form-check-label" for="campanha">Campanha</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                                          <label class="form-check-label" for="equipe">Equipe</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                                          <label class="form-check-label" for="agente">Agente</label>
+                                        </div>
                                      <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
-                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
-                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" name="parametro" class="form-control"  placeholder="Pesquisar..." required>  
+                                       <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
                                        </div>
                                  </form> 
                                   </div>
-                            <div id="Gf-pizza" style="width:100%; height:400px; background-color:white; padding:10px;"></div>
+                            <div class="graf">
+
+                            <canvas id="pie-chart"></canvas>
+                                  <script src="path/to/chartjs/dist/Chart.js"></script>
+                                  <script>
+                                      new Chart(document.getElementById("pie-chart"), {
+                                      type: 'pie',
+                                      data: {
+                                          labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                                          datasets: [{
+                                          label: "Population (millions)",
+                                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                          data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+                                          }]
+                                      },
+
+                                  });
+                            </script>
+
+                            </div>
                      </div>
                      <!-- Quadrado  -->
                      <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
-                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5 style="min-width:120px;" class="Text-white">Avaliações</h5>
+                            <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5  class="Text-primary titulo">Avaliações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                 <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
@@ -363,7 +374,7 @@ var data = google.visualization.arrayToDataTable([
                                        </div>
                                  </form> 
                                   </div>
-                            <div id="Gf-pizza2" style="width:100%; height:400px; background-color:white; padding:10px;"></div>
+                            <div id="Gf-pizza2" class="graf"></div>
                      </div>
                 </div>
               
@@ -374,49 +385,71 @@ var data = google.visualization.arrayToDataTable([
   <div id="ranking" class="bg-light">
       <div class="card-grafico">
           <div class="card-header py-3 bg-info">
-            <h6 class="m-0 font-weight-bold text-white " align="center">Ranking</h6>
+            <h6 class="m-0 font-weight-bold Text-white titulo " align="center">Ranking</h6>
           </div>
-       
-              <div class="grafico" style="width:100%; height:500px;">
-              <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Nome</th>
-                          <th scope="col">Maior nota</th>
-                          <th scope="col">Menor nota</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-             </div>
+        <!-- Tabela responsiva -->
+          <div class="card-body"> 
+              <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">NOME</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">ASSUNTO</th>
+                  <th scope="col">MENSAGEM</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                </tr>
+                <tr>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+               </tr>
+  
+               <tr>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+               </tr>
+  
+               <tr>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+                  <td>tag php</td>
+               </tr>
+  
+              </tbody>
+            </table>
+          </div>
+          <nav >
+            <ul class="pagination">
+              <li class="page-item"> <a href="seleciona.php?pagina=0" class="page-link" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+              <li class="page-link"><a href="seleciona.php?pagina=<?php echo $i; ?>">1</a></li>
+              <li class="page-item"> <a href="seleciona.php?pagina=<?php echo $num_paginas-1; ?>" class="page-link" aria-label="Next"> <span  aria-hidden="true">&raquo;</span> </a> </li>
+            </ul>
+          </nav></div>
          
         </div>
   </div>
 
   <div id="relatorios" class="bg-light">
           <div style="padding:10px; min-height:150px; width:100%; min-width:600px; margin-top:70px;">
-                            <div class="card-box bg-info titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5 style="min-width:120px;" class="Text-white">Relatorio</h5>
+                            <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h5  class="Text-primary">Relatorio</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                 <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
@@ -437,7 +470,7 @@ var data = google.visualization.arrayToDataTable([
   <!-- Footer -->
   <footer class="py-5 bg-primary">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; JCR tecnologia 2019</p>
+      <p class="m-0 text-center Text-primary">Copyright &copy; JCR tecnologia 2019</p>
     </div>
     <!-- /.container -->
   </footer>
