@@ -339,21 +339,33 @@ var data = google.visualization.arrayToDataTable([
                             <div class="graf">
 
                             <canvas id="pie-chart"></canvas>
-                                  <script src="path/to/chartjs/dist/Chart.js"></script>
-                                  <script>
-                                      new Chart(document.getElementById("pie-chart"), {
-                                      type: 'pie',
-                                      data: {
-                                          labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-                                          datasets: [{
-                                          label: "Population (millions)",
-                                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                                          data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-                                          }]
+                              <script src="path/to/chartjs/dist/Chart.js"></script>
+                              <script>
+                                new Chart(document.getElementById("pie-chart"), {
+                                  type: 'pie',
+                                    data: {
+                                      labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                                      datasets: [{
+                                      label: "Quantidade de respostas",
+                                      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                      borderColor: "#000000",          
+                                      borderWidth: 1,
+                                      data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+                                      }]
+                                    },
+                                    options: {
+                                      title: {
+                                        display: true,
+                                        text: 'Quantidade de respostas por perguntas',
                                       },
-
+                                      animation:{
+                                        easing: "easeInQuad",
+                                        animateScale: true,
+                                        animateRotate: true
+                                      }
+                                    }
                                   });
-                            </script>
+                              </script>
 
                             </div>
                      </div>

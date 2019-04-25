@@ -8,23 +8,15 @@ $resposta4 = 0;
 $resposta5 = 0;
 
 $filtro = filter_input(INPUT_GET, "opcaoAv");
-
 $parametro = filter_input(INPUT_GET, "parametro");
 
-$select_equipe = "SELECT count(resposta_1) as 'r1',count(resposta_2) as 'r2',count(resposta_3) as 'r3',count(resposta_4) as 'r4',count(resposta_5) as 'r5',b.equipe FROM ligacao b
-INNER JOIN resposta a ON a.ligacao = b.id_ligacao
-where b.equipe = '$parametro'";
+$select_equipe = "CALL select_equipe_gr_pizza('$parametro')";
 
-$select_campanha = "SELECT count(resposta_1) as 'r1',count(resposta_2) as 'r2',count(resposta_3) as 'r3',count(resposta_4) as 'r4',count(resposta_5) as 'r5',b.campanha FROM ligacao b
-INNER JOIN resposta a ON a.ligacao = b.id_ligacao
-where b.campanha='$parametro'";
+$select_campanha = "CALL select_campanha_gr_pizza('$parametro')";
 
-$select_geral = "SELECT count(resposta_1) as 'r1',count(resposta_2) as 'r2',count(resposta_3) as 'r3',count(resposta_4) as 'r4',count(resposta_5) as 'r5' from resposta";
+$select_geral = "CALL pfc_db.select_geral_gr_pizza()";
 
-$select_agente = "SELECT count(resposta_1) as 'r1',count(resposta_2) as 'r2',count(resposta_3) as 'r3',count(resposta_4) as 'r4',count(resposta_5) as 'r5',c.nome FROM ligacao b
-INNER JOIN resposta a ON a.ligacao = b.id_ligacao
-INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
-where c.nome = '$parametro'";
+$select_agente = "CALL select_agente_gr_pizza('$parametro')";
 
 if($filtro != ""){
     if ($filtro == "equipe"){
@@ -96,12 +88,25 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
     data: {
         labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
         datasets: [{
-        label: "Population (millions)",
+        label: "Quantidade de respostas",
         backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-        data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+        borderColor: "#000000",          
+        borderWidth: 1,
+        data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
         }]
     },
-
+    options: {
+        responsive: true,
+            title: {
+                display: true,
+                text: 'Quantidade de respostas por perguntas',
+            },
+            animation:{
+                easing: "easeInQuad",
+                animateScale: true,
+                animateRotate: true
+            }
+    }
 });
 </script>
 </div>
