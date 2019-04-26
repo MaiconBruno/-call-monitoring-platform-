@@ -247,15 +247,26 @@ var data = google.visualization.arrayToDataTable([
                                   <h5  class="Text-primary titulo">Desempenho geral da empresa</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
-                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
-                                       <option value="">MES</option>
-                                       <option value="">EQUIPE</option>
-                                      
-                                     </select>
+                                    <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                                          <label class="form-check-label" for="campanha">Campanha</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                                          <label class="form-check-label" for="equipe">Equipe</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                                          <label class="form-check-label" for="agente">Agente</label>
+                                        </div>
                                      <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
-                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
-                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
-                                       </div>
+                                       <select class="form-control" name="" id="">
+                                            <option value="anoAtual" select>Selecione o ano....</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                       </select>  
+                                       <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
+                                    </div>
                                  </form>  
                                   </div>
                             <div  id="Gf-geral" class="graf"></div>
@@ -276,14 +287,21 @@ var data = google.visualization.arrayToDataTable([
                                   <h5  class="Text-primary titulo">Avaliações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
-                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
-                                       <option value="">AGENTE</option>
-                                       <option value="">EQUIPE</option>
-                                       <option value="">CAMPANHA</option>
-                                     </select>
+                                    <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                                          <label class="form-check-label" for="campanha">Campanha</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                                          <label class="form-check-label" for="equipe">Equipe</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                                          <label class="form-check-label" for="agente">Agente</label>
+                                        </div>
                                      <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
-                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
-                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" name="parametro" class="form-control"  placeholder="Pesquisar..." required>  
+                                       <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
                                        </div>
                                  </form> 
                                   </div>
@@ -296,14 +314,21 @@ var data = google.visualization.arrayToDataTable([
                                   <h5  class="Text-primary titulo">Interações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
-                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
-                                       <option value="">AGENTE</option>
-                                       <option value="">EQUIPE</option>
-                                       <option value="">CAMPANHA</option>
-                                     </select>
+                                    <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                                          <label class="form-check-label" for="campanha">Campanha</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                                          <label class="form-check-label" for="equipe">Equipe</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                                          <label class="form-check-label" for="agente">Agente</label>
+                                        </div>
                                      <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
-                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
-                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" name="parametro" class="form-control"  placeholder="Pesquisar..." required>  
+                                       <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
                                        </div>
                                  </form> 
                                   </div>
@@ -371,14 +396,21 @@ var data = google.visualization.arrayToDataTable([
                                   <h5  class="Text-primary titulo">Avaliações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
-                                <select style="display:flex; padding:5px; margin: 5px 5px auto; " class="form-control " style="min-width:150px; margin-right:30px;" name="" id="">
-                                       <option value="">AGENTE</option>
-                                       <option value="">EQUIPE</option>
-                                       <option value="">CAMPANHA</option>
-                                     </select>
+                                    <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                                          <label class="form-check-label" for="campanha">Campanha</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                                          <label class="form-check-label" for="equipe">Equipe</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                                          <label class="form-check-label" for="agente">Agente</label>
+                                        </div>
                                      <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
-                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" class="form-control" id="validationCustom02" placeholder="Pesquisar..." value="" required>  
-                                       <button style="margin: 5px 5px auto;" type="button" class="btn btn-primary">Buscar</button>
+                                       <input style="padding:10px; margin: 5px 5px auto;" type="text" name="parametro" class="form-control"  placeholder="Pesquisar..." required>  
+                                       <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
                                        </div>
                                  </form> 
                                   </div>
