@@ -349,8 +349,16 @@ var data = google.visualization.arrayToDataTable([
                                           label: "Population (millions)",
                                           backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
                                           data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-                                          }]
+                                        }],
                                       },
+                                      
+                                        options: {
+                                          animation:{
+                                              easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+                                              animateScale: true,
+                                              animateRotate: true
+                                          }
+                                          }
 
                                   });
                             </script>
