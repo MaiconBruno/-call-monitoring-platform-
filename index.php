@@ -339,7 +339,6 @@ var data = google.visualization.arrayToDataTable([
                             <div class="graf">
 
                             <canvas id="pie-chart"></canvas>
-<<<<<<< HEAD
                                   <script src="path/to/chartjs/dist/Chart.js"></script>
                                   <script>
                                       new Chart(document.getElementById("pie-chart"), {
@@ -361,33 +360,6 @@ var data = google.visualization.arrayToDataTable([
                                           }
                                           }
 
-=======
-                              <script src="path/to/chartjs/dist/Chart.js"></script>
-                              <script>
-                                new Chart(document.getElementById("pie-chart"), {
-                                  type: 'pie',
-                                    data: {
-                                      labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-                                      datasets: [{
-                                      label: "Quantidade de respostas",
-                                      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                                      borderColor: "#000000",          
-                                      borderWidth: 1,
-                                      data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-                                      }]
-                                    },
-                                    options: {
-                                      title: {
-                                        display: true,
-                                        text: 'Quantidade de respostas por perguntas',
-                                      },
-                                      animation:{
-                                        easing: "easeInQuad",
-                                        animateScale: true,
-                                        animateRotate: true
-                                      }
-                                    }
->>>>>>> 9227fce2cf1fb5814c2b4d5a2d2f186312bbaee7
                                   });
                               </script>
 
