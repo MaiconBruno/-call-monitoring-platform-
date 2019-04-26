@@ -1,150 +1,11 @@
 <?php 
-
-include ('./php/graficoAv.php');
+//incluindo arquivo.php
+include ('./php/graficoAvaliacao.php');
 
 ?>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
-
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Nome');
-        data.addColumn('number', 'Maior Nota');
-        data.addColumn('number', 'Menor Nota');
-        data.addColumn('boolean', 'Status');
-        data.addRows([
-          ['Mike',  {v: 10000, f: '10'},{v: 10000, f: '10'}, true],
-          ['Jim',   {v:8000,   f: '20'},{v: 10000, f: '10'},  false],
-          ['Alice', {v: 12500, f: '2'},{v: 10000, f: '10'}, true],
-          ['Bob',   {v: 7000,  f: '5'},{v: 10000, f: '10'}, true]
-        ]);
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-      }
-    </script>
 <!-- Graficos JS -->
-<script type="text/javascript">
- function GraficoGeral() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Nota 1', 'Nota 2', 'Nota 3','Nota 4','Nota 5'],
-          ['Janeiro', 1000, 400, 200, 200, 200],
-          ['Fevereiro', 1170, 460, 250, 200, 200],
-          ['Março', 660, 1120, 300, 200, 200],
-          ['Abril', 1030, 540, 350, 200, 200]
-        ]);
-
-        var options = {
-          chart: {
-          
-          }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('Gf-geral'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-
-
-function GraficoInteracao() {
-  var data = google.visualization.arrayToDataTable([
-    ['Plataformas', 'Facebook','Chat', 'Skype', 'WhatsApp', 'Email'],
-    ['Tipo de Interações', 300, 100,30,40,60],   
-  ]);
-
-  var options = {
-    chart: {
-     
-    }
-  };
-
-  var chart = new google.charts.Bar(document.getElementById('Gf_Interacao'));
-  chart.draw(data, google.charts.Bar.convertOptions(options));
-}
-
-function GraficoCam() {
-// Create the data table.
-var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", { role: "style" } ],
-        ["Copper", 8.94, "#b87333"],
-        ["Silver", 10.49, "silver"],
-        ["Gold", 19.30, "gold"],
-        ["Platinum", 21.45, "color: #e5e4e2"]
-      ]);
-
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
-
-      var options = {
-        title: "Density of Precious Metals, in g/cm^3",
-        width: 600,
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.BarChart(document.getElementById("Gf-cam"));
-      chart.draw(view, options);
-  }
-
-    function GraficoPizza() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Respota 1',     <?php echo $resposta1 ?>],
-          ['Respota 2',     <?php echo $resposta2 ?>],
-          ['Respota 3',     <?php echo $resposta3 ?>],
-          ['Respota 4',     <?php echo $resposta4 ?>],
-          ['Respota 5',     <?php echo $resposta5 ?>]
-        ]);
-
-        var options = {
-          title: 'Total de avalição da empresa',
-          pieHole: 0.4,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('Gf-pizza'));
-        chart.draw(data, options);
-      }
-      
-   
-
-      function GraficoPizza2() {
-        var data = google.visualization.arrayToDataTable([
-          ['Language', 'Speakers (in millions)'],
-          ['Assamese', 13], ['Bengali', 83], ['Bodo', 1.4],
-          ['Dogri', 2.3], ['Gujarati', 46], ['Hindi', 300],
-          ['Kannada', 38], ['Kashmiri', 5.5], ['Konkani', 5],
-          ['Maithili', 20], ['Malayalam', 33], ['Manipuri', 1.5],
-          ['Marathi', 72], ['Nepali', 2.9], ['Oriya', 33],
-          ['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],
-          ['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]
-        ]);
-
-        var options = {
-          title: 'Indian Language Use',
-          legend: 'none',
-          pieSliceText: 'label',
-          slices: {  4: {offset: 0.2},
-                    12: {offset: 0.3},
-                    14: {offset: 0.4},
-                    15: {offset: 0.5},
-          },
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('Gf-pizza2'));
-        chart.draw(data, options);
-      }
-</script>
-<!-- Fim do Script -->
+<script type="text/javascript"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -155,33 +16,6 @@ var data = google.visualization.arrayToDataTable([
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <!-- Importando bliblioteca da google Charts so chamar 1x-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <!-- Esse Scripts abaixo cada um faz referencia a o seu tipo de grafico e parametros passados nas function
-    foi a unica maneira que encontrei de chamar mais de 1 grafico na mesma tela.  -->
-  <!-- Estanciando os graficos -->
-  <script type="text/javascript">
-    google.charts.load('current', { packages: ['corechart'] })
-    google.charts.setOnLoadCallback(GraficoInteracao)
-  </script>
-  <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(GraficoGeral);
-  </script>
-  <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(GraficoCam);
-  </script>
-   <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(GraficoPizza);
-  </script>
-    <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(GraficoPizza2);
-  </script>
-
-  <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['bar'] });
-  </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -448,30 +282,7 @@ var data = google.visualization.arrayToDataTable([
                   <td>tag php</td>
                   <td>tag php</td>
                 </tr>
-                <tr>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-               </tr>
-  
-               <tr>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-               </tr>
-  
-               <tr>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-                  <td>tag php</td>
-               </tr>
-  
+
               </tbody>
             </table>
           </div>
