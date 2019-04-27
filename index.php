@@ -81,7 +81,7 @@ include ('./php/graficoAvaliacao.php');
                                   <h5  class="Text-primary titulo">Desempenho geral da empresa</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
-                                    <div class="form-check form-check-inline">
+                                     <div class="form-check form-check-inline">
                                           <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
                                           <label class="form-check-label" for="campanha">Campanha</label>
                                         </div>
@@ -106,7 +106,7 @@ include ('./php/graficoAvaliacao.php');
                             <div  id="Gf-geral" class="graf"></div>
                      </div>
   </div>
-  <!-- Fim do grafico geral -->
+  <!-- Fim do grafico geral -->  
  <!-- Div do graficos secundarios  -->
   <div id="graficos" class="bg-light card-box" >
       <div class="card-grafico">
@@ -136,7 +136,7 @@ include ('./php/graficoAvaliacao.php');
                                      <div class="border-primary" style="display:flex; justify-content:center;  min-width:200px; border-color:">  
                                        <input style="padding:10px; margin: 5px 5px auto;" type="text" name="parametro" class="form-control"  placeholder="Pesquisar..." required>  
                                        <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
-                                       </div>
+                                    </div>
                                  </form> 
                                   </div>
                             <div id="Gf-cam" class="graf"></div>
@@ -201,24 +201,29 @@ include ('./php/graficoAvaliacao.php');
                                   <script src="path/to/chartjs/dist/Chart.js"></script>
                                   <script>
                                       new Chart(document.getElementById("pie-chart"), {
-                                      type: 'pie',
-                                      data: {
-                                          labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-                                          datasets: [{
-                                          label: "Population (millions)",
-                                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                                          data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-                                        }],
-                                      },
-                                      
+                                        type: 'pie',
+                                        data: {
+                                            labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                                            datasets: [{
+                                            label: "Quantidade de respostas",
+                                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                            borderColor: "#000000",          
+                                            borderWidth: 1,
+                                            data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+                                            }]
+                                        },
                                         options: {
-                                          animation:{
-                                              easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-                                              animateScale: true,
-                                              animateRotate: true
-                                          }
-                                          }
-
+                                            responsive: true,
+                                                title: {
+                                                    display: true,
+                                                    text: 'Quantidade de respostas por perguntas',
+                                                },
+                                                animation:{
+                                                    easing: "easeInQuad",
+                                                    animateScale: true,
+                                                    animateRotate: true
+                                                }
+                                        }
                                   });
                               </script>
 
