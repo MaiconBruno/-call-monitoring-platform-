@@ -21,7 +21,8 @@ include ('./php/graficoAvaliacao.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <!-- Importando chart.js -->
+  <script src="path/to/chartjs/dist/Chart.js"></script>
   <title>DASH - JCR TECNOLOGIA</title>
 
   <!-- Biblioteca CSS -->
@@ -118,7 +119,7 @@ include ('./php/graficoAvaliacao.php');
                       <!-- Quadrado car  -->
                       <div style="padding:10px; min-height:150px; width:50%; min-width:600px;">
                             <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5  class="Text-primary titulo">Avaliações</h5>
+                                  <h5  class="Text-primary titulo">Ligações</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                     <div class="form-check form-check-inline">
@@ -139,7 +140,38 @@ include ('./php/graficoAvaliacao.php');
                                        </div>
                                  </form> 
                                   </div>
-                            <div id="Gf-cam" class="graf"></div>
+                            <div class="graf">
+                            <canvas id="G-chamadas"></canvas>
+                            <script>
+                                      var myLineChart = new Chart (document.getElementById("G-chamadas"), {
+                                      type: 'line',
+                                      data: {
+                                          labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                                          datasets: [{
+                                          label: "Population (millions)",
+                                          backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                                          borderColor: window.chartColors.red,
+                                          fill: false,
+                                          data: [1,2,5,6,3]
+                                        }],
+                                      },
+                                      options: {
+                                        animation: {
+                                            duration: 0 // general animation time
+                                        },
+                                        hover: {
+                                            animationDuration: 0 // duration of animations when hovering an item
+                                        },
+                                        responsiveAnimationDuration: 0 // animation duration after a resize
+                                    }
+
+                                  });
+
+                                  
+                              </script>
+                            
+                            
+                            </div>
                      </div>
                      <!-- Fim do card -->
                        <!-- Quadrado  car -->
@@ -197,11 +229,11 @@ include ('./php/graficoAvaliacao.php');
                                   </div>
                             <div class="graf">
 
-                            <canvas id="pie-chart"></canvas>
-                                  <script src="path/to/chartjs/dist/Chart.js"></script>
+                            <canvas id="G-avaliacao"></canvas>
+                                  
                                   <script>
-                                      new Chart(document.getElementById("pie-chart"), {
-                                      type: 'pie',
+                                      new Chart(document.getElementById("G-avaliacao"), {
+                                      type: 'doughnut',
                                       data: {
                                           labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
                                           datasets: [{
@@ -227,7 +259,7 @@ include ('./php/graficoAvaliacao.php');
                      <!-- Quadrado  -->
                      <div style="padding:10px; min-height:150px; width:50%; min-width:600px">
                             <div class="card-box bg-white titulo-card-box card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h5  class="Text-primary titulo">Avaliações</h5>
+                                  <h5  class="Text-primary titulo">GF2</h5>
                                 <form class="form-inline display:flex;  justify-content:center; align-items:center; margin:10px 10px; auto;" action=""> 
                                     <!--Filtros do grafico -->
                                     <div class="form-check form-check-inline">
@@ -248,7 +280,33 @@ include ('./php/graficoAvaliacao.php');
                                        </div>
                                  </form> 
                                   </div>
-                            <div id="Gf-pizza2" class="graf"></div>
+                            <div class="graf">
+                            <canvas id="G-ligacao"></canvas>
+                                  <script src="path/to/chartjs/dist/Chart.js"></script>
+                                  <script>
+                                      new Chart(document.getElementById("G-ligacao"), {
+                                      type: 'pie',
+                                      data: {
+                                          labels: ["f1", "f2"],
+                                          datasets: [{
+                                          label: "Chamadas (millions)",
+                                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                          data: [  4, 5]
+                                        }],
+                                      },
+                                      
+                                        options: {
+                                          animation:{
+                                              easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+                                              animateScale: true,
+                                              animateRotate: true
+                                          }
+                                          }
+
+                                  });
+                              </script>
+                            
+                            </div>
                      </div>
                 </div>
               
