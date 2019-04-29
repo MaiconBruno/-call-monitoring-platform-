@@ -1,5 +1,6 @@
 .card-box{
     box-shadow: 2px 4px 14px -8px rgba(0,0,0,0.75); 
+    margin: 5px 5px auto;
 }
 
 .conteiner-top{
@@ -7,6 +8,10 @@
     align-items: center;
     justify-content: center;
 
+}
+.menu-geral{
+    display: flex;
+    margin-top:4px;
 }
 .graf{
     width:100%; 
@@ -21,4 +26,17 @@
 }
 .titulo{
     min-width:120px;
+}
+
+.centralizar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.borda{
+    border:dashed red;
+}
+.botao{
+    margin-left: 10px;
 }
