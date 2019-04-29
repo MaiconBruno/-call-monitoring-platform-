@@ -231,48 +231,31 @@ include ('./php/graficoAvaliacao.php');
 
                             <canvas id="G-avaliacao"></canvas>
                                   
-                                  <script>
-<<<<<<< HEAD
-                                      new Chart(document.getElementById("G-avaliacao"), {
-                                      type: 'doughnut',
-                                      data: {
-                                          labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-                                          datasets: [{
-                                          label: "Population (millions)",
-                                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                                          data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+                                <script>
+                                    new Chart(document.getElementById("G-avaliacao"), {
+                                    type: 'doughnut',
+                                    data: {
+                                      labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                                      datasets: [{
+                                        label: "Population (millions)",
+                                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                        data: [  <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
                                         }],
-                                      },
-                                      
-=======
-                                      new Chart(document.getElementById("pie-chart"), {
-                                        type: 'pie',
-                                        data: {
-                                            labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-                                            datasets: [{
-                                            label: "Quantidade de respostas",
-                                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                                            borderColor: "#000000",          
-                                            borderWidth: 1,
-                                            data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-                                            }]
-                                        },
->>>>>>> 1b2a899ee5f36d5ed16bac2aaa7a1ade5c0ef4b8
-                                        options: {
-                                            responsive: true,
-                                                title: {
-                                                    display: true,
-                                                    text: 'Quantidade de respostas por perguntas',
-                                                },
-                                                animation:{
-                                                    easing: "easeInQuad",
-                                                    animateScale: true,
-                                                    animateRotate: true
-                                                }
+                                      },                                   
+                                      options: {
+                                        responsive: true,
+                                          title: {
+                                            display: true,
+                                            text: 'Quantidade de respostas por perguntas',
+                                          },
+                                          animation:{
+                                            easing: "easeInQuad",
+                                            animateScale: true,
+                                            animateRotate: true
+                                          }
                                         }
-                                  });
-                              </script>
-
+                                      });
+                                  </script>
                             </div>
                      </div>
                      <!-- Quadrado  -->
@@ -303,32 +286,29 @@ include ('./php/graficoAvaliacao.php');
                             <canvas id="G-ligacao"></canvas>
                                   <script src="path/to/chartjs/dist/Chart.js"></script>
                                   <script>
-                                      new Chart(document.getElementById("G-ligacao"), {
-                                      type: 'pie',
-                                      data: {
-                                          labels: ["f1", "f2"],
-                                          datasets: [{
-                                          label: "Chamadas (millions)",
-                                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                                          data: [  4, 5]
-                                        }],
-                                      },
-                                      
-                                        options: {
-                                          animation:{
-                                              easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-                                              animateScale: true,
-                                              animateRotate: true
-                                          }
-                                          }
-
-                                  });
-                              </script>
+                                    new Chart(document.getElementById("G-ligacao"), {
+                                    type: 'pie',
+                                    data: {
+                                        labels: ["f1", "f2"],
+                                        datasets: [{
+                                        label: "Chamadas (millions)",
+                                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                        data: [4, 5]
+                                      }],
+                                    },                                     
+                                    options: {
+                                      animation:{
+                                        easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+                                        animateScale: true,
+                                        animateRotate: true
+                                        }
+                                      }
+                                    });
+                                  </script>
                             
                             </div>
                      </div>
-                </div>
-              
+                </div>             
         </div>
   </div>
 <!-- fim dos graficos secundarios -->

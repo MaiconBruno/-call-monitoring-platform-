@@ -49,9 +49,9 @@ while($dado = $resultado -> fetch_array()){
     $resposta5 = $dado['r5'];
 }
 
-// n faço ideia ...
+// caso não existir algum dado que foi passado como parametro retorna para pagina inicial
 if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $resposta5 == 0){
-    $url = './index.php';
-    echo '<META HTTP-EQUIV=Refresh CONTENT="0.; URL=' . $url . '">';
-    echo "<script>alert('Dados não encontrados!');</script>";
+    echo "<script>
+    alert('Nenhum dado encontrado!'); location= './index.php';
+    </script>";
 }
