@@ -265,11 +265,11 @@ include('./php/graficoAvaliacao.php');
               new Chart(document.getElementById("G-naoRespondidas"), {
                 type: 'doughnut',
                 data: {
-                  labels: ["f1", "f2"],
+                  labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
                   datasets: [{
                     label: "Chamadas (millions)",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [4, 5]
+                    backgroundColor: ["#FFB1AF", "#FFAF9E", "#FFC9C2", "#FFDED9", "#FFC7E5"],
+                    data: [4, 5,6,3,2]
                   }],
                 },
                 options: {
@@ -347,7 +347,7 @@ include('./php/graficoAvaliacao.php');
                   labels: ["f1", "f2"],
                   datasets: [{
                     label: "Chamadas (millions)",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                    backgroundColor: ["#FFB1AF", "#FFAF9E", "#FFC9C2", "#FFDED9", "#FFC7E5"],
                     data: [4, 5]
                   }],
                 },
@@ -381,18 +381,35 @@ include('./php/graficoAvaliacao.php');
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">NOME</th>
-                <th scope="col">EMAIL</th>
-                <th scope="col">ASSUNTO</th>
-                <th scope="col">MENSAGEM</th>
+                <th scope="col">Equipe</th>
+                <th scope="col">Campanha</th>
+                <th scope="col">Licações atendidas</th>
+                <th scope="col">Chamados Resolvidos</th>
+                <th scope="col">Chamados Pendentes</th>
+                <th scope="col">Chamados Transferido</th>
+
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>tag php</td>
-                <td>tag php</td>
-                <td>tag php</td>
-                <td>tag php</td>
-                <td>tag php</td>
+                <td>1</td>
+                <td>Pedro</td>
+                <td>2</td>
+                <td>12</td>
+                <td>24</td>
+                <td>5</td>
+                <td>4</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Lucas</td>
+                <td>1</td>
+                <td>23</td>
+                <td>4</td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
               </tr>
 
             </tbody>
