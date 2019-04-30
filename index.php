@@ -8,7 +8,7 @@ include('./php/graficoAvaliacao.php');
 <script type="text/javascript"></script>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <link rel="stylesheet" href="./css/style.css">
@@ -74,14 +74,14 @@ include('./php/graficoAvaliacao.php');
     </div>
   </nav>
   <!-- Fim da barra de navegação -->
-<div style="margin: 70px 70px auto;" ></div>
+  <div style="margin: 70px 70px auto;"></div>
   <!-- Graficos Principal Geral -->
-  <div class="card-box" id="ggraficos">
-    <div >
-    <div class="card-header py-3 bg-info">
+  <div class="card-box card-grafico" id="ggraficos">
+    <div>
+      <div class="card-header py-3 bg-info">
         <h6 class="m-0 font-weight-bold Text-white " align="center">Desempenho geral da empresa</h6>
       </div>
-    <div class="menu-geral">
+      <div class="menu-geral">
         <form class="form-inline  centralizar" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <!--Filtros do grafico -->
           <div class="form-check form-check-inline centralizar">
@@ -96,24 +96,66 @@ include('./php/graficoAvaliacao.php');
             <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
             <label class="form-check-label" for="agente">Agente</label>
           </div>
-            <div>
+          <div>
             <select class="form-control centralizar" name="" id="">
               <option value="anoAtual" select>Selecione o ano....</option>
               <option value="2019">2019</option>
               <option value="2020">2020</option>
             </select>
-            </div>
-            <div class="botao">
+          </div>
+          <div class="botao">
             <button type="submit" class="btn btn-primary centralizar">Buscar</button>
-            </div>
+          </div>
         </form>
       </div>
-      <div id="Gf-geral" class="graf"></div>
+      <div  class="graf">
+      <canvas id="G-geral" style="max-height:400px; width:100%; display:flex;"></canvas>
+            <script>
+              var ctx = document.getElementById('G-geral');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                  datasets: [{
+                    fill:false,
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                  }]
+                },
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }]
+                  }
+                }
+              });
+            </script>
+      </div>
     </div>
   </div>
   <!-- Fim do grafico geral -->
   <!-- Div do graficos secundarios  -->
-  <div id="graficos" class="bg-light card-box">
+  <div id="graficos" class="bg-light card-box card-grafico">
     <div class="card-grafico">
       <div class="card-header py-3 bg-info">
         <h6 class="m-0 font-weight-bold Text-white " align="center">Graficos</h6>
@@ -121,7 +163,7 @@ include('./php/graficoAvaliacao.php');
       <!-- Div horizontal superior  -->
       <div style="display:flex; min-height:400px;">
         <!-- Quadrado car  -->
-        <div style="padding:10px; min-height:150px; width:50%; min-width:600px;" class="card-box">
+        <div style="padding:10px;  width:50%;" class="card-box">
           <div class="centralizar">
             <h5 class="Text-primary titulo">Ligações</h5>
             <form class="form-inline  centralizar" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -145,30 +187,45 @@ include('./php/graficoAvaliacao.php');
             </form>
           </div>
           <div class="graf">
-            <canvas id="G-chamadas"></canvas>
+          <canvas id="G-na"></canvas>
             <script>
-              var myLineChart = new Chart(document.getElementById("G-chamadas"), {
+              var ctx = document.getElementById('G-na');
+              var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                   datasets: [{
-                    label: "Population (millions)",
-                    backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-                    borderColor: window.chartColors.red,
-                    fill: false,
-                    data: [1, 2, 5, 6, 3]
-                  }],
+                    fill:false,
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                  }]
                 },
                 options: {
-                  animation: {
-                    duration: 0 // general animation time
-                  },
-                  hover: {
-                    animationDuration: 0 // duration of animations when hovering an item
-                  },
-                  responsiveAnimationDuration: 0 // animation duration after a resize
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }]
+                  }
                 }
-
               });
             </script>
 
@@ -177,7 +234,7 @@ include('./php/graficoAvaliacao.php');
         </div>
         <!-- Fim do card -->
         <!-- Quadrado  car -->
-        <div style="padding:10px; min-height:150px; width:50%; min-width:600px"  class="card-box">
+        <div style="padding:10px;  width:50%;" class="card-box">
           <div class="centralizar">
             <h5 class="Text-primary titulo">Interações</h5>
             <form class="form-inline  centralizar" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -194,19 +251,61 @@ include('./php/graficoAvaliacao.php');
                 <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
                 <label class="form-check-label" for="agente">Agente</label>
               </div>
-              <div class="border-primary" >
+              <div class="border-primary">
                 <input style="padding:10px; margin: 5px 5px auto;" type="text" name="parametro" class="form-control" placeholder="Pesquisar..." required>
                 <button style="margin: 5px 5px auto;" type="submit" class="btn btn-primary">Buscar</button>
               </div>
             </form>
           </div>
-          <div id="Gf_Interacao" class="graf"></div>
+          <div class="graf">
+
+            <canvas id="G-interacao"></canvas>
+            <script>
+              var ctx = document.getElementById('G-interacao');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                  datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                  }]
+                },
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }]
+                  }
+                }
+              });
+            </script>
+          </div>
         </div>
       </div>
       <!-- Div horizontal superior -->
       <div style="display:flex; min-height:400px;">
         <!-- Quadrado  -->
-        <div style="padding:10px; min-height:150px; width:50%; min-width:600px"  class="card-box">
+        <div style="padding:10px;  width:50%;" class="card-box">
           <div class="centralizar">
             <h5 class="Text-primary titulo">Avaliações</h5>
             <form class="form-inline  centralizar" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -244,7 +343,7 @@ include('./php/graficoAvaliacao.php');
                 },
                 options: {
                   responsive: true,
-                  title:  {
+                  title: {
                     display: true,
                     text: 'Avaliações respondidas',
                   },
@@ -257,9 +356,9 @@ include('./php/graficoAvaliacao.php');
               });
             </script>
           </div>
-           <!-- Grafico 2 -->
-           <div class="graf">
-          <canvas id="G-naoRespondidas"></canvas>
+          <!-- Grafico 2 -->
+          <div class="graf">
+            <canvas id="G-naoRespondidas"></canvas>
             <script src="path/to/chartjs/dist/Chart.js"></script>
             <script>
               new Chart(document.getElementById("G-naoRespondidas"), {
@@ -269,11 +368,11 @@ include('./php/graficoAvaliacao.php');
                   datasets: [{
                     label: "Chamadas (millions)",
                     backgroundColor: ["#FFB1AF", "#FFAF9E", "#FFC9C2", "#FFDED9", "#FFC7E5"],
-                    data: [4, 5,6,3,2]
+                    data: [4, 5, 6, 3, 2]
                   }],
                 },
                 options: {
-                  title:  {
+                  title: {
                     display: true,
                     text: 'Avaliações não respondidas',
                   },
@@ -289,7 +388,7 @@ include('./php/graficoAvaliacao.php');
           <!-- Fim do grafico 2 -->
         </div>
         <!-- Quadrado  -->
-        <div style="padding:10px; min-height:150px; width:50%; min-width:600px"  class="card-box">
+        <div style="padding:10px;  width:50%;" class="card-box">
           <div class="centralizar">
             <h5 class="Text-primary titulo">GF2</h5>
             <form class="form-inline  centralizar" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -338,7 +437,7 @@ include('./php/graficoAvaliacao.php');
           </div>
           <!-- Grafico 2 -->
           <div class="graf">
-          <canvas id="G-naoAtendidas"></canvas>
+            <canvas id="G-naoAtendidas"></canvas>
             <script src="path/to/chartjs/dist/Chart.js"></script>
             <script>
               new Chart(document.getElementById("G-naoAtendidas"), {
@@ -368,7 +467,7 @@ include('./php/graficoAvaliacao.php');
   </div>
   <!-- fim dos graficos secundarios -->
 
-  <div id="ranking" class="bg-light card-box">
+  <div id="ranking" class="bg-light card-box card-grafico">
     <div class="card-grafico">
       <div class="card-header py-3 bg-info">
         <h6 class="m-0 font-weight-bold Text-white titulo " align="center">Ranking</h6>
@@ -426,13 +525,13 @@ include('./php/graficoAvaliacao.php');
 
     </div>
   </div>
- <!-- inicio da div de relatorios -->
- <div class="card-box" id="relatorios">
-    <div >
-    <div class="card-header py-3 bg-info">
+  <!-- inicio da div de relatorios -->
+  <div class="card-box card-grafico" id="relatorios">
+    <div>
+      <div class="card-header py-3 bg-info">
         <h6 class="m-0 font-weight-bold Text-white " align="center">Relatorio</h6>
       </div>
-    <div class="menu-geral">
+      <div class="menu-geral">
         <form class="form-inline  centralizar" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <!--Filtros do grafico -->
           <div class="form-check form-check-inline centralizar">
@@ -447,24 +546,24 @@ include('./php/graficoAvaliacao.php');
             <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
             <label class="form-check-label" for="agente">Agente</label>
           </div>
-            <div>
+          <div>
             <select class="form-control centralizar" name="" id="">
               <option value="anoAtual" select>Selecione o ano....</option>
               <option value="2019">2019</option>
               <option value="2020">2020</option>
             </select>
-            </div>
-            <div class="botao">
+          </div>
+          <div class="botao">
             <button type="submit" class="btn btn-primary centralizar">Buscar</button>
-            </div>
+          </div>
         </form>
       </div>
       <div id="Gf-geral" class="graf"></div>
     </div>
   </div>
-<!-- Termino da div relatorios -->
+  <!-- Termino da div relatorios -->
   <!-- Footer -->
-  <footer class="py-5 bg-primary">
+  <footer class="py-5 bg-primary card-grafico">
     <div class="container">
       <p class="m-0 text-center Text-primary">Copyright &copy; JCR tecnologia 2019</p>
     </div>
