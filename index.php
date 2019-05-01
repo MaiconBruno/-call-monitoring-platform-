@@ -263,17 +263,17 @@ include('./php/graficoAvaliacao.php');
 
       <div class="col-md-6 col-sm-12 col-xs-12 menu-card ">
         <div class="card-header py-3 bg-success">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">G3</h4>
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Avaliação</h4>
         </div>
         <div class="row justify-content-center">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="d-flex col-md-12 ">
               <div class="form-check form-check-inline col-md-4 ">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
                 <label class="form-check-label text-primary" for="Agente">Agente</label>
               </div>
               <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
                 <label class="form-check-label text-primary" for="Equipe">Equipe</label>
               </div>
               <div class="form-check form-check-inline col-md-4 ">
