@@ -1,46 +1,44 @@
-.card-box{
-    box-shadow: 2px 4px 14px -8px rgba(0,0,0,0.75); 
-    margin: 5px 5px auto;
-}
-.card-grafico{
-    min-width: 1300px;
-}
-.conteiner-top{
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
+body{
+padding-top: 90px;
 }
-.menu-geral{
-    display: flex;
-    margin-top:4px;
-}
-.graf{
-    width:100%; 
-    height: 400px;
-    background-color:white; 
-    padding:10px;
+.centralizador{
+    display:flex;
     align-items: center;
     justify-content: center;
-}
-.table{
-     padding: 10px;
-     width:100%; 
-     height:200px;
-}
-.titulo{
-    min-width:120px;
+    
 }
 
-.centralizar{
+.text-size{
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+.border-rodape{
+    border-top: solid 4px rgb(255, 255, 255);
+}
+.border-size{
+    border-bottom: solid 4px rgb(10, 137, 255);
+}
+.page-back{
+    background-color:rgb(235, 235, 235);
+}
+.card-principal{
+    margin:1em 1em auto;
+ 
+}
+.menu-card{
+    margin-top:10px;
 }
 .borda{
-    border:dashed red;
+ border:dashed red;
 }
-.botao{
-    margin-left: 10px;
+.size{
+    font-size: 10px;
+}
+.g3{
+    background-color: rgb(120, 81, 190);
+ 
 }
