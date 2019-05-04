@@ -55,10 +55,10 @@ include('./php/graficoAvaliacao.php');
             <a class="nav-link js-scroll-trigger " href="#g-graficos">Grafico Geral</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#inicio">Inicio</a>
+            <a class="nav-link js-scroll-trigger " href="#inicio">Graficos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#ranking">Ranking</a>
+            <a class="nav-link js-scroll-trigger " href="#tabelas">Tabelas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger " href="#relatorio">Relatorios</a>
@@ -71,9 +71,9 @@ include('./php/graficoAvaliacao.php');
   <!-- Fim da nav do menu fixo no top -->
 
   <!-- Inicio da div grafico principal -->
-  <div id="g-graficos" class="bg-white card-principal borda">
+  <div id="g-graficos" class="bg-white card-principal ">
     <!-- Titulo da sessão -->
-    <div class="card-header py-3 bg-info shadow p-3 mb-5">
+    <div class="bg-titulo py-3">
       <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Grafico Geral</h4>
     </div>
     <!-- Div menu radio -->
@@ -130,17 +130,17 @@ include('./php/graficoAvaliacao.php');
   <!-- Fim da div grafico principal  -->
 
   <!-- Inicio da div grafico principal -->
-  <div id="inicio" class="bg-white card-principal borda">
+  <div id="inicio" class="bg-white card-principal ">
     <!-- Titulo da sessão -->
-    <div class="card-header py-3 bg-info ">
-      <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Inicio</h4>
+    <div class="bg-titulo py-3">
+      <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Graficos</h4>
     </div>
     <!-- Div menu superior -->
     <div class="row">
 
       <!-- CARD 1 SUPERIOR-->
-      <div class="col-md-6 col-sm-12 col-xs-12 card-secundario ">
-        <div class="card-header py-3 bg-warning">
+      <div class="col-md-6 col-sm-12 col-xs-12 card-secundario  ">
+        <div class="py-3 bg-titulo-card">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">LIGAÇÕES</h4>
         </div>
         <div class="row centralizador select-margin">
@@ -158,7 +158,7 @@ include('./php/graficoAvaliacao.php');
         </div>
         </form>
 
-        <div class="col-md-12 col-sm-12 col-xs-12 ">
+        <div class="col-md-12 col-sm-12 col-xs-12 size-card">
           <canvas id="G-ligacao"></canvas>
           <script>
             new Chart(document.getElementById("G-ligacao"), {
@@ -190,8 +190,8 @@ include('./php/graficoAvaliacao.php');
       <!-- FIM DO 1 CARD -->
 
       <!-- CARD 2 SUPERIOR -->
-      <div class="col-md-6 col-sm-12 col-xs-12  borda ">
-        <div class="card-header py-3 bg-warning">
+      <div class="col-md-6 col-sm-12 col-xs-12   ">
+        <div class="py-3 bg-titulo-card">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">TIPO DE INTERAÇÃO</h4>
         </div>
         <div class="row justify-content-center">
@@ -217,7 +217,7 @@ include('./php/graficoAvaliacao.php');
         </div>
         </form>
 
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12 size-card">
           <canvas id="G-interacao"></canvas>
           <script>
             new Chart(document.getElementById("G-interacao"), {
@@ -251,11 +251,11 @@ include('./php/graficoAvaliacao.php');
     </div>
     <!-- Fim da div do superior -->
     <!-- Div menu inferior -->
-    <div class="row">
+    <div class="row ">
 
-      <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario">
-        <div class="card-header py-3 bg-success">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">AVALIAÇÕES</h4>
+      <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario ">
+        <div class="py-3 bg-titulo-card">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">AVALIADAS</h4>
         </div>
         <div class="row justify-content-center">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
@@ -280,7 +280,7 @@ include('./php/graficoAvaliacao.php');
         </div>
         </form>
 
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12 size-card">
           <canvas id="G-avaliacao"></canvas>
           <script>
             new Chart(document.getElementById("G-avaliacao"), {
@@ -308,29 +308,23 @@ include('./php/graficoAvaliacao.php');
             });
           </script>
         </div>
-      
+
       </div>
       <!-- FIM DO 1 CARD -->
-
-      <!--  div lateral Esquerda -->
-      <div class="col-md-5 col-sm-12 col-xs-12 menu-card borda">
-        <!--CARD 2  -->
-        <!-- Grafico de ligações  -->
-
-        <!-- FIM CARD 2 -->
-  <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario">
-        <div class="card-header py-3 bg-success">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">AVALIAÇÕES</h4>
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario  ">
+        <div class="py-3 bg-titulo-card">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">NÃO AVALIADAS</h4>
         </div>
         <div class="row justify-content-center">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="d-flex col-md-12 menu-card ">
               <div class="form-check form-check-inline col-md-4 ">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
                 <label class="form-check-label text-primary" for="Agente">Agente</label>
               </div>
               <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
                 <label class="form-check-label text-primary" for="Equipe">Equipe</label>
               </div>
               <div class="form-check form-check-inline col-md-4 ">
@@ -346,26 +340,26 @@ include('./php/graficoAvaliacao.php');
         </form>
 
         <div class="col-md-12 col-sm-12 col-xs-12">
-          <canvas id="G-avaliacao"></canvas>
+          <canvas id="G-naoRespondidas"></canvas>
+          <script src="path/to/chartjs/dist/Chart.js"></script>
           <script>
-            new Chart(document.getElementById("G-avaliacao"), {
+            new Chart(document.getElementById("G-naoRespondidas"), {
               type: 'doughnut',
               data: {
                 labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
                 datasets: [{
-                  label: "Population (millions)",
-                  backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                  data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+                  label: "Chamadas (millions)",
+                  backgroundColor: ["#FFB1AF", "#FFAF9E", "#FFC9C2", "#FFDED9", "#FFC7E5"],
+                  data: [4, 5, 6, 3, 2]
                 }],
               },
               options: {
-                responsive: true,
                 title: {
                   display: true,
-                  text: 'Avaliações respondidas',
+                  text: 'Avaliações não respondidas',
                 },
                 animation: {
-                  easing: "easeInQuad",
+                  easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                   animateScale: true,
                   animateRotate: true
                 }
@@ -373,40 +367,60 @@ include('./php/graficoAvaliacao.php');
             });
           </script>
         </div>
-      
+      </div>
+      <!-- FIM DO CARD 2 -->
+    </div>
+
+    <div class="bg-white card-principal " id="tabelas">
+
+      <div class="bg-titulo py-3 col-md-12 col-sm-12 col-xs-12">
+        <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Tabelas</h4>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-7 col-sm-12 col-xs-12 borda" style="min-height:400px;">
+
+          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
+          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
+
+        </div>
+
+        <div class="col-md-5 col-sm-12 col-xs-12 borda" style="min-height:400px;">
+
+          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
+          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
+          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Relatorio -->
+    <div class="row" id="relatorio">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="bg-titulo py-3">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Relatorio</h4>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 borda " style="min-height:450px;">
+
+        </div>
       </div>
     </div>
-    <!-- Fim do 2 card -->
-  </div>
-  <!-- Fim da div do inferior -->
-  </div>
-  <!-- Fim do titulo da sessão -->
+    <!-- FIm do Relatorio -->
+    <!-- Rodape -->
+    <footer class="bg-primary border-rodape">
+      <h5 class="text-white size"> © Copyright 2019 - JCR Tecnologia Integrada</h5>
+    </footer>
 
-  <!-- div de ranking  -->
-
-  <!-- fim div de ranking  -->
-
-  <!-- Relatorio -->
-  <div id="relatorio" class="bg-white card-principal">
-
-    <div class="card-header py-3 bg-info ">
-      <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Relatorio</h4> <!-- Titulo da sessão -->
-    </div>
-
-  </div>
-  <!-- FIm do Relatorio -->
-  <!-- Rodape -->
-  <footer class="bg-primary border-rodape">
-    <h5 class="text-white size"> © Copyright 2019 - JCR Tecnologia Integrada</h5>
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Custom JavaScript for this theme -->
-  <script src="js/scrolling-nav.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
 
 </body>
 
