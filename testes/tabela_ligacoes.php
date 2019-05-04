@@ -15,7 +15,9 @@ $select_ani = "CALL select_tbl_ligacao_ani('$parametro');";
 $select_matricula_campanha = "CALL select_tbl_ligacao_matricula_campanha('$parametro','$campanha');";
 $select_nome_campanha = "CALL select_tbl_ligacao_nome_campanha('$parametro','$campanha');";
 
+
 $select_matricula_campanha_equipe = "CALL select_tbl_ligacao_matricula_campanha_equipe('$parametro','$campanha','$equipe');";
+$select_matricula_nome_equipe = "CALL select_tbl_ligacao_nome_campanha_equipe('$parametro', '$campanha', '$equipe');";
 
 function verificaLinha($comando){
     $total = mysqli_num_rows($comando);
@@ -28,25 +30,30 @@ function verificaLinha($comando){
 
 if ($tipoBusca == "matricula"){
 
-    if($campanha != ""){   
+    if($campanha != "" && $equipe == ""){   
         $resultado = mysqli_query($conn, $select_matricula_campanha);
+        verificaLinha($resultado);  
+    }
+    else if($equipe != "" && $campanha != ""){
+        $resultado = mysqli_query($conn, $select_matricula_campanha_equipe);
         verificaLinha($resultado);
-
-        /*if($equipe != ""){
-            $resultado = mysqli_query($conn, $select_matricula_campanha_equipe);
-            verificaLinha($resultado);
-        }*/
-    }else{
+    }
+    else{
         $resultado = mysqli_query($conn, $select_matricula);
         verificaLinha($resultado);
     }
 
 }else if ($tipoBusca == "nome"){
 
-    if($campanha != ""){   
+    if($campanha != "" && $equipe == ""){   
         $resultado = mysqli_query($conn, $select_nome_campanha);
         verificaLinha($resultado);
-    }else{
+    }
+    else if($equipe != "" && $campanha != ""){
+        $resultado = mysqli_query($conn, $select_matricula_nome_equipe);
+        verificaLinha($resultado);
+    }
+    else{
         $resultado = mysqli_query($conn, $select_nome);
         verificaLinha($resultado);
     }
@@ -66,27 +73,32 @@ if ($tipoBusca == "matricula"){
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">                
     <div>
         <label>Pesquisar por:*</label> 
-        <input type="radio" onClick="habilitaCampoBusca();" name="tipoBusca" id="radioMatricula" value="matricula">
+        <input type="radio" onclick="habilitaCampoBusca();" name="tipoBusca" id="radioMatricula" value="matricula">
         <label for="radioMatricula">Matricula</label>
             
-        <input type="radio" onClick="habilitaCampoBusca();" name="tipoBusca" id="radioNome" value="nome">
+        <input type="radio" onclick="habilitaCampoBusca();" name="tipoBusca" id="radioNome" value="nome">
         <label for="radioNome">Nome</label>
 
-        <input type="radio" onClick="habilitaCampoBusca();" name="tipoBusca" id="radioAni" value="ani">
+        <input type="radio" onclick="habilitaCampoBusca();" name="tipoBusca" id="radioAni" value="ani">
         <label for="radioAni">ANI</label>
     </div>
 
     <div>
-        <label for="campoBusca">Digite a Matricula/Nome/ANI:*</label>
-        <input type="text" onkeyup="habilitaCampoCampanha();" name="parametro" id="campoBusca" disabled="true">               
+        <label for="campoBusca">Digite a Matricula/Agente/Contato do Cliente:*</label>
+        <input type="text" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">               
     </div>
 
     <div>
         <label for="campoCampanha">Campanha:</label>
-        <input type="text" name="campanha" id="campoCampanha" disabled="true">
+        <input type="text" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
 
         <label for="campoEquipe">Equipe:</label>
-        <input type="text" name="equipe" id="campoEquipe">
+        <input type="text" name="equipe" id="campoEquipe" disabled="true" >
+    </div>
+
+    <div>
+        <label for="campoData">Datagi:</label>
+        <input type="date" name="data" id="campoData">
     </div>
 
             
@@ -100,8 +112,8 @@ if ($tipoBusca == "matricula"){
         <table border="1">
             <tr>
                 <td>Matricula</td>
-                <td>Nome</td>
-                <td>ANI</td>
+                <td>Agente</td>
+                <td>Contato do Cliente</td>
                 <td>Função</td>
                 <td>Data e Hora</td>
                 <td>Campanha</td>
@@ -163,11 +175,19 @@ if ($tipoBusca == "matricula"){
             document.getElementById('campoCampanha').disabled = true;
         }else{
             if(document.getElementById('campoBusca').value != ''){
-            document.getElementById('campoCampanha').disabled = false;
+                document.getElementById('campoCampanha').disabled = false;
             }else{
-            document.getElementById('campoCampanha').disabled = true;
+                document.getElementById('campoCampanha').disabled = true;
             }
         } 
+    }
+
+    function habilitaCampoEquipe(){
+        if(document.getElementById('campoCampanha').value == ''){
+            document.getElementById('campoEquipe').disabled = true;
+        }else{
+            document.getElementById('campoEquipe').disabled = false;
+        }
     }
 
     function limparCampos(){
