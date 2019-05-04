@@ -71,7 +71,7 @@ include('./php/graficoAvaliacao.php');
   <!-- Fim da nav do menu fixo no top -->
 
   <!-- Inicio da div grafico principal -->
-  <div id="g-graficos" class="bg-white card-principal">
+  <div id="g-graficos" class="bg-white card-principal borda">
     <!-- Titulo da sessão -->
     <div class="card-header py-3 bg-info shadow p-3 mb-5">
       <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Grafico Geral</h4>
@@ -130,7 +130,7 @@ include('./php/graficoAvaliacao.php');
   <!-- Fim da div grafico principal  -->
 
   <!-- Inicio da div grafico principal -->
-  <div id="inicio" class="bg-white card-principal">
+  <div id="inicio" class="bg-white card-principal borda">
     <!-- Titulo da sessão -->
     <div class="card-header py-3 bg-info ">
       <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Inicio</h4>
@@ -139,44 +139,36 @@ include('./php/graficoAvaliacao.php');
     <div class="row">
 
       <!-- CARD 1 SUPERIOR-->
-      <div class="col-md-5 col-sm-12 col-xs-12 menu-card card-secundario  ">
-        <div class="card-header py-3 bg-danger">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">G1</h4>
+      <div class="col-md-6 col-sm-12 col-xs-12 card-secundario ">
+        <div class="card-header py-3 bg-warning">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">LIGAÇÕES</h4>
         </div>
-        <div class="row justify-content-center">
+        <div class="row centralizador select-margin">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="d-flex col-md-12 menu-card ">
-              <div class="form-check form-check-inline col-md-4 ">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
-                <label class="form-check-label text-primary" for="Agente">Agente</label>
-              </div>
-              <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
-                <label class="form-check-label text-primary" for="Equipe">Equipe</label>
-              </div>
-              <div class="form-check form-check-inline col-md-4 ">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-                <label class="form-check-label text-primary" for="campanha">Campanha</label>
-              </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center">
-          <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-          <button type="submit" class="btn btn-outline-success col-md-3 col-sm- col-xs-12">Pesquisar</button>
+
+            <select class="form-control col-md-5 col-sm-4 col-xs-4" name="liga-ano" id="liga-date">
+              <option value="">JANEIRO</option>
+              <option value="">FEREVEIRO</option>
+            </select>
+            <select class="form-control col-md-4 col-sm-4 col-xs-4" name="liga-ano" id="liga-date">
+              <option value="">2019</option>
+              <option value="">2020</option>
+            </select>
+            <button type="submit" class="btn btn-outline-success col-md-3 col-sm-4 col-xs-4">Buscar</button>
         </div>
         </form>
 
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <canvas id="G1"></canvas>
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+          <canvas id="G-ligacao"></canvas>
           <script>
-            new Chart(document.getElementById("G1"), {
-              type: 'bar',
+            new Chart(document.getElementById("G-ligacao"), {
+              type: 'doughnut',
               data: {
-                labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+                labels: ["Atendidas", "N/Atendidas"],
                 datasets: [{
                   label: "Population (millions)",
-                  backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                  data: [30, 50, 25, 15, 12]
+                  backgroundColor: ["#3b95cd", "#1e5ee2", "#4cba9f", "#e9c3c9", "#b44650"],
+                  data: [30, 50]
                 }],
               },
               options: {
@@ -198,7 +190,7 @@ include('./php/graficoAvaliacao.php');
       <!-- FIM DO 1 CARD -->
 
       <!-- CARD 2 SUPERIOR -->
-      <div class="col-md-7 col-sm-12 col-xs-12 menu-card card-secundario  ">
+      <div class="col-md-6 col-sm-12 col-xs-12  borda ">
         <div class="card-header py-3 bg-warning">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">TIPO DE INTERAÇÃO</h4>
         </div>
@@ -261,7 +253,7 @@ include('./php/graficoAvaliacao.php');
     <!-- Div menu inferior -->
     <div class="row">
 
-      <div class="col-md-7 col-sm-12 col-xs-12 menu-card card-secundario">
+      <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario">
         <div class="card-header py-3 bg-success">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">AVALIAÇÕES</h4>
         </div>
@@ -316,28 +308,64 @@ include('./php/graficoAvaliacao.php');
             });
           </script>
         </div>
-        <!-- Grafico 2 -->
-        <div class="graf">
-          <canvas id="G-naoRespondidas"></canvas>
-          <script src="path/to/chartjs/dist/Chart.js"></script>
+      
+      </div>
+      <!-- FIM DO 1 CARD -->
+
+      <!--  div lateral Esquerda -->
+      <div class="col-md-5 col-sm-12 col-xs-12 menu-card borda">
+        <!--CARD 2  -->
+        <!-- Grafico de ligações  -->
+
+        <!-- FIM CARD 2 -->
+  <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario">
+        <div class="card-header py-3 bg-success">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">AVALIAÇÕES</h4>
+        </div>
+        <div class="row justify-content-center">
+          <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="d-flex col-md-12 menu-card ">
+              <div class="form-check form-check-inline col-md-4 ">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                <label class="form-check-label text-primary" for="Agente">Agente</label>
+              </div>
+              <div class="form-check form-check-inline col-md-4">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                <label class="form-check-label text-primary" for="Equipe">Equipe</label>
+              </div>
+              <div class="form-check form-check-inline col-md-4 ">
+                <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                <label class="form-check-label text-primary" for="campanha">Campanha</label>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
+          <button type="submit" class="btn btn-outline-success col-md-3 col-sm- col-xs-12">Pesquisar</button>
+        </div>
+        </form>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <canvas id="G-avaliacao"></canvas>
           <script>
-            new Chart(document.getElementById("G-naoRespondidas"), {
+            new Chart(document.getElementById("G-avaliacao"), {
               type: 'doughnut',
               data: {
                 labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
                 datasets: [{
-                  label: "Chamadas (millions)",
-                  backgroundColor: ["#FFB1AF", "#FFAF9E", "#FFC9C2", "#FFDED9", "#FFC7E5"],
-                  data: [4, 5, 6, 3, 2]
+                  label: "Population (millions)",
+                  backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                  data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
                 }],
               },
               options: {
+                responsive: true,
                 title: {
                   display: true,
-                  text: 'Avaliações não respondidas',
+                  text: 'Avaliações respondidas',
                 },
                 animation: {
-                  easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+                  easing: "easeInQuad",
                   animateScale: true,
                   animateRotate: true
                 }
@@ -345,196 +373,7 @@ include('./php/graficoAvaliacao.php');
             });
           </script>
         </div>
-      </div>
-      <!-- FIM DO 1 CARD -->
-
-      <!--  div lateral Esquerda -->
-      <div class="col-md-5 col-sm-12 col-xs-12 menu-card ">
-        <!--CARD 2  -->
-        <!-- Grafico de ligações  -->
-        <div class="col-md-12 col-sm-12 col-xs-12 card-secundario ">
-          <div class="card-header py-3 bg-warning">
-            <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">LIGAÇÕES</h4>
-          </div>
-          <div class="row centralizador select-margin">
-            <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-              
-              <select class="form-control col-md-5 col-sm-4 col-xs-4" name="liga-ano" id="liga-date">
-                  <option value="">JANEIRO</option>
-                  <option value="">FEREVEIRO</option>
-                </select>  
-              <select class="form-control col-md-4 col-sm-4 col-xs-4" name="liga-ano" id="liga-date">
-                  <option value="">2019</option>
-                  <option value="">2020</option>
-                </select>
-                <button type="submit" class="btn btn-outline-success col-md-3 col-sm-4 col-xs-4">Buscar</button>
-           
-          </div>
-
-          </form>
-
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <canvas id="G-ligacao"></canvas>
-            <script>
-              new Chart(document.getElementById("G-ligacao"), {
-                type: 'doughnut',
-                data: {
-                  labels: ["Atendidas", "N/Atendidas"],
-                  datasets: [{
-                    label: "Population (millions)",
-                    backgroundColor: ["#3b95cd", "#1e5ee2", "#4cba9f", "#e9c3c9", "#b44650"],
-                    data: [30, 50]
-                  }],
-                },
-                options: {
-                  responsive: true,
-                  title: {
-                    display: true,
-                    text: 'EMPRY',
-                  },
-                  animation: {
-                    easing: "easeInQuad",
-                    animateScale: true,
-                    animateRotate: true
-                  }
-                }
-              });
-            </script>
-          </div>
-        </div>
-        <!-- FIM CARD 2 -->
-
-        <div id="ranking" class="col-md-12 col-sm-12 col-xs-12  ">
-          <!-- CARD 3 inferior -->
-          <!-- Tive que utilizar style nessa div de titulo pq por algum motivo impotar por classe n estava indo -->
-          <div class="card-header py-3" style="background-color: rgb(120, 81, 190);">
-            <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">RANKING</h4>
-          </div>
-          <div class="row justify-content-center menu-card">
-            <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-              <div class="d-flex col-md-12 ">
-                <div class="form-check form-check-inline col-md-4 ">
-                  <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
-                  <label class="form-check-label text-primary" for="Agente">Agente</label>
-                </div>
-                <div class="form-check form-check-inline col-md-4">
-                  <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
-                  <label class="form-check-label text-primary" for="Equipe">Equipe</label>
-                </div>
-                <div class="form-check form-check-inline col-md-4 ">
-                  <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-                  <label class="form-check-label text-primary" for="campanha">Campanha</label>
-                </div>
-              </div>
-          </div>
-          <div class="d-flex justify-content-center">
-            <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-            <button type="submit" class="btn btn-outline-success col-md-3 col-sm- col-xs-12">Pesquisar</button>
-          </div>
-          </form>
-
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <!-- tabela -->
-            <div class="table-responsive tabela">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">NOME</th>
-                    <th scope="col">Equipe</th>
-                    <th scope="col">Campanha</th>
-                    <th scope="col">C/ Atendidas</th>
-                    <th scope="col">C/ Resolvidos</th>
-                    <th scope="col">C/ Pendentes</th>
-                    <th scope="col">C/ Transferido</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Pedro</td>
-                    <td>2</td>
-                    <td>12</td>
-                    <td>24</td>
-                    <td>5</td>
-                    <td>4</td>
-                    <td>12</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Lucas</td>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>0</td>
-                  </tr>
-
-                  <tr>
-                    <td>2</td>
-                    <td>Lucas</td>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Lucas</td>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Lucas</td>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Lucas</td>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Lucas</td>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>0</td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-            <nav>
-              <ul class="pagination">
-                <li class="page-item"> <a href="seleciona.php?pagina=0" class="page-link" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
-                <li class="page-link"><a href="seleciona.php?pagina=<?php echo $i; ?>">1</a></li>
-                <li class="page-item"> <a href="seleciona.php?pagina=<?php echo $num_paginas - 1; ?>" class="page-link" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+      
       </div>
     </div>
     <!-- Fim do 2 card -->
