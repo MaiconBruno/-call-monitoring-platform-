@@ -5,6 +5,8 @@ $tipoBusca = filter_input(INPUT_GET, "tipoBusca");
 $parametro = filter_input(INPUT_GET, "parametro");
 $campanha = filter_input(INPUT_GET, "campanha");
 $equipe = filter_input(INPUT_GET, "equipe");
+$dataInicial = filter_input(INPUT_GET, "dataInicial");
+$dataFinal = filter_input(INPUT_GET, "dataFinal");
 
 $select_tabela_ligacao = "CALL select_tbl_ligacao();";
 
@@ -14,10 +16,27 @@ $select_ani = "CALL select_tbl_ligacao_ani('$parametro');";
 
 $select_matricula_campanha = "CALL select_tbl_ligacao_matricula_campanha('$parametro','$campanha');";
 $select_nome_campanha = "CALL select_tbl_ligacao_nome_campanha('$parametro','$campanha');";
-
+$select_ani_campanha = "CALL select_tbl_ligacao_ani_campanha('$parametro','$campanha');";
 
 $select_matricula_campanha_equipe = "CALL select_tbl_ligacao_matricula_campanha_equipe('$parametro','$campanha','$equipe');";
-$select_matricula_nome_equipe = "CALL select_tbl_ligacao_nome_campanha_equipe('$parametro', '$campanha', '$equipe');";
+$select_nome_campanha_equipe = "CALL select_tbl_ligacao_nome_campanha_equipe('$parametro', '$campanha', '$equipe');";
+$select_ani_campanha_equipe = "CALL select_tbl_ligacao_ani_campanha_equipe('$parametro', '$campanha', '$equipe');";
+
+$select_matricula_data = "CALL select_tbl_ligacao_matricula_data('$parametro','$dataInicial','$dataFinal');";
+$select_nome_data = "CALL select_tbl_ligacao_nome_data('$parametro','$dataInicial','$dataFinal');";
+$select_ani_data = "CALL select_tbl_ligacao_ani_data('$parametro','$dataInicial','$dataFinal');";
+
+$select_matricula_campanha_data = "CALL select_tbl_ligacao_matricula_campanha_data('$parametro','$campanha','$dataInicial','$dataFinal');";
+$select_nome_campanha_data = "CALL select_tbl_ligacao_nome_campanha_data('$parametro','$campanha','$dataInicial','$dataFinal');";
+$select_ani_campanha_data = "CALL select_tbl_ligacao_ani_campanha_data('$parametro','$campanha','$dataInicial','$dataFinal');";
+
+$select_matricula_campanha_equipe_data = "CALL select_tbl_ligacao_matricula_campanha_equipe_data('$parametro','$campanha','$equipe','$dataInicial','$dataFinal');";
+$select_nome_campanha_equipe_data = "CALL select_tbl_ligacao_nome_campanha_equipe_data('$parametro','$campanha','$equipe','$dataInicial','$dataFinal');";
+$select_ani_campanha_equipe_data = "CALL select_tbl_ligacao_ani_campanha_equipe_data('$parametro','$campanha','$equipe','$dataInicial','$dataFinal');";
+
+$select_data = "CALL select_tbl_ligacao_data('$dataInicial','$dataFinal');";
+$select_campanha_data = "CALL select_tbl_ligacao_campanha_data('$campanha','$dataInicial','$dataFinal');";
+$select_campanha_equipe_data = "CALL select_tbl_ligacao_campanha_equipe_data('$campanha','$equipe','$dataInicial','$dataFinal');";
 
 function verificaLinha($comando){
     $total = mysqli_num_rows($comando);
@@ -30,12 +49,24 @@ function verificaLinha($comando){
 
 if ($tipoBusca == "matricula"){
 
-    if($campanha != "" && $equipe == ""){   
+    if($campanha != "" && $equipe == "" && $dataInicial == "" && $dataFinal == ""){   
         $resultado = mysqli_query($conn, $select_matricula_campanha);
         verificaLinha($resultado);  
     }
-    else if($equipe != "" && $campanha != ""){
+    else if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_matricula_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial == "" && $dataFinal == ""){
         $resultado = mysqli_query($conn, $select_matricula_campanha_equipe);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_matricula_campanha_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_matricula_campanha_equipe_data);
         verificaLinha($resultado);
     }
     else{
@@ -45,12 +76,24 @@ if ($tipoBusca == "matricula"){
 
 }else if ($tipoBusca == "nome"){
 
-    if($campanha != "" && $equipe == ""){   
+    if($campanha != "" && $equipe == "" && $dataInicial == "" && $dataFinal == ""){   
         $resultado = mysqli_query($conn, $select_nome_campanha);
         verificaLinha($resultado);
     }
-    else if($equipe != "" && $campanha != ""){
-        $resultado = mysqli_query($conn, $select_matricula_nome_equipe);
+    else if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_nome_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial == "" && $dataFinal == ""){
+        $resultado = mysqli_query($conn, $select_nome_campanha_equipe);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_nome_campanha_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_nome_campanha_equipe_data);
         verificaLinha($resultado);
     }
     else{
@@ -59,8 +102,45 @@ if ($tipoBusca == "matricula"){
     }
 
 }else if ($tipoBusca == "ani"){
-    $resultado = mysqli_query($conn, $select_ani);
-    verificaLinha($resultado);
+
+    if($campanha != "" && $equipe == "" && $dataInicial == "" && $dataFinal == ""){   
+        $resultado = mysqli_query($conn, $select_ani_campanha);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial == "" && $dataFinal == ""){
+        $resultado = mysqli_query($conn, $select_ani_campanha_equipe);
+        verificaLinha($resultado);
+    }
+    else if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_ani_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_ani_campanha_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_ani_campanha_equipe_data);
+        verificaLinha($resultado);
+    }
+    else{
+        $resultado = mysqli_query($conn, $select_ani);
+        verificaLinha($resultado);
+    }
+
+}else if ($tipoBusca == "data"){
+    if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_campanha_data);
+        verificaLinha($resultado);
+    }
+    else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
+        $resultado = mysqli_query($conn, $select_campanha_equipe_data);
+        verificaLinha($resultado);
+    }
 }else{
     $resultado = mysqli_query($conn, $select_tabela_ligacao);
 }
@@ -73,22 +153,25 @@ if ($tipoBusca == "matricula"){
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">                
     <div>
         <label>Pesquisar por:*</label> 
-        <input type="radio" onclick="habilitaCampoBusca();" name="tipoBusca" id="radioMatricula" value="matricula">
+        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv()" name="tipoBusca" id="radioMatricula" value="matricula">
         <label for="radioMatricula">Matricula</label>
             
-        <input type="radio" onclick="habilitaCampoBusca();" name="tipoBusca" id="radioNome" value="nome">
-        <label for="radioNome">Nome</label>
+        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv()" name="tipoBusca" id="radioNome" value="nome">
+        <label for="radioNome">Agente</label>
 
-        <input type="radio" onclick="habilitaCampoBusca();" name="tipoBusca" id="radioAni" value="ani">
-        <label for="radioAni">ANI</label>
+        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv()" name="tipoBusca" id="radioAni" value="ani">
+        <label for="radioAni">Contato do Cliente</label>
+
+        <input type="radio" onclick="escondeDiv();" name="tipoBusca" id="radioData" value="data">
+        <label for="radioData">Data</label>
     </div>
 
-    <div>
+    <div id="divCampoBusca">
         <label for="campoBusca">Digite a Matricula/Agente/Contato do Cliente:*</label>
         <input type="text" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">               
     </div>
 
-    <div>
+    <div id="divCampanhaEquipe">
         <label for="campoCampanha">Campanha:</label>
         <input type="text" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
 
@@ -96,14 +179,17 @@ if ($tipoBusca == "matricula"){
         <input type="text" name="equipe" id="campoEquipe" disabled="true" >
     </div>
 
-    <div>
-        <label for="campoData">Datagi:</label>
-        <input type="date" name="data" id="campoData">
+    <div id="divData">
+        <label for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
+        <input type="date" name="dataInicial" id="campoDataInicial" disabled="true">
+
+        <label for="campoDataFinal" id="labelDataFinal">Data Final:</label>
+        <input type="date" onmouseleave="habilitaCampoCampanhaData()" name="dataFinal" id="campoDataFinal" disabled="true">
     </div>
 
             
-    <input type="submit" value="Buscar">
-    <input type="button" value="Limpar" onClick="limparCampos();"> 
+    <input type="submit" value="Buscar" id="btnBuscar" disabled="true">
+    <input type="button" value="Limpar" onclick="limparCampos();"> 
     </form>
 
     <br>
@@ -115,7 +201,7 @@ if ($tipoBusca == "matricula"){
                 <td>Agente</td>
                 <td>Contato do Cliente</td>
                 <td>Função</td>
-                <td>Data e Hora</td>
+                <td>Data</td>
                 <td>Campanha</td>
                 <td>Equipe</td>
                 <td>Resposta 1</td>
@@ -162,37 +248,102 @@ if ($tipoBusca == "matricula"){
 </html>
 
 <script language="javascript">
+    radioMatricula = document.getElementById('radioMatricula');
+    radioNome = document.getElementById('radioNome');
+    radioAni = document.getElementById('radioAni');
+    radioData = document.getElementById('radioData');
+    campoBusca = document.getElementById('campoBusca');
+    campoCampanha = document.getElementById('campoCampanha');
+    campoEquipe = document.getElementById('campoEquipe');
+    campoDataInicial = document.getElementById('campoDataInicial');
+    campoDataFinal = document.getElementById('campoDataFinal');
+    divCampoBusca = document.getElementById('divCampoBusca');
+    divCampanhaEquipe = document.getElementById('divCampanhaEquipe');    
+    divData = document.getElementById('divData');    
+    labelDataInicial = document.getElementById('labelDataInicial');
+    labelDataFinal = document.getElementById('labelDataFinal');
+    btnBuscar = document.getElementById('btnBuscar');
+
     function habilitaCampoBusca(){
-        if(document.getElementById('radioMatricula').checked == true || document.getElementById('radioNome').checked == true || document.getElementById('radioAni').checked == true){
-            document.getElementById('campoBusca').disabled = false;
+        if(radioMatricula.checked == true || radioNome.checked == true || radioAni.checked == true){
+            campoBusca.disabled = false;
         }else{
-            document.getElementById('campoBusca').disabled = true;
+            campoBusca.disabled = true;
         }
     }
 
     function habilitaCampoCampanha(){
-        if(document.getElementById('radioAni').checked == true){
-            document.getElementById('campoCampanha').disabled = true;
+        if(campoBusca.value != ''){
+            campoCampanha.disabled = false;
+            campoDataInicial.disabled = false;
+            campoDataFinal.disabled = false;
+            btnBuscar.disabled = false;
         }else{
-            if(document.getElementById('campoBusca').value != ''){
-                document.getElementById('campoCampanha').disabled = false;
-            }else{
-                document.getElementById('campoCampanha').disabled = true;
-            }
-        } 
+            campoCampanha.disabled = true;
+            campoDataInicial.disabled = true;
+            campoDataFinal.disabled = true;
+            btnBuscar.disabled = true;
+        }
     }
 
     function habilitaCampoEquipe(){
-        if(document.getElementById('campoCampanha').value == ''){
-            document.getElementById('campoEquipe').disabled = true;
+        if(campoCampanha.value == ''){
+            campoEquipe.disabled = true;
         }else{
-            document.getElementById('campoEquipe').disabled = false;
+            campoEquipe.disabled = false;
         }
     }
 
     function limparCampos(){
+        /*radioMatricula.cheked = false;
+        radioNome.cheked = false;
+        radioAni.cheked = false;
+        campoBusca.value = "";
+        campoCampanha.value = "";
+        campoEquipe.value = "";*/
+
         location.href="./tabela_ligacoes.php"
     }
+
+    function escondeDiv(){
+        if(radioData.checked == true){
+            divCampoBusca.style.display = "none";
+            divCampanhaEquipe.style.display = "block";
+            divData.style.display = "block";
+            campoDataInicial.disabled = false;
+            campoDataFinal.disabled = false;
+            labelDataInicial.innerHTML = "Data Inical:*";
+            labelDataFinal.innerHTML = "Data Final:*";
+        }else{
+            divCampoBusca.style.display = "block";
+            divCampanhaEquipe.style.display = "block";
+            divData.style.display = "block";
+            campoDataInicial.disabled = true;
+            campoDataFinal.disabled = true;
+            labelDataInicial.innerHTML = "Data Inical:";
+            labelDataFinal.innerHTML = "Data Final:";
+        }
+    }
+
+    function habilitaCampoCampanhaData(){
+        if(radioData.checked == true){
+            if(campoDataFinal.value == ''){
+                campoCampanha.disabled = true;
+                btnBuscar.disabled = true;
+            }else{
+                campoCampanha.disabled = false;
+                btnBuscar.disabled = false;
+            }
+        }   
+    }
+
+    /*function habilitaBotaoBuscar(){
+        if(radioMatricula.checked == true || radioNome.checked == true || radioAni.checked == true && campoBusca != ''){
+            btnBuscar.disabled = false;
+        }else{
+            btnBuscar.disabled = true;
+        }
+    }*/
 </script>
     
 
