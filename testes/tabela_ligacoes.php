@@ -153,13 +153,13 @@ if ($tipoBusca == "matricula"){
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">                
     <div>
         <label>Pesquisar por:*</label> 
-        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv()" name="tipoBusca" id="radioMatricula" value="matricula">
+        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioMatricula" value="matricula">
         <label for="radioMatricula">Matricula</label>
             
-        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv()" name="tipoBusca" id="radioNome" value="nome">
+        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioNome" value="nome">
         <label for="radioNome">Agente</label>
 
-        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv()" name="tipoBusca" id="radioAni" value="ani">
+        <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioAni" value="ani">
         <label for="radioAni">Contato do Cliente</label>
 
         <input type="radio" onclick="escondeDiv();" name="tipoBusca" id="radioData" value="data">
@@ -167,7 +167,7 @@ if ($tipoBusca == "matricula"){
     </div>
 
     <div id="divCampoBusca">
-        <label for="campoBusca">Digite a Matricula/Agente/Contato do Cliente:*</label>
+        <label for="campoBusca" id="labelCampoBusca">Campo Busca:</label>
         <input type="text" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">               
     </div>
 
@@ -262,6 +262,7 @@ if ($tipoBusca == "matricula"){
     divData = document.getElementById('divData');    
     labelDataInicial = document.getElementById('labelDataInicial');
     labelDataFinal = document.getElementById('labelDataFinal');
+    labelCampoBusca = document.getElementById('labelCampoBusca');
     btnBuscar = document.getElementById('btnBuscar');
 
     function habilitaCampoBusca(){
@@ -344,6 +345,23 @@ if ($tipoBusca == "matricula"){
             btnBuscar.disabled = true;
         }
     }*/
+
+    function alteraLabelCampoBusca(){
+        if(radioMatricula.checked == true){
+            labelCampoBusca.innerHTML = 'Digite a Matricula:*';
+            divCampoBusca.style.display = 'block';
+        }else if(radioNome.checked == true){
+            labelCampoBusca.innerHTML = 'Digite o Agente:*';
+            divCampoBusca.style.display = 'block';
+        }else if(radioAni.checked == true){
+            labelCampoBusca.innerHTML = 'Digite o Contato do Cliente:*';
+            divCampoBusca.style.display = 'block';
+        }
+    }
+
+    function naoLimpaFormulario(){
+        radioMatricula.cheked = true;
+    }
 </script>
     
 
