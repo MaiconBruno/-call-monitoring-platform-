@@ -95,10 +95,10 @@ include ('./php/tabelaavaliacao.php');
                 <td><?php echo $dado['resposta_4']; ?></td>
                 <td><?php echo $dado['resposta_5']; ?></td>
             </tr>
-        <?php } while ($produto = $execute->fetch_assoc()); ?>
+        <?php }  ?>
 
     </table>
-    <script src="../js/avaliacao.js"></script>
+    <script src="./js/avaliacao.js"></script>
 </div>
 
 </html>
