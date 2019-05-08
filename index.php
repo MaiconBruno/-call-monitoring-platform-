@@ -1,7 +1,8 @@
 <?php
 //incluindo arquivo.php
 include('./php/graficoAvaliacao.php');
-
+include ('./php/tabelaavaliacao.php');
+//include('../php/tabelaavaliacao.php')
 ?>
 
 <!-- Graficos JS -->
@@ -404,7 +405,6 @@ include('./php/graficoAvaliacao.php');
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Relatorio</h4>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 borda " style="min-height:450px;">
-
         </div>
       </div>
     </div>
@@ -421,7 +421,8 @@ include('./php/graficoAvaliacao.php');
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
-
+    <!-- Importando avaliacao.js -->
+    <script src="../js/avaliacao.js"></script>
 </body>
 
 </html>
