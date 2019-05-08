@@ -379,9 +379,10 @@ include('./php/tabela_av.php');
       </div>
 
       <div class="row">
-
+                <!-- Div Esquerda que aloca 2 graficos -->
         <div class="col-md-7 col-sm-12 col-xs-12 " style="min-height:400px;">
-          <div class=" col-md-12 col-sm-12 col-xs-12" style="min-height:450px;">
+            <!-- Div Grafico 1  -->
+          <div id="div_ranking" class="col-md-12 col-sm-12 col-xs-12">
             <div>
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <h1 class="text-primary">TABELA DE RANKING</h1>
@@ -451,10 +452,13 @@ include('./php/tabela_av.php');
               </div>
             </div>
           </div>
+          <!-- Div Grafico 1 Final -->
+          <!-- Div Grafico 2 -->
           <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
-
+           <!-- Div grafico 2 Final -->
         </div>
-
+        <!-- Fim da div Esquerda -->
+        <!-- Div direita que aloca 3 graficos -->
         <div class="col-md-5 col-sm-12 col-xs-12 borda" style="min-height:400px;">
 
           <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
@@ -462,6 +466,7 @@ include('./php/tabela_av.php');
           <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
 
         </div>
+        <!-- Fim da div Direita -->
       </div>
 
     </div>
