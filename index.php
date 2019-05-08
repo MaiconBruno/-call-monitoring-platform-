@@ -1,7 +1,7 @@
 <?php
 //incluindo arquivo.php
 include('./php/graficoAvaliacao.php');
-include ('./php/tabelaavaliacao.php');
+include('./php/tabela_av.php');
 //include('../php/tabelaavaliacao.php')
 ?>
 
@@ -380,9 +380,77 @@ include ('./php/tabelaavaliacao.php');
 
       <div class="row">
 
-        <div class="col-md-7 col-sm-12 col-xs-12 borda" style="min-height:400px;">
+        <div class="col-md-7 col-sm-12 col-xs-12 " style="min-height:400px;">
+          <div class=" col-md-12 col-sm-12 col-xs-12" style="min-height:450px;">
+            <div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 class="text-primary">TABELA DE RANKING</h1>
+                <?php if ($num > 0) { ?>
+                  <table class="table-responsive table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <td>Matricula</td>
+                        <td>Agente</td>
+                        <td>Contato do Cliente</td>
+                        <td>Função</td>
+                        <td>Data</td>
+                        <td>Campanha</td>
+                        <td>Equipe</td>
+                        <td>Resposta 1</td>
+                        <td>Resposta 2</td>
+                        <td>Resposta 3</td>
+                        <td>Resposta 4</td>
+                        <td>Resposta 5</td>
+                      </tr>
+                    </thead>
+                    <tbody>
 
-          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
+                      <?php do { ?>
+                        <tr>
+                          <td><?php echo $produto['matricula']; ?></td>
+                          <td><?php echo $produto['nome']; ?></td>
+                          <td><?php echo $produto['ani']; ?></td>
+                          <td><?php echo $produto['descricao']; ?></td>
+                          <td><?php echo $produto['data_hora']; ?></td>
+                          <td><?php echo $produto['campanha']; ?></td>
+                          <td><?php echo $produto['equipe']; ?></td>
+                          <td><?php echo $produto['resposta_1']; ?></td>
+                          <td><?php echo $produto['resposta_2']; ?></td>
+                          <td><?php echo $produto['resposta_3']; ?></td>
+                          <td><?php echo $produto['resposta_4']; ?></td>
+                          <td><?php echo $produto['resposta_5']; ?></td>
+                        </tr>
+                      <?php } while ($produto = $execute->fetch_assoc()); ?>
+                    </tbody>
+                  </table>
+
+                  <nav>
+                    <ul class="pagination pagination-md">
+                      <li class="page-item">
+                        <a class="page-link" href="index.php?pagina=0" aria-label="Anterior">
+                          <span aria-hidden="true">Primeira Página</span>
+                        </a>
+                      </li>
+                      <?php
+                      for ($i = 0; $i < $num_paginas; $i++) {
+                        $estilo = "";
+                        if ($pagina == $i)
+                          $estilo = "class=\"active\"";
+                        ?>
+                        <li class="page-item " <?php echo $estilo; ?>><a class="page-link" href="index.php?pagina=<?php echo $i; ?>"><?php echo $i + 1; ?></a></li>
+                      <?php } ?>
+                      <li class="page-item">
+                        <a class="page-link" href="index.php?pagina=<?php echo $num_paginas - 1; ?>" aria-label="próximo ">
+                          <span aria-hidden="true">Ultima Página</span>
+
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
           <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
 
         </div>

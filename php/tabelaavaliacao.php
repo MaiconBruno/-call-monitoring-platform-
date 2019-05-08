@@ -1,5 +1,5 @@
 <?php
-include ('./php/conexao.php');
+
 
 $tipoBusca = filter_input(INPUT_GET, "tipoBusca");
 $parametro = filter_input(INPUT_GET, "parametro");
