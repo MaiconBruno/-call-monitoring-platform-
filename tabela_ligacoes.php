@@ -4,13 +4,18 @@ include ('./php/tabelaavaliacao.php');
 
 <html>
 <head>
-  <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
+    <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <div>
+        <div class="d-flex">
             <label>Pesquisar por:*</label>
             <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioMatricula" value="matricula">
             <label for="radioMatricula">Matricula</label>
@@ -54,9 +59,9 @@ include ('./php/tabelaavaliacao.php');
     <br>
 
     <div>
-        <table border="1" id="tbl_ligacao">
+        <table class="table table-hover table-primary bg-light" id="tbl_ligacao">
             <thead>
-                <tr class="table table-hover">
+                <tr>
                     <th>Matricula</th>
                     <th>Agente</th>
                     <th>Contato do Cliente</th>
@@ -92,6 +97,8 @@ include ('./php/tabelaavaliacao.php');
                     ?>
                 
                     <tr>
+
+                        
                         <td><?php echo $dado['matricula']; ?></td>
                         <td><?php echo $dado['nome']; ?></td>
                         <td><?php echo $dado['ani']; ?></td>
@@ -109,15 +116,20 @@ include ('./php/tabelaavaliacao.php');
             </tbody>
         </table>
         <script src="./js/avaliacao.js"></script>
+        <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     </div>
-
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    
 
     <script>
-        $(document).ready(function(){
-            $('#tbl_ligacao').DataTable();
-        });
+        $(document).ready(function() {
+            $('#tbl_ligacao').DataTable( {  
+                "searching": false,             
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
+                }
+            });
+        } );
   </script>
 </body>
 </html>

@@ -42,7 +42,7 @@ while($dado = $resultado -> fetch_array()){
 }
 
 if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $resposta5 == 0){
-    $url = './option_auto.php';
+    $url = './TesteGraficos.php';
     echo '<META HTTP-EQUIV=Refresh CONTENT="0.; URL=' . $url . '">';
     echo "<script>alert('Dados não encontrados!');</script>";
 }
@@ -52,12 +52,41 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <title>Document</title>
 </head>
+
 <body>
+
+<div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
+    
+
+</div>
+<script src=“js/jquery.js”></script>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <label>Filtrar por:</label>
         
@@ -75,11 +104,13 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
               </div>
 
 	<input type="text" name="parametro"> 
-	<input type="submit" value="buscar"> 
+	<input type="submit" value="buscar" id="btn_submit"> 
 </form>
 
 
-<div style="width: 900px; height: 500px;">
+
+
+<div style="width: 900px; height: 500px;" id="gr-pizza">
 <canvas id="pie-chart"></canvas>
 <script src="path/to/chartjs/dist/Chart.js"></script>
 <script>
@@ -108,6 +139,11 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
             }
     }
 });
+</script>
+
+<script type="text/javascript">
+
+    var intervalo = setInterval(function() { $('#gr-pizza').load('./testes/TesteGraficos.php'); }, 2000);
 </script>
 </div>
 
