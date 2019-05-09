@@ -2,6 +2,7 @@
 //incluindo arquivo.php
 include('./php/graficoAvaliacao.php');
 include('./php/tabela_av.php');
+include('./php/tabelaavaliacao.php');
 //include('../php/tabelaavaliacao.php')
 ?>
 
@@ -44,7 +45,7 @@ include('./php/tabela_av.php');
 
 <body id="page-back" class="page-back">
   <!-- Nav menu do topo -->
-  <nav class="shadow p-3 mb-5 bg-white rounded navbar navbar-expand-lg navbar-inverse  bg-white fixed-top  border-size" id="mainNav">
+  <nav class="shadow p-3 mb-5 bg-white rounded navbar navbar-expand-lg navbar-inverse  bg-white fixed-top  border-size-top" id="mainNav">
     <div class="container">
       <div class="centralizador">
 
@@ -53,21 +54,21 @@ include('./php/tabela_av.php');
         </a>
       </div>
       <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="text-primary text-size">...</span>
+        <span class=" text-size">...</span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto ">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#g-graficos">Grafico Geral</a>
+            <a class="nav-link js-scroll-trigger text-menu text-secondary" href="#g-graficos">Grafico Geral</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#inicio">Graficos</a>
+            <a class="nav-link js-scroll-trigger text-menu text-secondary" href="#inicio">Graficos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#tabelas">Tabelas</a>
+            <a class="nav-link js-scroll-trigger text-menu text-secondary " href="#tabelas">Tabelas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#relatorio">Relatorios</a>
+            <a class="nav-link js-scroll-trigger text-menu  text-secondary" href="#relatorio">Relatorios</a>
           </li>
         </ul>
       </div>
@@ -79,24 +80,22 @@ include('./php/tabela_av.php');
   <!-- Inicio da div grafico principal -->
   <div id="g-graficos" class="bg-white card-principal ">
     <!-- Titulo da sessão -->
-    <div class="bg-titulo py-3">
-      <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Grafico Geral</h4>
-    </div>
+
     <!-- Div menu radio -->
     <div class="d-flex justify-content-center menu-card">
       <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
         <div class="d-flex ">
           <div class="form-check form-check-inline centralizar">
             <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
-            <label class="form-check-label text-primary" for="Agente">Agente</label>
+            <label class="form-check-label " for="Agente">Agente</label>
           </div>
           <div class="form-check form-check-inline centralizar">
             <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
-            <label class="form-check-label text-primary" for="Equipe">Equipe</label>
+            <label class="form-check-label " for="Equipe">Equipe</label>
           </div>
           <div class="form-check form-check-inline centralizar">
             <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-            <label class="form-check-label text-primary" for="campanha">Campanha</label>
+            <label class="form-check-label " for="campanha">Campanha</label>
           </div>
         </div>
         <button type="submit" class="btn btn-outline-success">Pesquisar</button>
@@ -138,16 +137,14 @@ include('./php/tabela_av.php');
   <!-- Inicio da div grafico principal -->
   <div id="inicio" class="bg-white card-principal ">
     <!-- Titulo da sessão -->
-    <div class="bg-titulo py-3">
-      <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Graficos</h4>
-    </div>
+
     <!-- Div menu superior -->
     <div class="row">
 
       <!-- CARD 1 SUPERIOR-->
       <div class="col-md-6 col-sm-12 col-xs-12 card-secundario  ">
-        <div class="py-3 bg-titulo-card">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">LIGAÇÕES</h4>
+        <div class="py-3 border-size">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">LIGAÇÕES</h4>
         </div>
         <div class="row centralizador select-margin">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
@@ -197,23 +194,23 @@ include('./php/tabela_av.php');
 
       <!-- CARD 2 SUPERIOR -->
       <div class="col-md-6 col-sm-12 col-xs-12   ">
-        <div class="py-3 bg-titulo-card">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">TIPO DE INTERAÇÃO</h4>
+        <div class="py-3 border-size">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">RANKING DE INTERAÇÃO</h4>
         </div>
         <div class="row justify-content-center">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="d-flex col-md-12 menu-card ">
               <div class="form-check form-check-inline col-md-4 ">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
-                <label class="form-check-label text-primary" for="Agente">Agente</label>
+                <label class="form-check-label " for="Agente">Agente</label>
               </div>
               <div class="form-check form-check-inline col-md-4">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
-                <label class="form-check-label text-primary" for="Equipe">Equipe</label>
+                <label class="form-check-label " for="Equipe">Equipe</label>
               </div>
               <div class="form-check form-check-inline col-md-4 ">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-                <label class="form-check-label text-primary" for="campanha">Campanha</label>
+                <label class="form-check-label " for="campanha">Campanha</label>
               </div>
             </div>
         </div>
@@ -260,23 +257,23 @@ include('./php/tabela_av.php');
     <div class="row ">
 
       <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario ">
-        <div class="py-3 bg-titulo-card">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">AVALIADAS</h4>
+        <div class="py-3 border-size">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">AVALIADAS</h4>
         </div>
         <div class="row justify-content-center">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="d-flex col-md-12 menu-card ">
               <div class="form-check form-check-inline col-md-4 ">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
-                <label class="form-check-label text-primary" for="Agente">Agente</label>
+                <label class="form-check-label " for="Agente">Agente</label>
               </div>
               <div class="form-check form-check-inline col-md-4">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
-                <label class="form-check-label text-primary" for="Equipe">Equipe</label>
+                <label class="form-check-label " for="Equipe">Equipe</label>
               </div>
               <div class="form-check form-check-inline col-md-4 ">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-                <label class="form-check-label text-primary" for="campanha">Campanha</label>
+                <label class="form-check-label " for="campanha">Campanha</label>
               </div>
             </div>
         </div>
@@ -319,23 +316,23 @@ include('./php/tabela_av.php');
       <!-- FIM DO 1 CARD -->
       <!-- CARD 2 -->
       <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario  ">
-        <div class="py-3 bg-titulo-card">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">NÃO AVALIADAS</h4>
+        <div class="py-3 border-size">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">NÃO AVALIADAS</h4>
         </div>
         <div class="row justify-content-center">
           <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="d-flex col-md-12 menu-card ">
               <div class="form-check form-check-inline col-md-4 ">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="campanha">
-                <label class="form-check-label text-primary" for="Agente">Agente</label>
+                <label class="form-check-label " for="Agente">Agente</label>
               </div>
               <div class="form-check form-check-inline col-md-4">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="campanha">
-                <label class="form-check-label text-primary" for="Equipe">Equipe</label>
+                <label class="form-check-label " for="Equipe">Equipe</label>
               </div>
               <div class="form-check form-check-inline col-md-4 ">
                 <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-                <label class="form-check-label text-primary" for="campanha">Campanha</label>
+                <label class="form-check-label " for="campanha">Campanha</label>
               </div>
             </div>
         </div>
@@ -379,99 +376,142 @@ include('./php/tabela_av.php');
 
     <div class="bg-white card-principal " id="tabelas">
 
-      <div class="bg-titulo py-3 col-md-12 col-sm-12 col-xs-12">
-        <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Tabelas</h4>
+      <div class="py-3 border-size">
+        <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">TABELA</h4>
       </div>
 
       <div class="row">
         <!-- Div Esquerda que aloca 2 graficos -->
-        <div class="col-md-7 col-sm-12 col-xs-12 " style="min-height:400px;">
-          <!-- Div Grafico 1  -->
-          <div id="div_ranking" class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+          <!-- Card principal -->
+          <div class=" text-dark col-md-12 col-sm-12 com-xs-12 ">
             <div>
+              <form action=" <?php echo $_SERVER['PHP_SELF']; ?>">
+                <!-- Titulo -->
+                <div class="col-md-12 col-sm-12 com-xs-12 ">
+                  <div class="d-flex justify-content-center align-items-center col-md-12 col-sm-12 com-xs-12  ">
+                    <div class=" form-check ">
+                      <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioMatricula" value="matricula">
+                      <label for="radioMatricula">Matricula</label>
+                    </div>
+                    <div class=" form-check">
+                      <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioNome" value="nome">
+                      <label for="radioNome">Agente</label>
+                    </div>
+                    <div class=" form-check">
+                      <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioAni" value="ani">
+                      <label for="radioAni">Contato do Cliente</label>
+                    </div>
+                    <div class=" form-check">
+                      <input type="radio" onclick="escondeDiv();" name="tipoBusca" id="radioData" value="data">
+                      <label for="radioData">Data</label>
+                    </div>
+                  </div>
+                  <!-- Campos tipo Text e date -->
+                  <div class=" d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center form-inline ">
+
+                    <div class="radio d-flex justify-content-center align-items-center " id="divCampoBusca">
+                      <label class="radio" for="campoBusca" id="labelCampoBusca">Campo Busca:</label>
+                      <input type="text" class="form-control" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">
+                    </div>
+
+
+                    <div class="radio d-flex justify-content-center align-items-center " id="divCampanhaEquipe">
+                      <label class="radio" for="campoCampanha">Campanha:</label>
+                      <input type="text" class="form-control" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
+
+                      <label class="radio" for="campoEquipe">Equipe:</label>
+                      <input type="text" class="form-control" name="equipe" id="campoEquipe" disabled="true">
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 com-xs-12">
+                      <div class="radio d-flex justify-content-center align-items-center  id=" divData">
+                        <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
+                        <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
+
+                        <label class="radio" for="campoDataFinal" id="labelDataFinal">Data Final:</label>
+                        <input type="date" class="form-control" onmouseleave="habilitaCampoCampanhaData()" name="dataFinal" id="campoDataFinal" disabled="true">
+                      </div>
+                    </div>
+                    <div class="radio d-flex justify-content-center align-items-center container ">
+                      <input class="btn btn-primary botão" type="submit" value="Buscar" id="btnBuscar" disabled="true">
+                      <input class="btn btn-danger botão" type="button" value="Limpar" onclick="limparCampos();">
+                    </div>
+                  </div>
+                  <!-- FIm do campos text/date -->
+                </div>
+              </form>
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1 class="text-primary">TABELA DE RANKING</h1>
-                <?php if ($num > 0) { ?>
-                  <table class="table-responsive table table-bordered table-hover">
-                    <thead>
+
+                <table class="table table-hover table-secondary table-responsive-lg " id="tbl_ligacao">
+                  <thead>
+                    <tr class=>
+                      <th>Matricula</th>
+                      <th>Agente</th>
+                      <th>Contato do Cliente</th>
+                      <th>Função</th>
+                      <th>Data</th>
+                      <th>Campanha</th>
+                      <th>Equipe</th>
+                      <th>Resposta 1</th>
+                      <th>Resposta 2</th>
+                      <th>Resposta 3</th>
+                      <th>Resposta 4</th>
+                      <th>Resposta 5</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <?php while ($dado = $resultado->fetch_array()) {
+                      if ($dado['resposta_1'] == null) {
+                        $dado['resposta_1'] = "N/A";
+                      }
+                      if ($dado['resposta_2'] == null) {
+                        $dado['resposta_2'] = "N/A";
+                      }
+                      if ($dado['resposta_3'] == null) {
+                        $dado['resposta_3'] = "N/A";
+                      }
+                      if ($dado['resposta_4'] == null) {
+                        $dado['resposta_4'] = "N/A";
+                      }
+                      if ($dado['resposta_5'] == null) {
+                        $dado['resposta_5'] = "N/A";
+                      }
+                      ?>
+
                       <tr>
-                        <td>Matricula</td>
-                        <td>Agente</td>
-                        <td>Contato do Cliente</td>
-                        <td>Função</td>
-                        <td>Data</td>
-                        <td>Campanha</td>
-                        <td>Equipe</td>
-                        <td>Resposta 1</td>
-                        <td>Resposta 2</td>
-                        <td>Resposta 3</td>
-                        <td>Resposta 4</td>
-                        <td>Resposta 5</td>
+                        <td><?php echo $dado['matricula']; ?></td>
+                        <td><?php echo $dado['nome']; ?></td>
+                        <td><?php echo $dado['ani']; ?></td>
+                        <td><?php echo $dado['descricao']; ?></td>
+                        <td><?php echo $dado['data_hora']; ?></td>
+                        <td><?php echo $dado['campanha']; ?></td>
+                        <td><?php echo $dado['equipe']; ?></td>
+                        <td><?php echo $dado['resposta_1']; ?></td>
+                        <td><?php echo $dado['resposta_2']; ?></td>
+                        <td><?php echo $dado['resposta_3']; ?></td>
+                        <td><?php echo $dado['resposta_4']; ?></td>
+                        <td><?php echo $dado['resposta_5']; ?></td>
                       </tr>
-                    </thead>
-                    <tbody>
-
-                      <?php do { ?>
-                        <tr>
-                          <td><?php echo $produto['matricula']; ?></td>
-                          <td><?php echo $produto['nome']; ?></td>
-                          <td><?php echo $produto['ani']; ?></td>
-                          <td><?php echo $produto['descricao']; ?></td>
-                          <td><?php echo $produto['data_hora']; ?></td>
-                          <td><?php echo $produto['campanha']; ?></td>
-                          <td><?php echo $produto['equipe']; ?></td>
-                          <td><?php echo $produto['resposta_1']; ?></td>
-                          <td><?php echo $produto['resposta_2']; ?></td>
-                          <td><?php echo $produto['resposta_3']; ?></td>
-                          <td><?php echo $produto['resposta_4']; ?></td>
-                          <td><?php echo $produto['resposta_5']; ?></td>
-                        </tr>
-                      <?php } while ($produto = $execute->fetch_assoc()); ?>
-                    </tbody>
-                  </table>
-
-                  <nav>
-                    <ul class="pagination pagination-md">
-                      <li class="page-item">
-                        <a class="page-link" href="index.php?pagina=0" aria-label="Anterior">
-                          <span aria-hidden="true">Primeira Página</span>
-                        </a>
-                      </li>
-                      <?php
-                      for ($i = 0; $i < $num_paginas; $i++) {
-                        $estilo = "";
-                        if ($pagina == $i)
-                          $estilo = "class=\"active\"";
-                        ?>
-                        <li class="page-item " <?php echo $estilo; ?>><a class="page-link" href="index.php?pagina=<?php echo $i; ?>"><?php echo $i + 1; ?></a></li>
-                      <?php } ?>
-                      <li class="page-item">
-                        <a class="page-link" href="index.php?pagina=<?php echo $num_paginas - 1; ?>" aria-label="próximo ">
-                          <span aria-hidden="true">Ultima Página</span>
-
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                <?php } ?>
+                    <?php }  ?>
+                  </tbody>
+                </table>
               </div>
+              <script>
+                $(document).ready(function() {
+                  $('#tbl_ligacao').DataTable({
+                    "searching": false,
+                    "language": {
+                      "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
+                    }
+                  });
+                });
+              </script>
             </div>
           </div>
-          <!-- Div Grafico 1 Final -->
-          <!-- Div Grafico 2 -->
-          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
-          <!-- Div grafico 2 Final -->
+          <!-- Fim do card principal -->
         </div>
-        <!-- Fim da div Esquerda -->
-        <!-- Div direita que aloca 3 graficos -->
-        <div class="col-md-5 col-sm-12 col-xs-12 borda" style="min-height:400px;">
-
-          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
-          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
-          <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:300px;"></div>
-
-        </div>
-        <!-- Fim da div Direita -->
       </div>
 
     </div>
@@ -479,8 +519,8 @@ include('./php/tabela_av.php');
     <!-- Relatorio -->
     <div class="row" id="relatorio">
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="bg-titulo py-3">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-white ">Relatorio</h4>
+        <div class="py-3 border-size">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">RELATORIOS</h4>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 borda " style="min-height:450px;">
         </div>

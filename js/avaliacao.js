@@ -53,7 +53,7 @@ function limparCampos(){
     campoCampanha.value = "";
     campoEquipe.value = "";*/
 
-    location.href="./tabela.php"
+    location.href="./index.php"
 }
 
 function escondeDiv(){

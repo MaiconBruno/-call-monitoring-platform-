@@ -5,6 +5,8 @@ include('./php/tabelaavaliacao.php');
 <html>
 
 <head>
+    <link href="//cdn.datatables.net/responsive/2.2.3/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
     <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -140,6 +142,7 @@ include('./php/tabelaavaliacao.php');
                 $(document).ready(function() {
                     $('#tbl_ligacao').DataTable({
                         "searching": false,
+                        responsive: true,
                         "language": {
                             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
                         }

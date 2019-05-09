@@ -42,7 +42,7 @@ function verificaLinha($comando){
     $total = mysqli_num_rows($comando);
     if($total == 0){
         echo "<script>
-        alert('Nenhum dado encontrado!'); location= './tabela.php';
+        alert('Nenhum dado encontrado!'); location= './index.php';
         </script>";
     }
 }
