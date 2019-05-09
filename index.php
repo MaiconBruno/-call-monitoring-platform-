@@ -18,7 +18,12 @@ include('./php/tabela_av.php');
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <!-- Importando bliblioteca da google Charts so chamar 1x-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
+  <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="PROJETO FINAL DE CURSO SENAI CETIND TURMA 58271">
@@ -379,9 +384,9 @@ include('./php/tabela_av.php');
       </div>
 
       <div class="row">
-                <!-- Div Esquerda que aloca 2 graficos -->
+        <!-- Div Esquerda que aloca 2 graficos -->
         <div class="col-md-7 col-sm-12 col-xs-12 " style="min-height:400px;">
-            <!-- Div Grafico 1  -->
+          <!-- Div Grafico 1  -->
           <div id="div_ranking" class="col-md-12 col-sm-12 col-xs-12">
             <div>
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -455,7 +460,7 @@ include('./php/tabela_av.php');
           <!-- Div Grafico 1 Final -->
           <!-- Div Grafico 2 -->
           <div class="borda col-md-12 col-sm-12 col-xs-12" style="min-height:450px;"></div>
-           <!-- Div grafico 2 Final -->
+          <!-- Div grafico 2 Final -->
         </div>
         <!-- Fim da div Esquerda -->
         <!-- Div direita que aloca 3 graficos -->
@@ -496,6 +501,10 @@ include('./php/tabela_av.php');
     <script src="js/scrolling-nav.js"></script>
     <!-- Importando avaliacao.js -->
     <script src="../js/avaliacao.js"></script>
+    <!-- imports do Jquery -->
+    <script src="./js/avaliacao.js"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 </body>
 
 </html>

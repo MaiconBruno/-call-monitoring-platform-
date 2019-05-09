@@ -40,9 +40,14 @@ padding-bottom: 3px;
 }
 .page-back{
     background-color:rgb(235, 235, 235);
+    
 }
 .card-principal{
     margin:2em 2em auto;
+}
+.card-grafico{
+    margin:1em 1em auto;
+  
 }
 .card-secundario{
    margin-bottom: 40px;
@@ -65,4 +70,19 @@ padding-bottom: 3px;
 }
 .size-card{
    min-height: 200px;
+}
+.radio{
+    margin-top:3px;   
+    margin-left: 4px;
+    margin-right: 4px;
+  
+}
+.botão{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top:8px;
+}
+.radius{
+    border-radius: 10px;
+    background-color: rgba(138, 138, 138, 0.521);
 }
