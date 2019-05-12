@@ -1,12 +1,12 @@
 <?php
 include ('./php/conexao.php');
 
-$tipoBusca = filter_input(INPUT_GET, "tipoBusca");
-$parametro = filter_input(INPUT_GET, "parametro");
-$campanha = filter_input(INPUT_GET, "campanha");
-$equipe = filter_input(INPUT_GET, "equipe");
-$dataInicial = filter_input(INPUT_GET, "dataInicial");
-$dataFinal = filter_input(INPUT_GET, "dataFinal");
+$tipoBusca = isset($_POST['tipoBusca']) ? $_POST['tipoBusca'] : '';
+$parametro = isset($_POST['parametro']) ? $_POST['parametro'] : '';
+$campanha = isset($_POST['campanha']) ? $_POST['campanha'] : '';
+$equipe = isset($_POST['equipe']) ? $_POST['equipe'] : '';
+$dataInicial = isset($_POST['dataInicial']) ? $_POST['dataInicial'] : '';
+$dataFinal = isset($_POST['dataFinal']) ? $_POST['dataFinal'] : '';
 
 $select_tabela_ligacao = "CALL select_tbl_ligacao();";
 
@@ -51,100 +51,98 @@ if ($tipoBusca == "matricula"){
 
     if($campanha != "" && $equipe == "" && $dataInicial == "" && $dataFinal == ""){   
         $resultado = mysqli_query($conn, $select_matricula_campanha);
-        verificaLinha($resultado);  
+        //verificaLinha($resultado);  
     }
     else if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_matricula_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial == "" && $dataFinal == ""){
         $resultado = mysqli_query($conn, $select_matricula_campanha_equipe);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_matricula_campanha_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_matricula_campanha_equipe_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else{
         $resultado = mysqli_query($conn, $select_matricula);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
 
 }else if ($tipoBusca == "nome"){
 
     if($campanha != "" && $equipe == "" && $dataInicial == "" && $dataFinal == ""){   
         $resultado = mysqli_query($conn, $select_nome_campanha);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_nome_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial == "" && $dataFinal == ""){
         $resultado = mysqli_query($conn, $select_nome_campanha_equipe);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_nome_campanha_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_nome_campanha_equipe_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else{
         $resultado = mysqli_query($conn, $select_nome);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
 
 }else if ($tipoBusca == "ani"){
 
     if($campanha != "" && $equipe == "" && $dataInicial == "" && $dataFinal == ""){   
         $resultado = mysqli_query($conn, $select_ani_campanha);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial == "" && $dataFinal == ""){
         $resultado = mysqli_query($conn, $select_ani_campanha_equipe);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_ani_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_ani_campanha_data);
-        verificaLinha($resultado);
+       //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_ani_campanha_equipe_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else{
         $resultado = mysqli_query($conn, $select_ani);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
 
 }else if ($tipoBusca == "data"){
     if($campanha == "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe == "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_campanha_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
     else if($campanha != "" && $equipe != "" && $dataInicial != "" && $dataFinal != ""){
         $resultado = mysqli_query($conn, $select_campanha_equipe_data);
-        verificaLinha($resultado);
+        //verificaLinha($resultado);
     }
 }else{
     $resultado = mysqli_query($conn, $select_tabela_ligacao);
 }
-
-
 
 ?>

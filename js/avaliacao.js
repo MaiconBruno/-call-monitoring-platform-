@@ -45,7 +45,7 @@ function habilitaCampoEquipe(){
     }
 }
 
-function limparCampos(){
+function limpezaCampos(){
     /*radioMatricula.cheked = false;
     radioNome.cheked = false;
     radioAni.cheked = false;

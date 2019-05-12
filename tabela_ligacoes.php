@@ -14,6 +14,7 @@ include('./php/tabelaavaliacao.php');
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 
 
@@ -22,7 +23,7 @@ include('./php/tabelaavaliacao.php');
     <!-- Card principal -->
     <div class=" text-dark col-md-12 col-sm-12 com-xs-12 ">
         <div>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form id="idFormulario" method="POST">
                 <!-- Titulo -->
                 <div class="col-md-12 col-sm-12 com-xs-12 ">
                     <div class="d-flex justify-content-center align-items-center col-md-12 col-sm-12 com-xs-12  ">
@@ -61,7 +62,7 @@ include('./php/tabelaavaliacao.php');
                         </div>
 
                         <div class="col-md-12 col-sm-12 com-xs-12">
-                            <div class="radio d-flex justify-content-center align-items-center  id=" divData">
+                            <div class="radio d-flex justify-content-center align-items-center"  id="divData">
                                 <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
                                 <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
 
@@ -71,7 +72,7 @@ include('./php/tabelaavaliacao.php');
                         </div>
                         <div class="radio d-flex justify-content-center align-items-center container ">
                             <input class="btn btn-primary botão" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                            <input class="btn btn-danger botão" type="button" value="Limpar" onclick="limparCampos();">
+                            <input class="btn btn-danger botão" type="button" value="Limpar" onclick="limpezaCampos();">
                         </div>
                     </div>
                     <!-- FIm do campos text/date -->
@@ -117,8 +118,6 @@ include('./php/tabelaavaliacao.php');
                             ?>
 
                             <tr>
-
-
                                 <td><?php echo $dado['matricula']; ?></td>
                                 <td><?php echo $dado['nome']; ?></td>
                                 <td><?php echo $dado['ani']; ?></td>
@@ -138,14 +137,70 @@ include('./php/tabelaavaliacao.php');
             </div>
 
 
-            <script>
+            <script type="text/javascript">
                 $(document).ready(function() {
                     $('#tbl_ligacao').DataTable({
                         "searching": false,
                         responsive: true,
                         "language": {
                             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
-                        }
+                        },
+                        columnDefs: [
+                            { type: 'date-eu', targets: 4 }
+                        ]
+                    });
+                });
+
+                /*$(document).ready(function(){
+                    $('#btnBuscar').click(function(){
+                        var form = new FormData($('#idFormulario')[0]);
+                        $.ajax({
+                            url:'./php/tabelaavaliacao.php',
+                            type: 'post',
+                            dataType: 'JSON',
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            data: form,
+                            timeout: 8000,
+                            success: function(resultado){
+                                $("#tbl_ligacao").html(resultado);
+                            }
+                        });
+                    });
+                });*/
+
+                /*$(document).ready(function(){
+                    $("#idFormulario").on("submit", function(e){
+                        var form = new FormData($('#idFormulario')[0]);
+                        e.preventDefault();
+                            $.ajax({
+                                url: "retornatbl.php",
+                                method: "POST",
+                                dataType: "html",
+                                data: form,
+                            }).done(function(data){
+                                console.log('ok');
+                            }).fail(function(data){
+                                console.log('deu ruim');
+                            });  
+                    });
+                });*/
+
+                jQuery(document).ready(function(){
+                    jQuery('#idFormulario').submit(function(){
+                        var dados = jQuery(this).serialize();
+
+                        jQuery.ajax({
+                            type: "POST",
+                            url: "tabela_ligacoes.php",
+                            data: dados,
+                            success: function(data){
+                                $("#tbl_ligacao").html(data);
+                            }
+                        });
+                        
+                        return false;
                     });
                 });
             </script>
@@ -156,6 +211,7 @@ include('./php/tabelaavaliacao.php');
     <script src="./js/avaliacao.js"></script>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
 </body>
 
 </html>
