@@ -386,7 +386,7 @@ include('./php/tabelaavaliacao.php');
           <!-- Card principal -->
           <div class=" text-dark col-md-12 col-sm-12 com-xs-12 ">
             <div>
-            <form id="idFormulario" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+              <form action=" <?php echo $_SERVER['PHP_SELF']; ?>">
                 <!-- Titulo -->
                 <div class="col-md-12 col-sm-12 com-xs-12 ">
                   <div class="d-flex justify-content-center align-items-center col-md-12 col-sm-12 com-xs-12  ">
@@ -408,15 +408,15 @@ include('./php/tabelaavaliacao.php');
                     </div>
                   </div>
                   <!-- Campos tipo Text e date -->
-                  <div class=" d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center form-inline">
+                  <div class=" d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center form-inline ">
 
-                    <div class="radio d-flex justify-content-center align-items-center" id="divCampoBusca">
+                    <div class="radio d-flex justify-content-center align-items-center " id="divCampoBusca">
                       <label class="radio" for="campoBusca" id="labelCampoBusca">Campo Busca:</label>
                       <input type="text" class="form-control" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">
                     </div>
 
 
-                    <div class="radio d-flex justify-content-center align-items-center" id="divCampanhaEquipe">
+                    <div class="radio d-flex justify-content-center align-items-center " id="divCampanhaEquipe">
                       <label class="radio" for="campoCampanha">Campanha:</label>
                       <input type="text" class="form-control" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
 
@@ -425,7 +425,7 @@ include('./php/tabelaavaliacao.php');
                     </div>
 
                     <div class="col-md-12 col-sm-12 com-xs-12">
-                      <div class="radio d-flex justify-content-center align-items-center"  id="divData">
+                      <div class="radio d-flex justify-content-center align-items-center  id=" divData">
                         <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
                         <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
 
@@ -435,7 +435,7 @@ include('./php/tabelaavaliacao.php');
                     </div>
                     <div class="radio d-flex justify-content-center align-items-center container ">
                       <input class="btn btn-primary botão" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                      <input class="btn btn-danger botão" onclick="limpezaCampos();" type="button" value="Limpar">
+                      <input class="btn btn-danger botão" type="button" value="Limpar" onclick="limparCampos();">
                     </div>
                   </div>
                   <!-- FIm do campos text/date -->

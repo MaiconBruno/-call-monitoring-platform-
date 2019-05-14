@@ -5,7 +5,7 @@ include('./php/tabelaavaliacao.php');
 <html>
 
 <head>
-    <link href="//cdn.datatables.net/responsive/2.2.3/css/dataTables.responsive.css" rel="stylesheet">
+    <!-- <link href="//cdn.datatables.net/responsive/2.2.3/css/dataTables.responsive.css" rel="stylesheet"> -->
     <link href="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
@@ -21,9 +21,9 @@ include('./php/tabelaavaliacao.php');
 <body>
 
     <!-- Card principal -->
-    <div class=" text-dark col-md-12 col-sm-12 com-xs-12 ">
+    <div class=" text-dark col-md-12 col-sm-12 com-xs-12 " id="divGeralTabela">
         <div>
-            <form id="idFormulario" method="POST">
+            <form id="idFormulario" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <!-- Titulo -->
                 <div class="col-md-12 col-sm-12 com-xs-12 ">
                     <div class="d-flex justify-content-center align-items-center col-md-12 col-sm-12 com-xs-12  ">
@@ -78,7 +78,7 @@ include('./php/tabelaavaliacao.php');
                     <!-- FIm do campos text/date -->
                 </div>
             </form>
-            <div class="col-md-12 col-sm-12 col-xs-12 menu-card">
+            <div class="col-md-12 col-sm-12 col-xs-12 menu-card" id="divTabela">
 
                 <table class="table table-hover table-secondary " id="tbl_ligacao">
                     <thead>
@@ -151,44 +151,9 @@ include('./php/tabelaavaliacao.php');
                     });
                 });
 
-                /*$(document).ready(function(){
-                    $('#btnBuscar').click(function(){
-                        var form = new FormData($('#idFormulario')[0]);
-                        $.ajax({
-                            url:'./php/tabelaavaliacao.php',
-                            type: 'post',
-                            dataType: 'JSON',
-                            cache: false,
-                            processData: false,
-                            contentType: false,
-                            data: form,
-                            timeout: 8000,
-                            success: function(resultado){
-                                $("#tbl_ligacao").html(resultado);
-                            }
-                        });
-                    });
-                });*/
-
-                /*$(document).ready(function(){
-                    $("#idFormulario").on("submit", function(e){
-                        var form = new FormData($('#idFormulario')[0]);
-                        e.preventDefault();
-                            $.ajax({
-                                url: "retornatbl.php",
-                                method: "POST",
-                                dataType: "html",
-                                data: form,
-                            }).done(function(data){
-                                console.log('ok');
-                            }).fail(function(data){
-                                console.log('deu ruim');
-                            });  
-                    });
-                });*/
-
                 jQuery(document).ready(function(){
                     jQuery('#idFormulario').submit(function(){
+
                         var dados = jQuery(this).serialize();
 
                         jQuery.ajax({
@@ -196,13 +161,15 @@ include('./php/tabelaavaliacao.php');
                             url: "tabela_ligacoes.php",
                             data: dados,
                             success: function(data){
-                                $("#tbl_ligacao").html(data);
+                                console.log('funcionando');
+                                $("#divGeralTabela").html(data);
                             }
                         });
-                        
+                      
                         return false;
                     });
                 });
+
             </script>
         </div>
     </div>
