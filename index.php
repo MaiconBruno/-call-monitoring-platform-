@@ -45,18 +45,17 @@ include('./php/tabelaavaliacao.php');
 
 <body id="page-back" class="page-back">
   <!-- Nav menu do topo -->
-  <nav class="shadow p-3 mb-5 bg-white rounded navbar navbar-expand-lg navbar-inverse  bg-white fixed-top  border-size-top" id="mainNav">
-    <div class="container">
-      <div class="centralizador">
-
+  <nav class=" shadow p-3 mb-5 bg-white rounded navbar navbar-expand-lg navbar-inverse  bg-white fixed-top  border-size-top" id="mainNav">
+    <div class="container ">
+      <div class="centralizador ">
         <a class="text-titulo navbar-brand js-scroll-trigger" href="#page-top">
-          <img class="imagen-titulo" src="./icones/LOGO.png" height="50px" width="125px" alt="">
+          <img class="imagen-titulo" src="./icones/LOGO.png" height="60px" width="155px" alt="">
         </a>
       </div>
       <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class=" text-size">...</span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse  card-grafico" id="navbarResponsive">
         <ul class="navbar-nav ml-auto ">
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger text-menu text-secondary" href="#g-graficos">Grafico Geral</a>
@@ -144,7 +143,7 @@ include('./php/tabelaavaliacao.php');
     <div class="row">
 
       <!-- CARD 1 SUPERIOR-->
-      <div class="col-md-6 col-sm-12 col-xs-12 card-secundario  ">
+      <div class="col-md-6 col-sm-12 col-xs-12  ">
         <div class="py-3 border-size">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">LIGAÇÕES</h4>
         </div>
@@ -258,7 +257,7 @@ include('./php/tabelaavaliacao.php');
     <!-- Div menu inferior -->
     <div class="row ">
 
-      <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario ">
+      <div class="col-md-6 col-sm-12 col-xs-12 menu-card ">
         <div class="py-3 border-size">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">AVALIADAS</h4>
         </div>
@@ -317,7 +316,7 @@ include('./php/tabelaavaliacao.php');
       </div>
       <!-- FIM DO 1 CARD -->
       <!-- CARD 2 -->
-      <div class="col-md-6 col-sm-12 col-xs-12 menu-card card-secundario  ">
+      <div class="col-md-6 col-sm-12 col-xs-12 menu-card   ">
         <div class="py-3 border-size">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">NÃO AVALIADAS</h4>
         </div>
@@ -527,7 +526,7 @@ include('./php/tabelaavaliacao.php');
         <div class="py-3 border-size">
           <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">RELATORIOS</h4>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 borda " style="min-height:450px;">
+        <div class="col-md-12 col-sm-12 col-xs-12  " style="min-height:450px;">
         </div>
       </div>
     </div>

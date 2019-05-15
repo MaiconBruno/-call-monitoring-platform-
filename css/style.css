@@ -47,17 +47,16 @@ padding-bottom: 3px;
     background-color:rgb(235, 235, 235);
     
 }
+
 .card-principal{
     margin:2em 2em auto;
+    border-radius: 15px;
 }
 .card-grafico{
     margin:1em 1em auto;
   
 }
-.card-secundario{
-   margin-bottom: 40px;
-   
-}
+
 .menu-card{
     margin-top:15px;
   
