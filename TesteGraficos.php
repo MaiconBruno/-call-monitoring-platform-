@@ -1,6 +1,6 @@
 <?php
 
-include ('../php/conexao.php');
+include ('./php/conexao.php');
 $resposta1 = 0;
 $resposta2 = 0;
 $resposta3 = 0;
