@@ -428,7 +428,6 @@ include('./php/tabelaavaliacao.php');
                       <div class="radio d-flex justify-content-center align-items-center  id=" divData">
                         <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
                         <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
-
                         <label class="radio" for="campoDataFinal" id="labelDataFinal">Data Final:</label>
                         <input type="date" class="form-control" onmouseleave="habilitaCampoCampanhaData()" name="dataFinal" id="campoDataFinal" disabled="true">
                       </div>
@@ -442,7 +441,6 @@ include('./php/tabelaavaliacao.php');
                 </div>
               </form>
               <div class="col-md-12 col-sm-12 col-xs-12">
-
                 <table class="table table-hover table-secondary table-responsive-lg " id="tbl_ligacao">
                   <thead>
                     <tr class=>
@@ -460,7 +458,6 @@ include('./php/tabelaavaliacao.php');
                       <th>Resposta 5</th>
                     </tr>
                   </thead>
-
                   <tbody>
                     <?php while ($dado = $resultado->fetch_array()) {
                       if ($dado['resposta_1'] == null) {
@@ -479,7 +476,6 @@ include('./php/tabelaavaliacao.php');
                         $dado['resposta_5'] = "N/A";
                       }
                       ?>
-
                       <tr>
                         <td><?php echo $dado['matricula']; ?></td>
                         <td><?php echo $dado['nome']; ?></td>
@@ -516,9 +512,7 @@ include('./php/tabelaavaliacao.php');
           <!-- Fim do card principal -->
         </div>
       </div>
-
     </div>
-
     <!-- Relatorio -->
     <div class="row" id="relatorio">
       <div class="col-md-12 col-sm-12 col-xs-12">
@@ -534,7 +528,6 @@ include('./php/tabelaavaliacao.php');
     <footer class="bg-primary border-rodape">
       <h5 class="text-white size"> © Copyright 2019 - JCR Tecnologia Integrada</h5>
     </footer>
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -550,5 +543,4 @@ include('./php/tabelaavaliacao.php');
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
 </body>
-
 </html>
