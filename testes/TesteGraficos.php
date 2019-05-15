@@ -56,95 +56,66 @@ if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
 
 <div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero voluptates beatae odit sed corrupti commodi adipisci, voluptate molestias, nobis magni ullam inventore provident non nihil, blanditiis aliquam deserunt maxime.</p>
-    
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label>Filtrar por:</label>
+            
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
+                    <label class="form-check-label" for="campanha">Campanha</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
+                    <label class="form-check-label" for="equipe">Equipe</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
+                    <label class="form-check-label" for="agente">Agente</label>
+                </div>
 
+        <input type="text" name="parametro"> 
+        <input type="submit" value="buscar" id="btn_submit"> 
+    </form>
 </div>
-<script src=“js/jquery.js”></script>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label>Filtrar por:</label>
-        
-             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="campanha" value="campanha">
-                <label class="form-check-label" for="campanha">Campanha</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="equipe" value="equipe">
-                <label class="form-check-label" for="equipe">Equipe</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="opcaoAv" id="agente" value="agente">
-                <label class="form-check-label" for="agente">Agente</label>
-              </div>
 
-	<input type="text" name="parametro"> 
-	<input type="submit" value="buscar" id="btn_submit"> 
-</form>
+<div style="width: 900px; height: 500px;" id="gr_pizza">
+    <canvas id="pie-chart"></canvas>
+    <script src="path/to/chartjs/dist/Chart.js"></script>
+    <script>
+        new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+        data: {
+            labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+            datasets: [{
+            label: "Quantidade de respostas",
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            borderColor: "#000000",          
+            borderWidth: 1,
+            data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
+            }]
+        },
+        options: {
+            responsive: true,
+                title: {
+                    display: true,
+                    text: 'Quantidade de respostas por perguntas',
+                },
+                animation:{
+                    easing: "easeInQuad",
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }   
+        });
 
-
-
-
-<div style="width: 900px; height: 500px;" id="gr-pizza">
-<canvas id="pie-chart"></canvas>
-<script src="path/to/chartjs/dist/Chart.js"></script>
-<script>
-    new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
-    data: {
-        labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-        datasets: [{
-        label: "Quantidade de respostas",
-        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-        borderColor: "#000000",          
-        borderWidth: 1,
-        data: [  <?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>,<?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-        }]
-    },
-    options: {
-        responsive: true,
-            title: {
-                display: true,
-                text: 'Quantidade de respostas por perguntas',
-            },
-            animation:{
-                easing: "easeInQuad",
-                animateScale: true,
-                animateRotate: true
-            }
-    }
-});
-</script>
-
-<script type="text/javascript">
-
-    var intervalo = setInterval(function() { $('#gr-pizza').load('./testes/TesteGraficos.php'); }, 2000);
-</script>
+        var intervalo = setInterval(function() { $('#gr_pizza').load('TesteGraficos.php'); }, 10000);
+    </script>
 </div>
 
 </body>
