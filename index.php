@@ -24,7 +24,7 @@ include('./php/tabelaavaliacao.php');
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="PROJETO FINAL DE CURSO SENAI CETIND TURMA 58271">
@@ -80,7 +80,9 @@ include('./php/tabelaavaliacao.php');
   <!-- Inicio da div grafico principal -->
   <div id="g-graficos" class="bg-white card-principal ">
     <!-- Titulo da sessão -->
-
+    <div class="py-3 border-size">
+          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">Graficos</h4>
+        </div>
     <!-- Div menu radio -->
     <div class="d-flex justify-content-center menu-card">
       <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
@@ -386,7 +388,7 @@ include('./php/tabelaavaliacao.php');
           <!-- Card principal -->
           <div class=" text-dark col-md-12 col-sm-12 com-xs-12 ">
             <div>
-              <form action=" <?php echo $_SERVER['PHP_SELF']; ?>">
+            <form id="idFormulario" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <!-- Titulo -->
                 <div class="col-md-12 col-sm-12 com-xs-12 ">
                   <div class="d-flex justify-content-center align-items-center col-md-12 col-sm-12 com-xs-12  ">
@@ -408,15 +410,15 @@ include('./php/tabelaavaliacao.php');
                     </div>
                   </div>
                   <!-- Campos tipo Text e date -->
-                  <div class=" d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center form-inline ">
+                  <div class=" d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center form-inline">
 
-                    <div class="radio d-flex justify-content-center align-items-center " id="divCampoBusca">
+                    <div class="radio d-flex justify-content-center align-items-center" id="divCampoBusca">
                       <label class="radio" for="campoBusca" id="labelCampoBusca">Campo Busca:</label>
                       <input type="text" class="form-control" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">
                     </div>
 
 
-                    <div class="radio d-flex justify-content-center align-items-center " id="divCampanhaEquipe">
+                    <div class="radio d-flex justify-content-center align-items-center" id="divCampanhaEquipe">
                       <label class="radio" for="campoCampanha">Campanha:</label>
                       <input type="text" class="form-control" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
 
@@ -425,22 +427,24 @@ include('./php/tabelaavaliacao.php');
                     </div>
 
                     <div class="col-md-12 col-sm-12 com-xs-12">
-                      <div class="radio d-flex justify-content-center align-items-center  id=" divData">
+                      <div class="radio d-flex justify-content-center align-items-center"  id="divData">
                         <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
                         <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
+
                         <label class="radio" for="campoDataFinal" id="labelDataFinal">Data Final:</label>
                         <input type="date" class="form-control" onmouseleave="habilitaCampoCampanhaData()" name="dataFinal" id="campoDataFinal" disabled="true">
                       </div>
                     </div>
                     <div class="radio d-flex justify-content-center align-items-center container ">
                       <input class="btn btn-primary botão" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                      <input class="btn btn-danger botão" type="button" value="Limpar" onclick="limparCampos();">
+                      <input class="btn btn-danger botão" onclick="limpezaCampos();" type="button" value="Limpar">
                     </div>
                   </div>
                   <!-- FIm do campos text/date -->
                 </div>
               </form>
               <div class="col-md-12 col-sm-12 col-xs-12">
+
                 <table class="table table-hover table-secondary table-responsive-lg " id="tbl_ligacao">
                   <thead>
                     <tr class=>
@@ -458,6 +462,7 @@ include('./php/tabelaavaliacao.php');
                       <th>Resposta 5</th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <?php while ($dado = $resultado->fetch_array()) {
                       if ($dado['resposta_1'] == null) {
@@ -476,6 +481,7 @@ include('./php/tabelaavaliacao.php');
                         $dado['resposta_5'] = "N/A";
                       }
                       ?>
+
                       <tr>
                         <td><?php echo $dado['matricula']; ?></td>
                         <td><?php echo $dado['nome']; ?></td>
@@ -512,7 +518,9 @@ include('./php/tabelaavaliacao.php');
           <!-- Fim do card principal -->
         </div>
       </div>
+
     </div>
+
     <!-- Relatorio -->
     <div class="row" id="relatorio">
       <div class="col-md-12 col-sm-12 col-xs-12">
@@ -528,6 +536,7 @@ include('./php/tabelaavaliacao.php');
     <footer class="bg-primary border-rodape">
       <h5 class="text-white size"> © Copyright 2019 - JCR Tecnologia Integrada</h5>
     </footer>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -543,4 +552,5 @@ include('./php/tabelaavaliacao.php');
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
 </body>
+
 </html>
