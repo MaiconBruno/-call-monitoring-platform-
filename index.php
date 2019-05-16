@@ -453,7 +453,7 @@ include('./php/tabelaavaliacao.php');
               </form>
               <div class="col-md-12 col-sm-12 col-xs-12">
 
-                <table class="table table-hover table-secondary table-responsive-lg " id="tbl_ligacao">
+                <table class="table table-hover table-primary table-responsive-lg " id="tbl_ligacao">
                   <thead>
                     <tr class=>
                       <th>Matricula</th>
