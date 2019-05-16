@@ -94,3 +94,10 @@ padding-bottom: 3px;
 .text-menu{
     font-size: 20px;
 }
+.min-index{
+    min-height: 600px;
+}
+
+.vertical-align {
+  margin-top:50%;
+}
