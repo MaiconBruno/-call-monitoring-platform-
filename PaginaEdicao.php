@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CADASTRO-DASHBOARD JCR</title>
+    <title>EDITAR-DASHBOARD JCR</title>
 
 </head>
 
@@ -19,30 +19,36 @@
                     <img src="./icones/LOGO.PNG" alt="" height="140px" width="350px">
                 </div>
                 <br>
+                <label for="pequisar">Pesquisar Conta Cadastrada</label>
+                <form class="form-grup d-flex justify-content-center align-items-center" action="">
+                    <input id="pequisar" class="form-control" type="text" placeholder="Digite o nome do funcionario...">
+                    <button type="submit" class="btn btn-info ">Pesquisar</button>
+                </form>
+                <br>
                 <form action="" class="form-grup">
                     <div class="d-flex justify-content-center">
                         <div class="radio  ">
                             <label for="login">Login de usuario: </label>
-                            <input id="login" class="form-control" type="text" placeholder="Digite seu login...">
+                            <input id="login" class="form-control" type="text" placeholder="Editar Login..." disabled>
                             <br>
                             <label for="senha">Senha</label>
-                            <input id="senha" class="form-control" type="password" placeholder="Digite sua senha...">
+                            <input id="senha" class="form-control" type="password" placeholder="Editar Senha..." disabled>
                             <br>
                             <label for="senhaconf">Confirmar Senha</label>
-                            <input id="senhaconf" class="form-control" type="password" placeholder="Confirme sua senha...">
+                            <input id="senhaconf" class="form-control" type="password" placeholder="Confirmar senha Editada..." disabled>
                             <br>
                         </div>
                         <div class="radio">
                             <label for="campanha">Campanha: </label>
-                            <input id="campanha" class="form-control" type="text" placeholder="Digite seu campanha...">
+                            <input id="campanha" class="form-control" type="text" placeholder="Editar campanha..." disabled>
                             <br>
                             <label for="matricula">Matricula</label>
-                            <input id="matricula" class="form-control" type="text" placeholder="Digite sua matricula...">
+                            <input id="matricula" class="form-control" type="text" placeholder="Editar matricula..." disabled>
                             <br>
                             <label for="nivel">Nivel da conta</label>
-                            <select name="niveis" id="nivel" class="form-control">
+                            <select name="niveis" id="nivel" class="form-control" disabled>
                                 <option class="form-control" value="Agente" selected>Agente</option>
-                                <option class="form-control"  value="Supervisor">Supervisor</option>
+                                <option class="form-control" value="Supervisor">Supervisor</option>
                                 <option class="form-control" value="Administrador">Administrador</option>
                             </select>
                             <br>
@@ -50,8 +56,9 @@
                     </div>
 
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success radio">Cadastrar</button>
-                        <button type="button" class="btn btn-danger radio">Cancelar</button>
+                        <button type="submit" class="btn btn-success radio">Salvar Edição</button>
+                        <button type="button" class="btn btn-danger radio">Excluir Cadastro</button>
+                        <button type="button" class="btn btn-info radio">Cancelar</button>
                     </div>
                 </form>
             </div>

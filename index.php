@@ -24,7 +24,7 @@ include('./php/tabelaavaliacao.php');
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="PROJETO FINAL DE CURSO SENAI CETIND TURMA 58271">
@@ -69,10 +69,23 @@ include('./php/tabelaavaliacao.php');
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger text-menu  text-secondary" href="#relatorio">Relatorios</a>
           </li>
+          <div class="dropdown">
+            <span class="nav-link  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Configurações</span>
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
+              <li class="centralizador"><a class="text-dark" href="./PaginaDeCadastro.php">Cadastrar</a></li>
+              <li class="centralizador"><a class="text-dark" href="./PaginaEdicao.php">Editar Cadastro</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
+    <br>
+    <div class="top-margin col-md-1 col-sm-12 col-xs-12">
+      <h4 class="text-primary size3">Tipo de conta:</h4>
+      <h4 class="text-primary size2">Administrador</h4>
+    </div>
   </nav>
+
 
   <!-- Fim da nav do menu fixo no top -->
 
@@ -80,8 +93,8 @@ include('./php/tabelaavaliacao.php');
   <div id="g-graficos" class="bg-white card-principal ">
     <!-- Titulo da sessão -->
     <div class="py-3 border-size">
-          <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">Graficos</h4>
-        </div>
+      <h4 class="d-flex justify-content-center m-0 font-weight-bold text-secondary ">Graficos</h4>
+    </div>
     <!-- Div menu radio -->
     <div class="d-flex justify-content-center menu-card">
       <form class=" form-inline " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
@@ -383,7 +396,7 @@ include('./php/tabelaavaliacao.php');
           <!-- Card principal -->
           <div class=" text-dark col-md-12 col-sm-12 com-xs-12 ">
             <div>
-            <form id="idFormulario" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+              <form id="idFormulario" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <!-- Titulo -->
                 <div class="col-md-12 col-sm-12 com-xs-12 ">
                   <div class="d-flex justify-content-center align-items-center col-md-12 col-sm-12 com-xs-12  ">
@@ -422,7 +435,7 @@ include('./php/tabelaavaliacao.php');
                     </div>
 
                     <div class="col-md-12 col-sm-12 com-xs-12">
-                      <div class="radio d-flex justify-content-center align-items-center"  id="divData">
+                      <div class="radio d-flex justify-content-center align-items-center" id="divData">
                         <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
                         <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
 
@@ -502,9 +515,10 @@ include('./php/tabelaavaliacao.php');
                     "language": {
                       "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
                     },
-                    columnDefs: [
-                      { type: 'date-eu', targets: 4 }
-                    ]
+                    columnDefs: [{
+                      type: 'date-eu',
+                      targets: 4
+                    }]
                   });
                 });
               </script>
