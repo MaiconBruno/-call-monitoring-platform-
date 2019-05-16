@@ -98,6 +98,9 @@ padding-bottom: 3px;
     min-height: 600px;
 }
 
+
 .vertical-align {
-  margin-top:50%;
+    position: relative;
+    top: 50%;
+    transform: translateY(+430%); /* Adicionar os prefixos dos navegadores */
 }
