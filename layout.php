@@ -1,20 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Bootstrap Admin Theme v3</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- styles -->
-<link href="css/styles.css" rel="stylesheet">
+<?php
+//incluindo arquivo.php
+include('./php/graficoAvaliacao.php');
+include('./php/tabela_av.php');
+include('./php/tabelaavaliacao.php');
+//include('../php/tabelaavaliacao.php')
+?>
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<!-- Graficos JS -->
+<script type="text/javascript"></script>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- Importando chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- Importando bliblioteca da google Charts so chamar 1x-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
+  <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="PROJETO FINAL DE CURSO SENAI CETIND TURMA 58271">
+  <meta name="author" content="EQUIPE PFC-SENAI">
+  <!-- Importando chart.js -->
+  <script src="path/to/chartjs/dist/Chart.js"></script>
+  <title>DASH - JCR TECNOLOGIA</title>
+
+  <!-- Biblioteca CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+  <!-- import scrolling-nav.css -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+  <!-- import estilos.css -->
+
+
 </head>
 <body>
 <nav class="border-size-top fixed-top">
@@ -246,7 +272,7 @@
                  
                     <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
                       <select class="form-control col-md-4 col-sm-4 col-xs-4" name="seleciona-mes" id="liga-mes">
-                        <option value="mes" selected>Mes</option>
+                        <option value="mes" selected>Mês</option>
                         <option value="jan">01</option>
                         <option value="fev">02</option>
                         <option value="mar">03</option>
@@ -256,7 +282,7 @@
                         <option value="jul">07</option>
                         <option value="ago">08</option>
                         <option value="set">09</option>
-                        <option value="out">10t</option>
+                        <option value="out">10</option>
                         <option value="nov">11</option>
                         <option value="dez">12</option>
                       </select>
@@ -306,19 +332,19 @@
                   <div class="row select-margin">
                     <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
                       <select class="form-control col-md-4 col-sm-4 col-xs-4" name="seleciona-mes" id="liga-mes">
-                        <option value="mes" selected>Mes</option>
-                        <option value="jan">Jan</option>
-                        <option value="fev">Fev</option>
-                        <option value="mar">Mar</option>
-                        <option value="abr">Abr</option>
-                        <option value="mai">Mai</option>
-                        <option value="jun">Jun</option>
-                        <option value="jul">Jul</option>
-                        <option value="ago">Ago</option>
-                        <option value="set">Set</option>
-                        <option value="out">Out</option>
-                        <option value="nov">Nov</option>
-                        <option value="dez">Dez</option>
+                        <option value="mes" selected>Mês</option>
+                        <option value="jan">01</option>
+                        <option value="fev">02</option>
+                        <option value="mar">03</option>
+                        <option value="abr">04</option>
+                        <option value="mai">05</option>
+                        <option value="jun">06</option>
+                        <option value="jul">07</option>
+                        <option value="ago">08</option>
+                        <option value="set">09</option>
+                        <option value="out">10</option>
+                        <option value="nov">11</option>
+                        <option value="dez">12</option>
                       </select>
                       <select class="form-control col-md-4 col-sm-4 col-xs-4" name="liga-ano" id="liga-date">
                         <option value="ano" selected>Ano</option>
@@ -364,19 +390,19 @@
                   <div class="row select-margin">
                     <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
                       <select class="form-control col-md-4 col-sm-4 col-xs-4" name="seleciona-mes" id="liga-mes">
-                        <option value="mes" selected>Mes</option>
-                        <option value="jan">Jan</option>
-                        <option value="fev">Fev</option>
-                        <option value="mar">Mar</option>
-                        <option value="abr">Abr</option>
-                        <option value="mai">Mai</option>
-                        <option value="jun">Jun</option>
-                        <option value="jul">Jul</option>
-                        <option value="ago">Ago</option>
-                        <option value="set">Set</option>
-                        <option value="out">Out</option>
-                        <option value="nov">Nov</option>
-                        <option value="dez">Dez</option>
+                        <option value="mes" selected>Mês</option>
+                        <option value="jan">01</option>
+                        <option value="fev">02</option>
+                        <option value="mar">03</option>
+                        <option value="abr">04</option>
+                        <option value="mai">05</option>
+                        <option value="jun">06</option>
+                        <option value="jul">07</option>
+                        <option value="ago">08</option>
+                        <option value="set">09</option>
+                        <option value="out">10</option>
+                        <option value="nov">11</option>
+                        <option value="dez">12</option>
                       </select>
                       <select class="form-control col-md-4 col-sm-4 col-xs-4" name="liga-ano" id="liga-date">
                         <option value="ano" selected>Ano</option>
@@ -562,7 +588,20 @@
     <div class="copy text-center"> Copyright 2014 <a href='#'>Website</a> </div>
   </div>
 </footer>
-
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+    <!-- Importando avaliacao.js -->
+    <script src="../js/avaliacao.js"></script>
+    <!-- imports do Jquery -->
+    <script src="./js/avaliacao.js"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="https://code.jquery.com/jquery.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
