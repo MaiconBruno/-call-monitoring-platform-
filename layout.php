@@ -53,98 +53,76 @@ include('./php/tabelaavaliacao.php');
 </nav>
 <div class="page-content" style="padding-top:60px; background-color:#DFDFFF"> <!-- div da pagina toda -->
   <div class="row">
-    <div class="col-md-12">
-      <div class="row"> <!-- Aqui começa o primeiro card-->
+    <div class="col-md-12" >
+      <div class="row" > <!-- Aqui começa o primeiro card-->
         <div class="col-md-5">
           <div class="content-box-header">
             <div class="panel-title">Total de chamadas recebidas</div>
           </div>
-          <div class="content-box-large box-with-header">
+          <div class="content-box-large box-with-header" >
             <canvas id="G_ligacao"></canvas>
             <script>
         new Chart(document.getElementById("G_ligacao"), {
           type: 'line',
-          data: {
-           
-            datasets: [{
-              label: "Chamadas (millions)",
-              backgroundColor: ["blue",],
-              data: [4, 23, 11],
-              fill: false,
-              
-            }],
-			
-            datasets: [{
-              label: "Chamadas (millions)",
-              backgroundColor: ["red"],
-              data: [13, 08, 32],
-              fill: false,
-              
-            }],
-          },
-          options: {
+         
+		 data:{
+		  
+        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+ datasets : [
+ 
+ {
+  backgroundColor: ["red"],
+  fill: false,
+  
+  borderColor: "red",
+ data : [20,40,42,58,31,21,50,60,42,13,23,11]
+ }
+		]},
+        
+            options: {
             animation: {
               easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
               animateScale: true,
               animateRotate: true
-            }
+            },
+            legend: {
+            display: false
+        }
+           
           }
         });
-      </script> 
+      </script>  
           </div>
           <div class="content-box-header">
             <div class="panel-title">Total avaliadas e nao avaliadas</div>
           </div>
           <div class="content-box-large box-with-header">
-          <div class="row select-margin">
-                  <div class="col-md-12">
-                    <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                      <input type="date" class="form-control col-md-7 col-sm-4 col-xs-4" name="data" id="campoData" >
-                      <button type="submit" class="form-control btn-outline-success col-md-5 col-sm-4 col-xs-4">Buscar</button>
-                    </form>
-                  </div>
-                </div>
-                <br/>
-                <br/>
             <canvas id="G_ligacaoN"></canvas>
             <script>
         new Chart(document.getElementById("G_ligacaoN"), {
           type: 'line',
-          data: {
-           
-            datasets: [{
-              label: "Chamadas (millions)",
-              backgroundColor: ["blue",],
-              data: [4, 23, 11],
-              fill: false,
-              
-            }],
-			
-            datasets: [{
-              label: "Chamadas (millions)",
-              backgroundColor: ["red"],
-              data: [13, 08, 32],
-              fill: false,
-              
-            }],
-          },
-		  data: {
-        labels: ['2000', '2001', '2002', '2003', '2004', '2005'],
-        datasets: [{
-                label: "Chamadas (millions)",
-              backgroundColor: ["red"],
-              data: [13, 08, 32],
-              fill: false,
-            },
-            {
-                label: 'Exemplo de Gráfico Comparativo',
-                data: [173448346, 185150806, 175885229, 182911487, 178276128, 180619108],
-                backgroundColor: "rgba(0, 255, 0, 0.3)",
-                borderColor: "#002200"
-            }
-        ],
-    
-          options: {
+         
+		 data:{
+		  
+        labels : ["Seg","Ter","Qua","Qui","Sex","Sab","Dom"],
+ datasets : [
+ {
+	  backgroundColor: ["blue"],
+	  label:"Avaliadas",
+fill: false,
+borderColor: "#0000ff",
+ data : [65,54,30,81,56,55,40]
+ },
+ {
+  backgroundColor: ["red"],
+  fill: false,
+  label:"Não Avaliadas",
+  borderColor: "red",
+ data : [20,60,42,58,31,21,50]
+ }
+		]},
+        
+            options: {
             animation: {
               easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
               animateScale: true,
@@ -155,6 +133,7 @@ include('./php/tabelaavaliacao.php');
       </script>  
           </div>
         </div>
+        
         <!-- Aqui termina o primeiro card-->
         <div class="col-md-4"><!-- Aqui começa o segundo card-->
           <div class="row">
