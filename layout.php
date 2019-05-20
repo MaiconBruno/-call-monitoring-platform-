@@ -17,6 +17,8 @@ include('./php/tabelaavaliacao.php');
 <!-- Importando chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <!-- Importando bliblioteca da google Charts so chamar 1x-->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
 <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -58,6 +60,7 @@ include('./php/tabelaavaliacao.php');
         <div class="col-md-5">
           <div class="content-box-header">
             <div class="panel-title">Total de chamadas recebidas</div>
+            
           </div>
           <div class="content-box-large box-with-header" >
             <canvas id="G_ligacao"></canvas>
@@ -94,7 +97,7 @@ include('./php/tabelaavaliacao.php');
       </script>  
           </div>
           <div class="content-box-header">
-            <div class="panel-title">Total avaliadas e nao avaliadas</div>
+            <div class="panel-title">Total avaliadas e não avaliadas</div>
           </div>
           <div class="content-box-large box-with-header">
             <canvas id="G_ligacaoN"></canvas>
@@ -150,7 +153,7 @@ borderColor: "#0000ff",
                     </form>
                   </div>
                 </div>
-                <br/>
+               
                 <br/>
                 <canvas id="G-interacao"></canvas>
                 <script>
@@ -188,39 +191,63 @@ borderColor: "#0000ff",
           <div class="row">
             <div class="col-md-12">
               <div class="content-box-header">
-                <div class="panel-title">Aqui vem um grafico importante individual</div>
+                <div class="panel-title">Média por perguntas</div>
               </div>
               <div class="content-box-large box-with-header">
-                <canvas id="G-avaliacao"></canvas>
+              <div class="col-md-12">
+                  <div class="row select-margin">
+                    <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
+                      <input type="date" class="form-control col-md-8 col-sm-4 col-xs-4" name="data" id="campoData" >
+                      <button type="submit" class="form-control btn-outline-success col-md-4 col-sm-4 col-xs-4">Buscar</button>
+                    </form>
+                  </div>
+                 
+                </div>
+              <canvas id="G-mediaRespondidas"></canvas>
                 <script>
-            new Chart(document.getElementById("G-avaliacao"), {
+            new Chart(document.getElementById("G-mediaRespondidas"), {
               type: 'doughnut',
               data: {
-                labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
+				  
                 datasets: [{
-                  label: "Population (millions)",
-                  backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                  data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>]
-                }],
+                 backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
+                  data: [7,6,5,4,3],
+				  }],
               },
               options: {
-                responsive: true,
                 title: {
                   display: false,
                 },
                 animation: {
-                  easing: "easeInQuad",
-                  animateScale: true,
+                  easing: "easeInOutCirc", 
+				  animateScale: true,
                   animateRotate: true
-                }
+                },
               }
             });
           </script> 
+          <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary" ></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                  </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-3" style="padding-top:30px; background-color:#A9D0F5"><!-- Aqui começa o segundo card-->
+        <div class="col-md-3" style="padding-top:40px; background-color:#A9D0F5"><!-- Aqui começa o segundo card-->
           <div class="row">
             <div class="col-md-12">
               <div class="content-box-header">
@@ -258,14 +285,31 @@ borderColor: "#0000ff",
                 },
               }
             });
-          </script> 
+          </script> <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary" ></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                  </div>
               </div>
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="content-box-header">
-                <div class="panel-title">Pergunta menos respondidas</div>
+                <div class="panel-title">Pergunta menos respondida</div>
               </div>
               <div class="content-box-large box-with-header">
                 <div class="col-md-12">
@@ -299,50 +343,27 @@ borderColor: "#0000ff",
               }
             });
           </script> 
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="content-box-header">
-                <div class="panel-title">Media por perguntas</div>
-              </div>
-              <div class="content-box-large box-with-header">
-                <div class="col-md-12">
-                  <div class="row select-margin">
-                    <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                      <input type="date" class="form-control col-md-7 col-sm-4 col-xs-4" name="data" id="campoData" >
-                      <button type="submit" class="form-control btn-outline-success col-md-5 col-sm-4 col-xs-4">Buscar</button>
-                    </form>
+          <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary" ></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
                   </div>
-                </div>
-                <canvas id="G-mediaRespondidas"></canvas>
-                <script>
-            new Chart(document.getElementById("G-mediaRespondidas"), {
-              type: 'doughnut',
-              data: {
-				  
-                datasets: [{
-                 backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
-                  data: [7,6,5,4,3],
-				  }],
-              },
-              options: {
-                title: {
-                  display: false,
-                },
-                animation: {
-                  easing: "easeInOutCirc", 
-				  animateScale: true,
-                  animateRotate: true
-                },
-              }
-            });
-          </script> 
-                <br />
               </div>
             </div>
           </div>
+          
         </div>
       </div>
       <div class="row">
