@@ -18,7 +18,6 @@ include('./php/tabelaavaliacao.php');
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <!-- Importando bliblioteca da google Charts so chamar 1x-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
 <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -55,85 +54,78 @@ include('./php/tabelaavaliacao.php');
 </nav>
 <div class="page-content" style="padding-top:60px; background-color:#DFDFFF"> <!-- div da pagina toda -->
   <div class="row">
-    <div class="col-md-12" >
+    <div class="col-md-12"  >
       <div class="row" > <!-- Aqui começa o primeiro card-->
-        <div class="col-md-5">
-          <div class="content-box-header">
-            <div class="panel-title">Total de chamadas recebidas</div>
-            
-          </div>
-          <div class="content-box-large box-with-header" >
-            <canvas id="G_ligacao"></canvas>
-            <script>
-        new Chart(document.getElementById("G_ligacao"), {
-          type: 'line',
-         
-		 data:{
-		  
-        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
- datasets : [
- 
- {
-  backgroundColor: ["red"],
-  fill: false,
-  
-  borderColor: "red",
- data : [20,40,42,58,31,21,50,60,42,13,23,11]
- }
-		]},
-        
-            options: {
-            animation: {
-              easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-              animateScale: true,
-              animateRotate: true
-            },
-            legend: {
-            display: false
-        }
+        <div class="col-md-5" >
+          <div class="box-one"   >
+            <div class="content-box-header">
+              <div class="panel-title">Total de chamadas recebidas</div>
+            </div>
+            <div class="content-box-large box-with-header">
+              <canvas id="G_ligacao"></canvas>
+              <script>
+        		new Chart(document.getElementById("G_ligacao"), {
+          		type: 'line',
+			 	data:{
+		  			labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+ 					datasets : [{
+  						backgroundColor: ["red"],
+  						fill: false,
+  						borderColor: "red",
+ 						data : [20,40,42,58,31,21,50,60,42,13,23,11]
+ 					}
+				]},
+        		options: {
+            		animation: {
+              			easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+              			animateScale: true,
+              			animateRotate: true
+            		},
+            		legend: {
+            			display: false
+        			}
            
-          }
-        });
-      </script>  
+          		}
+        	});
+      		</script> 
+            </div>
           </div>
+          <div class="box-one">
           <div class="content-box-header">
             <div class="panel-title">Total avaliadas e não avaliadas</div>
           </div>
           <div class="content-box-large box-with-header">
             <canvas id="G_ligacaoN"></canvas>
             <script>
-        new Chart(document.getElementById("G_ligacaoN"), {
-          type: 'line',
-         
-		 data:{
-		  
-        labels : ["Seg","Ter","Qua","Qui","Sex","Sab","Dom"],
- datasets : [
- {
-	  backgroundColor: ["blue"],
-	  label:"Avaliadas",
-fill: false,
-borderColor: "#0000ff",
- data : [65,54,30,81,56,55,40]
- },
- {
-  backgroundColor: ["red"],
-  fill: false,
-  label:"Não Avaliadas",
-  borderColor: "red",
- data : [20,60,42,58,31,21,50]
- }
-		]},
-        
-            options: {
-            animation: {
-              easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-              animateScale: true,
-              animateRotate: true
-            }
-          }
-        });
-      </script>  
+        		new Chart(document.getElementById("G_ligacaoN"), {
+          		type: 'line',
+         		data:{
+					labels : ["Seg","Ter","Qua","Qui","Sex","Sab","Dom"],
+ 					datasets : [{
+	  					backgroundColor: ["blue"],
+	  					label:"Avaliadas",
+						fill: false,
+						borderColor: "#0000ff",
+ 						data : [65,54,30,81,56,55,40]
+ 					},
+ 					{
+  						backgroundColor: ["red"],
+  						fill: false,
+  						label:"Não Avaliadas",
+  						borderColor: "red",
+ 						data : [20,60,42,58,31,21,50]
+ 					}
+				]},
+        		options: {
+            		animation: {
+              			easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+              			animateScale: true,
+              			animateRotate: true
+            		}
+          		}
+        	});
+      		</script> 
+          </div>
           </div>
         </div>
         
@@ -153,38 +145,34 @@ borderColor: "#0000ff",
                     </form>
                   </div>
                 </div>
-               
                 <br/>
                 <canvas id="G-interacao"></canvas>
                 <script>
-            new Chart(document.getElementById("G-interacao"), {
-              type: 'horizontalBar',
-              data: {
-                labels: ["Facebook", "Email", "Chat", "WhatsApp", "Telefone", "Skype" ],
-                datasets: [{
-                  
-                  backgroundColor: ["#0000FF", "#5882FA", "#00BFFF", "#01A9DB", "#04B4AE", "#A9D0F5"],
-                  data: [30, 50, 25, 15, 12, 14]
-                }],
-              },
-              options: {
-                responsive: true,
-                title: {
-                  display: false,
-                },
-				
-                animation: {
-                  easing: "easeInQuad",
-                  animateScale: true,
-                  animateRotate: true
-                },
-				legend: {
-            display: false,
-            
-        }
-              }
-            });
-          </script> 
+            		new Chart(document.getElementById("G-interacao"), {
+              		type: 'horizontalBar',
+              		data: {
+                		labels: ["Facebook", "Email", "Chat", "WhatsApp", "Telefone", "Skype" ],
+                		datasets: [{
+                  			backgroundColor: ["#0000FF", "#5882FA", "#00BFFF", "#01A9DB", "#04B4AE", "#A9D0F5"],
+                  			data: [30, 50, 25, 15, 12, 14]
+                		}],
+              		},
+              		options: {
+                		responsive: true,
+                		title: {
+                  			display: false,
+                		},
+						animation: {
+                  			easing: "easeInQuad",
+                  			animateScale: true,
+                  			animateRotate: true
+                		},
+						legend: {
+            				display: false,
+            			}
+              		}
+            	});
+         		</script> 
               </div>
             </div>
           </div>
@@ -194,55 +182,37 @@ borderColor: "#0000ff",
                 <div class="panel-title">Média por perguntas</div>
               </div>
               <div class="content-box-large box-with-header">
-              <div class="col-md-12">
+                <div class="col-md-12">
                   <div class="row select-margin">
                     <form class="form-inline" action=" <?php echo $_SERVER['PHP_SELF']; ?>">
                       <input type="date" class="form-control col-md-8 col-sm-4 col-xs-4" name="data" id="campoData" >
                       <button type="submit" class="form-control btn-outline-success col-md-4 col-sm-4 col-xs-4">Buscar</button>
                     </form>
                   </div>
-                 
                 </div>
-              <canvas id="G-mediaRespondidas"></canvas>
+                <canvas id="G-mediaRespondidas"></canvas>
                 <script>
-            new Chart(document.getElementById("G-mediaRespondidas"), {
-              type: 'doughnut',
-              data: {
-				  
-                datasets: [{
-                 backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
-                  data: [7,6,5,4,3],
-				  }],
-              },
-              options: {
-                title: {
-                  display: false,
-                },
-                animation: {
-                  easing: "easeInOutCirc", 
-				  animateScale: true,
-                  animateRotate: true
-                },
-              }
-            });
-          </script> 
-          <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary" ></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+            		new Chart(document.getElementById("G-mediaRespondidas"), {
+              		type: 'doughnut',
+              		data: {
+						datasets: [{
+                 			backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
+                  			data: [7,6,5,4,3],
+				  		}],
+              		},
+             		options: {
+                		title: {
+                  			display: false,
+                		},
+               			animation: {
+                  			easing: "easeInOutCirc", 
+				  			animateScale: true,
+                  			animateRotate: true
+                		},
+              		}
+            	});
+          		</script>
+                <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary" ></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div>
               </div>
             </div>
           </div>
@@ -265,45 +235,28 @@ borderColor: "#0000ff",
                 </div>
                 <canvas id="G-Respondidas"></canvas>
                 <script>
-            new Chart(document.getElementById("G-Respondidas"), {
-              type: 'doughnut',
-              data: {
-				  
-                datasets: [{
-                  backgroundColor: ["#FF0000", "#FF4000", "#FF8000", "#FFBF00", "#F7FE2E"],
-                  data: [7,6,5,4,3],
-				  }],
-              },
-              options: {
-                title: {
-                  display: false,
-                },
-                animation: {
-                  easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-                  animateScale: true,
-                  animateRotate: true
-                },
-              }
-            });
-          </script> <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary" ></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+            		new Chart(document.getElementById("G-Respondidas"), {
+              		type: 'doughnut',
+              		data: {
+						datasets: [{
+                  			backgroundColor: ["#FF0000", "#FF4000", "#FF8000", "#FFBF00", "#F7FE2E"],
+                  			data: [7,6,5,4,3],
+				  		}],
+              		},
+              		options: {
+                		title: {
+                  			display: false,
+                		},
+                		animation: {
+                  			easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
+                  			animateScale: true,
+                  			animateRotate: true
+                		},
+              		}
+            	});
+          		</script>
+                <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary" ></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div>
               </div>
-              
             </div>
           </div>
           <div class="row">
@@ -322,48 +275,30 @@ borderColor: "#0000ff",
                 </div>
                 <canvas id="G-naoRespondidas"></canvas>
                 <script>
-            new Chart(document.getElementById("G-naoRespondidas"), {
-              type: 'doughnut',
-              data: {
-				  
-                datasets: [{
-                 backgroundColor: ["#F78181", "#F79F81", "#F7BE81", "#F5DA81", "#F3F781"],
-                  data: [7,6,5,4,3],
-				  }],
-              },
-              options: {
-                title: {
-                  display: false,
-                },
-                animation: {
-                  easing: "easeInOutCirc", 
-				  animateScale: true,
-                  animateRotate: true
-                },
-              }
-            });
-          </script> 
-          <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary" ></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+            		new Chart(document.getElementById("G-naoRespondidas"), {
+              		type: 'doughnut',
+              		data: {
+						datasets: [{
+                 			backgroundColor: ["#F78181", "#F79F81", "#F7BE81", "#F5DA81", "#F3F781"],
+                  			data: [7,6,5,4,3],
+				  		}],
+              		},
+              		options: {
+                		title: {
+                  			display: false,
+                		},
+                		animation: {
+                  			easing: "easeInOutCirc", 
+				  			animateScale: true,
+                  			animateRotate: true
+                		},
+              		}
+            	});
+          		</script>
+                <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary" ></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
       <div class="row">
@@ -509,7 +444,7 @@ borderColor: "#0000ff",
 </div>
 <footer>
   <div class="container">
-    <div class="copy text-center"> Copyright 2014 <a href='#'>Website</a> </div>
+    <div class="copy text-center"> Copyright 2019 <a href='#'>Dashboard de Qualidade JCR </a> </div>
   </div>
 </footer>
 <!-- Bootstrap core JavaScript --> 
