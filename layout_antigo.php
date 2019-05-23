@@ -49,7 +49,7 @@ include('./php/tabelaavaliacao.php');
     <div class="container ">
       <div class="centralizador ">
         <a class="text-titulo navbar-brand js-scroll-trigger" href="#inicio">
-          <img class="imagen-titulo" src="./icones/LOGO.png" height="60px" width="155px" alt="">
+          <img class="imagen-titulo" src="./icones/LOGO.png" height="80px" width="185px" alt="">
         </a>
       </div>
       <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

@@ -47,7 +47,7 @@ include('./php/tabelaavaliacao.php');
     <div class="header">
       <div class="container">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-12 d-flex justify-content-center">
             <div class="logo"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
           </div>
         </div>
