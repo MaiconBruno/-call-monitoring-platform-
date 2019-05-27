@@ -15,6 +15,7 @@
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
+
 <script language='JavaScript'>
 //função para so permitir no campo numeros
 function SomenteNumero(e){
@@ -41,12 +42,14 @@ function soLetras(e){
 	return (re.test(chr)); // com evt<20 permitimos <ENTER>,<TAB>,<BACKSPACE>
 }
 
-
 function abrir(URL) {
   window.open('busca.html', 'janela', 'width=1200, height=450, top=100, left=699, scrollbars=no, status=no, toolbar=no, location=no, menubar=no, resizable=no, fullscreen=no')
 }
-
+function abrir2(URL) {
+  window.open('excluir.html', 'janela', 'width=1200, height=700, top=100, left=699, scrollbars=no, status=no, toolbar=no, location=no, menubar=no, resizable=no, fullscreen=no')
+}
 </script>
+
 <body class="bg-gradient-primary">
 <div class="container">
   <div class="card o-hidden border-0 shadow-lg my-5">
@@ -57,56 +60,56 @@ function abrir(URL) {
         <div class="col-lg-7">
           <div class="p-5">
             <div class="text-center">
-              <h1 class="h3 text-gray-900 mb-4">Preencha os campos para cadastrar</h1>
+              <h1 class="h3 text-gray-900 mb-4">Preencha os campos para Editar</h1>
             </div>
             <form class="user" method="POST" action="./php/salvar_dados.php">
               <div class="form-group row" style="margin-top:30px">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="nome" placeholder="Nome">
+                  <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="nome" placeholder="Nome" disabled>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="sobrenome" placeholder="Sobrenome">
+                  <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="sobrenome" placeholder="Sobrenome" disabled>
                 </div>
               </div>
               <div class="form-group">
-                <input type="email" class="form-control form-control-user" required id="email" placeholder="Email">
+                <input type="email" class="form-control form-control-user" id="email" required placeholder="Email">
               </div>
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="password" class="form-control form-control-user" required id="senha" placeholder="Senha">
+                  <input type="password" class="form-control form-control-user" id="senha" required placeholder="Senha">
                 </div>
                 <div class="col-sm-6">
-                  <input type="password" class="form-control form-control-user" required id="confirmarsenha" placeholder="Confirmar senha">
+                  <input type="password" class="form-control form-control-user" id="confirmarsenha" required placeholder="Confirmar senha">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control form-control-user" required id="matricula" maxlength="15" placeholder="Matricula">
+                  <input type="text" class="form-control form-control-user" required id="matricula" maxlength="15" placeholder="Matricula" disabled>
                 </div>
                 <div class="col-sm-6">
-                  <select id="nivel" class="custom-select" name="nivel">
-                    <option id="agente" value="valor1" selected>Agente</option>
-                    <option id="supervisor" value="valor2">Supervisor</option>
+                  <select id="nivel" class="custom-select" name="nivel" required>
+                    <option id="agente" required value="valor1">Agente</option>
+                    <option id="supervisor" required value="valor2">Supervisor</option>
                   </select>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control form-control-user" required id="ramal" maxlength="12" placeholder="Ramal">
+                  <input type="text" class="form-control form-control-user" required id="ramal" onkeypress='return SomenteNumero(event)' maxlength="12" placeholder="Ramal">
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" placeholder="CPF">
-                </div>
+                  <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" placeholder="CPF" disabled>
+                </div> 
               </div>
-              <button type="submit" class="btn btn-success btn-sm btn-user btn-block">Confirmar cadastro</button>
+              <button type="submit" class="btn btn-success btn-sm btn-user btn-block">Editar cadastro</button>
             </form>
             <hr>
             <div class="text-center">
               <h5 class="font-weight-bold"> O que deseja fazer agora...?</h5>
-              <a href="cadastro.html"><button type="submit" id="cadastranovo" class="btn btn-success btn-sm btn-user">Cadastrar novo usuário</button></a>
-              <button type="submit" id="editar" onClick="abrir()" class="btn btn-primary btn-sm btn-user">Editar usuário</button>
-              <button type="submit" id="excluir" onClick="abrir()" class="btn btn-danger btn-sm btn-user">Excluir usuário</button>
-              <a href="inicio.html"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
+              <button type="submit" id="cadastranovo" onClick="abrir()" class="btn btn-success btn-sm btn-user">Editar novo usuário</button></a>
+              <a href="./PaginaDeCadastro.php"> <button type="submit" id="editar" class="btn btn-primary btn-sm btn-user">cadastrar usuário</button></a>
+              <button type="submit" id="excluir" onClick="abrir2()" class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
+              <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
             </div>
           </div>
         </div>

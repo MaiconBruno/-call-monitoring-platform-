@@ -8,13 +8,15 @@ body {
   padding-top: 63px;
   padding-bottom: 3px;
 }
-
+.pd{
+   padding: 30px;  
+}
 .tabelas-fixo {
    position: fixed;
    bottom:10px;
    right:10px;
    z-index: 999; 
-   padding: 30px;  
+   
 }
 .zoom {
 	overflow: hidden;

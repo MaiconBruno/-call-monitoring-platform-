@@ -54,7 +54,7 @@ include('./php/tabelaavaliacao.php');
             </div>
         </div>
     </nav>
-    <div class="page-content" style="padding-top:1px; background-color:#0C98E8">
+    <div class="page-content" style="padding-top:1px; background-color:#074DFF">
         <!-- div da pagina toda -->
         <div class="row">
             <div class="col-md-12">
@@ -203,7 +203,7 @@ include('./php/tabelaavaliacao.php');
         </div>
     </div>
     </div>
-    <div class="tabelas-fixo zoom ">
+    <div class="tabelas-fixo zoom pd ">
         <a href="./index.php">
             <img class="img-responsive" src="./icones/icone_RA.png" width="100px" height="100px" alt="Tabelas" />
         </a>
