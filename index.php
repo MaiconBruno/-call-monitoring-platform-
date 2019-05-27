@@ -3,6 +3,7 @@
 include('./php/graficoAvaliacao.php');
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
+
 //include('../php/tabelaavaliacao.php')
 ?>
 
@@ -13,6 +14,7 @@ include('./php/tabelaavaliacao.php');
 <html lang="pt-BR">
 
 <head>
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/style.css">
   <link href="css/sb-admin.css" rel="stylesheet">
   <!-- Importando chart.js -->
@@ -44,7 +46,7 @@ include('./php/tabelaavaliacao.php');
 
 <body>
   <nav class="border-size-top fixed-top">
-    <div class="header">
+    <div class="header" style="background-color:white;">
       <div class="container">
         <div class="row">
           <div class="col-md-12 d-flex justify-content-center">
@@ -54,7 +56,7 @@ include('./php/tabelaavaliacao.php');
       </div>
     </div>
   </nav>
-  <div class="page-content" style="padding-top:40px; background-color:#DFDFFF">
+  <div class="page-content" style="padding-top:1px; background-color:#0C98E8">
     <!-- div da pagina toda -->
     <div class="row">
       <div class="col-md-12">
@@ -237,7 +239,7 @@ include('./php/tabelaavaliacao.php');
               </div>
             </div>
           </div>
-          <div class="col-md-3" style="padding-top:40px; background-color:#A9D0F5">
+          <div class="col-md-3" style="padding-top:20px; background-color:#0EB8E8; border-radius:20px;">
             <!-- Aqui começa o segundo card-->
             <div class="row">
               <div class="col-md-12">
@@ -338,153 +340,11 @@ include('./php/tabelaavaliacao.php');
             </div>
           </div>
         </div>
-
-        <div class="row ">
-          <div class="col-md-12 col-sm-12 col-xs-12 panel-warning ">
-            <div class="content-box-header panel-heading">
-              <div class="panel-title ">Tabela de busca geral</div>
-            </div>
-            <div class="content-box-large box-with-header ">
-              <div class="row">
-                <!-- Div Esquerda que aloca 2 graficos -->
-                <div class="col-md-12 col-sm-12 col-xs-12 ">
-                  <!-- Card principal -->
-                  <div class="text-dark col-md-12 col-sm-12 com-xs-12">
-                    <div class="row ">
-                      <form id="idFormulario" class="col-md-12 col-sm-12 col-xs-12" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                        <!-- Titulo -->
-                        <div class="d-flex justify-content-center align-items-center ">
-                          <div class=" form-check ">
-                            <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioMatricula" value="matricula">
-                            <label for="radioMatricula">Matricula</label>
-                          </div>
-                          <div class=" form-check">
-                            <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioNome" value="nome">
-                            <label for="radioNome">Agente</label>
-                          </div>
-                          <div class=" form-check">
-                            <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioAni" value="ani">
-                            <label for="radioAni">Contato do Cliente</label>
-                          </div>
-                          <div class=" form-check">
-                            <input type="radio" onclick="escondeDiv();" name="tipoBusca" id="radioData" value="data">
-                            <label for="radioData">Data</label>
-                          </div>
-                        </div>
-                        <!-- Campos tipo Text e date -->
-                        <div class="row" id="divCampoBusca">
-                          <div class="d-flex col-md-12 col-sm-12 col-xs-12">
-                            <label class="radio" for="campoBusca" id="labelCampoBusca">Busca: </label>
-                            <input type="text" class="form-control" onkeyup="habilitaCampoCampanha()" name="parametro" id="campoBusca" disabled="true">
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="d-flex row  col-md-12 col-sm-12 col-xs-12" id="divCampanhaEquipe">
-                            <div class="d-flex col-md-6 col-sm-12 col-xs-12">
-                              <label class="radio" for="campoCampanha">Campanha:</label>
-                              <input type="text" class="form-control" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
-                            </div>
-                            <div class="d-flex col-md-6 col-sm-12 col-xs-12">
-                              <label class="radio" for="campoEquipe">Equipe:</label>
-                              <input type="text" class="form-control" name="equipe" id="campoEquipe" disabled="true">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <!-- Campos de data -->
-                          <div class="d-flex row  col-md-12 col-sm-12 col-xs-12" id="divData">
-                            <div class="d-flex col-md-6 col-sm-6 col-xs-12">
-                              <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
-                              <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
-                            </div>
-                            <div class="d-flex col-md-6 col-sm-6 col-xs-12">
-                              <label class="radio" for="campoDataFinal" id="labelDataFinal">Data Final:</label>
-                              <input type="date" class="form-control" onmouseleave="habilitaCampoCampanhaData()" name="dataFinal" id="campoDataFinal" disabled="true">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="radio d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center">
-                          <input class="btn btn-primary botão col-md-3 col-sm-3 col-xs-3" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                          <input class="btn btn-danger col-md-3 col-sm-3 col-xs-3 botão" onclick="limpezaCampos();" type="button" value="Limpar">
-                        </div>
-                        <!-- FIm do campos text/date -->
-                      </form>
-                    </div>
-                    <table class="table table-hover table-primary bg-light table-responsive-lg col-md-12 col-sm-12 col-xs-12 " id=" tbl_ligacao">
-                      <thead>
-                        <tr class=>
-                          <th>Matricula</th>
-                          <th>Agente</th>
-                          <th>Contato do Cliente</th>
-                          <th>Função</th>
-                          <th>Data</th>
-                          <th>Campanha</th>
-                          <th>Equipe</th>
-                          <th>Resposta 1</th>
-                          <th>Resposta 2</th>
-                          <th>Resposta 3</th>
-                          <th>Resposta 4</th>
-                          <th>Resposta 5</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php while ($dado = $resultado->fetch_array()) {
-                          if ($dado['resposta_1'] == null) {
-                            $dado['resposta_1'] = "N/A";
-                          }
-                          if ($dado['resposta_2'] == null) {
-                            $dado['resposta_2'] = "N/A";
-                          }
-                          if ($dado['resposta_3'] == null) {
-                            $dado['resposta_3'] = "N/A";
-                          }
-                          if ($dado['resposta_4'] == null) {
-                            $dado['resposta_4'] = "N/A";
-                          }
-                          if ($dado['resposta_5'] == null) {
-                            $dado['resposta_5'] = "N/A";
-                          }
-                          ?>
-                          <tr>
-                            <td><?php echo $dado['matricula']; ?></td>
-                            <td><?php echo $dado['nome']; ?></td>
-                            <td><?php echo $dado['ani']; ?></td>
-                            <td><?php echo $dado['descricao']; ?></td>
-                            <td><?php echo $dado['data_hora']; ?></td>
-                            <td><?php echo $dado['campanha']; ?></td>
-                            <td><?php echo $dado['equipe']; ?></td>
-                            <td><?php echo $dado['resposta_1']; ?></td>
-                            <td><?php echo $dado['resposta_2']; ?></td>
-                            <td><?php echo $dado['resposta_3']; ?></td>
-                            <td><?php echo $dado['resposta_4']; ?></td>
-                            <td><?php echo $dado['resposta_5']; ?></td>
-                          </tr>
-                        <?php }  ?>
-                      </tbody>
-                    </table>
-                  </div>
-                  <script>
-                    $(document).ready(function() {
-                      $('#tbl_ligacao').DataTable({
-                        "searching": false,
-                        "language": {
-                          "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
-                        },
-                        columnDefs: [{
-                          type: 'date-eu',
-                          targets: 4
-                        }]
-                      });
-                    });
-                  </script>
-                </div>
-              </div>
-            </div>
-            <!-- Fim do card principal -->
-          </div>
+        <div class="tabelas-fixo zoom "  >
+          <a href="./tabela_geral.php">
+            <img class="img-responsive" src="./icones/tabela.png" width="110px" height="100px" alt="Tabelas" />
+          </a>
         </div>
-
-
       </div>
     </div>
   </div>

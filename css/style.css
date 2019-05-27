@@ -3,10 +3,7 @@
     margin: 0px 0px auto;
 
 }
-body{
-padding-top: 110px;
-padding-bottom: 3px;
-}
+
 .centralizador{
     display:flex;
     align-items: center;
@@ -43,9 +40,8 @@ padding-bottom: 3px;
 .bg-titulo-card{
     background-color: rgb(255, 255, 255);
 }
-.page-back{
-    background-color:rgb(235, 235, 235);
-    
+.page-nav{
+    background-color:white;
 }
 
 .card-principal{
