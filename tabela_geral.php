@@ -54,7 +54,7 @@ include('./php/tabelaavaliacao.php');
             </div>
         </div>
     </nav>
-    <div class="page-content" style="padding-top:1px; background-color:#074DFF">
+    <div class="page-content" style="padding-top:1px; background-color:#E6ECEC">
         <!-- div da pagina toda -->
         <div class="row">
             <div class="col-md-12">
@@ -65,7 +65,7 @@ include('./php/tabelaavaliacao.php');
                     <div class="content-box-large box-with-header ">
                         <div class="row">
                             <!-- Div Esquerda que aloca 2 graficos -->
-                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                          
                                 <!-- Card principal -->
                                 <div class="text-dark col-md-12 col-sm-12 com-xs-12">
                                     <div class="row ">
@@ -120,14 +120,14 @@ include('./php/tabelaavaliacao.php');
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="radio d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center">
+                                            <div class="radio d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center" style="min-height:40px;">
                                                 <input class="radio btn btn-primary botão col-md-1 col-sm-3 col-xs-3" type="submit" value="Buscar" id="btnBuscar" disabled="true">
                                                 <input class="radio btn btn-danger col-md-1 col-sm-3 col-xs-3 botão" onclick="limpezaCampos();" type="button" value="Limpar">
                                             </div>
                                             <!-- FIm do campos text/date -->
                                         </form>
                                     </div>
-                                    <table class="table table-hover table-primary bg-light table-responsive-lg col-md-12 col-sm-12 col-xs-12 " id=" tbl_ligacao" style="margin-top:20px;">
+                                    <table class="table table-hover table-primary table-responsive-lg " id="tbl_ligacao">
                                         <thead>
                                             <tr class=>
                                                 <th>Matricula</th>
@@ -144,6 +144,7 @@ include('./php/tabelaavaliacao.php');
                                                 <th>Resposta 5</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <?php while ($dado = $resultado->fetch_array()) {
                                                 if ($dado['resposta_1'] == null) {
@@ -162,6 +163,7 @@ include('./php/tabelaavaliacao.php');
                                                     $dado['resposta_5'] = "N/A";
                                                 }
                                                 ?>
+
                                                 <tr>
                                                     <td><?php echo $dado['matricula']; ?></td>
                                                     <td><?php echo $dado['nome']; ?></td>
@@ -179,21 +181,24 @@ include('./php/tabelaavaliacao.php');
                                             <?php }  ?>
                                         </tbody>
                                     </table>
-                                </div>
-                                <script>
-                                    $(document).ready(function() {
-                                        $('#tbl_ligacao').DataTable({
-                                            "searching": false,
-                                            "language": {
-                                                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
-                                            },
-                                            columnDefs: [{
-                                                type: 'date-eu',
-                                                targets: 4
-                                            }]
+
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#tbl_ligacao').DataTable({
+                                                "searching": false,
+                                                "language": {
+                                                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json",
+                                                },
+                                                columnDefs: [{
+                                                    type: 'date-eu',
+                                                    targets: 4
+                                                }]
+                                            });
                                         });
-                                    });
-                                </script>
+                                    </script>
+
+                                <!-- Aqui vai a tabela
+                             -->
                             </div>
                         </div>
                     </div>
@@ -202,13 +207,14 @@ include('./php/tabelaavaliacao.php');
             </div>
         </div>
     </div>
-    </div>
+
     <div class="tabelas-fixo zoom pd ">
         <a href="./index.php">
-            <img class="img-responsive" src="./icones/icone_RA.png" width="100px" height="100px" alt="Tabelas" />
+            <img class="img-responsive" src="./icones/icone_RA.png" width="50px" height="50px" alt="Tabelas" />
         </a>
     </div>
     </div>
+
     <footer>
         <div class="container">
             <div class="copy text-center"> Copyright 2019 <a href='#'>Dashboard de Qualidade JCR </a> </div>
@@ -228,11 +234,7 @@ include('./php/tabelaavaliacao.php');
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+
 </body>
 
 </html>
