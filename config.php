@@ -28,7 +28,8 @@
                                         <h1 class="h4 text-gray-900 mb-4">Configurações do administrador</h1>
                                     </div>
                                     <a style="text-decoration:none; " class="small" href="./PaginaDeCadastro.php"><button class="btn btn-success btn-user btn-block" style="margin-top:10px;">Cadastrar</button></a>
-                                    <a style="text-decoration:none; " class="small" href="./busca.html"><button class="btn btn-info btn-user btn-block " style="margin-top:10px;">Buscar Cadastro</button></a>
+                                    <a style="text-decoration:none; " class="small" href="./busca.php"><button class="btn btn-info btn-user btn-block " style="margin-top:10px;">Buscar cadastro</button></a>
+                                    <a style="text-decoration:none; " class="small" href="./index.php"><button class="btn btn-secondary btn-user btn-block " style="margin-top:10px;">Voltar</button></a>
                                 </div>
                             </div>
                         </div>

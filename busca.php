@@ -70,6 +70,7 @@ function SomenteNumero(e){
                     </div>
                   </div>
                   <div class="form-group row"> <a href="./PaginaEdicao.php" class="btn btn-success btn-user btn-block"> Buscar Usuário </a></div>
+                  <div class="form-group row justify-content-center"> <a href="./config.php" class=" col-md-3 btn btn-secondary btn-user btn-block">Voltar</a></div>
                 </form>
               </div>
             </div>

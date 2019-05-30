@@ -106,8 +106,7 @@ function abrir2(URL) {
             <hr>
             <div class="text-center">
               <h5 class="font-weight-bold"> O que deseja fazer agora...?</h5>
-              <button type="submit" id="cadastranovo" onClick="abrir()" class="btn btn-success btn-sm btn-user">Editar novo usuário</button></a>
-              <a href="./PaginaDeCadastro.php"> <button type="submit" id="editar" class="btn btn-primary btn-sm btn-user">cadastrar usuário</button></a>
+              <a href="./busca.php"><button type="submit" id="cadastranovo"  class="btn btn-success btn-sm btn-user">Editar novo usuário</button></a>
               <button type="submit" id="excluir" onClick="abrir2()" class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
               <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
             </div>

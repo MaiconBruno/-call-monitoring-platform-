@@ -66,11 +66,8 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <h5 class="font-weight-bold"> O que deseja fazer agora...?</h5>
-                                <a href="cadastro.html"><button type="submit" id="cadastranovo" class="btn btn-success btn-sm btn-user">Cadastrar novo usuário</button></a>
-                                <button type="submit" id="editar" onClick="abrir()" class="btn btn-primary btn-sm btn-user">Editar usuário</button>
-                                <button type="submit" id="excluir" onClick="abrir()" class="btn btn-danger btn-sm btn-user">Excluir usuário</button>
-                                <a href="inicio.html"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
+     
+                                <a href="config.php"><button type="submit" id="voltar" class="btn btn-danger btn-sm btn-user">Cancelar é voltar</button></a>
                             </div>
                         </div>
                     </div>
