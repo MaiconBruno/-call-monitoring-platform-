@@ -1,3 +1,16 @@
+# Projeto desenvolvido por: 
+      
+      # Maicon bruno
+        # Fernanda Porto
+        # Andrew Lima
+        # Helvecio Neto
+        # Paulo Reis   
+        
+   #Projeto final de curso SENAI-CETIND tumar 58271 (primeiro semestre de 2018)
+   #Dashboard de qualidade para empresa de call center
+   #Esta proibida a venda ou comercialização desse projeto sem o consentimento dos envolvidos
+
+
 # [Start Bootstrap - Scrolling Nav](https://startbootstrap.com/template-overviews/scrolling-nav/)
 
 [Scrolling Nav](http://startbootstrap.com/template-overviews/scrolling-nav/) is an unstyled one page starter template with a collapsing, smooth scrolling navigation bar for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
