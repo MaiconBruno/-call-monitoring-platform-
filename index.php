@@ -244,19 +244,19 @@ include('./php/tabelaavaliacao.php');
           <div class="d-flex tabelas-fixo">
             <div class=" zoom pd ">
               <a href="./tabela_geral.php">
-                <img class="img-responsive" src="./icones/tabela.png" width="80px" height="70px" alt="Tabelas" />
+                <img class="img-responsive" src="./icones/tabela.png" width="50px" height="50px" alt="Tabelas" />
               </a>
             </div>
             <div class="zoom pd ">
               <a href="./config.php">
-                <img class="img-responsive" src="./icones/config.png" width="80px" height="70px" alt="Tabelas" />
+                <img class="img-responsive" src="./icones/config.png" width="50px" height="50px" alt="Tabelas" />
               </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#B8D6FF; padding-top:60px; padding-right:20px; min-height:888px;">
+    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:50px; padding-right:20px; min-height:888px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
