@@ -3,6 +3,7 @@
 include('./php/graficoAvaliacao.php');
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
+include('./php/graficoNaoAvaliados.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
@@ -222,7 +223,7 @@ include('./php/tabelaavaliacao.php');
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
                             backgroundColor: ["#005BE8", "#4197E8", "#54C2FF", "#B0C5E8", "#AEB0E8"],
-                            data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
+                            data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                           }],
                         },
                         options: {
@@ -289,7 +290,7 @@ include('./php/tabelaavaliacao.php');
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
                     backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
-                    data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
+                    data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
                 options: {
@@ -335,13 +336,13 @@ include('./php/tabelaavaliacao.php');
               <div class="row select-margin">
 
                 <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoAv">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoGrNa">
                     <option selected>Filtros...</option>
                     <option value="agente">Agente</option>
                     <option value="equipe">Equipe</option>
                     <option value="campanha">Campanha</option>
                   </select>
-                  <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
+                  <input type="text" name="parametroGrNa" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
                   <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
@@ -356,7 +357,7 @@ include('./php/tabelaavaliacao.php');
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
                     backgroundColor: ["#D98155", "#E8975F", "#FFB875", "#E8AC5F", "#FFD187"],
-                    data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
+                    data: [  <?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>,<?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },
                 options: {

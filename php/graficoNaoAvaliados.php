@@ -1,78 +1,150 @@
 <?php
-include ('../php/conexao.php');
+include ('./php/conexao.php');
+
+$filtro = filter_input(INPUT_GET, "opcaoGrNa");
+$parametro = filter_input(INPUT_GET, "parametroGrNa");
+
+?>
+
+<?php
+include ('./php/conexao.php');
 
 $select_na_r1 = "CALL select_gr_na_r1();";
-$select_na_r2 = "CALL select_gr_na_r2();";
-//$select_na_r3 = "CALL select_gr_na_r3();";
-//$select_na_r4 = "CALL select_gr_na_r4();";
-//$select_na_r5 = "CALL select_gr_na_r5();";
+$select_na_r1_agente = "CALL select_gr_na_r1_agente('$parametro');";
+$select_na_r1_campanha = "CALL select_gr_na_r1_campanha('$parametro');";
+$select_na_r1_equipe = "CALL select_gr_na_r1_equipe('$parametro');";
 
-$resultado_r1 = mysqli_query($conn, $select_na_r1);
-$resultado_r2 = mysqli_query($conn, $select_na_r2);
-//$resultado_r3 = mysqli_query($conn, $select_na_r3);
-//$resultado_r4 = mysqli_query($conn, $select_na_r4);
-//$resultado_r5 = mysqli_query($conn, $select_na_r5);
+if($filtro != ""){
+    if ($filtro == "equipe"){
+        $resultado_r1 = mysqli_query($conn, $select_na_r1_equipe);
+    }
+    else if ($filtro == "agente"){
+        $resultado_r1 = mysqli_query($conn, $select_na_r1_agente);
+    }
+    else if ($filtro == "campanha"){
+        $resultado_r1 = mysqli_query($conn, $select_na_r1_campanha);
+    }
+}else{
+    $resultado_r1 = mysqli_query($conn, $select_na_r1);
+}
 
 if($dado_na_r1 = $resultado_r1 -> fetch_array()){  
     $resposta1_na = $dado_na_r1['r1']; 
 }
+?>
+
+<?php
+include ('./php/conexao.php');
+
+$select_na_r2 = "CALL select_gr_na_r2();";
+$select_na_r2_agente = "CALL select_gr_na_r2_agente('$parametro');";
+$select_na_r2_campanha = "CALL select_gr_na_r2_campanha('$parametro');";
+$select_na_r2_equipe = "CALL select_gr_na_r2_equipe('$parametro');";
+
+if($filtro != ""){
+    if ($filtro == "equipe"){
+        $resultado_r2 = mysqli_query($conn, $select_na_r2_equipe);
+    }
+    else if ($filtro == "agente"){
+        $resultado_r2 = mysqli_query($conn, $select_na_r2_agente);
+    }
+    else if ($filtro == "campanha"){
+        $resultado_r2 = mysqli_query($conn, $select_na_r2_campanha);
+    }
+}else{
+    $resultado_r2 = mysqli_query($conn, $select_na_r2);
+}
+
 if($dado_na_r2 = $resultado_r2 -> fetch_array()){  
     $resposta2_na = $dado_na_r2['r2']; 
 }
-/*while($dado_na_r3 = $resultado_r3 -> fetch_array()){  
-    $resposta3_na = $dado_na_r3['r3']; 
-}*/
-/*while($dado_na_r4 = $resultado_r4 -> fetch_array()){  
-    $resposta4_na = $dado_na_r4['r4']; 
-}*/
-/*while($dado_na_r5 = $resultado_r5 -> fetch_array()){  
-    $resposta5_na = $dado_na_r5['r5']; 
-}*/
-
-echo $resposta1_na;
-echo $resposta2_na;
-
-
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<?php
+include ('./php/conexao.php');
 
-    <div style="width: 900px; height: 500px;" class="col-md-12 col-sm-12 col-xs-12">
-          <canvas id="G-naoRespondidas"></canvas>
-          <script src="path/to/chartjs/dist/Chart.js"></script>
-          <script>
-            new Chart(document.getElementById("G-naoRespondidas"), {
-              type: 'doughnut',
-              data: {
-                labels: ["Respota1", "Resposta2", "Resposta3", "Resposta4", "Resposta 5"],
-                datasets: [{
-                  label: "Chamadas (millions)",
-                  backgroundColor: ["#FFB1AF", "#FFAF9E", "#FFC9C2", "#FFDED9", "#FFC7E5"],
-                  data: [4, 5, 6, 3, 2]
-                }],
-              },
-              options: {
-                title: {
-                  display: false,
-                },
-                animation: {
-                  easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-                  animateScale: true,
-                  animateRotate: true
-                }
-              }
-            });
-          </script>
-    </div>
-</head>
-<body>
-    
-</body>
-</html>
+$select_na_r3 = "CALL select_gr_na_r3();";
+$select_na_r3_agente = "CALL select_gr_na_r3_agente('$parametro');";
+$select_na_r3_campanha = "CALL select_gr_na_r3_campanha('$parametro');";
+$select_na_r3_equipe = "CALL select_gr_na_r3_equipe('$parametro');";
+
+if($filtro != ""){
+    if ($filtro == "equipe"){
+        $resultado_r3 = mysqli_query($conn, $select_na_r3_equipe);
+    }
+    else if ($filtro == "agente"){
+        $resultado_r3 = mysqli_query($conn, $select_na_r3_agente);
+    }
+    else if ($filtro == "campanha"){
+        $resultado_r3 = mysqli_query($conn, $select_na_r3_campanha);
+    }
+}else{
+    $resultado_r3 = mysqli_query($conn, $select_na_r3);
+}
+
+while($dado_na_r3 = $resultado_r3 -> fetch_array()){  
+  $resposta3_na = $dado_na_r3['r3']; 
+}
+?>
+
+<?php
+include ('./php/conexao.php');
+
+$select_na_r4 = "CALL select_gr_na_r4();";
+$select_na_r4_agente = "CALL select_gr_na_r4_agente('$parametro');";
+$select_na_r4_campanha = "CALL select_gr_na_r4_campanha('$parametro');";
+$select_na_r4_equipe = "CALL select_gr_na_r4_equipe('$parametro');";
+
+if($filtro != ""){
+    if ($filtro == "equipe"){
+        $resultado_r4 = mysqli_query($conn, $select_na_r4_equipe);
+    }
+    else if ($filtro == "agente"){
+        $resultado_r4 = mysqli_query($conn, $select_na_r4_agente);
+    }
+    else if ($filtro == "campanha"){
+        $resultado_r4 = mysqli_query($conn, $select_na_r4_campanha);
+    }
+}else{
+    $resultado_r4 = mysqli_query($conn, $select_na_r4);
+}
+
+while($dado_na_r4 = $resultado_r4 -> fetch_array()){  
+    $resposta4_na = $dado_na_r4['r4']; 
+}
+?>
+
+<?php
+include ('./php/conexao.php');
+
+$select_na_r5 = "CALL select_gr_na_r5();";
+$select_na_r5_agente = "CALL select_gr_na_r5_agente('$parametro');";
+$select_na_r5_campanha = "CALL select_gr_na_r5_campanha('$parametro');";
+$select_na_r5_equipe = "CALL select_gr_na_r5_equipe('$parametro');";
+
+if($filtro != ""){
+    if ($filtro == "equipe"){
+        $resultado_r5 = mysqli_query($conn, $select_na_r5_equipe);
+    }
+    else if ($filtro == "agente"){
+        $resultado_r5 = mysqli_query($conn, $select_na_r5_agente);
+    }
+    else if ($filtro == "campanha"){
+        $resultado_r5 = mysqli_query($conn, $select_na_r5_campanha);
+    }
+}else{
+    $resultado_r5 = mysqli_query($conn, $select_na_r5);
+}
+
+while($dado_na_r5 = $resultado_r5 -> fetch_array()){  
+    $resposta5_na = $dado_na_r5['r5']; 
+}
+?>
+
+<?php
+if($resposta1_na == 0 && $resposta2_na == 0 && $resposta3_na == 0 && $resposta4_na == 0 && $resposta5_na == 0){
+    echo "<script>
+    alert('Nenhum dado encontrado!'); location= './index.php';
+    </script>";
+}
+?>
