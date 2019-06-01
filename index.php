@@ -65,8 +65,8 @@ include('./php/tabelaavaliacao.php');
             <!-- Aqui começa o primeiro card-->
             <div class="col-md-7 ">
               <div class="box-one">
-                <div class="content-box-header">
-                  <div class="panel-title">Total de chamadas recebidas</div>
+                <div class="content-box-header col-md-12">
+                  <div class="panel-title">TOTAL DE CHAMADAS RECEBIDAS</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -76,9 +76,9 @@ include('./php/tabelaavaliacao.php');
                       data: {
                         labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                         datasets: [{
-                          backgroundColor: ["red"],
+                          backgroundColor: ["#FFB412"],
                           fill: false,
-                          borderColor: "red",
+                          borderColor: "#FFB412",
                           data: [20, 40, 42, 58, 31, 21, 50, 60, 42, 13, 23, 11]
                         }]
                       },
@@ -98,28 +98,28 @@ include('./php/tabelaavaliacao.php');
                 </div>
               </div>
               <div class="box-one">
-                <div class="content-box-header">
-                  <div class="panel-title">Total avaliadas e não avaliadas</div>
+                <div class="content-box-header ">
+                  <div class="panel-title">TOTAL DE AVALIADAS E NÃO AVALIADAS</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <canvas id="G_ligacaoN"></canvas>
+                  <canvas id="G_ligacaoN" height="193"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
                       data: {
                         labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"],
                         datasets: [{
-                            backgroundColor: ["blue"],
+                            backgroundColor: ["#2EFE9A"],
                             label: "Avaliadas",
                             fill: false,
-                            borderColor: "#0000ff",
+                            borderColor: "#2EFE9A",
                             data: [65, 54, 30, 81, 56, 55, 40]
                           },
                           {
-                            backgroundColor: ["red"],
+                            backgroundColor: ["#FF4436"],
                             fill: false,
                             label: "Não Avaliadas",
-                            borderColor: "red",
+                            borderColor: "#FF4436",
                             data: [20, 60, 42, 58, 31, 21, 50]
                           }
                         ]
@@ -143,7 +143,7 @@ include('./php/tabelaavaliacao.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title" align="center">Ranking por tipo de entrada</div>
+                    <div class="panel-title" align="center">RANKING POR TIPO DE ENTRADA</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="row select-margin">
@@ -194,7 +194,7 @@ include('./php/tabelaavaliacao.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title">Média por perguntas</div>
+                    <div class="panel-title">MÉDIA POR PERGUNTA</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="col-md-12">
@@ -210,91 +210,103 @@ include('./php/tabelaavaliacao.php');
                           <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
                           <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                         </form>
-
                       </div>
+
                     </div>
-                    <canvas id="G-mediaRespondidas"></canvas>
+                    <br />
+                    <canvas id="G-mediaRespondidas" height="200"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
                         type: 'doughnut',
                         data: {
+                          labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
-                            backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
-                            data: [7, 6, 5, 4, 3],
+                            backgroundColor: ["#005BE8", "#4197E8", "#54C2FF", "#B0C5E8", "#AEB0E8"],
+                            data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                           }],
                         },
                         options: {
+                          responsive: true,
+                          legend: {
+                            position: 'bottom',
+                            labels: {
+                              boxWidth: 13,
+                              fontSize: 13,
+
+                            },
+                          },
                           title: {
                             display: false,
                           },
+
                           animation: {
-                            easing: "easeInOutCirc",
+                            easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                             animateScale: true,
                             animateRotate: true
                           },
                         }
                       });
                     </script>
-                    <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div>
+                    <!-- <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="d-flex tabelas-fixo">
-            <div class=" zoom pd ">
-              <a href="./tabela_geral.php">
-                <img class="img-responsive" src="./icones/tabela.png" width="50px" height="50px" alt="Tabelas" />
-              </a>
-            </div>
-            <div class="zoom pd ">
-              <a href="./config.php">
-                <img class="img-responsive" src="./icones/config.png" width="50px" height="50px" alt="Tabelas" />
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:50px; padding-right:20px; min-height:888px;">
+    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:10px; padding-right:20px; min-height:888px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
-          <div class="content-box-header">
-            <div class="panel-title">Pergunta mais respondida</div>
+          <div class="content-box-header col-md-12">
+            <div class="panel-title col-md-12">PERGUNTAS RESPONDIDAS</div>
           </div>
           <div class="content-box-large box-with-header">
             <div class="col-md-12">
               <div class="row select-margin">
 
                 <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" id="filtro">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoAv">
                     <option selected>Filtros...</option>
-                    <option>Agente</option>
-                    <option>Equipe</option>
-                    <option>Campanha</option>
+                    <option value="agente">Agente</option>
+                    <option value="equipe">Equipe</option>
+                    <option value="campanha">Campanha</option>
                   </select>
-                  <input type="text" class="form-control  col-md-6 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
+                  <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
                   <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
               </div>
               <br />
             </div>
-            <canvas id="G-Respondidas"></canvas>
+            <canvas id="G-Respondidas" height="235px"></canvas>
             <script>
               new Chart(document.getElementById("G-Respondidas"), {
                 type: 'doughnut',
                 data: {
+                  labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#FF0000", "#FF4000", "#FF8000", "#FFBF00", "#F7FE2E"],
-                    data: [7, 6, 5, 4, 3],
+                    backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
+                    data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
                 options: {
+                  responsive: true,
+                  legend: {
+                    position: 'bottom',
+                    labels: {
+
+                      boxWidth: 13,
+                      fontSize: 13,
+
+                    },
+                  },
                   title: {
                     display: false,
                   },
+
                   animation: {
                     easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                     animateScale: true,
@@ -303,60 +315,97 @@ include('./php/tabelaavaliacao.php');
                 }
               });
             </script>
-            <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div>
+            <!-- <div class="mt-4 text-center big"> subtitulos opcional 
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF0000;" ></i> R1 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF4000;"></i> R2 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF8000;"></i> R3 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FFBF00;"></i> R4 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#F7FE2E;"></i> R5 </span>
+            </div> -->
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="content-box-header">
-            <div class="panel-title">Pergunta menos respondida</div>
+          <div class="content-box-header col-md-12 col-sm-12 col-xs-12 ">
+            <div class="panel-title col-md-12 col-sm-12 col-xs-12">PERGUNTAS NÃO RESPONDIDAS</div>
           </div>
           <div class="content-box-large box-with-header">
             <div class="col-md-12">
               <div class="row select-margin">
 
                 <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" id="filtro">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoAv">
                     <option selected>Filtros...</option>
-                    <option>Agente</option>
-                    <option>Equipe</option>
-                    <option>Campanha</option>
+                    <option value="agente">Agente</option>
+                    <option value="equipe">Equipe</option>
+                    <option value="campanha">Campanha</option>
                   </select>
-                  <input type="text" class="form-control  col-md-6 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
+                  <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
                   <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
               </div>
+              <br />
             </div>
-            <canvas id="G-naoRespondidas"></canvas>
+            <canvas id="G-naorespondidas" height="235px"></canvas>
             <script>
-              new Chart(document.getElementById("G-naoRespondidas"), {
+              new Chart(document.getElementById("G-naorespondidas"), {
                 type: 'doughnut',
                 data: {
+                  labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#F78181", "#F79F81", "#F7BE81", "#F5DA81", "#F3F781"],
-                    data: [7, 6, 5, 4, 3],
+                    backgroundColor: ["#D98155", "#E8975F", "#FFB875", "#E8AC5F", "#FFD187"],
+                    data: [<?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta1 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
                 options: {
+                  responsive: true,
+                  legend: {
+                    position: 'bottom',
+                    labels: {
+                      boxWidth: 13,
+                      fontSize: 13,
+
+                    },
+                  },
                   title: {
                     display: false,
                   },
+
                   animation: {
-                    easing: "easeInOutCirc",
+                    easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                     animateScale: true,
                     animateRotate: true
                   },
                 }
               });
             </script>
-            <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div>
+            <!-- <div class="mt-4 text-center big">
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF0000;" ></i> R1 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF4000;"></i> R2 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF8000;"></i> R3 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#FFBF00;"></i> R4 </span>
+              <span class="mr-2"> <i class="fas fa-circle " style="color:#F7FE2E;"></i> R5 </span>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+
+  <div class="d-flex tabelas-fixo">
+    <div class=" zoom pd ">
+      <a href="./tabela_geral.php">
+        <img class="img-responsive" src="./icones/tabela.png" width="50px" height="50px" alt="Tabelas" />
+      </a>
+    </div>
+    <div class="zoom pd ">
+      <a href="./config.php">
+        <img class="img-responsive" src="./icones/config.png" width="50px" height="50px" alt="Tabelas" />
+      </a>
+    </div>
   </div>
   <footer>
     <div class="container">
