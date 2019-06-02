@@ -4,6 +4,7 @@ include('./php/graficoAvaliacao.php');
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
 include('./php/graficoNaoAvaliados.php');
+include('./php/graficoMedia.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
@@ -202,13 +203,13 @@ include('./php/graficoNaoAvaliados.php');
                       <div class="row select-margin">
 
                         <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro">
+                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro" name="opcaoGrMedia">
                             <option selected>Filtros...</option>
-                            <option>Agente</option>
-                            <option>Equipe</option>
-                            <option>Campanha</option>
+                            <option value="agente">Agente</option>
+                            <option value="equipe">Equipe</option>
+                            <option value="campanha">Campanha</option>
                           </select>
-                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
+                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoRanking">
                           <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                         </form>
                       </div>
@@ -223,7 +224,7 @@ include('./php/graficoNaoAvaliados.php');
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
                             backgroundColor: ["#005BE8", "#4197E8", "#54C2FF", "#B0C5E8", "#AEB0E8"],
-                            data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
+                            data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
                         options: {
