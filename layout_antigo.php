@@ -70,10 +70,21 @@ include('./php/tabelaavaliacao.php');
             <a class="nav-link js-scroll-trigger text-menu  text-secondary" href="#relatorio">Relatorios</a>
           </li>
           <div class="dropdown">
-            <span class="nav-link  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Configurações</span>
+            <span class="nav-link  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Usuario</span>
             <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
-              <li class="centralizador"><a class="text-dark" href="./PaginaDeCadastro.php">Cadastrar</a></li>
-              <li class="centralizador"><a class="text-dark" href="./PaginaEdicao.php">Editar Cadastro</a></li>
+              <li class="centralizador"><a class="text-dark" href="./PaginaDeCadastro.php"><?php echo $_SESSION['usuarioNome']; ?></a></li>
+              <li class="centralizador"><a class="text-dark" href="./PaginaEdicao.php"><?php
+              $acesso = '';
+              if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                $acesso = 'ADMINISTRADOR';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                $acesso = 'AGENTE';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                $acesso = SUPERVISOR;
+              }
+              echo $acesso;
+              ?></a></li>
+               <li class="centralizador"><a class="text-dark" href="./php/sair.php">Sair</a></li>
             </ul>
           </div>
         </ul>

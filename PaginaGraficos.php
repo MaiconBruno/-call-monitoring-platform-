@@ -55,11 +55,24 @@ include('./php/graficoMedia.php');
           <div class="col-md-12 d-flex justify-content-center">
             <div class="logo"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
           </div>
-        </div>  
-      </div>
-        <div class="d-flex" style="height:60px; margin-top:12px; margin-right:5px;">
-        <a href="./php/sair.php"><button class="btn btn-danger">Sair</button></a>
         </div>
+      </div>
+      <div class="d-flex flex-column p-1 border border-primary  text-black" style="  margin-right:5px;">
+        <div class="text-center"><?php echo $_SESSION['usuarioNome']; ?></div>
+        <div class="text-center "><?php
+              $acesso = '';
+              if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                $acesso = 'ADMINISTRADOR';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                $acesso = 'AGENTE';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                $acesso = SUPERVISOR;
+              }
+              echo $acesso;
+              ?>
+        </div>
+        <a class="text-center text-uppercase" style="font-size:13px;" href="./php/sair.php">Sair</a>
+      </div>
     </div>
   </nav>
   <div class="row  ">
@@ -320,13 +333,6 @@ include('./php/graficoMedia.php');
                 }
               });
             </script>
-            <!-- <div class="mt-4 text-center big"> subtitulos opcional 
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF0000;" ></i> R1 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF4000;"></i> R2 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF8000;"></i> R3 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FFBF00;"></i> R4 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#F7FE2E;"></i> R5 </span>
-            </div> -->
           </div>
         </div>
       </div>
@@ -361,7 +367,7 @@ include('./php/graficoMedia.php');
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
                     backgroundColor: ["#D98155", "#E8975F", "#FFB875", "#E8AC5F", "#FFD187"],
-                    data: [  <?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>,<?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
+                    data: [<?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>, <?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },
                 options: {
@@ -386,13 +392,6 @@ include('./php/graficoMedia.php');
                 }
               });
             </script>
-            <!-- <div class="mt-4 text-center big">
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF0000;" ></i> R1 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF4000;"></i> R2 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FF8000;"></i> R3 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#FFBF00;"></i> R4 </span>
-              <span class="mr-2"> <i class="fas fa-circle " style="color:#F7FE2E;"></i> R5 </span>
-            </div> -->
           </div>
         </div>
       </div>

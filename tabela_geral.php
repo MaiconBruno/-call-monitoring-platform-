@@ -43,17 +43,33 @@ include('./php/tabelaavaliacao.php');
 </head>
 
 <body>
-    <nav class="border-size-top fixed-top">
-        <div class="header" style="background-color:white;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 d-flex justify-content-center">
-                        <div class="logo"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
-                    </div>
-                </div>
-            </div>
+<nav class="border-size-top fixed-top">
+    <div class="header d-flex" style="background-color:white;">
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-12 d-flex justify-content-center">
+            <div class="logo"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
+          </div>
         </div>
-    </nav>
+      </div>
+      <div class="d-flex flex-column p-1 border border-primary  text-black" style="  margin-right:5px;">
+        <div class="text-center"><?php echo $_SESSION['usuarioNome']; ?></div>
+        <div class="text-center "><?php
+              $acesso = '';
+              if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                $acesso = 'ADMINISTRADOR';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                $acesso = 'AGENTE';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                $acesso = SUPERVISOR;
+              }
+              echo $acesso;
+              ?>
+        </div>
+        <a class="text-center text-uppercase" style="font-size:13px;" href="./php/sair.php">Sair</a>
+      </div>
+    </div>
+  </nav>
     <div class="page-content" style="padding-top:1px; background-color:#E6ECEC">
         <!-- div da pagina toda -->
         <div class="row">
