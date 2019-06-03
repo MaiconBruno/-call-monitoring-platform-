@@ -57,16 +57,16 @@ include('./php/graficoMedia.php');
           </div>
         </div>
       </div>
-      <div class="d-flex flex-column p-1 border border-primary  text-black" style="  margin-right:5px;">
+      <div class="d-flex flex-column p-1 text-black" style="  margin-right:5px;">
         <div class="text-center"><?php echo $_SESSION['usuarioNome']; ?></div>
-        <div class="text-center "><?php
+        <div class="text-center text-success  "><?php
               $acesso = '';
               if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
                 $acesso = 'ADMINISTRADOR';
               } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
                 $acesso = 'AGENTE';
               } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
-                $acesso = SUPERVISOR;
+                $acesso = 'SUPERVISOR';
               }
               echo $acesso;
               ?>
