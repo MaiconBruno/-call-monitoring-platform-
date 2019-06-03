@@ -33,7 +33,7 @@ while($dado_gr_media = $resultado_gr_media -> fetch_array()){
 
 if($r1_gr_media == 0 && $r2_gr_media == 0 && $r3_gr_media == 0 && $r4_gr_media == 0 && $r5_gr_media == 0){
     echo "<script>
-    alert('Nenhum dado encontrado!'); location= './index.php';
+    alert('Nenhum dado encontrado!'); location= './PaginaGraficos.php';
     </script>";
 }
 

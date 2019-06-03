@@ -9,7 +9,7 @@ $senha = mysqli_real_escape_string($conn, $_POST['senha']);
 
  if(($usuario != null) && ($senha != null)){
         
-        $result_usuario = "SELECT * FROM funcionario WHERE usuario = '$usuario' && senha = '$senha' LIMIT 1";
+        $result_usuario = "call pfc_db.select_valida_usuario('$usuario','$senha');";
 		$resultado_usuario = mysqli_query($conn, $result_usuario);
         $resultado = mysqli_fetch_assoc($resultado_usuario);
         

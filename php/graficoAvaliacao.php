@@ -52,6 +52,6 @@ while($dado = $resultado -> fetch_array()){
 // caso não existir algum dado que foi passado como parametro retorna para pagina inicial
 if($resposta1 == 0 && $resposta2 == 0 && $resposta3 == 0 && $resposta4 == 0 && $resposta5 == 0){
     echo "<script>
-    alert('Nenhum dado encontrado!'); location= './index.php';
+    alert('Nenhum dado encontrado!'); location= './PaginaGraficos.php';
     </script>";
 }

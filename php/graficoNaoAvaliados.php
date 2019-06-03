@@ -144,7 +144,7 @@ while($dado_na_r5 = $resultado_r5 -> fetch_array()){
 <?php
 if($resposta1_na == 0 && $resposta2_na == 0 && $resposta3_na == 0 && $resposta4_na == 0 && $resposta5_na == 0){
     echo "<script>
-    alert('Nenhum dado encontrado!'); location= './index.php';
+    alert('Nenhum dado encontrado!'); location= './PaginaGraficos.php';
     </script>";
 }
 ?>
