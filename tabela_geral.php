@@ -1,5 +1,5 @@
 <?php
-//incluindo arquivo.php
+session_start();
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
 //include('../php/tabelaavaliacao.php')
@@ -209,7 +209,7 @@ include('./php/tabelaavaliacao.php');
     </div>
 
     <div class="tabelas-fixo zoom pd ">
-        <a href="./index.php">
+        <a href="./PaginaGraficos.php">
             <img class="img-responsive" src="./icones/icone_RA.png" width="50px" height="50px" alt="Tabelas" />
         </a>
     </div>
