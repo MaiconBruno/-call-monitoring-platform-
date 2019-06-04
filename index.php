@@ -49,6 +49,12 @@ session_start();
                                             unset($_SESSION['loginErro']);
                                         } ?>
                                     </p>
+                                    <p class="text-center text-danger">
+                                        <?php if (isset($_SESSION['loginAcesso'])) {
+                                            echo $_SESSION['loginAcesso'];
+                                            unset($_SESSION['loginAcesso']);
+                                        } ?>
+                                    </p>
                                     <hr>
                                     <div class="text-center"> <a class="small" href="senha_erro.html">Esqueceu a senha?</a> </div>
                                 </div>

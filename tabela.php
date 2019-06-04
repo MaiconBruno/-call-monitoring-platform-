@@ -1,3 +1,7 @@
+<?php 
+//Importa a validação da sessão para evitar acesso via URL
+include('./php/validaPagina.php');
+?>
 <?php
 include ('./php/tabela_av.php');
 ?>

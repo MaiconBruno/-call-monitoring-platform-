@@ -1,5 +1,20 @@
+<?php 
+//Importa a validação da sessão para evitar acesso via URL
+include('./php/validaPagina.php');
+//Importa a validação da sessão para evitar acesso via URL
+
+
+//verifica se a pagina pertence ao nivel do usuario logado 
+if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1" ) { // comparação para verificar o nivel do acesso
+  header("Location: index.php");
+  $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
+   exit();
+} else {
+ 
+}
+
+?>
 <?php
-session_start();
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
 //include('../php/tabelaavaliacao.php')

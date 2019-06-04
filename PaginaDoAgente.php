@@ -1,5 +1,20 @@
+<?php 
+//Importa a validação da sessão para evitar acesso via URL
+include('./php/validaPagina.php');
+
+//verifica se a pagina pertence ao nivel do usuario logado 
+if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "2" ) { // comparação para verificar o nivel do acesso
+  header("Location: index.php");
+  $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
+   exit();
+} else {
+ 
+}
+
+?>
+
 <?php
-session_start();
+
 //incluindo arquivo.php
 include('./php/graficoAvaliacao.php');
 include('./php/tabela_av.php');
@@ -121,7 +136,7 @@ include('./php/graficoMedia.php');
                   <div class="panel-title">TOTAL DE AVALIADAS E NÃO AVALIADAS</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <canvas id="G_ligacaoN" height="193"></canvas>
+                  <canvas id="G_ligacaoN" height="155"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
@@ -165,21 +180,8 @@ include('./php/graficoMedia.php');
                     <div class="panel-title" align="center">RANKING POR TIPO DE ENTRADA</div>
                   </div>
                   <div class="content-box-large box-with-header">
-                    <div class="row select-margin">
-
-                      <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro">
-                          <option selected>Filtros...</option>
-                          <option>Agente</option>
-                       
-                        </select>
-                        <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
-                        <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
-                      </form>
-
-                    </div>
-                    <br />
-                    <canvas id="G-interacao"></canvas>
+                   
+                    <canvas id="G-interacao" height="200"></canvas>
                     <script>
                       new Chart(document.getElementById("G-interacao"), {
                         type: 'horizontalBar',
@@ -215,22 +217,7 @@ include('./php/graficoMedia.php');
                     <div class="panel-title">MÉDIA POR PERGUNTA</div>
                   </div>
                   <div class="content-box-large box-with-header">
-                    <div class="col-md-12">
-                      <div class="row select-margin">
-
-                        <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro" name="opcaoGrMedia">
-                            <option selected>Filtros...</option>
-                            <option value="agente">Agente</option>
-                            
-                          </select>
-                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoRanking" required>
-                          <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
-                        </form>
-                      </div>
-                    </div>
-                    <br />
-                    <canvas id="G-mediaRespondidas" height="200"></canvas>
+                    <canvas id="G-mediaRespondidas" height="250"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
                         type: 'doughnut',
@@ -280,23 +267,7 @@ include('./php/graficoMedia.php');
             <div class="panel-title col-md-12">PERGUNTAS RESPONDIDAS</div>
           </div>
           <div class="content-box-large box-with-header">
-            <div class="col-md-12">
-              <div class="row select-margin">
-
-                <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoAv">
-                    <option selected>Filtros...</option>
-                    <option value="agente">Agente</option>
-                   
-                  </select>
-                  <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                  <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
-                </form>
-
-              </div>
-              <br />
-            </div>
-            <canvas id="G-Respondidas" height="235px"></canvas>
+            <canvas id="G-Respondidas" height="295px"></canvas>
             <script>
               new Chart(document.getElementById("G-Respondidas"), {
                 type: 'doughnut',
@@ -339,23 +310,7 @@ include('./php/graficoMedia.php');
             <div class="panel-title col-md-12 col-sm-12 col-xs-12">PERGUNTAS NÃO RESPONDIDAS</div>
           </div>
           <div class="content-box-large box-with-header">
-            <div class="col-md-12">
-              <div class="row select-margin">
-
-                <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoGrNa">
-                    <option selected>Filtros...</option>
-                    <option value="agente">Agente</option>
-                   
-                  </select>
-                  <input type="text" name="parametroGrNa" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                  <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
-                </form>
-
-              </div>
-              <br />
-            </div>
-            <canvas id="G-naorespondidas" height="235px"></canvas>
+            <canvas id="G-naorespondidas" height="300px"></canvas>
             <script>
               new Chart(document.getElementById("G-naorespondidas"), {
                 type: 'doughnut',

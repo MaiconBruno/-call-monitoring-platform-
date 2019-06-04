@@ -18,11 +18,15 @@ $senha = mysqli_real_escape_string($conn, $_POST['senha']);
 			$_SESSION['usuarioNome'] = $resultado['nome'];
 			$_SESSION['usuarioNiveisAcessoId'] = $resultado['funcao'];
 			$_SESSION['usuarioUsuario'] = $resultado['usuario'];
+			
 			if($_SESSION['usuarioNiveisAcessoId'] == "1"){
+				$_SESSION['Logado'] = true; 
 				header("Location: ../PaginaGraficos.php");
 			}elseif($_SESSION['usuarioNiveisAcessoId'] == "2"){
+				$_SESSION['Logado'] = true; 
 				header("Location: ../PaginaDoAgente.php"); //Colocar Url da paginas Relacionadas ao usuario Agente
 			}else{
+				$_SESSION['Logado'] = true; 
 				header("Location: ../PaginaSupervisor.php"); //Colocar Url da paginas Relacionadas ao usuario supervisor
 			}
 		//Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário

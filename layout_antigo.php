@@ -1,3 +1,4 @@
+
 <?php
 //incluindo arquivo.php
 include('./php/graficoAvaliacao.php');
