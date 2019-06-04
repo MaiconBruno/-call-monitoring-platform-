@@ -1,17 +1,21 @@
-<?php 
+<?php
 //Importa a validação da sessão para evitar acesso via URL
 include('./php/validaPagina.php');
 //Importa a validação da sessão para evitar acesso via URL
 
 
 //verifica se a pagina pertence ao nivel do usuario logado 
-if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "3" ) { // comparação para verificar o nivel do acesso
+if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "3") { // comparação para verificar o nivel do acesso
+  session_start();
+  unset($_SESSION['usuarioId'],
+  $_SESSION['usuarioNome'],
+  $_SESSION['usuarioNiveisAcessoId'],
+  $_SESSION['usuarioLogin'],
+  $_SESSION['usuarioSenha']);
   header("Location: index.php");
   $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
-   exit();
-} else {
- 
-}
+  exit();
+} else { }
 
 
 ?>
@@ -77,16 +81,16 @@ include('./php/graficoMedia.php');
       <div class="d-flex flex-column p-1 text-black" style="  margin-right:5px;">
         <div class="text-center"><?php echo $_SESSION['usuarioNome']; ?></div>
         <div class="text-center text-success  "><?php
-              $acesso = '';
-              if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
-                $acesso = 'ADMINISTRADOR';
-              } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
-                $acesso = 'AGENTE';
-              } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
-                $acesso = 'SUPERVISOR';
-              }
-              echo $acesso;
-              ?>
+                                                $acesso = '';
+                                                if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                                                  $acesso = 'ADMINISTRADOR';
+                                                } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                                                  $acesso = 'AGENTE';
+                                                } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                                                  $acesso = 'SUPERVISOR';
+                                                }
+                                                echo $acesso;
+                                                ?>
         </div>
         <a class="text-center text-uppercase" style="font-size:13px;" href="./php/sair.php">Sair</a>
       </div>

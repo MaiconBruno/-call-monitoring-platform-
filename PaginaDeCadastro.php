@@ -1,17 +1,21 @@
-<?php 
+<?php
 //Importa a validação da sessão para evitar acesso via URL
 include('./php/validaPagina.php');
 //Importa a validação da sessão para evitar acesso via URL
 
 
 //verifica se a pagina pertence ao nivel do usuario logado 
-if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1" ) { // comparação para verificar o nivel do acesso
-  header("Location: index.php");
-  $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
-   exit();
-} else {
- 
-}
+if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { // comparação para verificar o nivel do acesso
+    session_start();
+    unset($_SESSION['usuarioId'],
+    $_SESSION['usuarioNome'],
+    $_SESSION['usuarioNiveisAcessoId'],
+    $_SESSION['usuarioLogin'],
+    $_SESSION['usuarioSenha']);
+    header("Location: index.php");
+    $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
+    exit();
+} else { }
 
 ?>
 <!DOCTYPE html>
@@ -82,7 +86,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1" ) { 
                             </form>
                             <hr>
                             <div class="text-center">
-     
+
                                 <a href="config.php"><button type="submit" id="voltar" class="btn btn-danger btn-sm btn-user">Cancelar é voltar</button></a>
                             </div>
                         </div>
