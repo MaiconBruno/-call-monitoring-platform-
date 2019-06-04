@@ -43,13 +43,13 @@ session_start();
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
                                     </form>
-                                    <!-- Exibi a mensagem de erro caso login seja efetuado incorretamente -->
+                                <!-- Exibi a mensagem de erro caso login seja efetuado incorretamente -->
                                     <p class="text-center text-danger">
                                         <?php if (isset($_SESSION['loginErro'])) {
                                             echo $_SESSION['loginErro'];
                                             unset($_SESSION['loginErro']);
                                         } ?>
-                                    </p>[
+                                    </p>
                                         <!-- Exibi a mensagem de Acesso Invalido -->
                                     <p class="text-center text-danger">
                                         <?php if (isset($_SESSION['loginAcesso'])) {
