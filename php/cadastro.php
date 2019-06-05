@@ -1,5 +1,5 @@
 <?php
-   include ('./conexao.php');
+   include ('./php/conexao.php');
     
 	$usuario = $_POST['usuario'];
 	$senha = $_POST['password'];
@@ -15,9 +15,9 @@
    
     $resultado= mysqli_query($conn, $sql);
     
-    echo  $resultado;
+   
 
     // $_SESSION['SucessCad'] = "Usuario Cadastrado com sucesso!!";
-    // header("Location: ../index.php");
+     header("Location: ../PaginaDeCadastro.php");
 		
 ?>

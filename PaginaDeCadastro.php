@@ -46,18 +46,18 @@ include('./php/validaPagina.php');
                             <form class="user" method="POST" action="./php/cadastro.php">
                                 <div class="form-group row" style="margin-top:30px">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="nome" placeholder="Nome">
+                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="nome" name="nome" placeholder="Nome">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="sobrenome" placeholder="Sobrenome">
+                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="sobrenome" name="sobrenome" placeholder="Sobrenome">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" required id="usuario" placeholder="Login">
+                                    <input type="text" class="form-control form-control-user" required id="usuario" name="usuario" placeholder="Login">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" required id="password" placeholder="Senha">
+                                        <input type="password" class="form-control form-control-user" required id="password" name="password" placeholder="Senha">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user" required id="confirm_password" placeholder="Confirmar senha">
@@ -65,10 +65,10 @@ include('./php/validaPagina.php');
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" required id="matricula" maxlength="15" placeholder="Matricula">
+                                        <input type="text" class="form-control form-control-user" required id="matricula" name="matricula" maxlength="15" placeholder="Matricula">
                                     </div>
                                     <div class="col-sm-6">
-                                        <select id="nivel" class="custom-select" name="nivel">
+                                        <select id="nivel" name="nivel" class="custom-select" name="nivel">
                                             <option id="agente" value="2" selected>Agente</option>
                                             <option id="supervisor" value="3">Supervisor</option>
                                         </select>
@@ -76,10 +76,10 @@ include('./php/validaPagina.php');
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" required id="ramal" maxlength="12" placeholder="Ramal">
+                                        <input type="text" class="form-control form-control-user" required id="ramal" name="ramal" maxlength="12" placeholder="Ramal">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" placeholder="CPF">
+                                        <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-sm btn-user btn-block">Confirmar cadastro</button>
