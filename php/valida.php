@@ -21,7 +21,7 @@ $senha = mysqli_real_escape_string($conn, $_POST['senha']);//Escapar de caracter
 			
 			if($_SESSION['usuarioNiveisAcessoId'] == "1"){// verifica o nivel e direciona para pagina correspondente 
 				$_SESSION['Logado'] = true; // Cria a sessão que Valida o login 
-				header("Location: ../PaginaGraficos.php");
+				header("Location: ../PaginaAdministrador.php");
 			}elseif($_SESSION['usuarioNiveisAcessoId'] == "2"){
 				$_SESSION['Logado'] = true;  // Cria a sessão que Valida o login 
 				header("Location: ../PaginaDoAgente.php"); //Colocar Url da paginas Relacionadas ao usuario Agente

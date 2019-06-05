@@ -428,7 +428,7 @@ include('./php/graficoMedia.php');
 
   <div class="d-flex tabelas-fixo">
     <div class=" zoom pd ">
-      <a href="./tabela_geral.php">
+      <a href="./TabelaGeraldoAdministrador.php">
         <img class="img-responsive" src="./icones/tabela.png" width="50px" height="50px" alt="Tabelas" />
       </a>
     </div>

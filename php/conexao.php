@@ -1,4 +1,5 @@
 <?php
+
 	$servidor = "localhost"; //nome do servidor
 	$usuario = "root"; //usuario do banco
 	$senha = ""; //senha do banco
