@@ -20,7 +20,7 @@ $sql = "INSERT INTO `pfc_db`.`funcionario`
 $resultado = mysqli_query($conn, $sql);
 
 if (isset($resultado)){
-    $_SESSION['SucessCad'] = "Usuario cadastrado com usuário!!";
+    $_SESSION['SucessCad'] = "Usuário cadastrado com sucesso!!";
     header("Location: ../PaginaDeCadastro.php");
 
 }else{
