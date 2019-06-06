@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include('./conexao.php');
 
 $usuario = $_POST['usuario'];
@@ -17,8 +19,12 @@ $sql = "INSERT INTO `pfc_db`.`funcionario`
 
 $resultado = mysqli_query($conn, $sql);
 
+if (isset($resultado)){
+    $_SESSION['SucessCad'] = "Usuario cadastrado com usuário!!";
+    header("Location: ../PaginaDeCadastro.php");
 
-
-$_SESSION['SucessCad'] = "Usuario Cadastrado com sucesso!!";
- header("Location: ../PaginaDeCadastro.php");
+}else{
+    $_SESSION['SucessCad'] = "Erro ao cadastrar usuário!!";
+    header("Location: ../PaginaDeCadastro.php");
+}
 

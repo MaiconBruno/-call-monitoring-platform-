@@ -7,18 +7,16 @@ include('./php/validaPagina.php');
 
 //verifica se a pagina pertence ao nivel do usuario logado 
 if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { // comparação para verificar o nivel do acesso
-   session_start();
-   unset($_SESSION['usuarioId'],
-   $_SESSION['usuarioNome'],
-   $_SESSION['usuarioNiveisAcessoId'],
-   $_SESSION['usuarioLogin'],
-  $_SESSION['usuarioSenha']);
-  header("Location: index.php");
-   $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
-   exit();
- } else {
-     
-  }
+    session_start();
+    unset($_SESSION['usuarioId'],
+    $_SESSION['usuarioNome'],
+    $_SESSION['usuarioNiveisAcessoId'],
+    $_SESSION['usuarioLogin'],
+    $_SESSION['usuarioSenha']);
+    header("Location: index.php");
+    $_SESSION['loginAcesso'] = "Acesso Negado!"; //mensagem exibida quando o acesso não e permitido 
+    exit();
+} else { }
 
 ?>
 
@@ -30,9 +28,8 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LOGIN-DASHBOARD JCR</title>
+    <title>CADASTRO-DASHBOARD JCR</title>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body class="bg-gradient-primary">
@@ -86,25 +83,29 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                                         <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success btn-sm btn-user btn-block">Confirmar cadastro</button>
+                                <div class="d-flex">
+                                    <button type="submit" class="btn btn-success btn-sm btn-user btn-block radio" style="font-size:17px; margin-right:10px;">Confirmar cadastro</button>
+                                    <a style="text-decoration:none;" href="config.php"><button type="button" id="voltar" class="btn btn-danger btn-sm btn-user " style="font-size:17px;">Cancelar</button></a>
+                                </div>
                             </form>
-                            <hr>           
+                            <hr>
                             <p class="text-center text-danger">
-                                        <?php if (isset($_SESSION['SucessCad'])) {
-                                            echo $_SESSION['SucessCad'];
-                                            unset($_SESSION['SucessCad']);
-                                        } ?>
-                             </p>
+                                <?php if (isset($_SESSION['SucessCad'])) {
+                                    echo $_SESSION['SucessCad'];
+                                    unset($_SESSION['SucessCad']);
+                                } ?>
+                            </p>
+                           
                             <div class="text-center">
-                                <a href="config.php"><button type="submit" id="voltar" class="btn btn-danger btn-sm btn-user">Cancelar é voltar</button></a>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-     
-         <script src="./js/cadastro.js"></script>
+
+        <script src="./js/cadastro.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

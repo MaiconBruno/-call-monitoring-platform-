@@ -10,7 +10,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
   $_SESSION['usuarioLogin'],
   $_SESSION['usuarioSenha']);
   header("Location: index.php");
-  $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
+  $_SESSION['loginAcesso'] = "Acesso Negado!"; //mensagem exibida quando o acesso não e permitido 
   exit();
 } else { }
 ?>
@@ -63,33 +63,27 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-2"></h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="POST" action="./php/buscarUsuario.php">
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-2">Preencha alguns campos...</h1>
-
-
                     </div>
                     <div class="form-group row" style="margin-top:30px">
-                      <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control" onkeypress='return SomenteNumero(event)' id="ramal" maxlength="12" placeholder="Ramal">
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="text" onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control" id="cpf" placeholder="CPF">
+                      
+                      <div class="col-sm-12">
+                        <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control" id="cpf" name="cpfs" placeholder="CPF">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control " id="matricula" maxlength="15" placeholder="Matricula">
-                      </div>
-                      <div class="col-sm-6">
-                        <select class="custom-select" id="nivel" name="nivel">
-                          <option id="agente" value="valor1" selected>Agente</option>
-                          <option id="supervisor" value="valor2">Supervisor</option>
+                      <div class="col-sm-12">
+                        <select class="custom-select" id="nivel" name="nivelS">
+                          <option id="agente" value="2" selected>Agente</option>
+                          <option id="supervisor" value="3">Supervisor</option>
                         </select>
                       </div>
                     </div>
-                    <div class="form-group row"> <a href="./PaginaEdicao.php" class="btn btn-success btn-user btn-block"> Buscar Usuário </a></div>
-                    <div class="form-group row justify-content-center"> <a href="./config.php" class=" col-md-3 btn btn-secondary btn-user btn-block">Voltar</a></div>
+                    <div class="d-flex justify-content-between">
+                      <button type="submit" class="btn btn-success btn-user btn-block" style="margin-right:10px;"> Buscar Usuário </button>
+                      <a href="./config.php"> <button type="button" class=" btn btn-secondary btn-user btn-block">Voltar</button></a>
                   </form>
                 </div>
               </div>

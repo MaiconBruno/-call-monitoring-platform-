@@ -13,7 +13,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
     $_SESSION['usuarioLogin'],
     $_SESSION['usuarioSenha']);
     header("Location: index.php");
-    $_SESSION['loginAcesso'] = "Você tentou acessa uma pagina que não corresponde ao seu acesso."; //mensagem exibida quando o acesso não e permitido 
+    $_SESSION['loginAcesso'] = "Acesso Negado!"; //mensagem exibida quando o acesso não e permitido 
     exit();
 } else { }
 
