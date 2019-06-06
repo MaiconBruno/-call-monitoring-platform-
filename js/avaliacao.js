@@ -45,7 +45,7 @@ function habilitaCampoEquipe(){
     }
 }
 
-function limpezaCampos(){
+function limpezaCamposAdm(){
     /*radioMatricula.cheked = false;
     radioNome.cheked = false;
     radioAni.cheked = false;
@@ -53,7 +53,17 @@ function limpezaCampos(){
     campoCampanha.value = "";
     campoEquipe.value = "";*/
 
-    location.href="./tabela_geral.php"
+    location.href="./TabelaGeraldoAdministrador.php"
+}
+function limpezaCamposSuper(){
+    /*radioMatricula.cheked = false;
+    radioNome.cheked = false;
+    radioAni.cheked = false;
+    campoBusca.value = "";
+    campoCampanha.value = "";
+    campoEquipe.value = "";*/
+
+    location.href="./TabelaGeraldoSupervisor.php"
 }
 
 function escondeDiv(){
