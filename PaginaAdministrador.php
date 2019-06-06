@@ -33,6 +33,7 @@ include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
 include('./php/graficoNaoAvaliados.php');
 include('./php/graficoMedia.php');
+include('./php/graficoChamadasRecebidas.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
@@ -115,12 +116,19 @@ include('./php/graficoMedia.php');
                   <div class="panel-title">TOTAL DE CHAMADAS RECEBIDAS</div>
                 </div>
                 <div class="content-box-large box-with-header">
+                  <?php
+                    $i = 0;
+                    while ($dado_gr_cr_mes = $resultado_gr_cr_mes->fetch_array()){                
+                      $array_mes[$i] = $dado_gr_cr_mes['mes'];
+                      $i = $i+1;
+                    }
+                  ?>
                   <canvas id="G_ligacao"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacao"), {
                       type: 'line',
                       data: {
-                        labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                        labels: ["<?php echo $array_mes[0] ?>"],
                         datasets: [{
                           backgroundColor: ["#FFB412"],
                           fill: false,
