@@ -1,4 +1,5 @@
 ﻿<?php
+
 //Importa a validação da sessão para evitar acesso via URL
 include('./php/validaPagina.php');
 //verifica se a pagina pertence ao nivel do usuario logado 
