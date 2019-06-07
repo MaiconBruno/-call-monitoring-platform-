@@ -8,10 +8,10 @@ session_start();
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LOGIN-DASHBOARD JCR</title>
+    <title>JCR TECNOLOGIA</title>
+    <meta name="author" content="GRUPO PFC - SENAI LIDER FENRNADA PORTO / TURMA 2019 58271" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
@@ -35,7 +35,7 @@ session_start();
                                     <form class="user" method="POST" action="./php/valida.php">
                                         <div class="form-group" style="margin-top:30px">
                                             <!-- <label for="email">E-mail</label> -->
-                                            <input type="text" class="form-control form-control-user" id="login" name="login" alt="Preencha com o login..."  placeholder="Seu login...">
+                                            <input type="text" class="form-control form-control-user" id="login" name="login" alt="Preencha com o login..." placeholder="Seu login...">
                                         </div>
                                         <div class="form-group">
                                             <!-- <label for="senha">Senha</label> -->
@@ -43,14 +43,14 @@ session_start();
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
                                     </form>
-                                <!-- Exibi a mensagem de erro caso login seja efetuado incorretamente -->
+                                    <!-- Exibi a mensagem de erro caso login seja efetuado incorretamente -->
                                     <p class="text-center text-danger">
                                         <?php if (isset($_SESSION['loginErro'])) {
                                             echo $_SESSION['loginErro'];
                                             unset($_SESSION['loginErro']);
                                         } ?>
                                     </p>
-                                        <!-- Exibi a mensagem de Acesso Invalido -->
+                                    <!-- Exibi a mensagem de Acesso Invalido -->
                                     <p class="text-center text-danger">
                                         <?php if (isset($_SESSION['loginAcesso'])) {
                                             echo $_SESSION['loginAcesso'];

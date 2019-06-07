@@ -427,15 +427,15 @@ include('./php/graficoChamadasRecebidas.php');
   </div>
   </div>
 
-  <div class="d-flex tabelas-fixo">
-    <div class=" zoom pd ">
+  <div class="tabelas-fixo ">
+    <div class=" zoom  pd">
       <a href="./TabelaGeraldoAdministrador.php">
-        <img class="img-responsive" src="./icones/tabela.png" width="50px" height="50px" alt="Tabelas" />
+        <img class="img-responsive" src="./icones/tabela.png" width="35px" height="35px" alt="Tabelas" />
       </a>
     </div>
-    <div class="zoom pd ">
+    <div class="zoom pd">
       <a href="./config.php">
-        <img class="img-responsive" src="./icones/config.png" width="50px" height="50px" alt="Tabelas" />
+        <img class="img-responsive" src="./icones/config.png" width="35px" height="35px" alt="Tabelas" />
       </a>
     </div>
   </div>

@@ -4,7 +4,7 @@ include ('./conexao.php');
 //Captura as informações digitadas no input text do html da pagina de login 
 $usuario = mysqli_real_escape_string($conn, $_POST['login']); //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
 $senha = mysqli_real_escape_string($conn, $_POST['senha']);//Escapar de caracteres especiais, como aspas, prevenindo SQL injection
-
+$senha = md5($senha);
 
 
  if(($usuario != null) && ($senha != null)){  // Verifica se os campos foram preenchidos, caso não redireciona para pagina index.php e exibi a mensagem de alerta!

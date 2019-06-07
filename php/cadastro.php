@@ -14,7 +14,8 @@ if (($_POST['usuario'] && $_POST['password'] && $_POST['nome'] && $_POST['sobren
     $matricula = mysqli_real_escape_string($conn, $_POST['matricula']);
     $ramal = mysqli_real_escape_string($conn, $_POST['ramal']);
     $funcao = mysqli_real_escape_string($conn, $_POST['nivel']);
-
+    $senha = md5($senha);
+    
     $sql = "INSERT INTO `pfc_db`.`funcionario`
     (`usuario`, `senha`, `nome`, `sobrenome`, `cpf`, `matricula`, `ramal`, `funcao`) VALUES
     ('$usuario','$senha','$nome ','$sobrenome','$cpf','$matricula','$ramal','$funcao');";

@@ -162,7 +162,7 @@ include('./php/tabelaavaliacao.php');
                                         <!-- FIm do campos text/date -->
                                     </form>
                                 </div>
-                                <table class="table table-hover table-primary table-responsive-lg " id="tbl_ligacao">
+                                <table class="table table-hover table-primary table-responsive-lg" id="tbl_ligacao">
                                     <thead>
                                         <tr class=>
                                             <th>Matricula</th>
@@ -172,11 +172,11 @@ include('./php/tabelaavaliacao.php');
                                             <th>Data</th>
                                             <th>Campanha</th>
                                             <th>Equipe</th>
-                                            <th>Resposta 1</th>
-                                            <th>Resposta 2</th>
-                                            <th>Resposta 3</th>
-                                            <th>Resposta 4</th>
-                                            <th>Resposta 5</th>
+                                            <th>R1</th>
+                                            <th>R2</th>
+                                            <th>R3</th>
+                                            <th>R4</th>
+                                            <th>R5</th>
                                         </tr>
                                     </thead>
 
@@ -245,7 +245,7 @@ include('./php/tabelaavaliacao.php');
 
     <div class="tabelas-fixo zoom pd ">
         <a href="./PaginaAdministrador.php">
-            <img class="img-responsive" src="./icones/icone_RA.png" width="50px" height="50px" alt="Tabelas" />
+            <img class="img-responsive" src="./icones/icone_RA.png" width="35px" height="35px" alt="Tabelas" />
         </a>
     </div>
     </div>

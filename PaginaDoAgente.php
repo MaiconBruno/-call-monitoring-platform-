@@ -180,7 +180,7 @@ include('./php/graficoMedia.php');
             </div>
 
             <!-- Aqui termina o primeiro card-->
-            <div class="col-md-5 ">
+            <div class="col-md-5">
               <!-- Aqui começa o segundo card-->
               <div class="row">
                 <div class="col-md-12">
@@ -219,7 +219,7 @@ include('./php/graficoMedia.php');
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="row ">
                 <div class="col-md-12">
                   <div class="content-box-header">
                     <div class="panel-title">MÉDIA POR PERGUNTA</div>
@@ -267,7 +267,7 @@ include('./php/graficoMedia.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:10px; padding-right:20px; min-height:888px;">
+    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:10px; padding-right:20px; min-height:788px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
@@ -361,7 +361,7 @@ include('./php/graficoMedia.php');
   <div class="d-flex tabelas-fixo">
     <div class=" zoom pd ">
       <a href="./TabelaDoAgente.php">
-        <img class="img-responsive" src="./icones/tabela.png" width="50px" height="50px" alt="Tabelas" />
+        <img class="img-responsive" src="./icones/tabela.png" width="35px" height="35px" alt="Tabelas" />
       </a>
     </div>
   </div>

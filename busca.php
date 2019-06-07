@@ -64,19 +64,19 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-2"></h1>
                   </div>
-                  <form class="user" method="POST" action="./php/buscarUsuario.php">
+                  <form class="user" method="POST" action="./PaginaEdicao.php">
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-2">Preencha alguns campos...</h1>
                     </div>
                     <div class="form-group row" style="margin-top:30px">
-                      
+
                       <div class="col-sm-12">
-                      <input type="text" required  maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );">
-                    </div>
+                        <input type="text" required maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );">
+                      </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-12">
-                        <select class="custom-select" id="nivel" name="nivelS">
+                        <select class="custom-select" id="nivel" name="nivel">
                           <option id="agente" value="2" selected>Agente</option>
                           <option id="supervisor" value="3">Supervisor</option>
                         </select>
@@ -88,6 +88,18 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                   </form>
                 </div>
               </div>
+              <p class="text-center text-danger">
+                  <?php if (isset($_SESSION['Sucessedit'])) {
+                    echo $_SESSION['Sucessedit'];
+                    unset($_SESSION['Sucessedit']);
+                  } ?>
+                </p>
+              <p class="text-center text-danger">
+                  <?php if (isset($_SESSION['AlertaBusca'])) {
+                    echo $_SESSION['AlertaBusca'];
+                    unset($_SESSION['AlertaBusca']);
+                  } ?>
+                </p>
             </div>
           </div>
         </div>
@@ -101,7 +113,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
 
   <!-- Core plugin JavaScript-->
   <script src="bibliotecas/jquery-easing/jquery.easing.min.js"></script>
-  <script src="./js/mascaras.js"></script>  
+  <script src="./js/mascaras.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 </body>
