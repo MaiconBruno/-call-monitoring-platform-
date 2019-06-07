@@ -110,7 +110,7 @@ if ($nome_usuario != "") { } else {
               <div class="text-center">
                 <h1 class="h3 text-gray-900 mb-4">Preencha os campos para Editar</h1>
               </div>
-              <form  method="POST" action="./php/editar_dados.php">
+              <form method="POST" action="./php/editar_dados.php">
                 <div class="form-group row" style="margin-top:30px">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" required id="nome" placeholder="Nome" value="<?php echo $nome_usuario; ?>" disabled>
@@ -120,11 +120,11 @@ if ($nome_usuario != "") { } else {
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" disabled id="usuario" name="usuario" required value="<?php echo $usuario_usuario; ?>">
+                  <input type="text" class="form-control form-control-user" disabled id="usuario" name="usuarioAtual" required value="<?php echo $usuario_usuario; ?>">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" disabled id="password" name="password" required value="<?php echo $senha_usuario; ?>">
+                    <input type="password" class="form-control form-control-user" disabled id="password" name="passwordAtual" required value="<?php echo $senha_usuario; ?>">
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" disabled id="confirmarsenha" required value="<?php echo $senha_usuario; ?>">
@@ -132,7 +132,7 @@ if ($nome_usuario != "") { } else {
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" required disabled id="matricula" name="matricula" maxlength="15" value="<?php echo $matricula_usuario; ?>">
+                    <input type="text" class="form-control form-control-user" required disabled id="matricula" name="matriculaAtual" maxlength="15" value="<?php echo $matricula_usuario; ?>">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" disabled class="form-control form-control-user" disabled required id="nivel" maxlength="15" value="<?php
@@ -150,7 +150,7 @@ if ($nome_usuario != "") { } else {
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" disabled required id="ramal" name="ramal" onkeypress='return SomenteNumero(event)' maxlength="12" value="<?php echo $ramal_usuario; ?>">
+                    <input type="text" class="form-control form-control-user" disabled required id="ramal" name="ramalAtual" onkeypress='return SomenteNumero(event)' maxlength="12" value="<?php echo $ramal_usuario; ?>">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" value="<?php echo $cpf_usuario; ?>" disabled>
