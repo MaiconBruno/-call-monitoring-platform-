@@ -71,8 +71,8 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                     <div class="form-group row" style="margin-top:30px">
                       
                       <div class="col-sm-12">
-                        <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control" id="cpf" name="cpfs" placeholder="CPF">
-                      </div>
+                      <input type="text" required  maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );">
+                    </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-12">
@@ -101,7 +101,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
 
   <!-- Core plugin JavaScript-->
   <script src="bibliotecas/jquery-easing/jquery.easing.min.js"></script>
-
+  <script src="./js/mascaras.js"></script>  
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 </body>

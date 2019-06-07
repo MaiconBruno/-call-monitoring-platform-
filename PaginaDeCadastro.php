@@ -47,26 +47,26 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                             <form class="user" method="POST" action="./php/cadastro.php">
                                 <div class="form-group row" style="margin-top:30px">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="nome" name="nome" placeholder="Nome">
+                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="nome" name="nome" placeholder="Nome... " pattern="[a-z\s]+$">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="sobrenome" name="sobrenome" placeholder="Sobrenome">
+                                        <input type="text" class="form-control form-control-user" onkeypress='return soLetras(event)' required id="sobrenome" name="sobrenome" placeholder="Sobrenome... " pattern="[a-z\s]+$">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" required id="usuario" name="usuario" placeholder="Login">
+                                    <input type="text" maxlength="20" class="form-control form-control-user" required id="usuario" name="usuario" placeholder="Login">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" required id="password" name="password" placeholder="Senha">
+                                        <input type="password" maxlength="14" class="form-control form-control-user" required id="password" name="password" placeholder="Senha">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" required id="confirm_password" placeholder="Confirmar senha">
+                                        <input type="password" maxlength="14" class="form-control form-control-user" required id="confirm_password" placeholder="Confirmar senha">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" required id="matricula" name="matricula" maxlength="15" placeholder="Matricula">
+                                        <input type="text" maxlength="20" class="form-control form-control-user" required id="matricula" name="matricula" maxlength="15" placeholder="Matricula">
                                     </div>
                                     <div class="col-sm-6">
                                         <select id="nivel" name="nivel" class="custom-select" name="nivel">
@@ -77,10 +77,10 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" required id="ramal" name="ramal" maxlength="12" placeholder="Ramal">
+                                        <input type="text" maxlength="20" class="form-control form-control-user" required id="ramal" name="ramal" maxlength="12" placeholder="Ramal">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF">
+                                        <input type="text" required  maxlength="14" class="form-control form-control-user" id="cpf" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );">
                                     </div>
                                 </div>
                                 <div class="d-flex">
@@ -95,7 +95,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                                     unset($_SESSION['SucessCad']);
                                 } ?>
                             </p>
-                           
+
                             <div class="text-center">
 
                             </div>
@@ -104,7 +104,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                 </div>
             </div>
         </div>
-
+        <script src="./js/mascaras.js"></script>   
         <script src="./js/cadastro.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
