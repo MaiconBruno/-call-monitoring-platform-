@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `pfc_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `pfc_db`;
--- MySQL dump 10.16  Distrib 10.1.38-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.40-MariaDB, for Win64 (AMD64)
 --
 -- Host: 127.0.0.1    Database: pfc_db
 -- ------------------------------------------------------
--- Server version	10.1.38-MariaDB
+-- Server version	10.1.40-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) DEFAULT NULL,
+  `usuario` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `nome` varchar(255) NOT NULL,
   `sobrenome` varchar(255) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,'','','Valter','Junior','52952778019','1000','2',2),(2,'','','Mario','Marquers','49816250063','1001','1',2),(3,'','','Carlos','Ruane','64837599087','1002','2',2),(4,'','','Joao','Carlos','85159698078','1003','1',2),(5,'','','Lucas','Hav','16086386005','1004','2',2),(6,'','','Marcelo','Leoni','38787610078','1005','1',2),(7,'','','Marta',' Melli','85512109049','1006','1',2),(8,'','','Pedro','Lucas','74784351060','1007','2',2),(9,'','','Helvecio','neto','21687589054','1008','1',2);
+INSERT INTO `funcionario` VALUES (1,'valter','123','Valter','Junior','52952778019','1000','2',1),(2,'mario','123','Mario','Marquers','49816250063','1001','1',2),(3,'carlos','123','Carlos','Ruane','64837599087','1002','2',3),(4,'joao','123','Joao','Carlos','85159698078','1003','1',2),(5,'lucas','123','Lucas','Hav','16086386005','1004','2',2),(6,'marcelo','123','Marcelo','Leoni','38787610078','1005','1',2),(7,'marta','123','Marta',' Melli','85512109049','1006','1',2),(8,'pedro','123','Pedro','Lucas','74784351060','1007','2',2),(9,'helvecio','123','Helvecio','neto','21687589054','1008','1',2);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +92,7 @@ CREATE TABLE `ligacao` (
   PRIMARY KEY (`id_ligacao`),
   KEY `fk_funcionario` (`funcionario`),
   CONSTRAINT `fk_funcionario` FOREIGN KEY (`funcionario`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +101,7 @@ CREATE TABLE `ligacao` (
 
 LOCK TABLES `ligacao` WRITE;
 /*!40000 ALTER TABLE `ligacao` DISABLE KEYS */;
-INSERT INTO `ligacao` VALUES (1,'2019-01-05 00:00:00','N/a',638638235,'12','1',1),(2,'2019-01-15 00:00:00','N/a',452934068,'33','2',2),(3,'2019-02-23 00:00:00','N/a',437696382,'12','1',3),(4,'2019-02-18 00:00:00','N/a',582456270,'33','2',4),(5,'2019-03-11 00:00:00','N/a',243447844,'12','1',5),(6,'2019-03-17 00:00:00','N/a',681340989,'33','2',6),(7,'2019-04-25 00:00:00','N/a',850196824,'12','2',7),(8,'2019-04-04 00:00:00','N/a',63407191,'12','1',8),(9,'2019-05-01 00:00:00','N/a',684819818,'12','2',9),(10,'2019-05-18 00:00:00','n/a',874759175,'33','2',1),(11,'2019-05-22 00:00:00','n/a',784264248,'10','7',9);
+INSERT INTO `ligacao` VALUES (1,'2019-01-05 00:00:00','N/a',638638235,'12','1',1),(2,'2019-01-15 00:00:00','N/a',452934068,'33','2',2),(3,'2019-02-23 00:00:00','N/a',437696382,'12','1',3),(4,'2019-02-18 00:00:00','N/a',582456270,'33','2',4),(5,'2019-03-11 00:00:00','N/a',243447844,'12','1',5),(6,'2019-03-17 00:00:00','N/a',681340989,'33','2',6),(7,'2019-04-25 00:00:00','N/a',850196824,'12','2',7),(8,'2019-04-04 00:00:00','N/a',63407191,'12','1',8),(9,'2019-05-01 00:00:00','N/a',684819818,'12','2',9),(10,'2019-05-18 00:00:00','n/a',874759175,'33','2',1),(11,'2019-05-22 00:00:00','n/a',784264248,'10','7',9),(12,'2019-06-12 00:00:00','N/a',745618613,'33','2',9),(13,'2019-07-23 00:00:00','N/a',745618613,'33','1',5),(14,'2019-08-02 00:00:00','N/a',854133047,'10','7',4),(15,'2019-09-15 00:00:00','N/a',745610679,'10','1',8),(16,'2019-10-20 00:00:00','N/a',454541218,'12','1',9),(17,'2019-11-03 00:00:00','N/a',741302486,'12','1',2),(18,'2019-12-18 00:00:00','N/a',784036548,'33','2',5);
 /*!40000 ALTER TABLE `ligacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `resposta` (
   PRIMARY KEY (`id_resposta`),
   KEY `fk_ligacao` (`ligacao`),
   CONSTRAINT `fk_ligacao` FOREIGN KEY (`ligacao`) REFERENCES `ligacao` (`id_ligacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `resposta` (
 
 LOCK TABLES `resposta` WRITE;
 /*!40000 ALTER TABLE `resposta` DISABLE KEYS */;
-INSERT INTO `resposta` VALUES (1,3,4,5,5,5,1),(2,3,3,4,NULL,NULL,2),(3,3,3,4,4,NULL,3),(4,4,5,2,NULL,NULL,4),(5,2,2,NULL,NULL,NULL,5),(6,3,NULL,NULL,NULL,NULL,6),(7,3,4,4,2,NULL,7),(8,1,3,NULL,NULL,NULL,8),(9,1,NULL,NULL,NULL,NULL,9),(10,2,4,1,NULL,NULL,10),(11,4,4,5,3,NULL,11);
+INSERT INTO `resposta` VALUES (1,3,4,5,5,5,1),(2,3,3,4,NULL,NULL,2),(3,3,3,4,4,NULL,3),(4,4,5,2,NULL,NULL,4),(5,2,2,NULL,NULL,NULL,5),(6,3,NULL,NULL,NULL,NULL,6),(7,3,4,4,2,NULL,7),(8,1,3,NULL,NULL,NULL,8),(9,1,NULL,NULL,NULL,NULL,9),(10,2,4,1,NULL,NULL,10),(11,4,4,5,3,NULL,11),(12,3,2,4,NULL,NULL,12),(13,1,7,5,2,NULL,13),(14,2,1,NULL,NULL,NULL,14),(15,4,2,4,4,4,15),(16,NULL,NULL,NULL,NULL,NULL,16),(17,5,2,1,NULL,NULL,17),(18,4,4,4,5,3,18);
 /*!40000 ALTER TABLE `resposta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,6 +226,150 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_ano` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_ano`()
+BEGIN
+	select DATE_FORMAT(data_hora, "%Y") as 'ano' from ligacao group by ano ORDER BY data_hora ASC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_contar_ligacoes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_contar_ligacoes`(in mes varchar(100))
+BEGIN
+	select count(id_ligacao) as 'total_chamadas' from ligacao where month(data_hora) = mes;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_mes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_mes`()
+BEGIN
+	select DATE_FORMAT(data_hora, "%b") as 'mes' from ligacao group by mes ORDER BY data_hora ASC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_agente`(in agente varchar(255))
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE b.equipe = equipe;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_geral` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_geral`()
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r1` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -239,6 +383,72 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r1`()
 BEGIN
 	SELECT COUNT(*) as r1 FROM resposta WHERE (resposta_1 IS NULL or resposta_1 = '');
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r1_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r1_agente`(in agente varchar(255))
+BEGIN
+	SELECT COUNT(*) as r1 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_1 IS NULL or resposta_1 = '') AND c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r1_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r1_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT COUNT(*) as r1 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_1 IS NULL or resposta_1 = '') AND b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r1_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r1_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT COUNT(*) as r1 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_1 IS NULL or resposta_1 = '') AND b.equipe = equipe;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -264,19 +474,155 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r2_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r2_agente`(in agente varchar(255))
+BEGIN
+	SELECT COUNT(*) as r2 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_2 IS NULL or resposta_2 = '') AND c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r2_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r2_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT COUNT(*) as r2 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_2 IS NULL or resposta_2 = '') AND b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r2_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r2_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT COUNT(*) as r2 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_2 IS NULL or resposta_2 = '') AND b.equipe = equipe;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r3` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r3`()
 BEGIN
-	SELECT COUNT(*) as r3 FROM resposta WHERE (resposta_3 IS NULL or resposta_3 = '');
+	SELECT COUNT(*) as r3 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_3 IS NULL or resposta_3 = '');
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r3_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r3_agente`(in agente varchar(255))
+BEGIN
+	SELECT COUNT(*) as r3 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_3 IS NULL or resposta_3 = '') AND c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r3_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r3_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT COUNT(*) as r3 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_3 IS NULL or resposta_3 = '') AND b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r3_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r3_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT COUNT(*) as r3 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_3 IS NULL or resposta_3 = '') AND b.equipe = equipe;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -287,15 +633,81 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r4`()
 BEGIN
-	SELECT COUNT(*) as r5 FROM resposta WHERE (resposta_4 IS NULL or resposta_4 = '');
+	SELECT COUNT(*) as r4 FROM resposta WHERE (resposta_4 IS NULL or resposta_4 = '');
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r4_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r4_agente`(in agente varchar(255))
+BEGIN
+	SELECT COUNT(*) as r4 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_4 IS NULL or resposta_4 = '') AND c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r4_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r4_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT COUNT(*) as r4 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_4 IS NULL or resposta_4 = '') AND b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r4_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r4_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT COUNT(*) as r4 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_4 IS NULL or resposta_4 = '') AND b.equipe = equipe;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -315,6 +727,72 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r5`()
 BEGIN
 	SELECT COUNT(*) as r5 FROM resposta WHERE (resposta_5 IS NULL or resposta_5 = '');
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r5_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r5_agente`(in agente varchar(255))
+BEGIN
+	SELECT COUNT(*) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_5 IS NULL or resposta_5 = '') AND c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r5_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r5_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT COUNT(*) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_5 IS NULL or resposta_5 = '') AND b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_na_r5_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_na_r5_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT COUNT(*) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE (resposta_5 IS NULL or resposta_5 = '') AND b.equipe = equipe;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -826,6 +1304,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_valida_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_valida_usuario`(in usuario1 varchar(255), in senha1 varchar(255))
+BEGIN
+	SELECT * FROM funcionario WHERE usuario = usuario1 and senha = senha1; 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -836,4 +1333,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-15 20:32:35
+-- Dump completed on 2019-06-06 22:43:57

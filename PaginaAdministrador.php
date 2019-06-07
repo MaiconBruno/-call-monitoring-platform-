@@ -116,24 +116,17 @@ include('./php/graficoChamadasRecebidas.php');
                   <div class="panel-title">TOTAL DE CHAMADAS RECEBIDAS</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <?php
-                    $i = 0;
-                    while ($dado_gr_cr_mes = $resultado_gr_cr_mes->fetch_array()){                
-                      $array_mes[$i] = $dado_gr_cr_mes['mes'];
-                      $i = $i+1;
-                    }
-                  ?>
                   <canvas id="G_ligacao"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacao"), {
                       type: 'line',
                       data: {
-                        labels: ["<?php echo $array_mes[0] ?>"],
+                        labels: ["<?php echo $array_mes[0] ?>", "<?php echo $array_mes[1] ?>", "<?php echo $array_mes[2] ?>", "<?php echo $array_mes[3] ?>", "<?php echo $array_mes[4] ?>", "<?php echo $array_mes[5] ?>", "<?php echo $array_mes[6] ?>", "<?php echo $array_mes[7] ?>", "<?php echo $array_mes[8] ?>", "<?php echo $array_mes[9] ?>", "<?php echo $array_mes[10] ?>", "<?php echo $array_mes[11] ?>"],
                         datasets: [{
                           backgroundColor: ["#FFB412"],
                           fill: false,
                           borderColor: "#FFB412",
-                          data: [20, 40, 42, 58, 31, 21, 50, 60, 42, 13, 23, 11]
+                          data: ["<?php echo $array_mes_contarLigacoes[1] ?>", "<?php echo $array_mes_contarLigacoes[2] ?>", "<?php echo $array_mes_contarLigacoes[3] ?>", "<?php echo $array_mes_contarLigacoes[4] ?>", "<?php echo $array_mes_contarLigacoes[5] ?>", "<?php echo $array_mes_contarLigacoes[6] ?>", "<?php echo $array_mes_contarLigacoes[7] ?>", "<?php echo $array_mes_contarLigacoes[8] ?>", "<?php echo $array_mes_contarLigacoes[9] ?>", "<?php echo $array_mes_contarLigacoes[10] ?>", "<?php echo $array_mes_contarLigacoes[11] ?>", "<?php echo $array_mes_contarLigacoes[12] ?>", ]
                         }]
                       },
                       options: {
