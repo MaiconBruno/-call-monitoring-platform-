@@ -3,6 +3,7 @@ include ('./php/conexao.php');
 
 $filtro = filter_input(INPUT_GET, "opcaoGrMedia");
 $parametro = filter_input(INPUT_GET, "parametroGrMedia");
+$mensagem_erro_media = '';
 
 $select_media_geral = "CALL select_gr_media_geral();";
 $select_media_campanha = "CALL select_gr_media_campanha('$parametro');";
@@ -23,6 +24,9 @@ if($filtro != ""){
     $resultado_gr_media = mysqli_query($conn, $select_media_geral);
 }
 
+//$row_cnt = mysqli_num_rows($resultado_gr_media);
+//echo $resultado_gr_media;
+
 while($dado_gr_media = $resultado_gr_media -> fetch_array()){  
     $r1_gr_media = $dado_gr_media['r1'];  
     $r2_gr_media = $dado_gr_media['r2'];
@@ -32,9 +36,7 @@ while($dado_gr_media = $resultado_gr_media -> fetch_array()){
 }
 
 if($r1_gr_media == 0 && $r2_gr_media == 0 && $r3_gr_media == 0 && $r4_gr_media == 0 && $r5_gr_media == 0){
-    echo "<script>
-    alert('Nenhum dado encontrado!'); location= './PaginaGraficos.php';
-    </script>";
+    $mensagem_erro_media = 'Nenhum resultado encontrado!';
 }
 
 ?>

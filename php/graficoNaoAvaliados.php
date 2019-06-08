@@ -3,6 +3,7 @@ include ('./php/conexao.php');
 
 $filtro = filter_input(INPUT_GET, "opcaoGrNa");
 $parametro = filter_input(INPUT_GET, "parametroGrNa");
+$mensagem_erro_naoAvaliados = '';
 
 ?>
 
@@ -143,8 +144,6 @@ while($dado_na_r5 = $resultado_r5 -> fetch_array()){
 
 <?php
 if($resposta1_na == 0 && $resposta2_na == 0 && $resposta3_na == 0 && $resposta4_na == 0 && $resposta5_na == 0){
-    echo "<script>
-    alert('Nenhum dado encontrado!'); location= './PaginaGraficos.php';
-    </script>";
+    $mensagem_erro_naoAvaliados = 'Nenhum resultado encontrado!';
 }
 ?>
