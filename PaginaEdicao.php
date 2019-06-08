@@ -103,22 +103,22 @@ if ($_SESSION['buscaRealiza'] == true) {
                 </div>
                 <div class="form-group">
                   <label for="senha">Senha:</label>
-                  <input type="text" class="form-control form-control-user" maxlength="15" disabled id="usuario" onclick="limparusuario()" name="usuario" required value="<?php echo $usuario_user ?>">
+                  <input type="text" class="form-control form-control-user" maxlength="15" disabled id="usuario" onclick="limparusuario();" name="usuario" required value="<?php echo $usuario_user ?>">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <label for="senha">Senha:</label>
-                    <input type="password" class="form-control form-control-user" maxlength="15" onclick="limparsenha()" disabled id="password" name="senha" required value="<?php echo  $senha_user; ?>">
+                    <input type="password" class="form-control form-control-user" maxlength="15" onclick="limparsenha();" disabled id="password" name="senha" required value="<?php echo  $senha_user; ?>">
                   </div>
 
                   <div class="col-sm-6">
                     <label for="confirmarsenha"> Confimar senha:</label>
-                    <input type="password" class="form-control form-control-user" maxlength="15" disabled id="confirmarsenha" required value="<?php echo  $senha_user; ?>">
+                    <input type="password" class="form-control form-control-user" maxlength="15" disabled id="confirmarsenha" onclick="limparsenha();"  required value="<?php echo  $senha_user; ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" required disabled onclick="limparmatricula()" id="matricula" name="matricula" maxlength="15" value="<?php echo $matricula_user; ?>">
+                    <input type="text" class="form-control form-control-user" required disabled onclick="limparmatricula();" id="matricula" name="matricula" maxlength="15" value="<?php echo $matricula_user; ?>">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" disabled class="form-control form-control-user" disabled required id="nivel" maxlength="15" value="<?php
@@ -136,7 +136,7 @@ if ($_SESSION['buscaRealiza'] == true) {
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" onclick="limparramal()" disabled required id="ramal" name="ramal" maxlength="12" value="<?php echo $ramal_user; ?>">
+                    <input type="text" class="form-control form-control-user" onclick="limparramal();" disabled required id="ramal" name="ramal" maxlength="12" value="<?php echo $ramal_user; ?>">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" required maxlength="14" class="form-control form-control-user" id="cpf" value="<?php echo  $cpf_user; ?>" disabled>
@@ -144,17 +144,16 @@ if ($_SESSION['buscaRealiza'] == true) {
                 </div>
                 <div class="d-flex">
                   <button type="submit" id="cadastronovo" class="btn btn-success btn-sm btn-user btn-block" disabled>Confirmar Edição</button>
-                  <button type="button" id="editar" class="btn btn-warning btn-sm btn-user" style="margin-left:10px; min-width:150px;" onclick="habilitar_edicao()">Editar</button>
+                  <button type="button" id="editar" class="btn btn-warning btn-sm btn-user" style="margin-left:10px; min-width:150px;" onclick="habilitar_edicao();">Editar</button>
                 </div>
               </form>
               <hr>
               <div class="text-center">
                 <h5 class="font-weight-bold"> O que deseja fazer agora...?</h5>
                 <form action="./php/excluir_cadastro.php">
-                  <button id="excluir" type="submit" class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
+                  <button id="excluir" type="submit" disabled class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
                   <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
                 </form>
-                <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
               </div>
             </div>
           </div>
@@ -162,7 +161,7 @@ if ($_SESSION['buscaRealiza'] == true) {
       </div>
     </div>
   </div>
-  <script src="./js/pesquisa.js"></script>
+
   <script src="./js/cadastro.js"></script>
   <!-- Bootstrap core JavaScript-->
   <script src="bibliotecas/jquery/jquery.min.js"></script>
