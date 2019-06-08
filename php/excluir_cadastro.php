@@ -10,16 +10,16 @@ unset($_SESSION['id']);
 // $matricula = filter_input(INPUT_POST, 'matricula', FILTER_SANITIZE_STRING);
 // $ramal = filter_input(INPUT_POST, 'ramal', FILTER_SANITIZE_STRING);
 
-$result_usuario = "call pfc_db.editar_cadastro('$user_usuario','$user_senha','$user_matricula','$user_ramal','$user_id');";
+$result_usuario = "call pfc_db.select_deletar_funcionario('$user_id');";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 
 if ($resultado_usuario != ""){
     header("Location: ../busca.php");
-    $_SESSION['AlertaBusca'] = 'Alteração feita com exito!!';
+    $_SESSION['AlertaBusca'] = 'Usuario Excluido com sucesso!!';
 }else{
     header("Location: ../busca.php");
-    $_SESSION['AlertaBusca'] = 'Erro durante alteração!!';
+    $_SESSION['AlertaBusca'] = 'Erro durante exclusão!!';
 }
 
 

@@ -113,7 +113,7 @@ if ($_SESSION['buscaRealiza'] == true) {
 
                   <div class="col-sm-6">
                     <label for="confirmarsenha"> Confimar senha:</label>
-                    <input type="password" class="form-control form-control-user" maxlength="15"" disabled id=" confirmarsenha" required value="<?php echo  $senha_user; ?>">
+                    <input type="password" class="form-control form-control-user" maxlength="15" disabled id="confirmarsenha" required value="<?php echo  $senha_user; ?>">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -154,6 +154,7 @@ if ($_SESSION['buscaRealiza'] == true) {
                   <button id="excluir" type="submit" class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
                   <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
                 </form>
+                <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
               </div>
             </div>
           </div>

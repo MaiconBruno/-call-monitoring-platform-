@@ -86,25 +86,26 @@ function abrir2(URL) {
 
 function esconderCampoPesquisa() {
     document.getElementById("id").style.display = "none"; // esconte
- }
-
-
- function limparsenha(){
-        document.getElementById('password').value=''; 
-        document.getElementById('confirmarsenha').value='';     
- }
-
- function limparramal(){
-    document.getElementById('ramal').value=''; 
- 
 }
 
-function limparmatricula(){
-    document.getElementById('matricula').value=''; 
-  
+
+function limparsenha() {
+    document.getElementById('password').value = '';
+    document.getElementById('confirmarsenha').value = '';
 }
 
-function limparusuario(){
-    document.getElementById('usuario').value=''; 
-      
+function limparramal() {
+    document.getElementById('ramal').value = '';
+
 }
+
+function limparmatricula() {
+    document.getElementById('matricula').value = '';
+
+}
+
+function limparusuario() {
+    document.getElementById('usuario').value = '';
+
+}
+
