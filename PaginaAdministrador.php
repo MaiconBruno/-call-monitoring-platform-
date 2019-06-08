@@ -197,9 +197,9 @@ include('./php/graficoTotalNaoAvaliadas.php');
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="row select-margin">
-                      <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro" name="opcaoGrInteracao">
-                          <option selected>Filtros...</option>
+                    <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrInteracao">
+                          <option value="padrao" selected>Filtros...</option>
                             <option value="agente">Agente</option>
                             <option value="equipe">Equipe</option>
                             <option value="campanha">Campanha</option>
@@ -256,14 +256,14 @@ include('./php/graficoTotalNaoAvaliadas.php');
                     <div class="col-md-12">
                       <div class="row select-margin">
 
-                        <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro" name="opcaoGrMedia">
-                            <option selected>Filtros...</option>
+                        <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrMedia">
+                            <option value="padrao" selected>Filtros...</option>
                             <option value="agente">Agente</option>
                             <option value="equipe">Equipe</option>
                             <option value="campanha">Campanha</option>
                           </select>
-                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoRanking" required>
+                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoPesquisa" required>
                           <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                         </form>
                       </div>
@@ -329,9 +329,9 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <div class="col-md-12">
               <div class="row select-margin">
 
-                <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoAv">
-                    <option selected>Filtros...</option>
+              <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoAv">
+                    <option value="padrao" selected>Filtros...</option>
                     <option value="agente">Agente</option>
                     <option value="equipe">Equipe</option>
                     <option value="campanha">Campanha</option>
@@ -396,9 +396,9 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <div class="col-md-12">
               <div class="row select-margin">
 
-                <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoGrNa">
-                    <option selected>Filtros...</option>
+              <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrNa">
+                  <option value="padrao" selected>Filtros...</option>
                     <option value="agente">Agente</option>
                     <option value="equipe">Equipe</option>
                     <option value="campanha">Campanha</option>
@@ -493,6 +493,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/validacaoForm.js"></script>
 </body>
 
 </html>
