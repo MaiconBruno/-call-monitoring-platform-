@@ -86,24 +86,24 @@ if ($_SESSION['buscaRealiza'] == true) {
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h3 text-gray-900 mb-4">Preencha os campos para Editar</h1>
+                <h1 class="h3 text-gray-900 mb-4">Dados do usuário</h1>
               </div>
 
               <form method="POST" action="./php/editar_dados.php">
                 <div class="form-group row" style="margin-top:30px">
 
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <label for="senha">Senha:</label>
+                    <label for="nome">Nome:</label>
                     <input type="text" class="form-control form-control-user" required id="nome" name="nome" value="<?php echo $nome_user; ?>" disabled>
                   </div>
                   <div class="col-sm-6">
-                    <label for="senha">Senha:</label>
+                    <label for="sobrenome">Sobrenome:</label>
                     <input type="text" class="form-control form-control-user" required id="sobrenome" name="sobrenome" value="<?php echo  $sobrenome_user; ?>" disabled>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="senha">Senha:</label>
-                  <input type="text" class="form-control form-control-user" maxlength="15" disabled id="usuario" onclick="limparusuario();" name="usuario" required value="<?php echo $usuario_user ?>">
+                  <label for="usuario">Nome de usuário:</label>
+                  <input type="text" class="form-control form-control-user" maxlength="15" disabled id="usuario"  onclick="limparusuario();" name="usuario" required value="<?php echo $usuario_user ?>">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -113,14 +113,16 @@ if ($_SESSION['buscaRealiza'] == true) {
 
                   <div class="col-sm-6">
                     <label for="confirmarsenha"> Confimar senha:</label>
-                    <input type="password" class="form-control form-control-user" maxlength="15" disabled id="confirmarsenha" onclick="limparsenha();"  required value="<?php echo  $senha_user; ?>">
+                    <input type="password" class="form-control form-control-user" maxlength="15" disabled id="confirmarsenha" onclick="limparsenha();" required value="<?php echo  $senha_user; ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" required disabled onclick="limparmatricula();" id="matricula" name="matricula" maxlength="15" value="<?php echo $matricula_user; ?>">
+                    <label for="matricula"> Matricula:</label>
+                    <input type="text" class="form-control form-control-user" maxlength="20"  required disabled onclick="limparmatricula();" id="matricula" name="matricula" maxlength="15" value="<?php echo $matricula_user; ?>">
                   </div>
                   <div class="col-sm-6">
+                    <label for="nivel">Nivel do usuário:</label>
                     <input type="text" disabled class="form-control form-control-user" disabled required id="nivel" maxlength="15" value="<?php
                                                                                                                                           if ($funcao_user == 1) {
                                                                                                                                             $conta_nivel = "Administrador";
@@ -136,9 +138,11 @@ if ($_SESSION['buscaRealiza'] == true) {
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" onclick="limparramal();" disabled required id="ramal" name="ramal" maxlength="12" value="<?php echo $ramal_user; ?>">
+                    <label for="ramal">Ramal:</label>
+                    <input type="text" class="form-control form-control-user" onclick="limparramal();" onkeypress='return SomenteNumero(event)' disabled required id="ramal" name="ramal" maxlength="12" value="<?php echo $ramal_user; ?>">
                   </div>
                   <div class="col-sm-6">
+                    <label for="cpf">CPF:</label>
                     <input type="text" required maxlength="14" class="form-control form-control-user" id="cpf" value="<?php echo  $cpf_user; ?>" disabled>
                   </div>
                 </div>
@@ -148,12 +152,15 @@ if ($_SESSION['buscaRealiza'] == true) {
                 </div>
               </form>
               <hr>
-              <div class="text-center">
-                <h5 class="font-weight-bold"> O que deseja fazer agora...?</h5>
-                <form action="./php/excluir_cadastro.php">
-                  <button id="excluir" type="submit" disabled class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
-                  <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
-                </form>
+              <div class="text-center ">
+
+                <div class="d-flex justify-content-around">
+                  <form action="./php/excluir_cadastro.php">
+                    <button id="excluir" type="submit" disabled class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
+                    <a href="./config.php"><button type="button" id="voltar" class="btn btn-info btn-sm btn-user">Voltar</button></a>
+                  </form>
+
+                </div>
               </div>
             </div>
           </div>

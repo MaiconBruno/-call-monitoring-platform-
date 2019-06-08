@@ -58,7 +58,7 @@ function SomenteNumero(e) {
     else {
         if (tecla == 8 || tecla == 0) return true;
 
-        else alert("Letras ou símbolos não são aceitos nesse campo!!");
+        else 
         return false;
     }
 }
