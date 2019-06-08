@@ -14,35 +14,47 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
   exit();
 } else { }
 ?>
-
 <?php
 
-include('./php/conexao.php');
-$cpf =  $_POST['cpf'];
-$nivel = $_POST['nivel'];
+if ($_SESSION['buscaRealiza'] == true) {
+  $id_user =  $_SESSION['id_usuario'];
+  $nome_user = $_SESSION['nome'];
+  $sobrenome_user = $_SESSION['sobrenome'];
+  $usuario_user = $_SESSION['usuario'];
+  $senha_user = $_SESSION['senha'];
+  $matricula_user = $_SESSION['matricula'];
+  $ramal_user = $_SESSION['ramal'];
+  $cpf_user = $_SESSION['cpf'];
+  $funcao_user = $_SESSION['funcao'];
+  $_SESSION['id'] = $id_user;
 
-$buscar = "SELECT * from funcionario where  cpf= '$cpf' AND funcao = '$nivel';"; //faz a pesquisa do usuario no banco de dados. 
-$resultadoBusca = mysqli_query($conn, $buscar); // faz a conexão com banco e aloca o resultado na variavel resultado_usuario 
-// Associa o resultado com o banco 
-
-while ($row_usuario = mysqli_fetch_assoc($resultadoBusca)) {
-  $id_usuario = $row_usuario['id_funcionario'];
-  $nome_usuario =  $row_usuario['nome'];
-  $sobrenome_usuario =   $row_usuario['sobrenome'];
-  $usuario_usuario =   $row_usuario['usuario'];
-  $senha_usuario =   $row_usuario['senha'];
-  $matricula_usuario =   $row_usuario['matricula'];
-  $ramal_usuario =   $row_usuario['ramal'];
-  $cpf_usuario =   $row_usuario['cpf'];
-  $funcao_usuario =   $row_usuario['funcao'];
-  $_SESSION['id_usuario'] = $id_usuario;
-}
-
-
-if ($nome_usuario != "") { } else {
+  unset($_SESSION['id_usuario'],
+  $_SESSION['nome'],
+  $_SESSION['sobrenome'],
+  $_SESSION['usuario'],
+  $_SESSION['senha'],
+  $_SESSION['matricula'],
+  $_SESSION['ramal'],
+  $_SESSION['cpf'],
+  $_SESSION['funcao'],
+  $_SESSION['buscaRealiza']);
+} else {
+  unset($_SESSION['id_usuario'],
+  $_SESSION['nome'],
+  $_SESSION['sobrenome'],
+  $_SESSION['usuario'],
+  $_SESSION['senha'],
+  $_SESSION['matricula'],
+  $_SESSION['ramal'],
+  $_SESSION['cpf'],
+  $_SESSION['funcao'],
+  $_SESSION['buscaRealiza']);
   header("Location:./busca.php");
   $_SESSION['AlertaBusca'] = 'Usuario não encontrado!';
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -63,40 +75,6 @@ if ($nome_usuario != "") { } else {
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
-<script language='JavaScript'>
-  //função para so permitir no campo numeros
-  function SomenteNumero(e) {
-    var tecla = (window.event) ? event.keyCode : e.which;
-    if ((tecla > 47 && tecla < 58)) return true;
-    else {
-      if (tecla == 8 || tecla == 0) return true;
-
-      else alert("Letras ou símbolos não são aceitos nesse campo!!");
-      return false;
-    }
-  }
-  //função que permite letras e simbolos e acentuação
-  function soLetras(e) {
-    if (document.all) {
-      var evt = event.keyCode;
-    } else {
-      var evt = e.charCode;
-    }
-    var chr = String.fromCharCode(evt);
-    // var re = /[A-Za-z]/; // se prefere somente letras de A-Z e de a-z 
-    var re = /[A-Za-z\s-ÃÕÑÁÉjgxÍÓÚÀÜÇãõñáéíóúàçü]/; // permite de A-Z, a-z, espaços,
-    // hífens e caracteres acentuados. Mais caracteres podem ser adicionados a Lista
-    return (re.test(chr)); // com evt<20 permitimos <ENTER>,<TAB>,<BACKSPACE>
-  }
-
-  function abrir(URL) {
-    window.open('busca.html', 'janela', 'width=1200, height=450, top=100, left=699, scrollbars=no, status=no, toolbar=no, location=no, menubar=no, resizable=no, fullscreen=no')
-  }
-
-  function abrir2(URL) {
-    window.open('excluir.html', 'janela', 'width=1200, height=700, top=100, left=699, scrollbars=no, status=no, toolbar=no, location=no, menubar=no, resizable=no, fullscreen=no')
-  }
-</script>
 
 <body class="bg-gradient-primary">
   <div class="container">
@@ -110,35 +88,43 @@ if ($nome_usuario != "") { } else {
               <div class="text-center">
                 <h1 class="h3 text-gray-900 mb-4">Preencha os campos para Editar</h1>
               </div>
+
               <form method="POST" action="./php/editar_dados.php">
                 <div class="form-group row" style="margin-top:30px">
+
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" required id="nome" placeholder="Nome" value="<?php echo $nome_usuario; ?>" disabled>
+                    <label for="senha">Senha:</label>
+                    <input type="text" class="form-control form-control-user" required id="nome" name="nome" value="<?php echo $nome_user; ?>" disabled>
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" required id="sobrenome" placeholder="Sobrenome" value="<?php echo $sobrenome_usuario; ?>" disabled>
+                    <label for="senha">Senha:</label>
+                    <input type="text" class="form-control form-control-user" required id="sobrenome" name="sobrenome" value="<?php echo  $sobrenome_user; ?>" disabled>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" disabled id="usuario" name="usuarioAtual" required value="<?php echo $usuario_usuario; ?>">
+                  <label for="senha">Senha:</label>
+                  <input type="text" class="form-control form-control-user" maxlength="15" disabled id="usuario" onclick="limparusuario()" name="usuario" required value="<?php echo $usuario_user ?>">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" disabled id="password" name="passwordAtual" required value="<?php echo $senha_usuario; ?>">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control form-control-user" maxlength="15" onclick="limparsenha()" disabled id="password" name="senha" required value="<?php echo  $senha_user; ?>">
                   </div>
+
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" disabled id="confirmarsenha" required value="<?php echo $senha_usuario; ?>">
+                    <label for="confirmarsenha"> Confimar senha:</label>
+                    <input type="password" class="form-control form-control-user" maxlength="15"" disabled id=" confirmarsenha" required value="<?php echo  $senha_user; ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" required disabled id="matricula" name="matriculaAtual" maxlength="15" value="<?php echo $matricula_usuario; ?>">
+                    <input type="text" class="form-control form-control-user" required disabled onclick="limparmatricula()" id="matricula" name="matricula" maxlength="15" value="<?php echo $matricula_user; ?>">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" disabled class="form-control form-control-user" disabled required id="nivel" maxlength="15" value="<?php
-                                                                                                                                          if ($funcao_usuario == 1) {
+                                                                                                                                          if ($funcao_user == 1) {
                                                                                                                                             $conta_nivel = "Administrador";
-                                                                                                                                          } else if ($funcao_usuario == 3) {
+                                                                                                                                          } else if ($funcao_user == 3) {
                                                                                                                                             $conta_nivel = "Supervisor";
                                                                                                                                           } else {
                                                                                                                                             $conta_nivel = "Agente";
@@ -150,10 +136,10 @@ if ($nome_usuario != "") { } else {
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" disabled required id="ramal" name="ramalAtual" onkeypress='return SomenteNumero(event)' maxlength="12" value="<?php echo $ramal_usuario; ?>">
+                    <input type="text" class="form-control form-control-user" onclick="limparramal()" disabled required id="ramal" name="ramal" maxlength="12" value="<?php echo $ramal_user; ?>">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" required onkeypress='return SomenteNumero(event)' maxlength="14" class="form-control form-control-user" id="cpf" value="<?php echo $cpf_usuario; ?>" disabled>
+                    <input type="text" required maxlength="14" class="form-control form-control-user" id="cpf" value="<?php echo  $cpf_user; ?>" disabled>
                   </div>
                 </div>
                 <div class="d-flex">
@@ -162,16 +148,12 @@ if ($nome_usuario != "") { } else {
                 </div>
               </form>
               <hr>
-              <p class="text-center text-danger">
-                <?php if (isset($_SESSION['Sucessedit'])) {
-                  echo $_SESSION['Sucessedit'];
-                  unset($_SESSION['Sucessedit']);
-                } ?>
-              </p>
               <div class="text-center">
                 <h5 class="font-weight-bold"> O que deseja fazer agora...?</h5>
-                <button id="excluir" class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
-                <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
+                <form action="./php/excluir_cadastro.php">
+                  <button id="excluir" type="submit" class="btn btn-danger btn-sm btn-user">Excluir usuário</button></a>
+                  <a href="./config.php"><button type="submit" id="voltar" class="btn btn-secondary btn-sm btn-user">Voltar</button></a>
+                </form>
               </div>
             </div>
           </div>
@@ -180,12 +162,14 @@ if ($nome_usuario != "") { } else {
     </div>
   </div>
   <script src="./js/pesquisa.js"></script>
+  <script src="./js/cadastro.js"></script>
   <!-- Bootstrap core JavaScript-->
   <script src="bibliotecas/jquery/jquery.min.js"></script>
   <script src="bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="bibliotecas/jquery-easing/jquery.easing.min.js"></script>
+
   <script src="./js/mascaras.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>

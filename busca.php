@@ -64,7 +64,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-2"></h1>
                   </div>
-                  <form class="user" method="POST" action="./PaginaEdicao.php">
+                  <form class="user" method="POST" action="./php/realizar_busca.php">
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-2">Preencha alguns campos...</h1>
                     </div>
@@ -87,19 +87,14 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                       <a href="./config.php"> <button type="button" class=" btn btn-secondary btn-user btn-block">Voltar</button></a>
                   </form>
                 </div>
-              </div>
-              <p class="text-center text-danger">
-                  <?php if (isset($_SESSION['Sucessedit'])) {
-                    echo $_SESSION['Sucessedit'];
-                    unset($_SESSION['Sucessedit']);
-                  } ?>
-                </p>
-              <p class="text-center text-danger">
+                <hr>
+                <p class="text-center text-danger">
                   <?php if (isset($_SESSION['AlertaBusca'])) {
                     echo $_SESSION['AlertaBusca'];
                     unset($_SESSION['AlertaBusca']);
                   } ?>
                 </p>
+              </div>
             </div>
           </div>
         </div>

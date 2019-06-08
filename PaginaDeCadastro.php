@@ -61,7 +61,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                                         <input type="password" maxlength="14" class="form-control form-control-user" required id="password" name="password" placeholder="Senha">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" maxlength="14" class="form-control form-control-user" required id="confirm_password" placeholder="Confirmar senha">
+                                        <input type="password" maxlength="14" class="form-control form-control-user" required id="confirmarsenha" placeholder="Confirmar senha">
                                     </div>
                                 </div>
                                 <div class="form-group row">

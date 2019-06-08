@@ -50,3 +50,61 @@ function mNum(num) {
     return num
 }
 
+
+//função para so permitir no campo numeros
+function SomenteNumero(e) {
+    var tecla = (window.event) ? event.keyCode : e.which;
+    if ((tecla > 47 && tecla < 58)) return true;
+    else {
+        if (tecla == 8 || tecla == 0) return true;
+
+        else alert("Letras ou símbolos não são aceitos nesse campo!!");
+        return false;
+    }
+}
+//função que permite letras e simbolos e acentuação
+function soLetras(e) {
+    if (document.all) {
+        var evt = event.keyCode;
+    } else {
+        var evt = e.charCode;
+    }
+    var chr = String.fromCharCode(evt);
+    // var re = /[A-Za-z]/; // se prefere somente letras de A-Z e de a-z 
+    var re = /[A-Za-z\s-ÃÕÑÁÉjgxÍÓÚÀÜÇãõñáéíóúàçü]/; // permite de A-Z, a-z, espaços,
+    // hífens e caracteres acentuados. Mais caracteres podem ser adicionados a Lista
+    return (re.test(chr)); // com evt<20 permitimos <ENTER>,<TAB>,<BACKSPACE>
+}
+
+function abrir(URL) {
+    window.open('busca.html', 'janela', 'width=1200, height=450, top=100, left=699, scrollbars=no, status=no, toolbar=no, location=no, menubar=no, resizable=no, fullscreen=no')
+}
+
+function abrir2(URL) {
+    window.open('excluir.html', 'janela', 'width=1200, height=700, top=100, left=699, scrollbars=no, status=no, toolbar=no, location=no, menubar=no, resizable=no, fullscreen=no')
+}
+
+function esconderCampoPesquisa() {
+    document.getElementById("id").style.display = "none"; // esconte
+ }
+
+
+ function limparsenha(){
+        document.getElementById('password').value=''; 
+        document.getElementById('confirmarsenha').value='';     
+ }
+
+ function limparramal(){
+    document.getElementById('ramal').value=''; 
+ 
+}
+
+function limparmatricula(){
+    document.getElementById('matricula').value=''; 
+  
+}
+
+function limparusuario(){
+    document.getElementById('usuario').value=''; 
+      
+}

@@ -1,17 +1,17 @@
 //Valida a senha e confirmar senha.
 var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirm_password");
+  , confirmarsenha = document.getElementById("confirmarsenha");
 
 function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Senhas diferentes!");
+  if(password.value != confirmarsenha.value) {
+    confirmarsenha.setCustomValidity("Senhas diferentes!");
   } else {
-    confirm_password.setCustomValidity('');
+    confirmarsenha.setCustomValidity('');
   }
 }
 
 password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+confirmarsenha.onkeyup = validatePassword;
 
 
 

@@ -3,11 +3,6 @@ session_start();
 include ("./conexao.php");
  
 $user_id = $_SESSION['id'] ;
-$user_usuario = $_POST['usuario'];
-$user_senha = $_POST['senha'];
-$user_ramal = $_POST['ramal'];
-$user_matricula = $_POST['matricula'];
-$user_senha = md5($user_senha);
 
 unset($_SESSION['id']);
 // $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);

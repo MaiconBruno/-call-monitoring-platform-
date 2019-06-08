@@ -5,7 +5,8 @@ window.onload = function(){
     //else
         //escondeGraficos();
 };
-
+escondeGraficos();
+s
 function escondeGraficos(){
     document.getElementById("graficos").style.display = "none"; // esconte
 }
