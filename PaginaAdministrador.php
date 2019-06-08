@@ -210,6 +210,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
 
                     </div>
                     <br />
+                    <div><?php echo $mensagem_erro_interacao ?></div>
                     <canvas id="G-interacao"></canvas>
                     <script>
                       new Chart(document.getElementById("G-interacao"), {
@@ -236,6 +237,12 @@ include('./php/graficoTotalNaoAvaliadas.php');
                           }
                         }
                       });
+
+                      let mensagem_erro_interacao = "<?php echo $mensagem_erro_interacao;?>";
+                      let grInteracao = document.getElementById("G-interacao");
+                      if(mensagem_erro_interacao != ''){
+                        grInteracao.style.display = "none";
+                      }
                     </script>
                   </div>
                 </div>
@@ -262,6 +269,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                       </div>
                     </div>
                     <br />
+                    <div><?php echo $mensagem_erro_media ?></div>              
                     <canvas id="G-mediaRespondidas" height="200"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
@@ -294,6 +302,12 @@ include('./php/graficoTotalNaoAvaliadas.php');
                           },
                         }
                       });
+
+                      let mensagem_erro_media = "<?php echo $mensagem_erro_media;?>";
+                      let grMedia = document.getElementById("G-mediaRespondidas");
+                      if(mensagem_erro_media != ''){
+                        grMedia.style.display = "none";
+                      }
                     </script>
                     <!-- <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div> -->
                   </div>
@@ -329,6 +343,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
               </div>
               <br />
             </div>
+            <div><?php echo $mensagem_erro_avaliadas ?></div> 
             <canvas id="G-Respondidas" height="235px"></canvas>
             <script>
               new Chart(document.getElementById("G-Respondidas"), {
@@ -362,6 +377,12 @@ include('./php/graficoTotalNaoAvaliadas.php');
                   },
                 }
               });
+
+              let mensagem_erro_avaliadas = "<?php echo $mensagem_erro_avaliadas;?>";
+              let grAvaliadas = document.getElementById("G-Respondidas");
+              if(mensagem_erro_avaliadas != ''){
+                grAvaliadas.style.display = "none";
+              }
             </script>
           </div>
         </div>
@@ -389,6 +410,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
               </div>
               <br />
             </div>
+            <div><?php echo $mensagem_erro_naoAvaliados ?></div>
             <canvas id="G-naorespondidas" height="235px"></canvas>
             <script>
               new Chart(document.getElementById("G-naorespondidas"), {
@@ -421,6 +443,12 @@ include('./php/graficoTotalNaoAvaliadas.php');
                   },
                 }
               });
+
+              let mensagem_erro_naoAvaliados = "<?php echo $mensagem_erro_naoAvaliados;?>";
+              let grNaoAvaliadas = document.getElementById("G-naorespondidas");
+              if(mensagem_erro_naoAvaliados != ''){
+                grNaoAvaliadas.style.display = "none";
+              }
             </script>
           </div>
         </div>

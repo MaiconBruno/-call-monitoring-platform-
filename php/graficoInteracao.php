@@ -192,13 +192,11 @@ while($dado_gr_interacao = $resultado_gr_interacao -> fetch_array()){
 
 <?php
 
+$mensagem_erro_interacao = '';
+
 if($dado_interacao[1] == 0 && $dado_interacao[2] == 0 && $dado_interacao[3] == 0 && $dado_interacao[4] == 0 && $dado_interacao[5] == 0 && $dado_interacao[6] == 0){
-    echo "<script>
-    alert('Nenhum dado encontrado!'); location= './PaginaGraficos.php';
-    </script>";
+    $mensagem_erro_interacao = 'Nenhum resultado encontrado!';
 }
-
-
 ?>
 
 
