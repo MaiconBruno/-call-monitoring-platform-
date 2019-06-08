@@ -34,6 +34,9 @@ include('./php/tabelaavaliacao.php');
 include('./php/graficoNaoAvaliados.php');
 include('./php/graficoMedia.php');
 include('./php/graficoChamadasRecebidas.php');
+include('./php/graficoInteracao.php');
+include('./php/graficoTotalAvaliadas.php');
+include('./php/graficoTotalNaoAvaliadas.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
@@ -154,20 +157,20 @@ include('./php/graficoChamadasRecebidas.php');
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
                       data: {
-                        labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"],
+                        labels: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
                         datasets: [{
                             backgroundColor: ["#2EFE9A"],
                             label: "Avaliadas",
                             fill: false,
                             borderColor: "#2EFE9A",
-                            data: [65, 54, 30, 81, 56, 55, 40]
+                            data: ["<?php echo $array_gr_avaliadas[0] ?>", "<?php echo $array_gr_avaliadas[1] ?>", "<?php echo $array_gr_avaliadas[2] ?>", "<?php echo $array_gr_avaliadas[3] ?>", "<?php echo $array_gr_avaliadas[4] ?>", "<?php echo $array_gr_avaliadas[5] ?>", "<?php echo $array_gr_avaliadas[6] ?>"]
                           },
                           {
                             backgroundColor: ["#FF4436"],
                             fill: false,
                             label: "Não Avaliadas",
                             borderColor: "#FF4436",
-                            data: [20, 60, 42, 58, 31, 21, 50]
+                            data: ["<?php echo $array_gr_naoavaliadas[0] ?>", "<?php echo $array_gr_naoavaliadas[1] ?>", "<?php echo $array_gr_naoavaliadas[2] ?>", "<?php echo $array_gr_naoavaliadas[3] ?>", "<?php echo $array_gr_naoavaliadas[4] ?>", "<?php echo $array_gr_naoavaliadas[5] ?>", "<?php echo $array_gr_naoavaliadas[6] ?>", ]
                           }
                         ]
                       },
@@ -194,15 +197,14 @@ include('./php/graficoChamadasRecebidas.php');
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="row select-margin">
-
                       <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro">
+                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro" name="opcaoGrInteracao">
                           <option selected>Filtros...</option>
-                          <option>Agente</option>
-                          <option>Equipe</option>
-                          <option>Campanha</option>
+                            <option value="agente">Agente</option>
+                            <option value="equipe">Equipe</option>
+                            <option value="campanha">Campanha</option>
                         </select>
-                        <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
+                        <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrInteracao" id="campoRanking" required>
                         <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
                       </form>
 
@@ -213,10 +215,10 @@ include('./php/graficoChamadasRecebidas.php');
                       new Chart(document.getElementById("G-interacao"), {
                         type: 'horizontalBar',
                         data: {
-                          labels: ["Facebook", "Email", "Chat", "WhatsApp", "Telefone", "Skype"],
+                          labels: ["Facebook", "WhatsApp", "Skype", "E-mail", "Telefone", "Chat"],
                           datasets: [{
                             backgroundColor: ["#0000FF", "#5882FA", "#00BFFF", "#01A9DB", "#04B4AE", "#A9D0F5"],
-                            data: [30, 50, 25, 15, 12, 14]
+                            data: ["<?php echo $dado_interacao[1] ?>", "<?php echo $dado_interacao[2] ?>", "<?php echo $dado_interacao[3] ?>", "<?php echo $dado_interacao[4] ?>", "<?php echo $dado_interacao[5] ?>", "<?php echo $dado_interacao[6] ?>", ]
                           }],
                         },
                         options: {
