@@ -116,7 +116,7 @@ include('./php/graficoChamadasRecebidas.php');
             <div class="col-md-7 ">
               <div class="box-one">
                 <div class="content-box-header col-md-12">
-                  <div class="panel-title">Cálculo Geral de chamadas recebidas</div>
+                  <div class="panel-title">Seu Cálculo geral de ligações:</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -149,7 +149,7 @@ include('./php/graficoChamadasRecebidas.php');
               </div>
               <div class="box-one">
                 <div class="content-box-header ">
-                  <div class="panel-title">TOTAL DE AVALIADAS E NÃO AVALIADAS</div>
+                  <div class="panel-title">Seu total de avaliadas e não avaliadas:</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacaoN" height="155"></canvas>
@@ -192,8 +192,8 @@ include('./php/graficoChamadasRecebidas.php');
               <!-- Aqui começa o segundo card-->
               <div class="row">
                 <div class="col-md-12">
-                  <div class="content-box-header">                   
-                    <div class="panel-title" align="center">RANKING POR TIPO DE ENTRADA</div>
+                  <div class=" content-box-header">                   
+                    <div class="panel-title d-flex justify-content-between " align="center">Seu ranking de interação:</div>  
                   </div>
                   <div class="content-box-large box-with-header">
                     <div><?php echo $mensagem_erro_interacao ?></div>
@@ -236,7 +236,7 @@ include('./php/graficoChamadasRecebidas.php');
               <div class="row ">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title">Média por pergunta</div>
+                    <div class="panel-title">Sua média de avaliações:</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div><?php echo $mensagem_erro_media ?></div>
@@ -293,7 +293,7 @@ include('./php/graficoChamadasRecebidas.php');
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12">
-            <div class="panel-title col-md-12">Perguntas respondidas</div>
+            <div class="panel-title col-md-12">Suas avaliações respondidas:</div>
           </div>
           <div class="content-box-large box-with-header">
             <div><?php echo $mensagem_erro_avaliadas ?></div>
@@ -343,7 +343,7 @@ include('./php/graficoChamadasRecebidas.php');
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12 col-sm-12 col-xs-12 ">
-            <div class="panel-title col-md-12 col-sm-12 col-xs-12">PERGUNTAS NÃO RESPONDIDAS</div>
+            <div class="panel-title col-md-12 col-sm-12 col-xs-12">Suas avaliações sem respostas:</div>
           </div>
           <div class="content-box-large box-with-header">
             <div><?php echo $mensagem_erro_naoAvaliados ?></div>
