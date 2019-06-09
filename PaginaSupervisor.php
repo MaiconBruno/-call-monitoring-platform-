@@ -1,32 +1,42 @@
-<?php
+<?php 
 //Importa a validação da sessão para evitar acesso via URL
 include('./php/validaPagina.php');
-//Importa a validação da sessão para evitar acesso via URL
+
 
 
 //verifica se a pagina pertence ao nivel do usuario logado 
-if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "3") { // comparação para verificar o nivel do acesso
+if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "3" ) { // comparação para verificar o nivel do acesso
   session_start();
-  unset($_SESSION['usuarioId'],
-  $_SESSION['usuarioNome'],
-  $_SESSION['usuarioNiveisAcessoId'],
-  $_SESSION['usuarioLogin'],
-  $_SESSION['usuarioSenha']);
+  unset(
+		$_SESSION['usuarioId'],
+		$_SESSION['usuarioNome'],
+		$_SESSION['usuarioNiveisAcessoId'],
+		$_SESSION['usuarioLogin'],
+		$_SESSION['usuarioSenha']
+	);
   header("Location: index.php");
   $_SESSION['loginAcesso'] = "Acesso Negado!"; //mensagem exibida quando o acesso não e permitido 
+   
   exit();
-} else { }
+} else {
+ 
+}
 
 
 ?>
-<?php
 
-//incluindo arquivo.php
+
+<?php
+//incluindo arquivo.php[
 include('./php/graficoAvaliacao.php');
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
 include('./php/graficoNaoAvaliados.php');
 include('./php/graficoMedia.php');
+include('./php/graficoChamadasRecebidas.php');
+include('./php/graficoInteracao.php');
+include('./php/graficoTotalAvaliadas.php');
+include('./php/graficoTotalNaoAvaliadas.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
@@ -81,23 +91,23 @@ include('./php/graficoMedia.php');
       <div class="d-flex flex-column p-1 text-black" style="  margin-right:5px;">
         <div class="text-center"><?php echo $_SESSION['usuarioNome']; ?></div>
         <div class="text-center text-success  "><?php
-                                                $acesso = '';
-                                                if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
-                                                  $acesso = 'ADMINISTRADOR';
-                                                } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
-                                                  $acesso = 'AGENTE';
-                                                } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
-                                                  $acesso = 'SUPERVISOR';
-                                                }
-                                                echo $acesso;
-                                                ?>
+              $acesso = '';
+              if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                $acesso = 'ADMINISTRADOR';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                $acesso = 'AGENTE';
+              } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                $acesso = 'SUPERVISOR';
+              }
+              echo $acesso;
+              ?>
         </div>
         <a class="text-center text-uppercase" style="font-size:13px;" href="./php/sair.php">Sair</a>
       </div>
     </div>
   </nav>
   <div class="row  ">
-    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#E6ECEC">
+    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#D9ECDD">
       <!-- div da pagina toda -->
       <div class="row ">
         <div class="col-md-12 ">
@@ -106,7 +116,7 @@ include('./php/graficoMedia.php');
             <div class="col-md-7 ">
               <div class="box-one">
                 <div class="content-box-header col-md-12">
-                  <div class="panel-title">TOTAL DE CHAMADAS RECEBIDAS</div>
+                  <div class="panel-title">Cálculo Geral de chamadas recebidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -114,12 +124,12 @@ include('./php/graficoMedia.php');
                     new Chart(document.getElementById("G_ligacao"), {
                       type: 'line',
                       data: {
-                        labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                        labels: ["<?php echo $array_mes[0] ?>", "<?php echo $array_mes[1] ?>", "<?php echo $array_mes[2] ?>", "<?php echo $array_mes[3] ?>", "<?php echo $array_mes[4] ?>", "<?php echo $array_mes[5] ?>", "<?php echo $array_mes[6] ?>", "<?php echo $array_mes[7] ?>", "<?php echo $array_mes[8] ?>", "<?php echo $array_mes[9] ?>", "<?php echo $array_mes[10] ?>", "<?php echo $array_mes[11] ?>"],
                         datasets: [{
-                          backgroundColor: ["#FFB412"],
+                          backgroundColor: ["#EBD603"],
                           fill: false,
-                          borderColor: "#FFB412",
-                          data: [20, 40, 42, 58, 31, 21, 50, 60, 42, 13, 23, 11]
+                          borderColor: "#EBD603",
+                          data: ["<?php echo $array_mes_contarLigacoes[1] ?>", "<?php echo $array_mes_contarLigacoes[2] ?>", "<?php echo $array_mes_contarLigacoes[3] ?>", "<?php echo $array_mes_contarLigacoes[4] ?>", "<?php echo $array_mes_contarLigacoes[5] ?>", "<?php echo $array_mes_contarLigacoes[6] ?>", "<?php echo $array_mes_contarLigacoes[7] ?>", "<?php echo $array_mes_contarLigacoes[8] ?>", "<?php echo $array_mes_contarLigacoes[9] ?>", "<?php echo $array_mes_contarLigacoes[10] ?>", "<?php echo $array_mes_contarLigacoes[11] ?>", "<?php echo $array_mes_contarLigacoes[12] ?>", ]
                         }]
                       },
                       options: {
@@ -139,28 +149,28 @@ include('./php/graficoMedia.php');
               </div>
               <div class="box-one">
                 <div class="content-box-header ">
-                  <div class="panel-title">TOTAL DE AVALIADAS E NÃO AVALIADAS</div>
+                  <div class="panel-title">Cálculo Geral de Avaliadas e não avalidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <canvas id="G_ligacaoN" height="193"></canvas>
+                  <canvas id="G_ligacaoN" height="191"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
                       data: {
-                        labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"],
+                        labels: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
                         datasets: [{
                             backgroundColor: ["#2EFE9A"],
                             label: "Avaliadas",
                             fill: false,
                             borderColor: "#2EFE9A",
-                            data: [65, 54, 30, 81, 56, 55, 40]
+                            data: ["<?php echo $array_gr_avaliadas[0] ?>", "<?php echo $array_gr_avaliadas[1] ?>", "<?php echo $array_gr_avaliadas[2] ?>", "<?php echo $array_gr_avaliadas[3] ?>", "<?php echo $array_gr_avaliadas[4] ?>", "<?php echo $array_gr_avaliadas[5] ?>", "<?php echo $array_gr_avaliadas[6] ?>"]
                           },
                           {
                             backgroundColor: ["#FF4436"],
                             fill: false,
                             label: "Não Avaliadas",
                             borderColor: "#FF4436",
-                            data: [20, 60, 42, 58, 31, 21, 50]
+                            data: ["<?php echo $array_gr_naoavaliadas[0] ?>", "<?php echo $array_gr_naoavaliadas[1] ?>", "<?php echo $array_gr_naoavaliadas[2] ?>", "<?php echo $array_gr_naoavaliadas[3] ?>", "<?php echo $array_gr_naoavaliadas[4] ?>", "<?php echo $array_gr_naoavaliadas[5] ?>", "<?php echo $array_gr_naoavaliadas[6] ?>", ]
                           }
                         ]
                       },
@@ -183,33 +193,33 @@ include('./php/graficoMedia.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title" align="center">RANKING POR TIPO DE ENTRADA</div>
+                    <div class="panel-title" align="center">Ranking de interação</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="row select-margin">
-
-                      <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro">
-                          <option selected>Filtros...</option>
-                          <option>Agente</option>
-                          <option>Equipe</option>
-                          <option>Campanha</option>
+                    <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                        <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrInteracao">
+                          <option value="padrao" selected>Filtros...</option>
+                            <option value="agente">Agente</option>
+                            <option value="equipe">Equipe</option>
+                            <option value="campanha">Campanha</option>
                         </select>
-                        <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="pesquisa" id="campoRanking">
-                        <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                        <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrInteracao" id="campoRanking" required>
+                        <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                       </form>
 
                     </div>
                     <br />
+                    <div><?php echo $mensagem_erro_interacao ?></div>
                     <canvas id="G-interacao"></canvas>
                     <script>
                       new Chart(document.getElementById("G-interacao"), {
                         type: 'horizontalBar',
                         data: {
-                          labels: ["Facebook", "Email", "Chat", "WhatsApp", "Telefone", "Skype"],
+                          labels: ["Facebook", "WhatsApp", "Skype", "E-mail", "Telefone", "Chat"],
                           datasets: [{
-                            backgroundColor: ["#0000FF", "#5882FA", "#00BFFF", "#01A9DB", "#04B4AE", "#A9D0F5"],
-                            data: [30, 50, 25, 15, 12, 14]
+                            backgroundColor: ["#304CFF", "#B2FF82", "#27C4CC", "#FF5951", "#EBD603", "#8A21F0"],
+                            data: ["<?php echo $dado_interacao[1] ?>", "<?php echo $dado_interacao[2] ?>", "<?php echo $dado_interacao[3] ?>", "<?php echo $dado_interacao[4] ?>", "<?php echo $dado_interacao[5] ?>", "<?php echo $dado_interacao[6] ?>", ]
                           }],
                         },
                         options: {
@@ -227,6 +237,12 @@ include('./php/graficoMedia.php');
                           }
                         }
                       });
+
+                      let mensagem_erro_interacao = "<?php echo $mensagem_erro_interacao;?>";
+                      let grInteracao = document.getElementById("G-interacao");
+                      if(mensagem_erro_interacao != ''){
+                        grInteracao.style.display = "none";
+                      }
                     </script>
                   </div>
                 </div>
@@ -234,33 +250,34 @@ include('./php/graficoMedia.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title">MÉDIA POR PERGUNTA</div>
+                    <div class="panel-title">Média por pergunta</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="col-md-12">
                       <div class="row select-margin">
 
-                        <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtro" name="opcaoGrMedia">
-                            <option selected>Filtros...</option>
+                        <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                          <select class="form-control col-md-5 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrMedia">
+                            <option value="padrao" selected>Filtros...</option>
                             <option value="agente">Agente</option>
                             <option value="equipe">Equipe</option>
                             <option value="campanha">Campanha</option>
                           </select>
-                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoRanking" required>
-                          <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                          <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoPesquisa" required>
+                          <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                         </form>
                       </div>
                     </div>
                     <br />
-                    <canvas id="G-mediaRespondidas" height="200"></canvas>
+                    <div><?php echo $mensagem_erro_media ?></div>              
+                    <canvas id="G-mediaRespondidas" height="193"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
                         type: 'doughnut',
                         data: {
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
-                            backgroundColor: ["#005BE8", "#4197E8", "#54C2FF", "#B0C5E8", "#AEB0E8"],
+                            backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                             data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
@@ -285,6 +302,12 @@ include('./php/graficoMedia.php');
                           },
                         }
                       });
+
+                      let mensagem_erro_media = "<?php echo $mensagem_erro_media;?>";
+                      let grMedia = document.getElementById("G-mediaRespondidas");
+                      if(mensagem_erro_media != ''){
+                        grMedia.style.display = "none";
+                      }
                     </script>
                     <!-- <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div> -->
                   </div>
@@ -295,31 +318,32 @@ include('./php/graficoMedia.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:10px; padding-right:20px; min-height:888px;">
+    <div class="col-md-3 " style=" background-color:#C8D0EA; padding-top:10px; padding-right:20px; min-height:888px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12">
-            <div class="panel-title col-md-12">PERGUNTAS RESPONDIDAS</div>
+            <div class="panel-title col-md-12">Perguntas respondidas</div>
           </div>
           <div class="content-box-large box-with-header">
             <div class="col-md-12">
               <div class="row select-margin">
 
-                <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoAv">
-                    <option selected>Filtros...</option>
+              <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoAv">
+                    <option value="padrao" selected>Filtros...</option>
                     <option value="agente">Agente</option>
                     <option value="equipe">Equipe</option>
                     <option value="campanha">Campanha</option>
                   </select>
                   <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                  <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                  <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
               </div>
               <br />
             </div>
+            <div><?php echo $mensagem_erro_avaliadas ?></div> 
             <canvas id="G-Respondidas" height="235px"></canvas>
             <script>
               new Chart(document.getElementById("G-Respondidas"), {
@@ -327,7 +351,7 @@ include('./php/graficoMedia.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                     data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
@@ -353,6 +377,12 @@ include('./php/graficoMedia.php');
                   },
                 }
               });
+
+              let mensagem_erro_avaliadas = "<?php echo $mensagem_erro_avaliadas;?>";
+              let grAvaliadas = document.getElementById("G-Respondidas");
+              if(mensagem_erro_avaliadas != ''){
+                grAvaliadas.style.display = "none";
+              }
             </script>
           </div>
         </div>
@@ -360,26 +390,27 @@ include('./php/graficoMedia.php');
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12 col-sm-12 col-xs-12 ">
-            <div class="panel-title col-md-12 col-sm-12 col-xs-12">PERGUNTAS NÃO RESPONDIDAS</div>
+            <div class="panel-title col-md-12 col-sm-12 col-xs-12">Perguntas sem respostas </div>
           </div>
           <div class="content-box-large box-with-header">
             <div class="col-md-12">
               <div class="row select-margin">
 
-                <form class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>">
-                  <select class="form-control col-md-6 col-sm-6 col-xs-12" name="opcaoGrNa">
-                    <option selected>Filtros...</option>
+              <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+                  <select class="form-control col-md-6 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrNa">
+                  <option value="padrao" selected>Filtros...</option>
                     <option value="agente">Agente</option>
                     <option value="equipe">Equipe</option>
                     <option value="campanha">Campanha</option>
                   </select>
                   <input type="text" name="parametroGrNa" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                  <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                  <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
               </div>
               <br />
             </div>
+            <div><?php echo $mensagem_erro_naoAvaliados ?></div>
             <canvas id="G-naorespondidas" height="235px"></canvas>
             <script>
               new Chart(document.getElementById("G-naorespondidas"), {
@@ -387,7 +418,7 @@ include('./php/graficoMedia.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#D98155", "#E8975F", "#FFB875", "#E8AC5F", "#FFD187"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                     data: [<?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>, <?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },
@@ -412,6 +443,12 @@ include('./php/graficoMedia.php');
                   },
                 }
               });
+
+              let mensagem_erro_naoAvaliados = "<?php echo $mensagem_erro_naoAvaliados;?>";
+              let grNaoAvaliadas = document.getElementById("G-naorespondidas");
+              if(mensagem_erro_naoAvaliados != ''){
+                grNaoAvaliadas.style.display = "none";
+              }
             </script>
           </div>
         </div>
@@ -420,8 +457,8 @@ include('./php/graficoMedia.php');
   </div>
   </div>
 
-  <div class="d-flex tabelas-fixo">
-    <div class=" zoom pd ">
+  <div class="tabelas-fixo ">
+    <div class=" zoom  pd">
       <a href="./TabelaGeraldoSupervisor.php">
         <img class="img-responsive" src="./icones/tabela.png" width="35px" height="35px" alt="Tabelas" />
       </a>
@@ -451,6 +488,7 @@ include('./php/graficoMedia.php');
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/validacaoForm.js"></script>
 </body>
 
 </html>

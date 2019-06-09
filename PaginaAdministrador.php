@@ -152,7 +152,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                   <div class="panel-title">Cálculo Geral de Avaliadas e não avalidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <canvas id="G_ligacaoN" height="200"></canvas>
+                  <canvas id="G_ligacaoN" height="191"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
@@ -250,7 +250,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title">Media por pergunta</div>
+                    <div class="panel-title">Média por pergunta</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="col-md-12">
@@ -277,7 +277,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                         data: {
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
-                            backgroundColor: ["#802A25", "#FFA19C", "#FF534A", "#80140E", "#CC423C"],
+                            backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                             data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
@@ -351,7 +351,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#4E807F", "#4FFFFC", "#9CFFFD", "#01807D", "#7CCCCB"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                     data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
@@ -418,7 +418,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#4E807F", "#4FFFFC", "#9CFFFD", "#01807D", "#7CCCCB"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                     data: [<?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>, <?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },

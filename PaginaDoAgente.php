@@ -99,7 +99,7 @@ include('./php/graficoMedia.php');
     </div>
   </nav>
   <div class="row  ">
-    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#E6ECEC">
+    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#D9ECDD">
       <!-- div da pagina toda -->
       <div class="row ">
         <div class="col-md-12 ">
@@ -108,7 +108,7 @@ include('./php/graficoMedia.php');
             <div class="col-md-7 ">
               <div class="box-one">
                 <div class="content-box-header col-md-12">
-                  <div class="panel-title">TOTAL DE CHAMADAS RECEBIDAS</div>
+                  <div class="panel-title">Cálculo Geral de chamadas recebidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -118,9 +118,9 @@ include('./php/graficoMedia.php');
                       data: {
                         labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                         datasets: [{
-                          backgroundColor: ["#FFB412"],
+                          backgroundColor: ["#EBD603"],
                           fill: false,
-                          borderColor: "#FFB412",
+                          borderColor: "#EBD603",
                           data: [20, 40, 42, 58, 31, 21, 50, 60, 42, 13, 23, 11]
                         }]
                       },
@@ -196,7 +196,7 @@ include('./php/graficoMedia.php');
                         data: {
                           labels: ["Facebook", "Email", "Chat", "WhatsApp", "Telefone", "Skype"],
                           datasets: [{
-                            backgroundColor: ["#0000FF", "#5882FA", "#00BFFF", "#01A9DB", "#04B4AE", "#A9D0F5"],
+                            backgroundColor: ["#304CFF", "#B2FF82", "#27C4CC", "#FF5951", "#EBD603", "#8A21F0"],
                             data: [30, 50, 25, 15, 12, 14]
                           }],
                         },
@@ -222,7 +222,7 @@ include('./php/graficoMedia.php');
               <div class="row ">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title">MÉDIA POR PERGUNTA</div>
+                    <div class="panel-title">Média por pergunta</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <canvas id="G-mediaRespondidas" height="250"></canvas>
@@ -232,7 +232,7 @@ include('./php/graficoMedia.php');
                         data: {
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
-                            backgroundColor: ["#005BE8", "#4197E8", "#54C2FF", "#B0C5E8", "#AEB0E8"],
+                            backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                             data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
@@ -267,12 +267,12 @@ include('./php/graficoMedia.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:10px; padding-right:20px; min-height:788px;">
+    <div class="col-md-3 " style=" background-color:#C8D0EA; padding-top:10px; padding-right:20px; min-height:788px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12">
-            <div class="panel-title col-md-12">PERGUNTAS RESPONDIDAS</div>
+            <div class="panel-title col-md-12">Perguntas respondidas</div>
           </div>
           <div class="content-box-large box-with-header">
             <canvas id="G-Respondidas" height="295px"></canvas>
@@ -282,7 +282,7 @@ include('./php/graficoMedia.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                     data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
@@ -325,7 +325,7 @@ include('./php/graficoMedia.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#D98155", "#E8975F", "#FFB875", "#E8AC5F", "#FFD187"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
                     data: [<?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>, <?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },
