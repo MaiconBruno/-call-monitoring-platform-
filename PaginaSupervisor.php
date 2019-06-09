@@ -115,7 +115,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <div class="col-md-7 ">
               <div class="box-one">
                 <div class="content-box-header col-md-12">
-                  <div class="panel-title">Cálculo Geral de chamadas recebidas</div>
+                  <div class="panel-title">Total Geral de atendimentos </div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -271,7 +271,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                         </li>
                       </ul>
                     </div>
-                    <div class="panel-title" align="center">Média por pergunta</div>
+                    <div class="panel-title" align="center">Média por avaliações</div>
                   </div>
                   <div class="content-box-large box-with-header">
 
@@ -347,7 +347,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 </li>
               </ul>
             </div>
-            <div class="panel-title" align="center">Pergunta Respondidas</div>
+            <div class="panel-title" align="center">Avaliações respondidas</div>
           </div>
           <div class="content-box-large box-with-header">
 
@@ -415,7 +415,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 </li>
               </ul>
             </div>
-            <div class="panel-title" align="center">Pergunta sem resposta</div>
+            <div class="panel-title" align="center">Avaliações sem resposta</div>
           </div>
           <div class="content-box-large box-with-header">
             <div><?php echo $mensagem_erro_naoAvaliados ?></div>

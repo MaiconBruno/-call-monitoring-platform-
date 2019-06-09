@@ -116,7 +116,7 @@ include('./php/graficoChamadasRecebidas.php');
             <div class="col-md-7 ">
               <div class="box-one">
                 <div class="content-box-header col-md-12">
-                  <div class="panel-title">Seu Cálculo geral de ligações:</div>
+                  <div class="panel-title">Seu Total geral de atendimentos:</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
