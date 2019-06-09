@@ -30,9 +30,9 @@ include('./php/tabelaavaliacao.php');
 include('./php/graficoNaoAvaliadosAgente.php');
 include('./php/graficoMediaAgente.php');
 include('./php/graficoInteracaoAgente.php');
-include('./php/graficoTotalAvaliadas.php');
-include('./php/graficoTotalNaoAvaliadas.php');
-include('./php/graficoChamadasRecebidas.php');
+include('./php/graficoTotalNaoAvaliadasAgente.php');
+include('./php/graficoTotalAvaliadasAgente.php');
+include('./php/graficoChamadasRecebidasAgente.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
