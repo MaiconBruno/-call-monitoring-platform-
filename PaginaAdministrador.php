@@ -493,6 +493,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
   <script src="../js/avaliacao.js"></script>
   <!-- imports do Jquery -->
   <script src="./js/avaliacao.js"></script>
+  <script src="./js/validacaoForm.js"></script>
   <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
