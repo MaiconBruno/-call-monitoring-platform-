@@ -60,6 +60,12 @@ include('./php/tabelaavaliacao.php');
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <!-- import estilos.css -->
 
+    <!-- ImportarPDF -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
+
+
 </head>
 
 <body>
@@ -160,12 +166,12 @@ include('./php/tabelaavaliacao.php');
                                         </div>
                                         <div class="radio d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center" style="min-height:40px;">
                                             <input class="radio btn btn-primary botão col-md-1 col-sm-3 col-xs-3" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                                            <input class="radio btn btn-danger col-md-1 col-sm-3 col-xs-3 botão" onclick="limpezaCamposSuper();" type="button" value="Limpar">
+                                            <input class="radio btn btn-danger col-md-1 col-sm-3 col-xs-3 botão" onclick="limpezaCamposAdm();" type="button" value="Limpar">
                                         </div>
                                         <!-- FIm do campos text/date -->
                                     </form>
                                 </div>
-                                <table class="table table-hover table-primary table-responsive-lg " id="tbl_ligacao">
+                                <table class="table table-hover table-primary table-responsive-lg" id="tbl_ligacao">
                                     <thead>
                                         <tr class=>
                                             <th>Matricula</th>
@@ -220,6 +226,8 @@ include('./php/tabelaavaliacao.php');
                                     </tbody>
                                 </table>
 
+                                <input type="button" value="PDF" id="idPDF" onclick="createPDF();">
+
                                 <script>
                                     $(document).ready(function() {
                                         $('#tbl_ligacao').DataTable({
@@ -247,7 +255,7 @@ include('./php/tabelaavaliacao.php');
     </div>
 
     <div class="tabelas-fixo zoom pd ">
-        <a href="./PaginaSupervisor.php">
+        <a href="./PaginaAdministrador.php">
             <img class="img-responsive" src="./icones/icone_RA.png" width="35px" height="35px" alt="Tabelas" />
         </a>
     </div>
@@ -272,6 +280,75 @@ include('./php/tabelaavaliacao.php');
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
+
+
+
+
+
+    
+
+
+    
+<!-- Importar PDF -->
+    <script>
+    (function($){
+    $.fn.createPdf = function(parametros) {
+        
+        var config = {              
+            'fileName':'html-to-pdf'
+        };
+        
+        if (parametros){
+            $.extend(config, parametros);
+        }                            
+
+        var quotes = document.getElementById($(this).attr('id'));
+
+        html2canvas(quotes, {
+            onrendered: function(canvas) {
+                var pdf = new jsPDF('p', 'pt', 'letter');
+
+                for (var i = 0; i <= quotes.clientHeight/980; i++) {
+                    var srcImg  = canvas;
+                    var sX      = 0;
+                    var sY      = 980*i;
+                    var sWidth  = 900;
+                    var sHeight = 980;
+                    var dX      = 0;
+                    var dY      = 0;
+                    var dWidth  = 900;
+                    var dHeight = 980;
+
+                    window.onePageCanvas = document.createElement("canvas");
+                    onePageCanvas.setAttribute('width', 900);
+                    onePageCanvas.setAttribute('height', 980);
+                    var ctx = onePageCanvas.getContext('2d');
+                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
+
+                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                    var width         = onePageCanvas.width;
+                    var height        = onePageCanvas.clientHeight;
+
+                    if (i > 0) {
+                        pdf.addPage(612, 791);
+                    }
+
+                    pdf.setPage(i+1);
+                    pdf.addImage(canvasDataURL, 'PNG', 20, 40, (width*.62), (height*.62));
+                }
+
+                pdf.save(config.fileName);
+            }
+        });
+    };
+})(jQuery);
+
+function createPDF() {
+    $('#tbl_ligacao').createPdf({
+        'fileName' : 'testePDF'
+    });
+};
+</script>
 
 </body>
 

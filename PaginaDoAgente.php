@@ -24,11 +24,15 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "2" ) { 
 <?php
 
 //incluindo arquivo.php
-include('./php/graficoAvaliacao.php');
+include('./php/graficoAvaliadosAgente.php');
 include('./php/tabela_av.php');
 include('./php/tabelaavaliacao.php');
-include('./php/graficoNaoAvaliados.php');
-include('./php/graficoMedia.php');
+include('./php/graficoNaoAvaliadosAgente.php');
+include('./php/graficoMediaAgente.php');
+include('./php/graficoInteracaoAgente.php');
+include('./php/graficoTotalAvaliadas.php');
+include('./php/graficoTotalNaoAvaliadas.php');
+include('./php/graficoChamadasRecebidas.php');
 
 //include('../php/tabelaavaliacao.php')
 ?>
@@ -120,12 +124,12 @@ include('./php/graficoMedia.php');
                     new Chart(document.getElementById("G_ligacao"), {
                       type: 'line',
                       data: {
-                        labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                        labels: ["<?php echo $array_mes[0] ?>", "<?php echo $array_mes[1] ?>", "<?php echo $array_mes[2] ?>", "<?php echo $array_mes[3] ?>", "<?php echo $array_mes[4] ?>", "<?php echo $array_mes[5] ?>", "<?php echo $array_mes[6] ?>", "<?php echo $array_mes[7] ?>", "<?php echo $array_mes[8] ?>", "<?php echo $array_mes[9] ?>", "<?php echo $array_mes[10] ?>", "<?php echo $array_mes[11] ?>"],
                         datasets: [{
                           backgroundColor: ["#EBD603"],
                           fill: false,
                           borderColor: "#EBD603",
-                          data: [20, 40, 42, 58, 31, 21, 50, 60, 42, 13, 23, 11]
+                          data: ["<?php echo $array_mes_contarLigacoes[1] ?>", "<?php echo $array_mes_contarLigacoes[2] ?>", "<?php echo $array_mes_contarLigacoes[3] ?>", "<?php echo $array_mes_contarLigacoes[4] ?>", "<?php echo $array_mes_contarLigacoes[5] ?>", "<?php echo $array_mes_contarLigacoes[6] ?>", "<?php echo $array_mes_contarLigacoes[7] ?>", "<?php echo $array_mes_contarLigacoes[8] ?>", "<?php echo $array_mes_contarLigacoes[9] ?>", "<?php echo $array_mes_contarLigacoes[10] ?>", "<?php echo $array_mes_contarLigacoes[11] ?>", "<?php echo $array_mes_contarLigacoes[12] ?>", ]
                         }]
                       },
                       options: {
@@ -153,20 +157,20 @@ include('./php/graficoMedia.php');
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
                       data: {
-                        labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"],
+                        labels: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
                         datasets: [{
                             backgroundColor: ["#2EFE9A"],
                             label: "Avaliadas",
                             fill: false,
                             borderColor: "#2EFE9A",
-                            data: [65, 54, 30, 81, 56, 55, 40]
+                            data: ["<?php echo $array_gr_avaliadas[0] ?>", "<?php echo $array_gr_avaliadas[1] ?>", "<?php echo $array_gr_avaliadas[2] ?>", "<?php echo $array_gr_avaliadas[3] ?>", "<?php echo $array_gr_avaliadas[4] ?>", "<?php echo $array_gr_avaliadas[5] ?>", "<?php echo $array_gr_avaliadas[6] ?>"]
                           },
                           {
                             backgroundColor: ["#FF4436"],
                             fill: false,
                             label: "Não Avaliadas",
                             borderColor: "#FF4436",
-                            data: [20, 60, 42, 58, 31, 21, 50]
+                            data: ["<?php echo $array_gr_naoavaliadas[0] ?>", "<?php echo $array_gr_naoavaliadas[1] ?>", "<?php echo $array_gr_naoavaliadas[2] ?>", "<?php echo $array_gr_naoavaliadas[3] ?>", "<?php echo $array_gr_naoavaliadas[4] ?>", "<?php echo $array_gr_naoavaliadas[5] ?>", "<?php echo $array_gr_naoavaliadas[6] ?>", ]
                           }
                         ]
                       },
@@ -188,20 +192,20 @@ include('./php/graficoMedia.php');
               <!-- Aqui começa o segundo card-->
               <div class="row">
                 <div class="col-md-12">
-                  <div class="content-box-header">
+                  <div class="content-box-header">                   
                     <div class="panel-title" align="center">RANKING POR TIPO DE ENTRADA</div>
                   </div>
                   <div class="content-box-large box-with-header">
-                   
+                    <div><?php echo $mensagem_erro_interacao ?></div>
                     <canvas id="G-interacao" height="200"></canvas>
                     <script>
                       new Chart(document.getElementById("G-interacao"), {
                         type: 'horizontalBar',
                         data: {
-                          labels: ["Facebook", "Email", "Chat", "WhatsApp", "Telefone", "Skype"],
+                          labels: ["Facebook", "WhatsApp", "Skype", "E-mail", "Telefone", "Chat"],
                           datasets: [{
                             backgroundColor: ["#304CFF", "#B2FF82", "#27C4CC", "#FF5951", "#EBD603", "#8A21F0"],
-                            data: [30, 50, 25, 15, 12, 14]
+                            data: ["<?php echo $dado_interacao[1] ?>", "<?php echo $dado_interacao[2] ?>", "<?php echo $dado_interacao[3] ?>", "<?php echo $dado_interacao[4] ?>", "<?php echo $dado_interacao[5] ?>", "<?php echo $dado_interacao[6] ?>", ]
                           }],
                         },
                         options: {
@@ -219,6 +223,12 @@ include('./php/graficoMedia.php');
                           }
                         }
                       });
+
+                      let mensagem_erro_interacao = "<?php echo $mensagem_erro_interacao; ?>";
+                      let grInteracao = document.getElementById("G-interacao");
+                      if (mensagem_erro_interacao != '') {
+                        grInteracao.style.display = "none";
+                      }
                     </script>
                   </div>
                 </div>
@@ -229,6 +239,7 @@ include('./php/graficoMedia.php');
                     <div class="panel-title">Média por pergunta</div>
                   </div>
                   <div class="content-box-large box-with-header">
+                    <div><?php echo $mensagem_erro_media ?></div>
                     <canvas id="G-mediaRespondidas" height="250"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
@@ -261,6 +272,12 @@ include('./php/graficoMedia.php');
                           },
                         }
                       });
+
+                      let mensagem_erro_media = "<?php echo $mensagem_erro_media; ?>";
+                      let grMedia = document.getElementById("G-mediaRespondidas");
+                      if (mensagem_erro_media != '') {
+                        grMedia.style.display = "none";
+                      }
                     </script>
                     <!-- <div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social </span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral </span> </div> -->
                   </div>
@@ -279,6 +296,7 @@ include('./php/graficoMedia.php');
             <div class="panel-title col-md-12">Perguntas respondidas</div>
           </div>
           <div class="content-box-large box-with-header">
+            <div><?php echo $mensagem_erro_avaliadas ?></div>
             <canvas id="G-Respondidas" height="295px"></canvas>
             <script>
               new Chart(document.getElementById("G-Respondidas"), {
@@ -312,6 +330,12 @@ include('./php/graficoMedia.php');
                   },
                 }
               });
+
+              let mensagem_erro_avaliadas = "<?php echo $mensagem_erro_avaliadas; ?>";
+              let grAvaliadas = document.getElementById("G-Respondidas");
+              if (mensagem_erro_avaliadas != '') {
+                grAvaliadas.style.display = "none";
+              }
             </script>
           </div>
         </div>
@@ -322,6 +346,7 @@ include('./php/graficoMedia.php');
             <div class="panel-title col-md-12 col-sm-12 col-xs-12">PERGUNTAS NÃO RESPONDIDAS</div>
           </div>
           <div class="content-box-large box-with-header">
+            <div><?php echo $mensagem_erro_naoAvaliados ?></div>
             <canvas id="G-naorespondidas" height="300px"></canvas>
             <script>
               new Chart(document.getElementById("G-naorespondidas"), {
@@ -354,6 +379,12 @@ include('./php/graficoMedia.php');
                   },
                 }
               });
+
+              let mensagem_erro_naoAvaliados = "<?php echo $mensagem_erro_naoAvaliados; ?>";
+              let grNaoAvaliadas = document.getElementById("G-naorespondidas");
+              if (mensagem_erro_naoAvaliados != '') {
+                grNaoAvaliadas.style.display = "none";
+              }
             </script>
           </div>
         </div>
