@@ -62,33 +62,35 @@ include('./php/tabelaavaliacao.php');
 </head>
 
 <body>
-    <nav class="border-size-top fixed-top">
-        <div class="header d-flex" style="background-color:white;">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-md-12 d-flex justify-content-center">
-                        <div class="logo"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex flex-column p-1  text-black" style="  margin-right:5px;">
-                <div class="text-center"><?php echo $_SESSION['usuarioNome']; ?></div>
-                <div class="text-center text-success "><?php
-                                                        $acesso = '';
-                                                        if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
-                                                            $acesso = 'ADMINISTRADOR';
-                                                        } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
-                                                            $acesso = 'AGENTE';
-                                                        } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
-                                                            $acesso = 'SUPERVISOR';
-                                                        }
-                                                        echo $acesso;
-                                                        ?>
-                </div>
-                <a class="text-center text-uppercase" style="font-size:13px;" href="./php/sair.php">Sair</a>
-            </div>
+<nav class="border-size-top fixed-top">
+    <div class="header d-flex" style="background-color:white;">
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-12 d-flex justify-content-center">
+            <div class="logo" style="margin-left:90px;"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
+          </div>
         </div>
-    </nav>
+      </div>
+      <div class="dropdown" style="margin-right:15px;">
+      <span class="nav-link  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
+        <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
+          <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
+          <li class="centralizador"><a class="text-success"><?php
+                                                            $acesso = '';
+                                                            if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                                                              $acesso = 'ADMINISTRADOR';
+                                                            } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                                                              $acesso = 'AGENTE';
+                                                            } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                                                              $acesso = 'SUPERVISOR';
+                                                            }
+                                                            echo $acesso;
+                                                            ?></a></li>
+          <li class="centralizador"><a class="text-primary" href="./php/sair.php">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <div class="page-content" style="padding-top:1px; background-color:#E6ECEC">
         <!-- div da pagina toda -->
         <div class="row">

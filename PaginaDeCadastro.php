@@ -88,6 +88,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "1") { /
                                         <select id="nivel" name="nivel" class="custom-select" name="nivel">
                                             <option id="agente" value="2" selected>Agente</option>
                                             <option id="supervisor" value="3">Supervisor</option>
+                                            <option id="administrador" value="1">Administrador</option>
                                         </select>
                                     </div>
                                 </div>
