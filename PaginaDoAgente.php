@@ -87,7 +87,7 @@ include('./php/graficoChamadasRecebidas.php');
         </div>
       </div>
       <div class="dropdown" style="margin-right:15px;">
-      <span class="nav-link  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
+      <span class="nav-link zoom  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
         <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
           <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
           <li class="centralizador"><a class="text-success"><?php
