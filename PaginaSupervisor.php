@@ -86,7 +86,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
         </div>
       </div>
       <div class="dropdown" style="margin-right:15px;">
-      <span class="nav-link  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
+        <span class="nav-link zoom text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
         <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
           <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
           <li class="centralizador"><a class="text-success"><?php
@@ -193,19 +193,19 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 <div class="col-md-12">
                   <div class="content-box-header d-flex justify-content-between align-items-center" style="padding-bottom:1;">
                     <div class="dropdown ">
-                      <span style="padding:0;" class="nav-link  text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png"></span>
+                      <span style="padding:3;" class="nav-link zoom text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png" style="padding:1px;"></span>
                       <ul class="dropdown-menu " aria-labelledby="dropdownGrafico">
                         <li>
                           <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
-                            <input type="text" class="form-control  col-md-12 col-sm-6 col-xs-12" name="parametroGrInteracao" id="campoRanking" placeholder="Pesquisar..." required>
-                            <select class="form-control col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrInteracao">
+
+                            <select class="radio form-control col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrInteracao">
                               <option value="padrao" selected>Filtros...</option>
                               <option value="agente">Agente</option>
                               <option value="equipe">Equipe</option>
                               <option value="campanha">Campanha</option>
                             </select>
-
-                            <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                            <input type="text" class="radio form-control  col-md-12 col-sm-6 col-xs-12" name="parametroGrInteracao" id="campoRanking" placeholder="Pesquisar..." required>
+                            <button type="submit" class="radio form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                           </form>
                         </li>
                       </ul>
@@ -255,18 +255,18 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 <div class="col-md-12">
                   <div class="content-box-header d-flex justify-content-between align-items-center" style="padding-bottom:1;">
                     <div class="dropdown ">
-                      <span style="padding:0;" class="nav-link  text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png"></span>
+                      <span style="padding:3;" class="nav-link zoom text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png" style="padding:1px;"></span>
                       <ul class="dropdown-menu " aria-labelledby="dropdownGrafico">
                         <li>
                           <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
-                            <select class="form-control col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrMedia">
+                            <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrMedia">
                               <option value="padrao" selected>Filtros...</option>
                               <option value="agente">Agente</option>
                               <option value="equipe">Equipe</option>
                               <option value="campanha">Campanha</option>
                             </select>
-                            <input type="text" class="form-control  col-md-12 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoPesquisa" placeholder="Pesquisar..." required>
-                            <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                            <input type="text" class="radio form-control  col-md-12 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoPesquisa" placeholder="Pesquisar..." required>
+                            <button type="submit" class="radio form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                           </form>
                         </li>
                       </ul>
@@ -331,18 +331,18 @@ include('./php/graficoTotalNaoAvaliadas.php');
         <div class="col-md-12">
           <div class="content-box-header d-flex justify-content-between align-items-center" style="padding-bottom:1;">
             <div class="dropdown ">
-              <span style="padding:0;" class="nav-link  text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png"></span>
+              <span style="padding:3;" class="nav-link zoom text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png" style="padding:1px;"></span>
               <ul class="dropdown-menu " aria-labelledby="dropdownGrafico">
                 <li>
                   <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
-                    <select class="form-control col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoAv">
+                    <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoAv">
                       <option value="padrao" selected>Filtros...</option>
                       <option value="agente">Agente</option>
                       <option value="equipe">Equipe</option>
                       <option value="campanha">Campanha</option>
                     </select>
-                    <input type="text" name="parametro" class="form-control col-md-12 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                    <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                    <input type="text" name="parametro" class="radio form-control col-md-12 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
+                    <button type="submit" class="radio form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                   </form>
                 </li>
               </ul>
@@ -399,18 +399,18 @@ include('./php/graficoTotalNaoAvaliadas.php');
         <div class="col-md-12">
           <div class="content-box-header d-flex justify-content-between align-items-center" style="padding-bottom:1;">
             <div class="dropdown ">
-              <span style="padding:0;" class="nav-link  text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png"></span>
+              <span style="padding:3;" class="nav-link zoom text-menu  text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png" style="padding:1px;"></span>
               <ul class="dropdown-menu " aria-labelledby="dropdownGrafico">
                 <li>
                   <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
-                    <select class="form-control col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrNa">
+                    <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrNa">
                       <option value="padrao" selected>Filtros...</option>
                       <option value="agente">Agente</option>
                       <option value="equipe">Equipe</option>
                       <option value="campanha">Campanha</option>
                     </select>
-                    <input type="text" name="parametroGrNa" class="form-control col-md-12 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                    <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                    <input type="text" name="parametroGrNa" class="radio form-control col-md-12 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
+                    <button type="submit" class="radio form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                   </form>
                 </li>
               </ul>
@@ -471,7 +471,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
         <img class="img-responsive" src="./icones/tabela.png" width="35px" height="35px" alt="Tabelas" />
       </a>
     </div>
-    </div>
+  </div>
   </div>
   <footer>
     <div class="container">
