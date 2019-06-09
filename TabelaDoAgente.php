@@ -20,7 +20,7 @@ if ($_SESSION['Logado'] = true && $_SESSION['usuarioNiveisAcessoId'] != "2") { /
 <?php
 
 include('./php/tabela_av.php');
-include('./php/tabelaavaliacao.php');
+include('./php/tabelaAvaliacaoAgente.php');
 //include('../php/tabelaavaliacao.php')
 ?>
 
@@ -113,65 +113,6 @@ include('./php/tabelaavaliacao.php');
 
                             <!-- Card principal -->
                             <div class="text-dark col-md-12 col-sm-12 com-xs-12">
-                                <div class="row ">
-                                    <form id="idFormulario" class="col-md-12 col-sm-12 col-xs-12" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                        <!-- Titulo -->
-                                        <div class="d-flex justify-content-center align-items-center ">
-                                            <div class=" form-check ">
-                                                <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioMatricula" value="matricula">
-                                                <label for="radioMatricula">Matricula</label>
-                                            </div>
-                                            <div class=" form-check">
-                                                <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioNome" value="nome">
-                                                <label for="radioNome">Agente</label>
-                                            </div>
-                                            <div class=" form-check">
-                                                <input type="radio" onclick="habilitaCampoBusca(),escondeDiv(),alteraLabelCampoBusca()" name="tipoBusca" id="radioAni" value="ani">
-                                                <label for="radioAni">Contato do Cliente</label>
-                                            </div>
-                                            <div class=" form-check">
-                                                <input type="radio" onclick="escondeDiv();" name="tipoBusca" id="radioData" value="data">
-                                                <label for="radioData">Data</label>
-                                            </div>
-                                        </div>
-                                        <!-- Campos tipo Text e date -->
-
-                                        <div class="row">
-                                            <div class="d-flex row  col-md-12 col-sm-12 col-xs-12" id="divCampanhaEquipe">
-                                                <div class="col-md-12 col-sm-12 col-xs-12 " id="divCampoBusca">
-                                                    <label class="radio" id="labelCampoBusca">Pesquisar: </label>
-                                                    <input type="text" class="form-control" onkeyup="habilitaCampoCampanha()" placeholder="Informe o padrão de busca" name="parametro" id="campoBusca" disabled="true">
-                                                </div>
-                                                <div class=" col-md-6 col-sm-12 col-xs-12">
-                                                    <label class="radio" for="campoCampanha">Campanha:</label>
-                                                    <input type="text" class="form-control" onkeyup="habilitaCampoEquipe()" name="campanha" id="campoCampanha" disabled="true">
-                                                </div>
-                                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                                    <label class="radio" for="campoEquipe">Equipe:</label>
-                                                    <input type="text" class="form-control" name="equipe" id="campoEquipe" disabled="true">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- Campos de data -->
-                                            <div class="d-flex row col-md-12 col-sm-12 col-xs-12" id="divData">
-                                                <div class=" col-md-6 col-sm-6 col-xs-12">
-                                                    <label class="radio" for="campoDataInicial" id="labelDataInicial">Data Inical:</label>
-                                                    <input type="date" class="form-control" name="dataInicial" id="campoDataInicial" disabled="true">
-                                                </div>
-                                                <div class=" col-md-6 col-sm-6 col-xs-12">
-                                                    <label class="radio" for="campoDataFinal" id="labelDataFinal">Data Final:</label>
-                                                    <input type="date" class="form-control" onmouseleave="habilitaCampoCampanhaData()" name="dataFinal" id="campoDataFinal" disabled="true">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="radio d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center" style="min-height:40px;">
-                                            <input class="radio btn btn-primary botão col-md-1 col-sm-3 col-xs-3" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                                            <input class="radio btn btn-danger col-md-1 col-sm-3 col-xs-3 botão" onclick="limpezaCamposAdm();" type="button" value="Limpar">
-                                        </div>
-                                        <!-- FIm do campos text/date -->
-                                    </form>
-                                </div>
                                 <table class="table table-hover table-primary table-responsive-lg" id="tbl_ligacao">
                                     <thead>
                                         <tr class=>
