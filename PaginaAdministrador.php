@@ -107,7 +107,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
     </div>
   </nav>
   <div class="row  ">
-    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#E6ECEC">
+    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#D9ECDD">
       <!-- div da pagina toda -->
       <div class="row ">
         <div class="col-md-12 ">
@@ -116,7 +116,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <div class="col-md-7 ">
               <div class="box-one">
                 <div class="content-box-header col-md-12">
-                  <div class="panel-title">TOTAL DE CHAMADAS RECEBIDAS</div>
+                  <div class="panel-title">Cálculo Geral de chamadas recebidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -126,9 +126,9 @@ include('./php/graficoTotalNaoAvaliadas.php');
                       data: {
                         labels: ["<?php echo $array_mes[0] ?>", "<?php echo $array_mes[1] ?>", "<?php echo $array_mes[2] ?>", "<?php echo $array_mes[3] ?>", "<?php echo $array_mes[4] ?>", "<?php echo $array_mes[5] ?>", "<?php echo $array_mes[6] ?>", "<?php echo $array_mes[7] ?>", "<?php echo $array_mes[8] ?>", "<?php echo $array_mes[9] ?>", "<?php echo $array_mes[10] ?>", "<?php echo $array_mes[11] ?>"],
                         datasets: [{
-                          backgroundColor: ["#FFB412"],
+                          backgroundColor: ["#EBD603"],
                           fill: false,
-                          borderColor: "#FFB412",
+                          borderColor: "#EBD603",
                           data: ["<?php echo $array_mes_contarLigacoes[1] ?>", "<?php echo $array_mes_contarLigacoes[2] ?>", "<?php echo $array_mes_contarLigacoes[3] ?>", "<?php echo $array_mes_contarLigacoes[4] ?>", "<?php echo $array_mes_contarLigacoes[5] ?>", "<?php echo $array_mes_contarLigacoes[6] ?>", "<?php echo $array_mes_contarLigacoes[7] ?>", "<?php echo $array_mes_contarLigacoes[8] ?>", "<?php echo $array_mes_contarLigacoes[9] ?>", "<?php echo $array_mes_contarLigacoes[10] ?>", "<?php echo $array_mes_contarLigacoes[11] ?>", "<?php echo $array_mes_contarLigacoes[12] ?>", ]
                         }]
                       },
@@ -149,10 +149,10 @@ include('./php/graficoTotalNaoAvaliadas.php');
               </div>
               <div class="box-one">
                 <div class="content-box-header ">
-                  <div class="panel-title">TOTAL DE AVALIADAS E NÃO AVALIADAS</div>
+                  <div class="panel-title">Cálculo Geral de Avaliadas e não avalidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <canvas id="G_ligacaoN" height="193"></canvas>
+                  <canvas id="G_ligacaoN" height="200"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
                       type: 'line',
@@ -193,7 +193,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title" align="center">RANKING POR TIPO DE ENTRADA</div>
+                    <div class="panel-title" align="center">Ranking de interação</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="row select-margin">
@@ -205,7 +205,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                             <option value="campanha">Campanha</option>
                         </select>
                         <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrInteracao" id="campoRanking" required>
-                        <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                        <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                       </form>
 
                     </div>
@@ -218,7 +218,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                         data: {
                           labels: ["Facebook", "WhatsApp", "Skype", "E-mail", "Telefone", "Chat"],
                           datasets: [{
-                            backgroundColor: ["#0000FF", "#5882FA", "#00BFFF", "#01A9DB", "#04B4AE", "#A9D0F5"],
+                            backgroundColor: ["#304CFF", "#B2FF82", "#27C4CC", "#FF5951", "#EBD603", "#8A21F0"],
                             data: ["<?php echo $dado_interacao[1] ?>", "<?php echo $dado_interacao[2] ?>", "<?php echo $dado_interacao[3] ?>", "<?php echo $dado_interacao[4] ?>", "<?php echo $dado_interacao[5] ?>", "<?php echo $dado_interacao[6] ?>", ]
                           }],
                         },
@@ -250,7 +250,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
               <div class="row">
                 <div class="col-md-12">
                   <div class="content-box-header">
-                    <div class="panel-title">MÉDIA POR PERGUNTA</div>
+                    <div class="panel-title">Media por pergunta</div>
                   </div>
                   <div class="content-box-large box-with-header">
                     <div class="col-md-12">
@@ -264,20 +264,20 @@ include('./php/graficoTotalNaoAvaliadas.php');
                             <option value="campanha">Campanha</option>
                           </select>
                           <input type="text" class="form-control  col-md-7 col-sm-6 col-xs-12" name="parametroGrMedia" id="campoPesquisa" required>
-                          <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                          <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                         </form>
                       </div>
                     </div>
                     <br />
                     <div><?php echo $mensagem_erro_media ?></div>              
-                    <canvas id="G-mediaRespondidas" height="200"></canvas>
+                    <canvas id="G-mediaRespondidas" height="193"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
                         type: 'doughnut',
                         data: {
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
-                            backgroundColor: ["#005BE8", "#4197E8", "#54C2FF", "#B0C5E8", "#AEB0E8"],
+                            backgroundColor: ["#802A25", "#FFA19C", "#FF534A", "#80140E", "#CC423C"],
                             data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
@@ -318,12 +318,12 @@ include('./php/graficoTotalNaoAvaliadas.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#0D32FF; padding-top:10px; padding-right:20px; min-height:888px;">
+    <div class="col-md-3 " style=" background-color:#C8D0EA; padding-top:10px; padding-right:20px; min-height:888px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12">
-            <div class="panel-title col-md-12">PERGUNTAS RESPONDIDAS</div>
+            <div class="panel-title col-md-12">Perguntas respondidas</div>
           </div>
           <div class="content-box-large box-with-header">
             <div class="col-md-12">
@@ -337,7 +337,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                     <option value="campanha">Campanha</option>
                   </select>
                   <input type="text" name="parametro" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                  <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                  <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
               </div>
@@ -351,7 +351,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#01DF74", "#00FF80", "#2EFE9A", "#58FAAC", "#81F7BE"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#9CFFFD", "#01807D", "#7CCCCB"],
                     data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
@@ -390,7 +390,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
       <div class="row">
         <div class="col-md-12">
           <div class="content-box-header col-md-12 col-sm-12 col-xs-12 ">
-            <div class="panel-title col-md-12 col-sm-12 col-xs-12">PERGUNTAS NÃO RESPONDIDAS</div>
+            <div class="panel-title col-md-12 col-sm-12 col-xs-12">Perguntas sem respostas </div>
           </div>
           <div class="content-box-large box-with-header">
             <div class="col-md-12">
@@ -404,7 +404,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                     <option value="campanha">Campanha</option>
                   </select>
                   <input type="text" name="parametroGrNa" class="form-control col-md-6 col-sm-6 col-xs-12" placeholder="Pesquisar..." required>
-                  <button type="submit" class="form-control btn-outline-success col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                  <button type="submit" class="form-control btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
                 </form>
 
               </div>
@@ -418,7 +418,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#D98155", "#E8975F", "#FFB875", "#E8AC5F", "#FFD187"],
+                    backgroundColor: ["#4E807F", "#4FFFFC", "#9CFFFD", "#01807D", "#7CCCCB"],
                     data: [<?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>, <?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },
