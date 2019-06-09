@@ -30,6 +30,8 @@ include('./php/tabelaavaliacao.php');
 <html lang="pt-BR">
 
 <head>
+<link rel="shortcut icon" href="https://static.wixstatic.com/media/a917a1_d8844d4baaa443a7a31eeaf9b1c214c3%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/a917a1_d8844d4baaa443a7a31eeaf9b1c214c3%7Emv2.png" type="image/png">
+ 
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="css/sb-admin.css" rel="stylesheet">
