@@ -115,10 +115,11 @@ include('./php/graficoChamadasRecebidasAgente.php');
             <!-- Aqui começa o primeiro card-->
             <div class="col-md-7 ">
               <div class="box-one">
-                <div class="content-box-header col-md-12">
+                <div class="content-box-header col-md-12">                  
                   <div class="panel-title">Seu Total geral de atendimentos:</div>
                 </div>
                 <div class="content-box-large box-with-header">
+                  <div><?php echo $mensagem_erro_contarLigacoes ?></div>
                   <canvas id="G_ligacao"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacao"), {
@@ -144,6 +145,12 @@ include('./php/graficoChamadasRecebidasAgente.php');
 
                       }
                     });
+
+                    let mensagem_erro_contarLigacoes = "<?php echo $mensagem_erro_contarLigacoes; ?>";
+                      let G_ligacao = document.getElementById("G_ligacao");
+                      if (mensagem_erro_contarLigacoes != '') {
+                        G_ligacao.style.display = "none";
+                    }
                   </script>
                 </div>
               </div>
@@ -152,6 +159,7 @@ include('./php/graficoChamadasRecebidasAgente.php');
                   <div class="panel-title">Seu total de avaliadas e não avaliadas:</div>
                 </div>
                 <div class="content-box-large box-with-header">
+                  <div><?php echo $mensagem_erro_granaovaliadas ?></div>
                   <canvas id="G_ligacaoN" height="155"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
@@ -182,6 +190,13 @@ include('./php/graficoChamadasRecebidasAgente.php');
                         }
                       }
                     });
+
+                    let mensagem_erro_granaovaliadas = "<?php echo $mensagem_erro_granaovaliadas; ?>";
+                    let mensagem_erro_gravaliadas = "<?php echo $mensagem_erro_gravaliadas; ?>";
+                      let G_ligacaoN = document.getElementById("G_ligacaoN");
+                      if (mensagem_erro_granaovaliadas != '' && mensagem_erro_gravaliadas != '') {
+                        G_ligacaoN.style.display = "none";
+                    }
                   </script>
                 </div>
               </div>

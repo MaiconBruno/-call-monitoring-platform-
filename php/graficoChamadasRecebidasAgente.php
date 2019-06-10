@@ -2,6 +2,7 @@
 include ('./php/conexao.php');
 
 $agente = $_SESSION['usuarioNome'];
+$mensagem_erro_contarLigacoes = '';
 
 $select_gr_cr_mes = "call pfc_db.select_gr_chamadas_recebidas_mes();";
 $resultado_gr_cr_mes = mysqli_query($conn, $select_gr_cr_mes);
@@ -166,4 +167,10 @@ while ($dado_gr_cr_mes_contarLigacoes = $resultado_gr_cr_mes_contarLigacoes->fet
     $array_mes_contarLigacoes[$mes] = $dado_gr_cr_mes_contarLigacoes['total_chamadas'];
 }
 
+?>
+
+<?php
+if($array_mes_contarLigacoes[1] == 0 && $array_mes_contarLigacoes[2] == 0 && $array_mes_contarLigacoes[3] == 0 && $array_mes_contarLigacoes[4] == 0 && $array_mes_contarLigacoes[5] == 0 && $array_mes_contarLigacoes[6] == 0 && $array_mes_contarLigacoes[7] == 0 && $array_mes_contarLigacoes[8] == 0 && $array_mes_contarLigacoes[9] == 0 && $array_mes_contarLigacoes[10] == 0 && $array_mes_contarLigacoes[11] == 0 && $array_mes_contarLigacoes[12] == 0){
+    $mensagem_erro_contarLigacoes = 'Nenhum resultado encontrado!';
+}
 ?>

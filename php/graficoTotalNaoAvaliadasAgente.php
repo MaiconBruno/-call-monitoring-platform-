@@ -2,6 +2,7 @@
 include ('./php/conexao.php');
 
 $agente = $_SESSION['usuarioNome'];
+$mensagem_erro_granaovaliadas = '';
 
 $num_semana = 0;
 $select_gr_naoavaliadas = "call pfc_db.select_gr_naoavalidas_agente('$num_semana', '$agente');";
@@ -82,5 +83,11 @@ $resultado_gr_naoavaliadas = mysqli_query($conn, $select_gr_naoavaliadas);
 
 while($dado_gr_naoavaliadas = $resultado_gr_naoavaliadas -> fetch_array()){  
     $array_gr_naoavaliadas[$num_semana] = $dado_gr_naoavaliadas['qtd_ligacoes'];  
+}
+?>
+
+<?php
+if($array_gr_naoavaliadas[0] == 0 && $array_gr_naoavaliadas[1] == 0 && $array_gr_naoavaliadas[2] == 0 && $array_gr_naoavaliadas[3] == 0 && $array_gr_naoavaliadas[4] == 0 && $array_gr_naoavaliadas[5] == 0 && $array_gr_naoavaliadas[6] == 0){
+    $mensagem_erro_granaovaliadas = 'Nenhum resultado encontrado!';
 }
 ?>
