@@ -107,7 +107,7 @@ include('./php/graficoChamadasRecebidasAgente.php');
     </div>
   </nav>
   <div class="row  ">
-    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#D9ECDD">
+    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#e6f5ff">
       <!-- div da pagina toda -->
       <div class="row ">
         <div class="col-md-12 ">
@@ -288,7 +288,7 @@ include('./php/graficoChamadasRecebidasAgente.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#C8D0EA; padding-top:10px; padding-right:20px; min-height:788px;">
+    <div class="col-md-3 " style=" background-color:#e6f5ff; padding-top:10px; padding-right:20px; min-height:788px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
