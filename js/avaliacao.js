@@ -55,6 +55,11 @@ function limpezaCamposAdm(){
 
     location.href="./TabelaGeraldoAdministrador.php"
 }
+
+function limpezaCamposSuper(){
+    location.href="./TabelaGeraldoSupervisor.php"
+}
+
 function limpezaCamposSuper(){
     /*radioMatricula.cheked = false;
     radioNome.cheked = false;

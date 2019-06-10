@@ -166,7 +166,7 @@ include('./php/tabelaavaliacao.php');
                                         </div>
                                         <div class="radio d-flex col-md-12 col-sm-12 col-xs-12  justify-content-center align-items-center" style="min-height:40px;">
                                             <input class="radio btn btn-primary botão col-md-1 col-sm-3 col-xs-3" type="submit" value="Buscar" id="btnBuscar" disabled="true">
-                                            <input class="radio btn btn-danger col-md-1 col-sm-3 col-xs-3 botão" onclick="limpezaCamposAdm();" type="button" value="Limpar">
+                                            <input class="radio btn btn-danger col-md-1 col-sm-3 col-xs-3 botão" onclick="limpezaCamposSuper();" type="button" value="Limpar">
                                         </div>
                                         <!-- FIm do campos text/date -->
                                     </form>
