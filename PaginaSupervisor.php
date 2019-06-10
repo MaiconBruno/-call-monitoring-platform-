@@ -148,7 +148,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
               </div>
               <div class="box-one">
                 <div class="content-box-header ">
-                  <div class="panel-title">Cálculo Geral de Avaliadas e não avalidas</div>
+                  <div class="panel-title">Cálculo geral de avaliadas e não avalidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacaoN" height="130"></canvas>

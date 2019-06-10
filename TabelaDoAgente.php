@@ -31,8 +31,8 @@ include('./php/tabelaAvaliacaoAgente.php');
 <html lang="pt-BR">
 
 <head>
-<link rel="shortcut icon" href="https://static.wixstatic.com/media/a917a1_d8844d4baaa443a7a31eeaf9b1c214c3%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/a917a1_d8844d4baaa443a7a31eeaf9b1c214c3%7Emv2.png" type="image/png">
- 
+    <link rel="shortcut icon" href="https://static.wixstatic.com/media/a917a1_d8844d4baaa443a7a31eeaf9b1c214c3%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/a917a1_d8844d4baaa443a7a31eeaf9b1c214c3%7Emv2.png" type="image/png">
+
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -63,42 +63,42 @@ include('./php/tabelaAvaliacaoAgente.php');
 
     <!-- ImportarPDF -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
 
 
 </head>
 
 <body>
-<nav class="border-size-top fixed-top">
-    <div class="header d-flex" style="background-color:white;">
-      <div class="container">
-        <div class="row ">
-          <div class="col-md-12 d-flex justify-content-center">
-            <div class="logo" style="margin-left:90px;"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
-          </div>
+    <nav class="border-size-top fixed-top">
+        <div class="header d-flex" style="background-color:white;">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="logo" style="margin-left:90px;"> <img src="./icones/LOGO.png" height="50px" width="140px" alt=""> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown" style="margin-right:15px;">
+                <span class="nav-link zoom text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
+                <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
+                    <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
+                    <li class="centralizador"><a class="text-success"><?php
+                                                                        $acesso = '';
+                                                                        if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
+                                                                            $acesso = 'ADMINISTRADOR';
+                                                                        } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
+                                                                            $acesso = 'AGENTE';
+                                                                        } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
+                                                                            $acesso = 'SUPERVISOR';
+                                                                        }
+                                                                        echo $acesso;
+                                                                        ?></a></li>
+                    <li class="centralizador"><a class="text-primary" href="./php/sair.php">Sair</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="dropdown" style="margin-right:15px;">
-      <span class="nav-link zoom text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
-        <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
-          <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
-          <li class="centralizador"><a class="text-success"><?php
-                                                            $acesso = '';
-                                                            if ($_SESSION['usuarioNiveisAcessoId'] == 1) {
-                                                              $acesso = 'ADMINISTRADOR';
-                                                            } else if ($_SESSION['usuarioNiveisAcessoId'] == 2) {
-                                                              $acesso = 'AGENTE';
-                                                            } else if ($_SESSION['usuarioNiveisAcessoId'] == 3) {
-                                                              $acesso = 'SUPERVISOR';
-                                                            }
-                                                            echo $acesso;
-                                                            ?></a></li>
-          <li class="centralizador"><a class="text-primary" href="./php/sair.php">Sair</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
     <div class="page-content" style="padding-top:1px; background-color:#E6ECEC">
         <!-- div da pagina toda -->
         <div class="row">
@@ -168,8 +168,12 @@ include('./php/tabelaAvaliacaoAgente.php');
                                     </tbody>
                                 </table>
 
-                                <input type="button" value="PDF" id="idPDF" onclick="createPDF();">
-
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idPDF" onclick="createPDF();">
+                                    <p class="text-center text-danger">Exportar</p><img width="50" height="50" src="./icones/pdficon.png">
+                                </button>
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idExcell" onclick="createPDF();">
+                                    <p class="text-center text-success">Exportar</p><img width="50" height="50" src="./icones/excellicon.png">
+                                </button>
                                 <script>
                                     $(document).ready(function() {
                                         $('#tbl_ligacao').DataTable({
@@ -227,70 +231,70 @@ include('./php/tabelaAvaliacaoAgente.php');
 
 
 
-    
 
 
-    
-<!-- Importar PDF -->
+
+
+    <!-- Importar PDF -->
     <script>
-    (function($){
-    $.fn.createPdf = function(parametros) {
-        
-        var config = {              
-            'fileName':'html-to-pdf'
-        };
-        
-        if (parametros){
-            $.extend(config, parametros);
-        }                            
+        (function($) {
+            $.fn.createPdf = function(parametros) {
 
-        var quotes = document.getElementById($(this).attr('id'));
+                var config = {
+                    'fileName': 'html-to-pdf'
+                };
 
-        html2canvas(quotes, {
-            onrendered: function(canvas) {
-                var pdf = new jsPDF('p', 'pt', 'letter');
-
-                for (var i = 0; i <= quotes.clientHeight/980; i++) {
-                    var srcImg  = canvas;
-                    var sX      = 0;
-                    var sY      = 980*i;
-                    var sWidth  = 900;
-                    var sHeight = 980;
-                    var dX      = 0;
-                    var dY      = 0;
-                    var dWidth  = 900;
-                    var dHeight = 980;
-
-                    window.onePageCanvas = document.createElement("canvas");
-                    onePageCanvas.setAttribute('width', 900);
-                    onePageCanvas.setAttribute('height', 980);
-                    var ctx = onePageCanvas.getContext('2d');
-                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
-
-                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
-                    var width         = onePageCanvas.width;
-                    var height        = onePageCanvas.clientHeight;
-
-                    if (i > 0) {
-                        pdf.addPage(612, 791);
-                    }
-
-                    pdf.setPage(i+1);
-                    pdf.addImage(canvasDataURL, 'PNG', 20, 40, (width*.62), (height*.62));
+                if (parametros) {
+                    $.extend(config, parametros);
                 }
 
-                pdf.save(config.fileName);
-            }
-        });
-    };
-})(jQuery);
+                var quotes = document.getElementById($(this).attr('id'));
 
-function createPDF() {
-    $('#tbl_ligacao').createPdf({
-        'fileName' : 'testePDF'
-    });
-};
-</script>
+                html2canvas(quotes, {
+                    onrendered: function(canvas) {
+                        var pdf = new jsPDF('p', 'pt', 'letter');
+
+                        for (var i = 0; i <= quotes.clientHeight / 980; i++) {
+                            var srcImg = canvas;
+                            var sX = 0;
+                            var sY = 980 * i;
+                            var sWidth = 900;
+                            var sHeight = 980;
+                            var dX = 0;
+                            var dY = 0;
+                            var dWidth = 900;
+                            var dHeight = 980;
+
+                            window.onePageCanvas = document.createElement("canvas");
+                            onePageCanvas.setAttribute('width', 900);
+                            onePageCanvas.setAttribute('height', 980);
+                            var ctx = onePageCanvas.getContext('2d');
+                            ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
+
+                            var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                            var width = onePageCanvas.width;
+                            var height = onePageCanvas.clientHeight;
+
+                            if (i > 0) {
+                                pdf.addPage(612, 791);
+                            }
+
+                            pdf.setPage(i + 1);
+                            pdf.addImage(canvasDataURL, 'PNG', 20, 40, (width * .62), (height * .62));
+                        }
+
+                        pdf.save(config.fileName);
+                    }
+                });
+            };
+        })(jQuery);
+
+        function createPDF() {
+            $('#tbl_ligacao').createPdf({
+                'fileName': 'testePDF'
+            });
+        };
+    </script>
 
 </body>
 

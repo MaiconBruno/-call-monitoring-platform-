@@ -226,7 +226,12 @@ include('./php/tabelaavaliacao.php');
                                     </tbody>
                                 </table>
 
-                                <input type="button" value="PDF" id="idPDF" onclick="createPDF();">
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idPDF" onclick="createPDF();">
+                                    <p class="text-center text-danger">Exportar</p><img width="50" height="50" src="./icones/pdficon.png">
+                                </button>
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idExcell" onclick="createPDF();">
+                                    <p class="text-center text-success">Exportar</p><img width="50" height="50" src="./icones/excellicon.png">
+                                </button>
 
                                 <script>
                                     $(document).ready(function() {
