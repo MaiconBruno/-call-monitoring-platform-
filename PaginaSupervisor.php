@@ -106,7 +106,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
     </div>
   </nav>
   <div class="row  ">
-    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#D9ECDD">
+    <div class="page-content col-md-9 " style="padding-top:1px; background-color:#e6f5ff">
       <!-- div da pagina toda -->
       <div class="row ">
         <div class="col-md-12 ">
@@ -114,8 +114,27 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <!-- Aqui começa o primeiro card-->
             <div class="col-md-7 ">
               <div class="box-one">
-                <div class="content-box-header col-md-12">
-                  <div class="panel-title">Total Geral de atendimentos </div>
+              <div class="content-box-header d-flex justify-content-between align-items-center" style="padding-bottom:1;">
+                <div class="dropdown ">
+                      <span style="padding:3;" class="nav-link  text-menu zoom text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png" style="padding:1px;"></span>
+                      <ul class="dropdown-menu " aria-labelledby="dropdownGrafico">
+                        <li>
+                          <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+
+                            <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrInteracao">
+                              <option value="ano1">Selecione o ano...</option>
+                              <option value="ano2">2019</option>
+                              <option value="ano2">2020</option>
+                              <option value="ano2">2021</option>
+                              <option value="ano2">2022</option>
+                            </select>
+                           
+                            <button type="submit" class="form-control radio btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                          </form>
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="panel-title">Total Geral de atendimentos</div>
                 </div>
                 <div class="content-box-large box-with-header">
                   <canvas id="G_ligacao"></canvas>
@@ -147,7 +166,26 @@ include('./php/graficoTotalNaoAvaliadas.php');
                 </div>
               </div>
               <div class="box-one">
-                <div class="content-box-header ">
+              <div class="content-box-header d-flex justify-content-between align-items-center" style="padding-bottom:1;">
+                <div class="dropdown ">
+                      <span style="padding:3;" class="nav-link  text-menu zoom text-primary" id="dropdownGrafico" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img height="25" width="25" src="./icones/filtro.png" style="padding:1px;"></span>
+                      <ul class="dropdown-menu " aria-labelledby="dropdownGrafico">
+                        <li>
+                          <form name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaForm(this);">
+
+                            <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoGrInteracao">
+                              <option value="ano1">Selecione o ano...</option>
+                              <option value="ano2">2019</option>
+                              <option value="ano2">2020</option>
+                              <option value="ano2">2021</option>
+                              <option value="ano2">2022</option>
+                            </select>
+                           
+                            <button type="submit" class="form-control radio btn-outline-info col-md-12 col-sm-12 col-xs-12">Buscar</button>
+                          </form>
+                        </li>
+                      </ul>
+                    </div>
                   <div class="panel-title">Cálculo geral de avaliadas e não avalidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
@@ -325,7 +363,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#C8D0EA; padding-top:10px; padding-right:20px; min-height:800px;">
+    <div class="col-md-3 " style=" background-color:#C8D0EA; padding-top:10px; padding-right:20px; min-height:820px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">

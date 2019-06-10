@@ -99,7 +99,7 @@ include('./php/tabelaAvaliacaoAgente.php');
             </div>
         </div>
     </nav>
-    <div class="page-content" style="padding-top:1px; background-color:#E6ECEC">
+    <div class="page-content" style="padding-top:1px; background-color:#e6f5ff">
         <!-- div da pagina toda -->
         <div class="row">
             <div class="col-md-12">
