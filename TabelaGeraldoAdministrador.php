@@ -262,7 +262,7 @@ include('./php/tabelaavaliacao.php');
 
     <div class="tabelas-fixo zoom pd ">
         <a href="./PaginaAdministrador.php">
-            <img class="img-responsive" src="./icones/icone_RA3.png" width="35px" height="35px" alt="Tabelas" />
+            <img class="img-responsive" src="./icones/icone_RA.png" width="35px" height="35px" alt="Tabelas" />
         </a>
     </div>
     </div>
