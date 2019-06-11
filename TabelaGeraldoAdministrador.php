@@ -61,6 +61,12 @@ include('./php/tabelaavaliacao.php');
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <!-- import estilos.css -->
 
+    <!-- ImportarPDF -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
+
+
 </head>
 
 <body>
@@ -282,8 +288,6 @@ include('./php/tabelaavaliacao.php');
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
-
-
 
 
 <!-- Importar PDF -->
