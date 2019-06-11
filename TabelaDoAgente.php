@@ -174,9 +174,9 @@ include('./php/tabelaAvaliacaoAgente.php');
                             <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idPDF" onclick="createPDF();">
                                 <p class="text-center text-danger">Exportar</p><img width="50" height="50" src="./icones/pdficon.png">
                                 </button>
-                            <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idExcell" onclick="createPDF();">
-                                <p class="text-center text-success">Exportar</p><img width="50" height="50" src="./icones/excellicon.png">
-                            </button>
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idExcell" onclick="salvaPlanilha();">
+                                    <p class="text-center text-success">Exportar</p><img width="50" height="50" src="./icones/excellicon.png">
+                                </button>
                             <script>
                                 $(document).ready(function() {
                                     $('#tbl_ligacao').DataTable({
@@ -226,13 +226,6 @@ include('./php/tabelaAvaliacaoAgente.php');
     <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/date-eu.js"></script>
 
 
-
-
-
-
-
-
-
     <!-- Importar PDF -->
 <script>
 var doc = new jsPDF({
@@ -247,6 +240,27 @@ var doc = new jsPDF({
         doc.save('TabelaLigacoes.pdf');
     });
 </script>
+
+<!-- Importar Excel -->
+<script>
+        function salvaPlanilha() {
+    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>tbl_ligacao</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' 
+    + document.getElementById("tbl_ligacao").innerHTML + '</table></body></html>';
+ 
+    var htmlBase64 = btoa(htmlPlanilha);
+    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
+    var hyperlink = document.createElement("a");
+    hyperlink.download = "TabelaLigacoes";
+    hyperlink.href = link;
+    hyperlink.style.display = 'none';
+ 
+    document.body.appendChild(hyperlink);
+    hyperlink.click();
+    document.body.removeChild(hyperlink);
+        }
+    </script>
+
+</body>
 
 </body>
 
