@@ -61,12 +61,6 @@ include('./php/tabelaavaliacao.php');
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <!-- import estilos.css -->
 
-    <!-- ImportarPDF -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
-
-
 </head>
 
 <body>
@@ -227,11 +221,12 @@ include('./php/tabelaavaliacao.php');
                                             <?php }  ?>
                                         </tbody>
                                     </table>
+
                                 </div>
-                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idPDF" onclick="createPDF();">
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idPDF">
                                     <p class="text-center text-danger">Exportar</p><img width="50" height="50" src="./icones/pdficon.png">
                                 </button>
-                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idExcell" onclick="createPDF();">
+                                <button style="border-radius:10px;" type="button" class="btn btn-white zoom p-3" id="idExcell" onclick="salvaPlanilha();">
                                     <p class="text-center text-success">Exportar</p><img width="50" height="50" src="./icones/excellicon.png">
                                 </button>
 
@@ -291,11 +286,6 @@ include('./php/tabelaavaliacao.php');
 
 
 
-
-    
-
-
-    
 <!-- Importar PDF -->
 <script>
 var doc = new jsPDF({
@@ -310,6 +300,25 @@ var doc = new jsPDF({
         doc.save('TabelaLigacoes.pdf');
     }); 
 </script>
+
+<!-- Importar Excel -->
+<script>
+        function salvaPlanilha() {
+    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>tbl_ligacao</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' 
+    + document.getElementById("tbl_ligacao").innerHTML + '</table></body></html>';
+ 
+    var htmlBase64 = btoa(htmlPlanilha);
+    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
+    var hyperlink = document.createElement("a");
+    hyperlink.download = "TabelaLigacoes";
+    hyperlink.href = link;
+    hyperlink.style.display = 'none';
+ 
+    document.body.appendChild(hyperlink);
+    hyperlink.click();
+    document.body.removeChild(hyperlink);
+        }
+    </script>
 
 </body>
 
