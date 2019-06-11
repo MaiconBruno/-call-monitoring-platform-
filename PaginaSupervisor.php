@@ -210,10 +210,10 @@ include('./php/graficoTotalNaoAvaliadas.php');
                       data: {
                         labels: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
                         datasets: [{
-                            backgroundColor: ["#2EFE9A"],
+                            backgroundColor: ["#006400"],
                             label: "Avaliadas",
                             fill: false,
-                            borderColor: "#2EFE9A",
+                            borderColor: "#006400",
                             data: ["<?php echo $array_gr_avaliadas[0] ?>", "<?php echo $array_gr_avaliadas[1] ?>", "<?php echo $array_gr_avaliadas[2] ?>", "<?php echo $array_gr_avaliadas[3] ?>", "<?php echo $array_gr_avaliadas[4] ?>", "<?php echo $array_gr_avaliadas[5] ?>", "<?php echo $array_gr_avaliadas[6] ?>"]
                           },
                           {
@@ -332,23 +332,18 @@ include('./php/graficoTotalNaoAvaliadas.php');
                     <canvas id="G-mediaRespondidas" height="228"></canvas>
                     <script>
                       new Chart(document.getElementById("G-mediaRespondidas"), {
-                        type: 'doughnut',
+                        type: 'bar',
                         data: {
                           labels: ["R1", "R2", "R3", "R4", "R5"],
                           datasets: [{
-                            backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
+                            backgroundColor: ["#FFFF00", "#00008B", "#8B4513", "#008000", "#FF0000"],
                             data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
                         options: {
                           responsive: true,
                           legend: {
-                            position: 'bottom',
-                            labels: {
-                              boxWidth: 13,
-                              fontSize: 13,
-
-                            },
+                            display: false,
                           },
                           title: {
                             display: false,
@@ -407,11 +402,11 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <canvas id="G-Respondidas" height="270px"></canvas>
             <script>
               new Chart(document.getElementById("G-Respondidas"), {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
+                    backgroundColor: ["#FFFF00", "#00008B", "#8B4513", "#008000", "#FF0000"],
                     data: [<?php echo $resposta1 ?>, <?php echo $resposta2 ?>, <?php echo $resposta3 ?>, <?php echo $resposta4 ?>, <?php echo $resposta5 ?>],
                   }],
                 },
@@ -474,11 +469,11 @@ include('./php/graficoTotalNaoAvaliadas.php');
             <canvas id="G-naorespondidas" height="270px"></canvas>
             <script>
               new Chart(document.getElementById("G-naorespondidas"), {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                   labels: ["R1", "R2", "R3", "R4", "R5"],
                   datasets: [{
-                    backgroundColor: ["#4E807F", "#4FFFFC", "#7CCCCB", "#01807D", "#9CFFFD"],
+                    backgroundColor: ["#FFFF00", "#00008B", "#8B4513", "#008000", "#FF0000"],
                     data: [<?php echo $resposta1_na ?>, <?php echo $resposta2_na ?>, <?php echo $resposta3_na ?>, <?php echo $resposta4_na ?>, <?php echo $resposta5_na ?>],
                   }],
                 },
