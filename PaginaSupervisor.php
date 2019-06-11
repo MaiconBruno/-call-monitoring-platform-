@@ -363,7 +363,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
         </div>
       </div>
     </div>
-    <div class="col-md-3 " style=" background-color:#e6f5ff; padding-top:10px; padding-right:20px; min-height:820px;">
+    <div class="col-md-3 " style=" background-color:#e6f5ff; padding-top:10px; padding-right:20px; min-height:750px;">
       <!-- Aqui começa o segundo card-->
       <div class="row">
         <div class="col-md-12">
