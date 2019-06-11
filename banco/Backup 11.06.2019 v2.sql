@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `pfc_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE  IF NOT EXISTS `pfc_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `pfc_db`;
 -- MySQL dump 10.16  Distrib 10.1.40-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: pfc_db
+-- Host: 127.0.0.1    Database: pfc_db
 -- ------------------------------------------------------
 -- Server version	10.1.40-MariaDB
 
@@ -12,9 +12,24 @@ USE `pfc_db`;
 /*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `funcao`
+--
+
+DROP TABLE IF EXISTS `funcao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `funcao` (
+  `id_funcao` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_funcao`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `funcao`
@@ -27,6 +42,29 @@ INSERT INTO `funcao` VALUES (1,'Administrador'),(2,'Agente'),(3,'Supervisor');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `funcionario`
+--
+
+DROP TABLE IF EXISTS `funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `funcionario` (
+  `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) NOT NULL,
+  `sobrenome` varchar(255) NOT NULL,
+  `cpf` varchar(255) NOT NULL,
+  `matricula` varchar(255) NOT NULL,
+  `ramal` varchar(255) NOT NULL,
+  `funcao` int(11) NOT NULL,
+  PRIMARY KEY (`id_funcionario`),
+  KEY `fk_funcao` (`funcao`),
+  CONSTRAINT `fk_funcao` FOREIGN KEY (`funcao`) REFERENCES `funcao` (`id_funcao`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `funcionario`
 --
 
@@ -35,6 +73,20 @@ LOCK TABLES `funcionario` WRITE;
 INSERT INTO `funcionario` VALUES (0,'jcr','202cb962ac59075b964b07152d234b70','Joao Carlos','Ramos','','','',1),(1,'mario','202cb962ac59075b964b07152d234b70','henq','caldas','545.101.384-00','01','0101',3),(2,'carlos12','202cb962ac59075b964b07152d234b70','Mario','Marquers','924.880.745-20','02','0102',3),(3,'ze12','202cb962ac59075b964b07152d234b70','ze','jovenilson','774.880.745-50','03','0103',3),(4,'julio','202cb962ac59075b964b07152d234b70','jenilson','jenilson','444.880.745-10','04','0104',2),(5,'valter','202cb962ac59075b964b07152d234b70','marcelafreitas','ramos','324.320.745-30','05','0105',2),(6,'zeca','202cb962ac59075b964b07152d234b70','Mario','adelson','124.880.745-80','06','0120',2),(7,'bento3232','d9b1d7db4cd6e70935368a1efb10e377','bento',' Merli','127.157.275-34','07','0106',2),(8,'mari','202cb962ac59075b964b07152d234b70','mari','Lucas','729.331.345-43','08','0107',2),(9,'Giblon','202cb962ac59075b964b07152d234b70','Giblon','neto','092.559.035-51','09','0109',2),(10,'bea','202cb962ac59075b964b07152d234b70','bea','halves','142.013.695-01','010','0110',2),(11,'delvan','202cb962ac59075b964b07152d234b70','delvan','oliveira','283.121.395-91','011','0111',2),(12,'jony12','202cb962ac59075b964b07152d234b70','pedro henrique','cardoso','549.373.350-14','06','0105',2),(13,'joaoguilherme','202cb962ac59075b964b07152d234b70','joao guilherme','costa','239.752.110-59','013','0113',2),(14,'marcio','202cb962ac59075b964b07152d234b70','marcio','pavaneli','309.939.240-50','014','0114',2),(15,'bentovieira','202cb962ac59075b964b07152d234b70','bento vieira','joaquin','604.058.010-09','015','0115',2),(16,'pedroernam','202cb962ac59075b964b07152d234b70','pedro','ernam','444.013.670-22','016','0116',2),(17,'beatriz','202cb962ac59075b964b07152d234b70','beatriz','silva','729.330.840-07','017','0117',2),(18,'joaquin','202cb962ac59075b964b07152d234b70','joaquin','silva','257.324.510-13','018','0118',2),(19,'helvecio','202cb962ac59075b964b07152d234b70','helvecio','neto','418.194.540-53','019','0119',2),(20,'andrew','202cb962ac59075b964b07152d234b70','andrew','lima','229.553.990-00','020','0120',2),(21,'paulo','202cb962ac59075b964b07152d234b70','paulo','reis','948.808.450-27','021','0121',2),(22,'edlane','202cb962ac59075b964b07152d234b70','edlane','reis','679.688.280-66','022','0122',2),(23,'kaike','202cb962ac59075b964b07152d234b70','kaike','oliveira','264.462.040-60','023','0123',2),(24,'george','202cb962ac59075b964b07152d234b70','george','cardoso','693.843.740-83','024','0124',2),(25,'vitor','202cb962ac59075b964b07152d234b70','vitor','silva','279.122.600-13','025','0125',2),(26,'max','202cb962ac59075b964b07152d234b70','max','pereira','213.188.830-91','026','0126',2),(27,'lucas','202cb962ac59075b964b07152d234b70','lucas','araujo','954.820.490-86','027','0127',2),(28,'matheus','202cb962ac59075b964b07152d234b70','matheus','silva','661.165.110-15','028','0128',2),(29,'mustafar','202cb962ac59075b964b07152d234b70','mustafaabald','brotas','333.101.390-00','029','0129',2);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `interacao`
+--
+
+DROP TABLE IF EXISTS `interacao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `interacao` (
+  `idinteracao` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_interacao` varchar(60) NOT NULL,
+  PRIMARY KEY (`idinteracao`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `interacao`
@@ -46,6 +98,31 @@ INSERT INTO `interacao` VALUES (1,'Facebook'),(2,'WhatsApp'),(3,'Skype'),(4,'E-m
 /*!40000 ALTER TABLE `interacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Table structure for table `ligacao`
+--
+
+DROP TABLE IF EXISTS `ligacao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ligacao` (
+  `id_ligacao` int(11) NOT NULL AUTO_INCREMENT,
+  `data_hora` datetime NOT NULL,
+  `motivo` varchar(255) NOT NULL,
+  `ani` varchar(15) NOT NULL,
+  `campanha` varchar(255) DEFAULT NULL,
+  `equipe` varchar(255) DEFAULT NULL,
+  `funcionario` int(11) DEFAULT NULL,
+  `fk_interacao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_ligacao`),
+  KEY `fk_funcionario` (`funcionario`),
+  KEY `fk_interacao` (`fk_interacao`),
+  CONSTRAINT `fk_funcionario` FOREIGN KEY (`funcionario`) REFERENCES `funcionario` (`id_funcionario`),
+  CONSTRAINT `fk_interacao` FOREIGN KEY (`fk_interacao`) REFERENCES `interacao` (`idinteracao`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Dumping data for table `ligacao`
 --
@@ -55,6 +132,28 @@ LOCK TABLES `ligacao` WRITE;
 INSERT INTO `ligacao` VALUES (1,'2019-01-05 00:00:00','N/a','(83)117-2197','0122','Ninjas ',1,1),(2,'2019-01-15 00:00:00','N/a','(13)788-2792','0112','Ninjas ',2,1),(3,'2019-02-23 00:00:00','N/a','(27)517-6097','0112','Ninjas ',3,1),(4,'2019-02-18 00:00:00','N/a','(88)110-2510','0112','Ninjas ',4,1),(5,'2019-03-11 00:00:00','N/a','(95)587-2023','0112','Ninjas ',5,1),(6,'2019-03-17 00:00:00','N/a','(43)518-7399','0122','Ninjas ',6,2),(7,'2019-04-25 00:00:00','N/a','(03)249-7556','0112','Ninjas ',7,2),(8,'2019-04-04 00:00:00','N/a','(15)631-9260','0112','Ninjas ',8,2),(9,'2019-05-01 00:00:00','N/a','(18)845-3826','0133','Mestres ',9,2),(10,'2019-05-18 00:00:00','n/a','(58)845-3826','0112','Mestres ',10,2),(11,'2019-05-22 00:00:00','n/a','(58)845-3826','0133','Mestres ',11,3),(12,'2019-06-12 00:00:00','N/a','(83)930-3329','0144','Mestres ',12,3),(13,'2019-07-23 00:00:00','N/a','(58)845-3826','0122','Mestres ',13,3),(14,'2019-08-02 00:00:00','N/a','(83)930-3329','0133','Mestres ',14,3),(15,'2019-09-15 00:00:00','N/a','(83)930-3329','0112','Mestres ',15,3),(16,'2019-10-20 00:00:00','N/a','(18)845-38260','0155','Mestres ',16,4),(17,'2019-11-03 00:00:00','N/a','(83)930-3329','0144','Mestres ',17,4),(18,'2019-12-18 00:00:00','N/a','(18)845-3826','0112','Mestres ',18,4),(19,'2019-06-18 00:00:00','N/a','(18)845-8714','0144','Mestres ',19,4),(20,'2019-01-22 00:00:00','N/a','(18)845-8714','0155','Brasil',20,4),(21,'2019-06-09 00:00:00','N/a','(58)845-3826','0112','Brasil',21,5),(22,'2019-02-11 00:00:00','N/a','(15)631-9260','0133','Brasil',22,5),(23,'2018-02-11 00:00:00','N/a','(15)631-9260','0133','Brasil',23,5),(24,'2018-05-11 00:00:00','N/a','(15)631-9260','0133','Brasil',24,5),(25,'2018-05-11 00:00:00','N/a','(15)631-9260','0133','Brasil',25,5),(26,'2018-03-11 00:00:00','N/a','(15)631-9260','0133','Brasil',26,6),(27,'2018-04-11 00:00:00','N/a','(15)631-9260','0133','Brasil',27,6),(28,'2018-04-11 00:00:00','N/a','(15)631-9260','0134','Brasil',28,6),(29,'2018-04-11 00:00:00','N/a','(15)631-9260','0134','Brasil',29,6),(30,'2018-03-11 00:00:00','N/a','(15)631-9260','0134','Brasil',1,6);
 /*!40000 ALTER TABLE `ligacao` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+--
+-- Table structure for table `resposta`
+--
+
+DROP TABLE IF EXISTS `resposta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `resposta` (
+  `id_resposta` int(11) NOT NULL AUTO_INCREMENT,
+  `resposta_1` int(11) DEFAULT NULL,
+  `resposta_2` int(11) DEFAULT NULL,
+  `resposta_3` int(11) DEFAULT NULL,
+  `resposta_4` int(11) DEFAULT NULL,
+  `resposta_5` int(11) DEFAULT NULL,
+  `ligacao` int(11) NOT NULL,
+  PRIMARY KEY (`id_resposta`),
+  KEY `fk_ligacao` (`ligacao`),
+  CONSTRAINT `fk_ligacao` FOREIGN KEY (`ligacao`) REFERENCES `ligacao` (`id_ligacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `resposta`
@@ -1492,9 +1591,10 @@ DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-11  9:22:45
+-- Dump completed on 2019-06-11  0:14:57
