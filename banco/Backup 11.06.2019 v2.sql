@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `pfc_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `pfc_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `pfc_db`;
 -- MySQL dump 10.16  Distrib 10.1.40-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1    Database: pfc_db
+-- Host: localhost    Database: pfc_db
 -- ------------------------------------------------------
 -- Server version	10.1.40-MariaDB
 
@@ -12,24 +12,9 @@ USE `pfc_db`;
 /*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `funcao`
---
-
-DROP TABLE IF EXISTS `funcao`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `funcao` (
-  `id_funcao` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_funcao`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `funcao`
@@ -42,58 +27,24 @@ INSERT INTO `funcao` VALUES (1,'Administrador'),(2,'Agente'),(3,'Supervisor');
 UNLOCK TABLES;
 
 --
--- Table structure for table `funcionario`
---
-
-DROP TABLE IF EXISTS `funcionario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `funcionario` (
-  `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
-  `nome` varchar(255) NOT NULL,
-  `sobrenome` varchar(255) NOT NULL,
-  `cpf` varchar(255) NOT NULL,
-  `matricula` varchar(255) NOT NULL,
-  `ramal` varchar(255) NOT NULL,
-  `funcao` int(11) NOT NULL,
-  PRIMARY KEY (`id_funcionario`),
-  KEY `fk_funcao` (`funcao`),
-  CONSTRAINT `fk_funcao` FOREIGN KEY (`funcao`) REFERENCES `funcao` (`id_funcao`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `funcionario`
 --
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,'','','Valter','Junior','52952778019','1000','2',2),(2,'','','Mario','Marquers','49816250063','1001','1',2),(3,'','','Carlos','Ruane','64837599087','1002','2',2),(4,'','','Joao','Carlos','85159698078','1003','1',2),(5,'','','Lucas','Hav','16086386005','1004','2',2),(6,'','','Marcelo','Leoni','38787610078','1005','1',2),(7,'','','Marta',' Melli','85512109049','1006','1',2),(8,'','','Pedro','Lucas','74784351060','1007','2',2),(9,'','','Helvecio','neto','21687589054','1008','1',2);
+INSERT INTO `funcionario` VALUES (0,'jcr','202cb962ac59075b964b07152d234b70','Joao Carlos','Ramos','','','',1),(1,'mario','202cb962ac59075b964b07152d234b70','henq','caldas','545.101.384-00','01','0101',3),(2,'carlos12','202cb962ac59075b964b07152d234b70','Mario','Marquers','924.880.745-20','02','0102',3),(3,'ze12','202cb962ac59075b964b07152d234b70','ze','jovenilson','774.880.745-50','03','0103',3),(4,'julio','202cb962ac59075b964b07152d234b70','jenilson','jenilson','444.880.745-10','04','0104',2),(5,'valter','202cb962ac59075b964b07152d234b70','marcelafreitas','ramos','324.320.745-30','05','0105',2),(6,'zeca','202cb962ac59075b964b07152d234b70','Mario','adelson','124.880.745-80','06','0120',2),(7,'bento3232','d9b1d7db4cd6e70935368a1efb10e377','bento',' Merli','127.157.275-34','07','0106',2),(8,'mari','202cb962ac59075b964b07152d234b70','mari','Lucas','729.331.345-43','08','0107',2),(9,'Giblon','202cb962ac59075b964b07152d234b70','Giblon','neto','092.559.035-51','09','0109',2),(10,'bea','202cb962ac59075b964b07152d234b70','bea','halves','142.013.695-01','010','0110',2),(11,'delvan','202cb962ac59075b964b07152d234b70','delvan','oliveira','283.121.395-91','011','0111',2),(12,'jony12','202cb962ac59075b964b07152d234b70','pedro henrique','cardoso','549.373.350-14','06','0105',2),(13,'joaoguilherme','202cb962ac59075b964b07152d234b70','joao guilherme','costa','239.752.110-59','013','0113',2),(14,'marcio','202cb962ac59075b964b07152d234b70','marcio','pavaneli','309.939.240-50','014','0114',2),(15,'bentovieira','202cb962ac59075b964b07152d234b70','bento vieira','joaquin','604.058.010-09','015','0115',2),(16,'pedroernam','202cb962ac59075b964b07152d234b70','pedro','ernam','444.013.670-22','016','0116',2),(17,'beatriz','202cb962ac59075b964b07152d234b70','beatriz','silva','729.330.840-07','017','0117',2),(18,'joaquin','202cb962ac59075b964b07152d234b70','joaquin','silva','257.324.510-13','018','0118',2),(19,'helvecio','202cb962ac59075b964b07152d234b70','helvecio','neto','418.194.540-53','019','0119',2),(20,'andrew','202cb962ac59075b964b07152d234b70','andrew','lima','229.553.990-00','020','0120',2),(21,'paulo','202cb962ac59075b964b07152d234b70','paulo','reis','948.808.450-27','021','0121',2),(22,'edlane','202cb962ac59075b964b07152d234b70','edlane','reis','679.688.280-66','022','0122',2),(23,'kaike','202cb962ac59075b964b07152d234b70','kaike','oliveira','264.462.040-60','023','0123',2),(24,'george','202cb962ac59075b964b07152d234b70','george','cardoso','693.843.740-83','024','0124',2),(25,'vitor','202cb962ac59075b964b07152d234b70','vitor','silva','279.122.600-13','025','0125',2),(26,'max','202cb962ac59075b964b07152d234b70','max','pereira','213.188.830-91','026','0126',2),(27,'lucas','202cb962ac59075b964b07152d234b70','lucas','araujo','954.820.490-86','027','0127',2),(28,'matheus','202cb962ac59075b964b07152d234b70','matheus','silva','661.165.110-15','028','0128',2),(29,'mustafar','202cb962ac59075b964b07152d234b70','mustafaabald','brotas','333.101.390-00','029','0129',2);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `ligacao`
+-- Dumping data for table `interacao`
 --
 
-DROP TABLE IF EXISTS `ligacao`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ligacao` (
-  `id_ligacao` int(11) NOT NULL AUTO_INCREMENT,
-  `data_hora` datetime NOT NULL,
-  `motivo` varchar(255) NOT NULL,
-  `ani` int(11) NOT NULL,
-  `campanha` varchar(255) DEFAULT NULL,
-  `equipe` varchar(255) DEFAULT NULL,
-  `funcionario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_ligacao`),
-  KEY `fk_funcionario` (`funcionario`),
-  CONSTRAINT `fk_funcionario` FOREIGN KEY (`funcionario`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `interacao` WRITE;
+/*!40000 ALTER TABLE `interacao` DISABLE KEYS */;
+INSERT INTO `interacao` VALUES (1,'Facebook'),(2,'WhatsApp'),(3,'Skype'),(4,'E-mail'),(5,'Telefone'),(6,'Chat');
+/*!40000 ALTER TABLE `interacao` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping data for table `ligacao`
@@ -101,30 +52,9 @@ CREATE TABLE `ligacao` (
 
 LOCK TABLES `ligacao` WRITE;
 /*!40000 ALTER TABLE `ligacao` DISABLE KEYS */;
-INSERT INTO `ligacao` VALUES (1,'2019-01-05 00:00:00','N/a',638638235,'12','1',1),(2,'2019-01-15 00:00:00','N/a',452934068,'33','2',2),(3,'2019-02-23 00:00:00','N/a',437696382,'12','1',3),(4,'2019-02-18 00:00:00','N/a',582456270,'33','2',4),(5,'2019-03-11 00:00:00','N/a',243447844,'12','1',5),(6,'2019-03-17 00:00:00','N/a',681340989,'33','2',6),(7,'2019-04-25 00:00:00','N/a',850196824,'12','2',7),(8,'2019-04-04 00:00:00','N/a',63407191,'12','1',8),(9,'2019-05-01 00:00:00','N/a',684819818,'12','2',9),(10,'2019-05-18 00:00:00','n/a',874759175,'33','2',1),(11,'2019-05-22 00:00:00','n/a',784264248,'10','7',9);
+INSERT INTO `ligacao` VALUES (1,'2019-01-05 00:00:00','N/a','(83)117-2197','0122','Ninjas ',1,1),(2,'2019-01-15 00:00:00','N/a','(13)788-2792','0112','Ninjas ',2,1),(3,'2019-02-23 00:00:00','N/a','(27)517-6097','0112','Ninjas ',3,1),(4,'2019-02-18 00:00:00','N/a','(88)110-2510','0112','Ninjas ',4,1),(5,'2019-03-11 00:00:00','N/a','(95)587-2023','0112','Ninjas ',5,1),(6,'2019-03-17 00:00:00','N/a','(43)518-7399','0122','Ninjas ',6,2),(7,'2019-04-25 00:00:00','N/a','(03)249-7556','0112','Ninjas ',7,2),(8,'2019-04-04 00:00:00','N/a','(15)631-9260','0112','Ninjas ',8,2),(9,'2019-05-01 00:00:00','N/a','(18)845-3826','0133','Mestres ',9,2),(10,'2019-05-18 00:00:00','n/a','(58)845-3826','0112','Mestres ',10,2),(11,'2019-05-22 00:00:00','n/a','(58)845-3826','0133','Mestres ',11,3),(12,'2019-06-12 00:00:00','N/a','(83)930-3329','0144','Mestres ',12,3),(13,'2019-07-23 00:00:00','N/a','(58)845-3826','0122','Mestres ',13,3),(14,'2019-08-02 00:00:00','N/a','(83)930-3329','0133','Mestres ',14,3),(15,'2019-09-15 00:00:00','N/a','(83)930-3329','0112','Mestres ',15,3),(16,'2019-10-20 00:00:00','N/a','(18)845-38260','0155','Mestres ',16,4),(17,'2019-11-03 00:00:00','N/a','(83)930-3329','0144','Mestres ',17,4),(18,'2019-12-18 00:00:00','N/a','(18)845-3826','0112','Mestres ',18,4),(19,'2019-06-18 00:00:00','N/a','(18)845-8714','0144','Mestres ',19,4),(20,'2019-01-22 00:00:00','N/a','(18)845-8714','0155','Brasil',20,4),(21,'2019-06-09 00:00:00','N/a','(58)845-3826','0112','Brasil',21,5),(22,'2019-02-11 00:00:00','N/a','(15)631-9260','0133','Brasil',22,5),(23,'2018-02-11 00:00:00','N/a','(15)631-9260','0133','Brasil',23,5),(24,'2018-05-11 00:00:00','N/a','(15)631-9260','0133','Brasil',24,5),(25,'2018-05-11 00:00:00','N/a','(15)631-9260','0133','Brasil',25,5),(26,'2018-03-11 00:00:00','N/a','(15)631-9260','0133','Brasil',26,6),(27,'2018-04-11 00:00:00','N/a','(15)631-9260','0133','Brasil',27,6),(28,'2018-04-11 00:00:00','N/a','(15)631-9260','0134','Brasil',28,6),(29,'2018-04-11 00:00:00','N/a','(15)631-9260','0134','Brasil',29,6),(30,'2018-03-11 00:00:00','N/a','(15)631-9260','0134','Brasil',1,6);
 /*!40000 ALTER TABLE `ligacao` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `resposta`
---
-
-DROP TABLE IF EXISTS `resposta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `resposta` (
-  `id_resposta` int(11) NOT NULL AUTO_INCREMENT,
-  `resposta_1` int(11) DEFAULT NULL,
-  `resposta_2` int(11) DEFAULT NULL,
-  `resposta_3` int(11) DEFAULT NULL,
-  `resposta_4` int(11) DEFAULT NULL,
-  `resposta_5` int(11) DEFAULT NULL,
-  `ligacao` int(11) NOT NULL,
-  PRIMARY KEY (`id_resposta`),
-  KEY `fk_ligacao` (`ligacao`),
-  CONSTRAINT `fk_ligacao` FOREIGN KEY (`ligacao`) REFERENCES `ligacao` (`id_ligacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `resposta`
@@ -132,7 +62,7 @@ CREATE TABLE `resposta` (
 
 LOCK TABLES `resposta` WRITE;
 /*!40000 ALTER TABLE `resposta` DISABLE KEYS */;
-INSERT INTO `resposta` VALUES (1,3,4,5,5,5,1),(2,3,3,4,NULL,NULL,2),(3,3,3,4,4,NULL,3),(4,4,5,2,NULL,NULL,4),(5,2,2,NULL,NULL,NULL,5),(6,3,NULL,NULL,NULL,NULL,6),(7,3,4,4,2,NULL,7),(8,1,3,NULL,NULL,NULL,8),(9,1,NULL,NULL,NULL,NULL,9),(10,2,4,1,NULL,NULL,10),(11,4,4,5,3,NULL,11);
+INSERT INTO `resposta` VALUES (1,3,4,5,5,5,1),(2,3,3,4,NULL,NULL,2),(3,3,3,4,4,NULL,3),(4,4,5,2,NULL,NULL,4),(5,2,2,NULL,NULL,NULL,5),(6,3,NULL,NULL,NULL,NULL,6),(7,3,4,4,2,NULL,7),(8,1,3,NULL,NULL,NULL,8),(9,1,NULL,NULL,NULL,NULL,9),(10,2,4,1,NULL,NULL,10),(11,4,4,5,3,NULL,11),(12,3,2,4,NULL,NULL,12),(13,1,7,5,2,NULL,13),(14,2,1,NULL,NULL,NULL,14),(15,4,2,4,4,4,15),(16,NULL,NULL,NULL,NULL,NULL,16),(17,5,2,1,NULL,NULL,17),(18,4,4,4,5,3,18),(19,4,5,2,1,1,19),(20,3,2,4,2,4,20),(21,NULL,NULL,NULL,NULL,NULL,21),(22,1,2,NULL,NULL,NULL,22),(23,3,3,2,NULL,NULL,23),(24,3,2,NULL,NULL,NULL,24),(25,4,3,2,NULL,NULL,25),(26,4,4,NULL,NULL,2,26),(27,4,4,2,4,4,27),(28,4,2,NULL,NULL,NULL,28),(29,4,2,3,NULL,NULL,29),(30,4,2,NULL,NULL,NULL,30);
 /*!40000 ALTER TABLE `resposta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,6 +73,25 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'pfc_db'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `editar_cadastro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editar_cadastro`(in usuarios varchar(255), in senhas varchar(255), in matriculas varchar(255), in ramals varchar(255), in ids int)
+BEGIN
+ UPDATE funcionario SET usuario=usuarios, senha=senhas, matricula =matriculas, ramal=ramals  WHERE id_funcionario =ids;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `select_agente_gr_pizza` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -186,6 +135,27 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_deletar_funcionario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_deletar_funcionario`(in idfun int)
+BEGIN
+SET FOREIGN_KEY_CHECKS=0;
+DELETE FROM funcionario 
+WHERE id_funcionario = idfun;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `select_equipe_gr_pizza` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -220,6 +190,345 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_geral_gr_pizza`()
 BEGIN
 	SELECT count(resposta_1) as 'r1',count(resposta_2) as 'r2',count(resposta_3) as 'r3',count(resposta_4) as 'r4',count(resposta_5) as 'r5' from resposta;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_avalidas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_avalidas`(in dia_semana int, in mes int, in ano int)
+BEGIN
+	select count(a.id_ligacao) as 'qtd_ligacoes' from ligacao a 
+    inner join resposta b on b.ligacao = a.id_ligacao
+	where (DATE_FORMAT(a.data_hora, "%w") = dia_semana and month(data_hora) = mes and year(data_hora) = ano) and (b.resposta_1 is not null or b.resposta_2 is not null or b.resposta_3 is not null or b.resposta_4 is not null or b.resposta_5 is not null);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_avalidas_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_avalidas_agente`(in dia_semana int, in agente varchar(255), in mes int, in ano int)
+BEGIN
+	select count(a.id_ligacao) as 'qtd_ligacoes' from ligacao a 
+    inner join resposta b on b.ligacao = a.id_ligacao
+	inner join funcionario c on c.id_funcionario = a.funcionario
+	where (DATE_FORMAT(a.data_hora, "%w") = dia_semana and month(data_hora) = mes and year(data_hora) = ano) and (b.resposta_1 is not null or b.resposta_2 is not null or b.resposta_3 is not null or b.resposta_4 is not null or b.resposta_5 is not null) and (c.nome = agente);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_ano` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_ano`()
+BEGIN
+	select DATE_FORMAT(data_hora, "%Y") as 'ano' from ligacao group by ano ORDER BY data_hora ASC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_contar_ligacoes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_contar_ligacoes`(in mes varchar(100), in ano int)
+BEGIN
+	select count(id_ligacao) as 'total_chamadas' from ligacao where month(data_hora) = mes and Year(data_hora) = ano;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_contar_ligacoes_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_contar_ligacoes_agente`(in mes varchar(100),in ano int, in nome varchar(255))
+BEGIN
+	select count(a.id_ligacao) as 'total_chamadas' from ligacao a
+	inner join funcionario b on b.id_funcionario = a.funcionario
+	where month(data_hora) = mes and Year(data_hora) = ano and b.nome = nome;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_chamadas_recebidas_mes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_chamadas_recebidas_mes`()
+BEGIN
+	select DATE_FORMAT(data_hora, "%b") as 'mes' from ligacao group by mes ORDER BY data_hora ASC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_interacao_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_interacao_agente`(in tipo_interacao int, in agente varchar(255))
+BEGIN
+	select count(id_ligacao) as 'qtd_ligacoes' from ligacao a
+	inner join funcionario b on b.id_funcionario = a.funcionario
+	inner join resposta c on c.ligacao = a.id_ligacao
+	where fk_interacao = tipo_interacao and b.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_interacao_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_interacao_campanha`(in tipo_interacao int, in campanha varchar(255))
+BEGIN
+	select count(id_ligacao) as 'qtd_ligacoes' from ligacao a
+	inner join funcionario b on b.id_funcionario = a.funcionario
+	inner join resposta c on c.ligacao = a.id_ligacao
+	where fk_interacao = tipo_interacao and a.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_interacao_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_interacao_equipe`(in tipo_interacao int, in equipe varchar(255))
+BEGIN
+	select count(id_ligacao) as 'qtd_ligacoes' from ligacao a
+	inner join funcionario b on b.id_funcionario = a.funcionario
+	inner join resposta c on c.ligacao = a.id_ligacao
+	where fk_interacao = tipo_interacao and a.equipe = equipe;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_interacao_geral` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_interacao_geral`(in tipo_interacao int)
+BEGIN
+	select count(id_ligacao) as 'qtd_ligacoes' from ligacao a
+	inner join funcionario b on b.id_funcionario = a.funcionario
+	inner join resposta c on c.ligacao = a.id_ligacao
+	where fk_interacao = tipo_interacao;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_agente`(in agente varchar(255))
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE c.nome = agente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_campanha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_campanha`(in campanha varchar(255))
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE b.campanha = campanha;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_equipe` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_equipe`(in equipe varchar(255))
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario
+	WHERE b.equipe = equipe;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_media_geral` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_media_geral`()
+BEGIN
+	SELECT AVG(resposta_1) as r1,AVG(resposta_2) as r2,AVG(resposta_3) as r3,AVG(resposta_4) as r4,AVG(resposta_5) as r5 FROM ligacao b
+	INNER JOIN resposta a ON a.ligacao = b.id_ligacao
+	INNER JOIN funcionario c ON c.id_funcionario = b.funcionario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_naoavalidas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_naoavalidas`(in dia_semana int, in mes int, in ano int)
+BEGIN
+	select count(id_ligacao) as 'qtd_ligacoes' from ligacao a
+	inner join resposta b on b.ligacao = a.id_ligacao
+	where (DATE_FORMAT(a.data_hora, "%w") = dia_semana and month(data_hora) = mes and year(data_hora) = ano) and b.resposta_1 is null and b.resposta_2 is null and b.resposta_3 is null and b.resposta_4 is null and b.resposta_5 is null;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_gr_naoavalidas_agente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_gr_naoavalidas_agente`(in dia_semana int, in agente varchar(255), in mes int, in ano int)
+BEGIN
+	select count(id_ligacao) as 'qtd_ligacoes' from ligacao a
+	inner join resposta b on b.ligacao = a.id_ligacao
+	inner join funcionario c on c.id_funcionario = a.funcionario
+	where (DATE_FORMAT(a.data_hora, "%w") = dia_semana and month(data_hora) = mes and year(data_hora) = ano) and b.resposta_1 is null and b.resposta_2 is null and b.resposta_3 is null and b.resposta_4 is null and b.resposta_5 is null and c.nome = agente;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -681,13 +990,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani`(in ani int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani`(in ani varchar(15))
 BEGIN
 	select b.matricula, b.nome, a.ani, d.descricao, DATE_FORMAT( data_hora, '%d/%m/%Y' ) as 'data_hora', a.campanha, a.equipe, c.resposta_1, c.resposta_2, c.resposta_3, c.resposta_4, c.resposta_5 from ligacao a
 	inner join funcionario b on b.id_funcionario = a.funcionario
@@ -704,13 +1013,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha`(in ani int, in campanha varchar(255))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha`(in ani varchar(15), in campanha varchar(255))
 BEGIN
 	select b.matricula, b.nome, a.ani, d.descricao, DATE_FORMAT( data_hora, '%d/%m/%Y' ) as 'data_hora', a.campanha, a.equipe, c.resposta_1, c.resposta_2, c.resposta_3, c.resposta_4, c.resposta_5 from ligacao a
 	inner join funcionario b on b.id_funcionario = a.funcionario
@@ -727,13 +1036,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha_data`(in ani varchar(255), in campanha varchar(255), in dataInicial datetime, in dataFinal datetime)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha_data`(in ani varchar(15), in campanha varchar(255), in dataInicial datetime, in dataFinal datetime)
 BEGIN
 	select b.matricula, b.nome, a.ani, d.descricao, DATE_FORMAT( data_hora, '%d/%m/%Y' ) as 'data_hora', a.campanha, a.equipe, c.resposta_1, c.resposta_2, c.resposta_3, c.resposta_4, c.resposta_5 from ligacao a
 	inner join funcionario b on b.id_funcionario = a.funcionario
@@ -750,13 +1059,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha_equipe`(in ani int, in campanha varchar(255), in equipe varchar(255))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha_equipe`(in ani varchar(15), in campanha varchar(255), in equipe varchar(255))
 BEGIN
 	select b.matricula, b.nome, a.ani, d.descricao, DATE_FORMAT( data_hora, '%d/%m/%Y' ) as 'data_hora', a.campanha, a.equipe, c.resposta_1, c.resposta_2, c.resposta_3, c.resposta_4, c.resposta_5 from ligacao a
 	inner join funcionario b on b.id_funcionario = a.funcionario
@@ -773,13 +1082,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha_equipe_data`(in ani varchar(255), in campanha varchar(255), in equipe varchar(255), in dataInicial datetime, in dataFinal datetime)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_campanha_equipe_data`(in ani varchar(15), in campanha varchar(255), in equipe varchar(255), in dataInicial datetime, in dataFinal datetime)
 BEGIN
 	select b.matricula, b.nome, a.ani, d.descricao, DATE_FORMAT( data_hora, '%d/%m/%Y' ) as 'data_hora', a.campanha, a.equipe, c.resposta_1, c.resposta_2, c.resposta_3, c.resposta_4, c.resposta_5 from ligacao a
 	inner join funcionario b on b.id_funcionario = a.funcionario
@@ -796,13 +1105,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_data`(in ani int, in dataInicial datetime, in dataFinal datetime)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_tbl_ligacao_ani_data`(in ani varchar(15), in dataInicial datetime, in dataFinal datetime)
 BEGIN
 	select b.matricula, b.nome, a.ani, d.descricao, DATE_FORMAT( data_hora, '%d/%m/%Y' ) as 'data_hora', a.campanha, a.equipe, c.resposta_1, c.resposta_2, c.resposta_3, c.resposta_4, c.resposta_5 from ligacao a
 	inner join funcionario b on b.id_funcionario = a.funcionario
@@ -865,9 +1174,9 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1160,14 +1469,32 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `select_valida_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_valida_usuario`(in usuario1 varchar(255), in senha1 varchar(255))
+BEGIN
+	SELECT * FROM funcionario WHERE usuario = usuario1 and senha = senha1; 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-01 19:54:59
+-- Dump completed on 2019-06-11  9:22:45
