@@ -180,10 +180,10 @@ include('./php/graficoChamadasRecebidasAgente.php');
                       <li>
                         <form id="formBusca" name="formPesquisa" class="form-inline col-md-12 col-sm-12 col-xs-12 " action=" <?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validaFormGrAvaliadasNaoAvaliadas(this);">
 
-                            <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoAnoTotalChamadas">
+                            <select class="form-control radio col-md-12 col-sm-6 col-xs-12" id="filtroTipo" name="opcaoAvaliadasNaoAvalidasAno">
                               <option value="padrao">Selecione o ano...</option>
-                              <?php while ($dado_gr_cr_ano = $resultado_gr_cr_ano->fetch_array()){  ?>              
-                              <option value="<?php echo $dado_gr_cr_ano['ano'] ?>"><?php echo $dado_gr_cr_ano['ano'] ?></option>
+                              <?php while ($dado_gr_avaliadas_ano = $resultado_gr_avaliadas_ano->fetch_array()){  ?>              
+                              <option value="<?php echo $dado_gr_avaliadas_ano['ano'] ?>"><?php echo $dado_gr_avaliadas_ano['ano'] ?></option>
                               <?php } ?>
                             </select>
 
@@ -211,7 +211,7 @@ include('./php/graficoChamadasRecebidasAgente.php');
                   <div class="panel-title">Cálculo geral de avaliadas e não avalidas</div>
                 </div>
                 <div class="content-box-large box-with-header">
-                  <div><?php echo $mensagem_erro_granaovaliadas ?></div>
+                  <div id="msgErroGrAvaliadasNaoAvaliadas">Nenhum resultado encontrado!</div>
                   <canvas id="G_ligacaoN" height="155"></canvas>
                   <script>
                     new Chart(document.getElementById("G_ligacaoN"), {
@@ -243,11 +243,16 @@ include('./php/graficoChamadasRecebidasAgente.php');
                       }
                     });
 
-                    let mensagem_erro_granaovaliadas = "<?php echo $mensagem_erro_granaovaliadas; ?>";
-                    let mensagem_erro_gravaliadas = "<?php echo $mensagem_erro_gravaliadas; ?>";
-                      let G_ligacaoN = document.getElementById("G_ligacaoN");
-                      if (mensagem_erro_granaovaliadas != '' && mensagem_erro_gravaliadas != '') {
+                    let verificaErroNaoAvaliadas = "<?php echo $verificaErroNaoAvaliadas; ?>";
+                    let verificaErroAvaliadas = "<?php echo $verificaErroAvaliadas; ?>";
+                    let msgErroGrAvaliadasNaoAvaliadas = document.getElementById("msgErroGrAvaliadasNaoAvaliadas");
+                    let G_ligacaoN = document.getElementById("G_ligacaoN");
+                      if (verificaErroNaoAvaliadas == 1 && verificaErroAvaliadas == 1) {
                         G_ligacaoN.style.display = "none";
+                        msgErroGrAvaliadasNaoAvaliadas.style.display = "block";
+                    }else{
+                        G_ligacaoN.style.display = "block";
+                        msgErroGrAvaliadasNaoAvaliadas.style.display = "none";
                     }
                   </script>
                 </div>
