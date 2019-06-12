@@ -87,7 +87,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
       </div>
       <div class="dropdown" style="margin-right:15px;">
         <!-- menu dropdown para usuario -->
-        <span class="nav-link zoom  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
+        <span class="nav-link zoom  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png" style="min-width:45px;"></span>
         <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
           <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
           <li class="centralizador"><a class="text-success"><?php
@@ -151,6 +151,13 @@ include('./php/graficoTotalNaoAvaliadas.php');
                         }]
                       },
                       options: {
+                        "scales": {
+                            "yAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          },
                         animation: {
                           easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                           animateScale: true,
@@ -227,11 +234,20 @@ include('./php/graficoTotalNaoAvaliadas.php');
                         ]
                       },
                       options: {
+                        "scales": {
+                            "yAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          },
+                       
                         animation: {
                           easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                           animateScale: true,
                           animateRotate: true
                         }
+                        
                       }
                     });
                   </script>
@@ -279,18 +295,19 @@ include('./php/graficoTotalNaoAvaliadas.php');
                             data: ["<?php echo $dado_interacao[1] ?>", "<?php echo $dado_interacao[2] ?>", "<?php echo $dado_interacao[3] ?>", "<?php echo $dado_interacao[4] ?>", "<?php echo $dado_interacao[5] ?>", "<?php echo $dado_interacao[6] ?>", ]
                           }],
                         },
-                        options: {
-                          responsive: true,
+                        "options": {
                           title: {
                             display: false,
                           },
-                          animation: {
-                            easing: "easeInQuad",
-                            animateScale: true,
-                            animateRotate: true
-                          },
                           legend: {
                             display: false,
+                          },
+                          "scales": {
+                            "xAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
                           }
                         }
                       });
@@ -341,20 +358,20 @@ include('./php/graficoTotalNaoAvaliadas.php');
                             data: [<?php echo $r1_gr_media ?>, <?php echo $r2_gr_media ?>, <?php echo $r3_gr_media ?>, <?php echo $r4_gr_media ?>, <?php echo $r5_gr_media ?>],
                           }],
                         },
-                        options: {
-                          responsive: true,
-                          legend: {
-                            display: false,
-                          },
+                        "options": {
                           title: {
                             display: false,
                           },
-
-                          animation: {
-                            easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
-                            animateScale: true,
-                            animateRotate: true
+                          legend: {
+                            display: false,
                           },
+                          "scales": {
+                            "yAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          }
                         }
                       });
 
@@ -425,6 +442,7 @@ include('./php/graficoTotalNaoAvaliadas.php');
                   title: {
                     display: false,
                   },
+                  
 
                   animation: {
                     easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint

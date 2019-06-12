@@ -87,7 +87,7 @@ include('./php/graficoChamadasRecebidasAgente.php');
         </div>
       </div>
       <div class="dropdown" style="margin-right:15px;">
-      <span class="nav-link zoom  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png"></span>
+      <span class="nav-link zoom  text-menu  text-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="45" height="45" src="./icones/menu.png" style="min-width:45px;"></span>
         <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
           <li class="centralizador"><a class="text-secondary"><?php echo $_SESSION['usuarioNome']; ?></a></li>
           <li class="centralizador"><a class="text-success"><?php
@@ -152,6 +152,13 @@ include('./php/graficoChamadasRecebidasAgente.php');
                         }]
                       },
                       options: {
+                        "scales": {
+                            "yAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          },
                         animation: {
                           easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                           animateScale: true,
@@ -235,6 +242,13 @@ include('./php/graficoChamadasRecebidasAgente.php');
                         ]
                       },
                       options: {
+                        "scales": {
+                            "yAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          },
                         animation: {
                           easing: "easeInOutCirc", //easeOutBack,easeInOutCirc,easeOutCirc,easeOutExpo,easeInOutQuint,easeInQuint
                           animateScale: true,
@@ -281,6 +295,13 @@ include('./php/graficoChamadasRecebidasAgente.php');
                           }],
                         },
                         options: {
+                          "scales": {
+                            "xAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          },
                           responsive: true,
                           title: {
                             display: false,
@@ -324,6 +345,13 @@ include('./php/graficoChamadasRecebidasAgente.php');
                           }],
                         },
                         options: {
+                          "scales": {
+                            "yAxes": [{
+                              "ticks": {
+                                "beginAtZero": true
+                              }
+                            }]
+                          },
                           responsive: true,
                           legend: {
                             display: false,
@@ -376,6 +404,7 @@ include('./php/graficoChamadasRecebidasAgente.php');
                   }],
                 },
                 options: {
+                  
                   responsive: true,
                   legend: {
                     position: 'bottom',
