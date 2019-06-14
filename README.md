@@ -71,3 +71,5 @@ Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework 
 ## Copyright and License
 
 Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/gh-pages/LICENSE) license.
+
+http://uploaddeimagens.com.br/imagens/dashboard-png-017a87b7-3f73-4901-bd5d-11c0872b4cc1
