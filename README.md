@@ -1,11 +1,6 @@
 # Projeto desenvolvido por: 
-      
-        # Maicon bruno Dev -BACK- / -FRONT- / -SECURITY-
-        # Fernanda Porto -ADM- / -FRONT- 
-        # Andrew Lima -DBA- 
-        # Helvecio Neto -BACK- / -DBA- 
-        # Paulo Reis -ADM- 
-        
+  
+       
    #Projeto final de curso SENAI-CETIND tumar 58271 (primeiro semestre de 2018)
    #Dashboard de qualidade para empresa de call center
    #Esta proibida a venda ou comercialização desse projeto sem o consentimento dos envolvidos
